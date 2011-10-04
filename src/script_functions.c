@@ -325,6 +325,44 @@ int c_unshade_window(lua_State *lua)
 
 
 /**
+ *
+ */
+int c_minimize_window(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+	
+	if (top!=0) {
+		luaL_error(lua,"minimize_window: No indata expected");
+		return 0;
+	}
+	
+	if (!devilspie2_emulate)
+		wnck_window_minimize(get_current_window());
+	
+	return 0;
+}
+
+
+/**
+ *
+ */
+int c_unminimize_window(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+	
+	if (top!=0) {
+		luaL_error(lua,"unminimize_window: No indata expected");
+		return 0;
+	}
+	
+	if (!devilspie2_emulate)
+	wnck_window_unminimize (get_current_window(), GDK_CURRENT_TIME);
+	
+	return 0;
+}
+
+
+/**
  * sets the window that the scripts are affecting
  */
 void set_current_window(WnckWindow *window)

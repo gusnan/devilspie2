@@ -42,6 +42,9 @@ int c_debug_print(lua_State *lua);
 int c_shade_window(lua_State *lua);
 int c_unshade_window(lua_State *lua);
 
+int c_minimize_window(lua_State *lua);
+int c_unminimize_window(lua_State *lua);
+
 void set_current_window(WnckWindow *window);
 WnckWindow *get_current_window();
 
