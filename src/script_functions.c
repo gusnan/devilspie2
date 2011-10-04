@@ -356,7 +356,7 @@ int c_unminimize_window(lua_State *lua)
 	}
 	
 	if (!devilspie2_emulate)
-	wnck_window_unminimize (get_current_window(), GDK_CURRENT_TIME);
+		wnck_window_unminimize (get_current_window(), GDK_CURRENT_TIME);
 	
 	return 0;
 }
