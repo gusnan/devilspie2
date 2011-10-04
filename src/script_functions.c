@@ -287,7 +287,7 @@ int c_debug_print(lua_State *lua)
 
 
 /**
- * Sets the window on top of all others and locks it "always on top"
+ * "Shades" the window
  */
 int c_shade_window(lua_State *lua)
 {
@@ -306,7 +306,7 @@ int c_shade_window(lua_State *lua)
 
 
 /**
- * Sets the window on top of all others and locks it "always on top"
+ * "Unshades" the window
  */
 int c_unshade_window(lua_State *lua)
 {
