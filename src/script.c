@@ -77,6 +77,9 @@ void register_cfunctions()
 	lua_register(lua,"set_on_top",c_set_on_top);
 	
 	lua_register(lua,"debug_print",c_debug_print);
+	
+	lua_register(lua,"shade",c_shade_window);
+	lua_register(lua,"unshade",c_unshade_window);
 }
 
 

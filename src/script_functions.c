@@ -287,6 +287,44 @@ int c_debug_print(lua_State *lua)
 
 
 /**
+ * Sets the window on top of all others and locks it "always on top"
+ */
+int c_shade_window(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+	
+	if (top!=0) {
+		luaL_error(lua,"shade_window: No indata expected");
+		return 0;
+	}
+	
+	if (!devilspie2_emulate)
+		wnck_window_shade(get_current_window());
+	
+	return 0;
+}
+
+
+/**
+ * Sets the window on top of all others and locks it "always on top"
+ */
+int c_unshade_window(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+	
+	if (top!=0) {
+		luaL_error(lua,"unshade_window: No indata expected");
+		return 0;
+	}
+	
+	if (!devilspie2_emulate)
+		wnck_window_unshade(get_current_window());
+	
+	return 0;
+}
+
+
+/**
  * sets the window that the scripts are affecting
  */
 void set_current_window(WnckWindow *window)
