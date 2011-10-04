@@ -1,0 +1,71 @@
+
+
+Devilspie 2
+-----------
+
+Devilspie 2 is based on the excellent program Devil's Pie by Ross Burton, and 
+takes a folder as indata, and checks that folder for LUA scripts. These 
+scripts are run each time a window is opened, and the rules in them are applied 
+on the window.
+
+Unfortunately the rules of the original Devils Pie are not supported.
+
+If you don't give devilspie2 any folder with --folder, it will read LUA scripts
+from ~/.devilspie2, and this folder will be created if it doesn't already exist. 
+This folder is changeable with the --folder option. If devilspie2 doesn't find
+any LUA files in the folder, it will stop execution.
+
+simple script example:
+
+---------------------8<---------------------
+
+-- the debug_print command does only print anything to stdout 
+-- if devilspie2 is run using the --debug option
+debug_print("Window Name: "..	get_window_name());
+debug_print("Application name: "..get_application_name())
+
+-- I want my Xfce4-terminal to the right on the second screen of my two-monitor 
+-- setup,
+if (get_window_name()=="Terminal") then
+	-- x,y, xsize, ysize
+	set_window_geometry(1600,300,900,700);
+end
+
+
+-- For some reason thunar doesn't always get to the top when it is started, 
+-- but sometimes it starts below the rest of the windows - this little snippet 
+-- solves that.
+if (get_application_name()=="Thunar") then
+	set_on_top();
+end
+
+--------------------->8---------------------
+
+
+Building
+--------
+
+to build devilspie2, create a build folder and step into it
+
+mkdir build
+cd build
+
+and run cmake targeting the folder containing the file CMakeLists.txt 
+(which basically should be the folder above)
+
+cmake ..
+
+if you want to create makefiles for a debug build, use 
+
+cmake .. -DDEBUG=on 
+
+instead. This creates necessary makefiles - now run make to actually build 
+devilspie2:
+
+make
+
+this will in the end result in the executable bin/devilspie2.
+If you want more detailed output of the make command, run
+
+make VERBOSE=1
+

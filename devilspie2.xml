@@ -1,0 +1,13 @@
+<root identifier="sciteproj project file">
+	<group name='src' expanded='TRUE'>
+		<file>./src/devilspie2.c</file>
+		<file>./src/script.c</file>
+		<file>./src/script.h</file>
+		<file>./src/script_functions.c</file>
+		<file>./src/script_functions.h</file>
+	</group>
+	<file>./CMakeLists.txt</file>
+	<file>./README</file>
+	<file>./COPYING</file>
+	<file>./GPL3.txt</file>
+</root>
