@@ -85,6 +85,9 @@ void register_cfunctions()
 	
 	lua_register(lua,"decorate_window",c_decorate_window);
 	lua_register(lua,"undecorate_window",c_undecorate_window);
+	
+	lua_register(lua,"set_workspace",c_set_window_workspace);
+	lua_register(lua,"change_workspace",c_change_workspace);
 }
 
 

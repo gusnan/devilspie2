@@ -170,32 +170,6 @@ int c_set_window_size(lua_State *lua)
 	return 0;
 }
 
-
-/**
- * TODO! Implementation
- */
-int c_set_workspace(lua_State *lua)
-{
-	int top=lua_gettop(lua);
-	
-	if (top!=1) {
-		luaL_error(lua,"set_workspace: 1 indata required");
-		return 0;
-	}
-	
-	int type=lua_type(lua,1);
-	
-	if (type!=LUA_TNUMBER) {
-		luaL_error(lua,"set_workspace: a number expected as indata");
-		return 0;
-	}
-	
-	//int workspace=lua_tonumber(lua,1);
-	
-	return 0;
-}
-
-
 /**
  * Sets the window on top of all others and locks it "always on top"
  */
@@ -433,3 +407,84 @@ int c_decorate_window(lua_State *lua)
 	
 	return 1;
 }
+
+
+
+/**
+ * Move a window to a specific workspace
+ */
+int c_set_window_workspace(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+	WnckScreen *screen;
+	WnckWorkspace *workspace;
+	
+	if (top!=1) {
+		luaL_error(lua,"set_workspace: 1 indata required");
+		return 0;
+	}
+	
+	int type=lua_type(lua,1);
+	
+	if (type!=LUA_TNUMBER) {
+		luaL_error(lua,"set_workspace: a number expected as indata");
+		return 0;
+	}
+	
+	int number=lua_tonumber(lua,1);
+	
+	screen=wnck_window_get_screen(current_window);
+	workspace=wnck_screen_get_workspace(screen,number-1);
+	
+	if (!workspace) {
+		g_warning("Workspace number %d does not exist!",number);
+	}
+	wnck_window_move_to_workspace(current_window,workspace);
+	
+	lua_pushboolean(lua,TRUE);
+	
+	return 1;
+}
+
+
+
+
+/**
+ * TODO! Implementation
+ */
+int c_change_workspace(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+	WnckScreen *screen;
+	WnckWorkspace *workspace;
+	GTimeVal timestamp;
+	
+	if (top!=1) {
+		luaL_error(lua,"change_workspace: 1 indata required");
+		return 0;
+	}
+	
+	int type=lua_type(lua,1);
+	
+	if (type!=LUA_TNUMBER) {
+		luaL_error(lua,"change_workspace: a number expected as indata");
+		return 0;
+	}
+	
+	int number=lua_tonumber(lua,1);
+	
+	screen=wnck_window_get_screen(current_window);
+	workspace=wnck_screen_get_workspace(screen,number-1);
+	
+	if (!workspace) {
+		g_warning("Workspace number %d does not exist!",number);
+	}
+	
+	g_get_current_time(&timestamp);
+	wnck_workspace_activate(workspace,timestamp.tv_sec);
+	
+	lua_pushboolean(lua,TRUE);
+	
+	return 1;
+}
+
