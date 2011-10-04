@@ -17,7 +17,6 @@
  *	along with devilspie2.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-
 #define WNCK_I_KNOW_THIS_IS_UNSTABLE
 #include <libwnck/libwnck.h>
 
@@ -148,10 +147,8 @@ void run_script()
  */
 void done_script()
 {
-	
 	if (lua!=NULL)
 		lua_close(lua);
-	
 	
 	lua=NULL;
 }

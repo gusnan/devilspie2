@@ -34,11 +34,11 @@
 
 #include "xutils.h"
 
+
 /**
  *
  */
 WnckWindow *current_window=NULL;
-
 
 
 /**
@@ -386,7 +386,7 @@ WnckWindow *get_current_window()
 
 
 /**
- *
+ * Decorates a window
  */
 int c_undecorate_window(lua_State *lua)
 {
@@ -411,7 +411,7 @@ int c_undecorate_window(lua_State *lua)
 
 
 /**
- *
+ * undecorates a window
  */
 int c_decorate_window(lua_State *lua)
 {
