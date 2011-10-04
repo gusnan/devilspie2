@@ -170,7 +170,11 @@ int main(int argc, char *argv[])
 	}
 	
 	if (debug) {
-		printf("Running Devilspie2 in debug mode.\n\n");
+		printf("Running Devilspie2 in debug mode");
+		
+		if (emulate) printf(" and Emulate mode");
+		
+		printf(".\n\n");
 		
 		printf("Using scripts from folder: %s\n",script_folder);
 		
