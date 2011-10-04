@@ -90,6 +90,8 @@ set(SOURCES
 	src/script.h
 	src/script_functions.c
 	src/script_functions.h
+	src/xutils.c
+	src/xutils.h
 )
 
 link_libraries (
