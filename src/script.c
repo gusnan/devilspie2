@@ -83,6 +83,9 @@ void register_cfunctions()
 	
 	lua_register(lua,"minimize",c_minimize_window);
 	lua_register(lua,"unminimize",c_unminimize_window);
+	
+	lua_register(lua,"decorate_window",c_decorate_window);
+	lua_register(lua,"undecorate_window",c_undecorate_window);
 }
 
 

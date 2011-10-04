@@ -21,6 +21,9 @@
 #define WNCK_I_KNOW_THIS_IS_UNSTABLE
 #include <libwnck/libwnck.h>
 
+#include <X11/Xlib.h>
+#include <X11/Xatom.h>
+
 #include "lua.h"
 #include "lualib.h"
 #include "lauxlib.h"
@@ -28,6 +31,8 @@
 #include "script_functions.h"
 
 #include "script.h"
+
+#include "xutils.h"
 
 /**
  *
@@ -377,4 +382,54 @@ void set_current_window(WnckWindow *window)
 WnckWindow *get_current_window()
 {
 	return current_window;
+}
+
+
+/**
+ *
+ */
+int c_undecorate_window(lua_State *lua)
+{
+	gboolean result=TRUE;
+	int top=lua_gettop(lua);
+	
+	if (top!=0) {
+		luaL_error(lua,"undecorate_window: No indata expected");
+		return 0;
+	}
+	
+	if (!devilspie2_emulate) {
+		if (!undecorate_window(get_current_window())) {
+			result=FALSE;
+		}
+	}
+	
+	lua_pushboolean(lua,result);
+	
+	return 1;
+}
+
+
+/**
+ *
+ */
+int c_decorate_window(lua_State *lua)
+{
+	gboolean result=TRUE;
+	int top=lua_gettop(lua);
+	
+	if (top!=0) {
+		luaL_error(lua,"decorate_window: No indata expected");
+		return 0;
+	}
+	
+	if (!devilspie2_emulate) {
+		if (!decorate_window(get_current_window())) {
+			result=FALSE;
+		}
+	}
+	
+	lua_pushboolean(lua,result);
+	
+	return 1;
 }
