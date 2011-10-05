@@ -83,6 +83,7 @@ void register_cfunctions()
 	lua_register(lua,"maximize",c_maximize_window);
 	lua_register(lua,"maximize_horisontally",c_maximize_window_horisontally);
 	lua_register(lua,"maximize_vertically",c_maximize_window_vertically);
+	lua_register(lua,"unmaximize",c_unmaximize_window);
 	
 	lua_register(lua,"minimize",c_minimize_window);
 	lua_register(lua,"unminimize",c_unminimize_window);

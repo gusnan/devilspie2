@@ -498,6 +498,24 @@ int c_change_workspace(lua_State *lua)
 }
 
 
+/**
+ *
+ */
+int c_unmaximize_window(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+	
+	if (top!=0) {
+		luaL_error(lua,"unmaximize: No indata expected");
+		return 0;
+	}
+	
+	if (!devilspie2_emulate)
+		wnck_window_unmaximize(get_current_window());
+	
+	return 0;
+}
+
 
 /**
  *

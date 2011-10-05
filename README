@@ -135,6 +135,11 @@ maximize()
 maximizes a window
 
 
+unmaximize()
+
+unmaximizes a window
+
+
 maximize_vertically()
 
 maximizes the current window vertically.
