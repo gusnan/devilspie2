@@ -23,8 +23,6 @@
 /**
  *
  */
-
-
 Atom my_wnck_atom_get  (const char *atom_name);
 
 void my_wnck_change_state (Screen *screen, Window xwindow, gboolean add, Atom state1, Atom state2);

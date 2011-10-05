@@ -31,6 +31,7 @@
 static GHashTable *atom_hash = NULL;
 static GHashTable *reverse_atom_hash = NULL;
 
+
 /**
  *
  */
@@ -68,6 +69,7 @@ Atom my_wnck_atom_get (const char *atom_name)
 	return retval;
 }
 
+
 /**
  *
  */
@@ -99,6 +101,7 @@ void my_wnck_change_state (Screen  *screen, Window   xwindow,
 					SubstructureRedirectMask | SubstructureNotifyMask,
 					&xev);
 }
+
 
 /**
  *
