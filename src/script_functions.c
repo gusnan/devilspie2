@@ -170,6 +170,7 @@ int c_set_window_size(lua_State *lua)
 	return 0;
 }
 
+
 /**
  * Sets the window on top of all others and locks it "always on top"
  */
