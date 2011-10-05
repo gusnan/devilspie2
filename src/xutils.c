@@ -50,7 +50,7 @@ Atom my_wnck_atom_get (const char *atom_name)
 	retval = GPOINTER_TO_UINT (g_hash_table_lookup (atom_hash, atom_name));
 	if (!retval)
 	{
-		retval = XInternAtom (gdk_display, atom_name, FALSE);
+		retval = XInternAtom (gdk_x11_get_default_xdisplay(), atom_name, FALSE);
 
 		if (retval != None)
 		{
@@ -87,7 +87,7 @@ void my_wnck_change_state (Screen  *screen, Window   xwindow,
 	xev.xclient.type = ClientMessage;
 	xev.xclient.serial = 0;
 	xev.xclient.send_event = True;
-	xev.xclient.display = gdk_display;
+	xev.xclient.display = gdk_x11_get_default_xdisplay();
 	xev.xclient.window = xwindow;
 	xev.xclient.message_type = my_wnck_atom_get ("_NET_WM_STATE");
 	xev.xclient.format = 32;
@@ -95,7 +95,7 @@ void my_wnck_change_state (Screen  *screen, Window   xwindow,
 	xev.xclient.data.l[1] = state1;
 	xev.xclient.data.l[2] = state2;
 
-	XSendEvent (gdk_display,
+	XSendEvent (gdk_x11_get_default_xdisplay(),
 					RootWindowOfScreen (screen),
 					False,
 					SubstructureRedirectMask | SubstructureNotifyMask,
@@ -141,7 +141,7 @@ set_decorations (WnckWindow *window, gboolean decorate)
 	hints.decorations = decorate ? 1 : 0;
 
 	/* Set Motif hints, most window managers handle these */
-	XChangeProperty(GDK_DISPLAY(), wnck_window_get_xid (window),
+	XChangeProperty(gdk_x11_get_default_xdisplay(), wnck_window_get_xid (window),
 						my_wnck_atom_get ("_MOTIF_WM_HINTS"), 
 						my_wnck_atom_get ("_MOTIF_WM_HINTS"), 32, PropModeReplace, 
 						(unsigned char *)&hints, PROP_MOTIF_WM_HINTS_ELEMENTS);
@@ -200,7 +200,7 @@ Screen *my_wnck_window_get_xscreen (WnckWindow *window)
    XWindowAttributes attrs;
 
    xid = wnck_window_get_xid (window);
-   XGetWindowAttributes(gdk_display, xid, &attrs);
+   XGetWindowAttributes(gdk_x11_get_default_xdisplay(), xid, &attrs);
 
    return attrs.screen;
 }
