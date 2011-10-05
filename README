@@ -69,3 +69,94 @@ If you want more detailed output of the make command, run
 
 make VERBOSE=1
 
+
+
+Commands
+--------
+
+The following commands are recognized by Devilspie2:
+
+
+get_window_name
+
+returns a string containing the name of the current window.
+
+
+set_window_position
+
+Set the position of a window.
+
+
+set_window_size (xsize, ysize)
+
+Sets the size of a window - takes xsize and ysize as parameters.
+
+
+set_window_geometry (xpos, ypos, xsize, ysize)
+
+Sets both size and position of a window in one command. Takes four parameters,
+xpos, ypos, xsize and ysize.
+
+
+get_application_name
+
+returns the application name of the window
+
+
+make_always_on_top
+
+Sets a window always on top.
+
+
+set_on_top
+
+sets a window on top of the others. (unlike make_always_on_top, it doesn't lock
+the window in this position.)
+
+
+debug_print
+
+Debug helper that prints a string to stdout. It is only printed if devilspie2
+is run with the --debug option.
+
+
+shade
+
+"Shades" a window, showing only the title-bar.
+
+
+unshade
+
+Unshades a window - the opposite of "shade"
+
+
+minimize
+
+minimizes a window
+
+
+unminimize
+
+unminimizes a window, that is bringing it back to screen from the minimized
+position/size.
+
+
+decorate_window
+
+Shows all window decoration.
+
+
+undecorate_window
+
+Removes all window decorations.
+
+
+set_workspace
+
+Moves a window to another workspace
+
+
+change_workspace
+
+Changes the current workspace to another.
+
