@@ -74,7 +74,7 @@ make VERBOSE=1
 Commands
 --------
 
-The following commands are recognized by Devilspie2:
+The following commands are recognized by the Devilspie2 LUA interpreter:
 
 
 get_window_name()
