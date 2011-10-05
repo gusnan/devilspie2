@@ -182,6 +182,27 @@ Changes the current workspace to another. The number variable starts counting at
 1.
 
 
+pin_window()
+
+asks the window manager to put the window on all workspaces.
+
+
+unpin_window()
+
+Asks the window manager to put window only in the currently active workspace.
+
+
+stick_window()
+
+Asks the window manager to keep the window's position fixed on the screen, even 
+when the workspace or viewport scrolls. 
+
+
+unstick_window()
+
+Asks the window manager to not have window's position fixed on the screen when 
+the workspace or viewport scrolls. 
+
 
 Contact
 -------

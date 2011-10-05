@@ -93,6 +93,11 @@ void register_cfunctions()
 	
 	lua_register(lua,"set_workspace",c_set_window_workspace);
 	lua_register(lua,"change_workspace",c_change_workspace);
+	
+	lua_register(lua,"pin_window",c_pin_window);
+	lua_register(lua,"unpin_window",c_unpin_window);
+	lua_register(lua,"stick_window",c_stick_window);
+	lua_register(lua,"unstick_window",c_unstick_window);
 }
 
 
