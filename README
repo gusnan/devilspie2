@@ -77,12 +77,12 @@ Commands
 The following commands are recognized by Devilspie2:
 
 
-get_window_name
+get_window_name()
 
 returns a string containing the name of the current window.
 
 
-set_window_position
+set_window_position(xpos,ypos)
 
 Set the position of a window.
 
@@ -98,65 +98,73 @@ Sets both size and position of a window in one command. Takes four parameters,
 xpos, ypos, xsize and ysize.
 
 
-get_application_name
+get_application_name()
 
-returns the application name of the window
+returns the application name of the current window.
 
 
-make_always_on_top
+make_always_on_top()
 
 Sets a window always on top.
 
 
-set_on_top
+set_on_top()
 
 sets a window on top of the others. (unlike make_always_on_top, it doesn't lock
 the window in this position.)
 
 
-debug_print
+debug_print()
 
 Debug helper that prints a string to stdout. It is only printed if devilspie2
 is run with the --debug option.
 
 
-shade
+shade()
 
 "Shades" a window, showing only the title-bar.
 
 
-unshade
+unshade()
 
 Unshades a window - the opposite of "shade"
 
 
-minimize
+minimize()
 
 minimizes a window
 
 
-unminimize
+unminimize()
 
 unminimizes a window, that is bringing it back to screen from the minimized
 position/size.
 
 
-decorate_window
+decorate_window()
 
 Shows all window decoration.
 
 
-undecorate_window
+undecorate_window()
 
 Removes all window decorations.
 
 
-set_workspace
+set_workspace(number)
 
-Moves a window to another workspace
+Moves a window to another workspace. The number variable starts counting at 1.
 
 
-change_workspace
+change_workspace(number)
 
-Changes the current workspace to another.
+Changes the current workspace to another. The number variable starts counting at
+1.
+
+
+
+Contact
+-------
+
+I can be contacted on the email gusnan@gusnan.se
 
