@@ -489,3 +489,60 @@ int c_change_workspace(lua_State *lua)
 	return 1;
 }
 
+
+
+/**
+ *
+ */
+int c_maximize_window(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+	
+	if (top!=0) {
+		luaL_error(lua,"maximize: No indata expected");
+		return 0;
+	}
+	
+	if (!devilspie2_emulate)
+		wnck_window_maximize(get_current_window());
+	
+	return 0;
+}
+
+
+/**
+ *
+ */
+int c_maximize_window_vertically(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+	
+	if (top!=0) {
+		luaL_error(lua,"maximize_vertically: No indata expected");
+		return 0;
+	}
+	
+	if (!devilspie2_emulate)
+		wnck_window_maximize_vertically(get_current_window());
+	
+	return 0;
+}
+
+
+/**
+ *
+ */
+int c_maximize_window_horisontally(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+	
+	if (top!=0) {
+		luaL_error(lua,"maximize_horisontally: No indata expected");
+		return 0;
+	}
+	
+	if (!devilspie2_emulate)
+		wnck_window_maximize_horizontally(get_current_window());
+	
+	return 0;
+}

@@ -130,6 +130,21 @@ unshade()
 Unshades a window - the opposite of "shade"
 
 
+maximize()
+
+maximizes a window
+
+
+maximize_vertically()
+
+maximizes the current window vertically.
+
+
+maximize_horisontally()
+
+maximizes the current window horisontally.
+
+
 minimize()
 
 minimizes a window
