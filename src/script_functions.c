@@ -161,10 +161,18 @@ int c_set_window_size(lua_State *lua)
 	int y=lua_tonumber(lua,2);
 	
 	if (!devilspie2_emulate) {
+		
+		my_wnck_error_trap_push();
 		wnck_window_set_geometry(get_current_window(),
 			WNCK_WINDOW_GRAVITY_CURRENT,
 			WNCK_WINDOW_CHANGE_WIDTH + WNCK_WINDOW_CHANGE_HEIGHT,
 			-1,-1,x,y);
+		
+		if (my_wnck_error_trap_pop()) {
+			g_printerr("set_window_size failed");
+						
+		}
+		
 	}
 	
 	return 0;
