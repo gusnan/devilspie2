@@ -152,7 +152,7 @@ int main(int argc, char *argv[])
 	g_option_context_add_main_entries(context,options,NULL);
 	if (!g_option_context_parse(context, &argc, &argv, &error)) {
 		g_print("option parsing failed: %s\n",error->message);
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 	
 	// if the folder is NULL, default to ~/.devilspie2
@@ -174,7 +174,7 @@ int main(int argc, char *argv[])
 	
 	if (version) {
 		printf("Devilspie2 %s\n\n",VERSION_STRING);
-		return 0;
+		exit(EXIT_SUCCESS);
 	}
 	
 	if (debug) {
@@ -197,7 +197,7 @@ int main(int argc, char *argv[])
 	if (!g_file_test(script_folder,G_FILE_TEST_IS_DIR)) {
 		g_error("script_folder isn't a folder.\n");
 		devilspie_exit();
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 	
 	// a temp list so we dont ruin the start of the list that is stored
@@ -222,7 +222,7 @@ int main(int argc, char *argv[])
 	
 	if (number_of_files==0) {
 		printf("No script files found in the script folder - exiting.\n\n");
-		return 0;
+		exit(EXIT_SUCCESS);
 	}
 	
 	// print the list of files:
@@ -254,7 +254,7 @@ int main(int argc, char *argv[])
 
 	if (sigaction(SIGINT, &signal_action, NULL) == -1)
 	{
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 
 	init_screens();
@@ -262,5 +262,5 @@ int main(int argc, char *argv[])
 	loop=g_main_loop_new(NULL,TRUE);
 	g_main_loop_run(loop);
 
-	return 0;
+	return EXIT_SUCCESS;
 }
