@@ -1,0 +1,22 @@
+.TH devilspie2 1 "6 October 2011" "Version 0.01"
+.sh NAME
+Devilspie2 - perform scripted actions on windows as they are created
+.SH description
+.B Devilspie2
+is a program that detects windows as they are created, and performs scripted
+actions on them. The scripts are written in LUA, allowing a great deal of
+customization.
+.SH Options
+.IP "--version"
+Displays the version of Devilspie2.
+.IP "--folder folder"
+Sets the folder where the LUA scripts are loaded from.
+.IP "--debug"
+Shows debug information from the LUA scripts. If debug_print is used in the LUA
+scripts, that output will only be printed to stdout if this option is used.
+.IP "--emulate"
+Emulate script behaviour. Using this option only emulates a scripts behaviour, 
+and doesn't affect the windows that the scripts otherwise would modify.
+.SH Author
+.B Devilspie2
+was written by Andreas Ronnquist <gusnan@gusnan.se>
