@@ -107,3 +107,11 @@ link_libraries (
 )
 
 add_executable(${EXECUTABLE_NAME} ${SOURCES})
+
+#
+# Installation stuff:
+#
+
+install(FILES devilspie2.1 DESTINATION ${CMAKE_INSTALL_PREFIX}/share/man/man1)
+
+install_targets(/bin ${EXECUTABLE_NAME})
