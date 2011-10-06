@@ -211,7 +211,7 @@ int main(int argc, char *argv[])
 
 		// we only bother with *.lua in the folder
 		if (g_str_has_suffix(current_file,".lua")) {
-			temp_list=g_slist_prepend(temp_list,g_build_path(G_DIR_SEPARATOR_S,g_get_home_dir(),".devilspie2",current_file,NULL));
+			temp_list=g_slist_prepend(temp_list,g_build_path(G_DIR_SEPARATOR_S,g_get_user_config_dir(),"devilspie2",current_file,NULL));
 			number_of_files++;
 		}
 	}
