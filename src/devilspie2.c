@@ -155,7 +155,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	
-	// if the folder is NULL, default to ~/.devilspie2
+	// if the folder is NULL, default to ~/.config/devilspie2/
 	if (script_folder==NULL) {
 		
 		temp_folder=g_build_path(G_DIR_SEPARATOR_S,g_get_user_config_dir(),"devilspie2",NULL);
