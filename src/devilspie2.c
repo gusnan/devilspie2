@@ -33,6 +33,7 @@
 #include "script.h"
 #include "script_functions.h"
 
+#include "version.h"
 
 /**
  *
@@ -41,12 +42,12 @@ GMainLoop *loop=NULL;
 
 static gboolean debug=FALSE;
 static gboolean emulate=FALSE;
+static gboolean version=FALSE;
 
 static gchar *script_folder=NULL;
 static gchar *temp_folder=NULL;
 
 static GSList *file_list=NULL;
-
 
 /**
  *
@@ -128,12 +129,14 @@ static void signal_handler(int sig)
 int main(int argc, char *argv[])
 {
 	static const GOptionEntry options[]={
-		{ "debug",		'd', 0,	G_OPTION_ARG_NONE,		&debug,			
+		{ "debug",		'd',	0,	G_OPTION_ARG_NONE,		&debug,			
 			"Print debug info to stdout"},
-		{ "emulate",	'e', 0,	G_OPTION_ARG_NONE,		&emulate,		
+		{ "emulate",	'e',	0,	G_OPTION_ARG_NONE,		&emulate,		
 			"Don't apply any rules, only emulate an execution"},
-		{ "folder",		'f', 0,	G_OPTION_ARG_STRING,		&script_folder, 
+		{ "folder",		'f',	0,	G_OPTION_ARG_STRING,		&script_folder, 
 			"Folder where scripts are found"},
+		{ "version",	'v',	0,	G_OPTION_ARG_NONE,		&version,
+			"Show Devilspie2 version and quit"},
 		{ NULL }
 	};
 	
@@ -167,6 +170,11 @@ int main(int argc, char *argv[])
 		}
 		
 		script_folder=temp_folder;
+	}
+	
+	if (version) {
+		printf("Devilspie2 %s\n\n",VERSION_STRING);
+		return 0;
 	}
 	
 	if (debug) {
@@ -235,7 +243,6 @@ int main(int argc, char *argv[])
 	
 	if (debug) printf("------------\n");
 	
-
 	// remove stuff cleanly
 	atexit(devilspie_exit);
 
