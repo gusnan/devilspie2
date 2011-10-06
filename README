@@ -79,129 +79,130 @@ The following commands are recognized by the Devilspie2 LUA interpreter:
 
 get_window_name()
 
-returns a string containing the name of the current window.
+	returns a string containing the name of the current window.
 
 
 set_window_position(xpos,ypos)
 
-Set the position of a window.
+	Set the position of a window.
 
 
 set_window_size (xsize, ysize)
 
-Sets the size of a window - takes xsize and ysize as parameters.
+	Sets the size of a window - takes xsize and ysize as parameters.
 
 
 set_window_geometry (xpos, ypos, xsize, ysize)
 
-Sets both size and position of a window in one command. Takes four parameters,
-xpos, ypos, xsize and ysize.
+	Sets both size and position of a window in one command. Takes four 
+	parameters, xpos, ypos, xsize and ysize.
 
 
 get_application_name()
 
-returns the application name of the current window.
+	returns the application name of the current window.
 
 
 make_always_on_top()
 
-Sets a window always on top.
+	Sets a window always on top.
 
 
 set_on_top()
 
-sets a window on top of the others. (unlike make_always_on_top, it doesn't lock
-the window in this position.)
+	sets a window on top of the others. (unlike make_always_on_top, it doesn't
+	lock the window in this position.)
 
 
 debug_print()
 
-Debug helper that prints a string to stdout. It is only printed if devilspie2
-is run with the --debug option.
+	Debug helper that prints a string to stdout. It is only printed if devilspie2
+	is run with the --debug option.
 
 
 shade()
 
-"Shades" a window, showing only the title-bar.
+	"Shades" a window, showing only the title-bar.
 
 
 unshade()
 
-Unshades a window - the opposite of "shade"
+	Unshades a window - the opposite of "shade"
 
 
 maximize()
 
-maximizes a window
+	maximizes a window
 
 
 unmaximize()
 
-unmaximizes a window
+	unmaximizes a window
 
 
 maximize_vertically()
 
-maximizes the current window vertically.
+	maximizes the current window vertically.
 
 
 maximize_horisontally()
 
-maximizes the current window horisontally.
+	maximizes the current window horisontally.
 
 
 minimize()
 
-minimizes a window
+	minimizes a window
 
 
 unminimize()
 
-unminimizes a window, that is bringing it back to screen from the minimized
-position/size.
+	unminimizes a window, that is bringing it back to screen from the minimized
+	position/size.
 
 
 decorate_window()
 
-Shows all window decoration.
+	Shows all window decoration.
 
 
 undecorate_window()
 
-Removes all window decorations.
+	Removes all window decorations.
 
 
 set_workspace(number)
 
-Moves a window to another workspace. The number variable starts counting at 1.
+	Moves a window to another workspace. The number variable starts counting at 
+	1.
 
 
 change_workspace(number)
 
-Changes the current workspace to another. The number variable starts counting at
-1.
+	Changes the current workspace to another. The number variable starts counting 
+	at 1.
 
 
 pin_window()
 
-asks the window manager to put the window on all workspaces.
+	asks the window manager to put the window on all workspaces.
 
 
 unpin_window()
 
-Asks the window manager to put window only in the currently active workspace.
+	Asks the window manager to put window only in the currently active workspace.
 
 
 stick_window()
 
-Asks the window manager to keep the window's position fixed on the screen, even 
-when the workspace or viewport scrolls. 
+	Asks the window manager to keep the window's position fixed on the screen, 
+	even when the workspace or viewport scrolls. 
 
 
 unstick_window()
 
-Asks the window manager to not have window's position fixed on the screen when 
-the workspace or viewport scrolls. 
+	Asks the window manager to not have window's position fixed on the screen 
+	when the workspace or viewport scrolls. 
 
 
 Contact
