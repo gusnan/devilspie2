@@ -237,6 +237,7 @@ int c_get_application_name(lua_State *lua)
 	WnckApplication *application=wnck_window_get_application(get_current_window());
 	application_name=wnck_application_get_name(application);
 
+	// one item returned - the application name as a string.
 	lua_pushstring(lua,application_name);
 	
 	return 1;
