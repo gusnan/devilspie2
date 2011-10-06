@@ -5,6 +5,7 @@
 		<file>./src/script.h</file>
 		<file>./src/script_functions.c</file>
 		<file>./src/script_functions.h</file>
+		<file>./src/version.h</file>
 		<file>./src/xutils.c</file>
 		<file>./src/xutils.h</file>
 	</group>
