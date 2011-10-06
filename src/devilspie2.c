@@ -173,7 +173,7 @@ int main(int argc, char *argv[])
 	}
 	
 	if (version) {
-		printf("Devilspie2 %s\n\n",VERSION_STRING);
+		printf("Devilspie2 v%s\n\n",VERSION_STRING);
 		exit(EXIT_SUCCESS);
 	}
 	
