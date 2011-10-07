@@ -185,7 +185,7 @@ undecorate_window()
 	Removes all window decorations.
 
 
-set_workspace(number)
+set_window_workspace(number)
 
 	Moves a window to another workspace. The number variable starts counting at 
 	1.
