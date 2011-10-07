@@ -19,82 +19,105 @@ Emulate script behaviour. Using this option only emulates a scripts behaviour,
 and doesn't affect the windows that the scripts otherwise would modify.
 .SH Script Commands
 
-.IP "get_window_name()"
+.TP
+\fBget_window_name()\fR
 returns a string containing the name of the current window.
 
-.IP "get_application_name()"
+.TP
+\fBget_application_name()\fR
 returns the application name of the current window.
 
-.IP "set_window_position(xpos, ypos)"
+.TP
+\fBset_window_position(xpos, ypos)\fR
 Sets the position of a window.
 
-.IP "set_window_size(xsize, ysize)"
+.TP
+\fBset_window_size(xsize, ysize)\fR
 Sets the size of a window.
 
-.IP "set_window_geometry(xpos, ypos, xsize ysize)"
+.TP
+\fBset_window_geometry(xpos, ypos, xsize ysize)\fR
 Set the geometry of a window.
 
-.IP "make_always_on_top()"
+.TP
+\fBmake_always_on_top()\fR
 Set the windows always on top flag.
 
-.IP "set_on_top()"
+.TP
+\fBset_on_top()\fR
 Sets a window on top of the others (this will however not lock the window in 
 this position).
 
-.IP "debug_print()"
+.TP
+\fBdebug_print()\fR
 Debug helper that prints a string to stdout. It is only printed if devilspie2
 is run with the --debug option.
 
-.IP "shade()"
+.TP
+\fBshade()\fR
 "Shades" a window, showing only the title-bar.
 
-.IP "unshade()"
+.TP
+\fBunshade()\fR
 Unshades a window - the opposite of "shade"
 
-.IP "maximize()"
+.TP
+\fBmaximize()\fR
 maximizes a window
 
-.IP "unmaximize()"
+.TP
+\fBunmaximize()\fR
 unmaximizes a window
 
-.IP "maximize_vertically()"
+.TP
+\fBmaximize_vertically()\fR
 maximizes the current window vertically.
 
-.IP "maximize_horisontally()"
+.TP
+\fBmaximize_horisontally()\fR
 maximizes the current window horisontally.
 
-
-.IP "minimize()"
+.TP
+\fBminimize()\fR
 minimizes a window
 
-.IP "unminimize()"
+.TP
+\fBunminimize()\fR
 unminimizes a window, that is bringing it back to screen from the minimized
 position/size.
 
-.IP "decorate_window()"
+.TP
+\fBdecorate_window()\fR
 Shows all window decoration.
 
-.IP "undecorate_window()"
+.TP
+\fBundecorate_window()\fR
 Removes all window decorations.
 
-.IP "set_workspace(number)"
+.TP
+\fBset_workspace(number)\fR
 Moves a window to another workspace. The number variable starts counting at 1.
 
-.IP "change_workspace(number)"
+.TP
+\fBchange_workspace(number)\fR
 Changes the current workspace to another. The number variable starts counting at
 1.
 
-.IP "pin_window()"
+.TP
+\fBpin_window()\fR
 asks the window manager to put the window on all workspaces.
 
-.IP "unpin_window()"
+.TP
+\fBunpin_window()\fR
 Asks the window manager to put window only in the currently active workspace.
 
-.IP "stick_window()"
+.TP
+\fBstick_window()\fR
 Asks the window manager to keep the window's position fixed on the screen, even 
 when the workspace or viewport scrolls. 
 
-.IP "unstick_window()"
+.TP
+\fBunstick_window()\fR
 Asks the window manager to not have window's position fixed on the screen when 
 the workspace or viewport scrolls. 
 
