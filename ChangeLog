@@ -2,6 +2,10 @@
 ChangeLog:
 ----------
 
+0.02
+	* Rename set_workspace to set_window_workspace
+	* Massive documentation updates
+
 0.01
 	* Initial release
 
