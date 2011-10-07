@@ -113,5 +113,6 @@ add_executable(${EXECUTABLE_NAME} ${SOURCES})
 #
 
 install(FILES devilspie2.1 DESTINATION ${CMAKE_INSTALL_PREFIX}/share/man/man1)
+install(FILES README DESTINATION ${CMAKE_INSTALL_PREFIX}/share/doc/devilspie2/)
 
 install_targets(/bin ${EXECUTABLE_NAME})
