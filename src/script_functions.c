@@ -430,14 +430,14 @@ int c_set_window_workspace(lua_State *lua)
 	WnckWorkspace *workspace;
 	
 	if (top!=1) {
-		luaL_error(lua,"set_workspace: 1 indata required");
+		luaL_error(lua,"set_window_workspace: 1 indata required");
 		return 0;
 	}
 	
 	int type=lua_type(lua,1);
 	
 	if (type!=LUA_TNUMBER) {
-		luaL_error(lua,"set_workspace: a number expected as indata");
+		luaL_error(lua,"set_window_workspace: a number expected as indata");
 		return 0;
 	}
 	
