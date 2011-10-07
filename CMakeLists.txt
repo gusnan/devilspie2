@@ -95,10 +95,9 @@ set(SOURCES
 )
 
 link_libraries (
-   gdk_pixbuf-2.0 
 	${GTK2_GDK_LIBRARY} 
-	${GTK2_GTK_LIBRARY} 
-	gthread-2.0 
+	#${GTK2_GTK_LIBRARY} 
+	#gthread-2.0 
 	gobject-2.0 
 	X11 
 	glib-2.0 
