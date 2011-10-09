@@ -58,30 +58,11 @@ it up into several.
 Building
 --------
 
-to build devilspie2, create a build folder and step into it
+I have recently removed the CMake stuff, and gone to using a pure Makefile.
+This means, that to build, you simply do a make - which will in the end create
+the devilspie2 binary in the bin/ folder.
 
-mkdir build
-cd build
-
-and run cmake targeting the folder containing the file CMakeLists.txt 
-(which basically should be the folder above)
-
-cmake ..
-
-if you want to create makefiles for a debug build, use 
-
-cmake .. -DDEBUG=on 
-
-instead. This creates necessary makefiles - now run make to actually build 
-devilspie2:
-
-make
-
-this will in the end result in the executable bin/devilspie2.
-If you want more detailed output of the make command, run
-
-make VERBOSE=1
-
+To build the same executable, but with debugging enable, run make DEBUG=1.
 
 
 Scripting
