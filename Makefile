@@ -1,0 +1,36 @@
+CC=gcc
+SRC=src
+OBJ=obj
+BIN=bin
+
+ifdef DEBUG
+	STD_CFLAGS=-c -Wall -g3 -ggdb
+else
+	STD_CFLAGS=-c -Wall
+endif
+
+LIB_CFLAGS=`pkg-config --cflags gtk+-2.0` `pkg-config --cflags lua5.1` `pkg-config --cflags libwnck-1.0`
+STD_LDFLAGS= `pkg-config --libs gtk+-2.0` `pkg-config --libs lua5.1` `pkg-config --libs libwnck-1.0`
+
+CFLAGS=$(STD_CFLAGS) $(LIB_CFLAGS)
+LDFLAGS=$(STD_LDFLAGS)
+
+all: devilspie2
+
+$(OBJ)/devilspie2.o: $(SRC)/devilspie2.c
+	$(CC) $(CFLAGS) $(SRC)/devilspie2.c -o $(OBJ)/devilspie2.o
+
+$(OBJ)/xutils.o: $(SRC)/xutils.c
+	$(CC) $(CFLAGS) $(SRC)/xutils.c -o $(OBJ)/xutils.o
+
+$(OBJ)/script.o: $(SRC)/script.c
+	$(CC) $(CFLAGS) $(SRC)/script.c -o $(OBJ)/script.o
+
+$(OBJ)/script_functions.o: $(SRC)/script_functions.c
+	$(CC) $(CFLAGS) $(SRC)/script_functions.c -o $(OBJ)/script_functions.o
+
+devilspie2: $(OBJ)/devilspie2.o $(OBJ)/xutils.o $(OBJ)/script.o $(OBJ)/script_functions.o
+	$(CC) $(LDFLAGS) $(OBJ)/devilspie2.o $(OBJ)/script.o $(OBJ)/script_functions.o $(OBJ)/xutils.o -o $(BIN)/devilspie2
+
+clean:
+	rm -rf $(OBJ)/*.o $(BIN)/devilspie2
