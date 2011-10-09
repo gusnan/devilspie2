@@ -2,6 +2,9 @@
 ChangeLog:
 ----------
 
+0.03
+	* Simplify the CMakeLists.txt
+	
 0.02
 	* Rename set_workspace to set_window_workspace
 	* Massive documentation updates
