@@ -1,2 +1,7 @@
 bin/devilspie2
 build/
+obj/devilspie2.o
+obj/script.o
+obj/script_function.o
+obj/xutils.o
+obj/devilspie2.o
