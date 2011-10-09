@@ -46,8 +46,6 @@ if (DEBUG)
 	add_definitions(-Wno-write-strings)
 	# add_definitions(-Wno-missing-field-initializers)
 	add_definitions(-Wall)
-	
-	#add_definitions(-Wc++-compat)
 
 else (DEBUG)
 	message(STATUS "Building Release executable")
@@ -56,11 +54,6 @@ else (DEBUG)
 	add_definitions(-Wall)
 	
 endif (DEBUG)
-
-add_definitions(-DGTK_DISABLE_DEPRECATED)
-add_definitions(-DGDK_DISABLE_DEPRECATED)
-add_definitions(-DGSEAL_ENABLE)
-
 
 Find_Package ( GTK2 REQUIRED )
 if (NOT GTK2_FOUND)
@@ -96,8 +89,6 @@ set(SOURCES
 
 link_libraries (
 	${GTK2_GDK_LIBRARY} 
-	#${GTK2_GTK_LIBRARY} 
-	#gthread-2.0 
 	gobject-2.0 
 	X11 
 	glib-2.0 
