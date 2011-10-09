@@ -59,10 +59,15 @@ Building
 --------
 
 I have recently removed the CMake stuff, and gone to using a pure Makefile.
-This means, that to build, you simply do a make - which will in the end create
-the devilspie2 binary in the bin/ folder.
+This means, that to build, you simply do a 
 
-To build the same executable, but with debugging enable, run make DEBUG=1.
+make 
+
+- this will in the end create the devilspie2 binary in the bin/ folder.
+
+To build the same executable, but with debugging enable, run 
+
+make DEBUG=1.
 
 
 Scripting
