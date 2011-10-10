@@ -114,8 +114,7 @@ int load_script(char *filename)
 	} else {
 		
 		// We got an error, print it
-		printf(lua_tostring(lua,-1));
-		printf("\n");
+		printf("%s\n",lua_tostring(lua,-1));
 		
 		lua_pop(lua,1);
 		
