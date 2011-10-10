@@ -9,6 +9,14 @@ else
 	STD_CFLAGS=-c -Wall
 endif
 
+PROG=$(BIN)/devilspie2
+
+ifndef PREFIX
+DESTDIR=/usr
+else
+DESTDIR=$(PREFIX)
+endif
+
 ifdef CHECK_DEPRECATED
 DEPRECATED=-DGDK_PIXBUF_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED
 endif
@@ -37,4 +45,7 @@ devilspie2: $(OBJ)/devilspie2.o $(OBJ)/xutils.o $(OBJ)/script.o $(OBJ)/script_fu
 	$(CC) $(LDFLAGS) $(OBJ)/devilspie2.o $(OBJ)/script.o $(OBJ)/script_functions.o $(OBJ)/xutils.o -o $(BIN)/devilspie2
 
 clean:
-	rm -rf $(OBJ)/*.o $(BIN)/devilspie2
+	rm -rf $(OBJ)/*.o $(PROG)
+
+install:
+	install -m 755 $(PROG) $(DESTDIR)/bin
