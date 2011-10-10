@@ -58,8 +58,7 @@ it up into several.
 Building
 --------
 
-I have recently removed the CMake stuff, and gone to using a pure Makefile.
-This means, that to build, you simply do a 
+To build, you simply do a
 
 make 
 
