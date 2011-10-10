@@ -1,0 +1,28 @@
+
+
+Installation:
+-------------
+
+To build, you simply do a
+
+	make 
+
+this will in the end create the devilspie2 binary in the bin/ folder.
+
+To build the same executable, but with debugging enabled, run 
+
+	make DEBUG=1.
+
+
+To install Devilspie2 system-wide - simply run
+
+	make install 
+
+as root:
+
+	su -c "make install"
+
+or on systems using sudo:
+
+	sudo make install
+

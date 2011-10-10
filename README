@@ -55,20 +55,6 @@ You can choose to have all script functionality in one file, or you can split
 it up into several.
 
 
-Building
---------
-
-To build, you simply do a
-
-make 
-
-- this will in the end create the devilspie2 binary in the bin/ folder.
-
-To build the same executable, but with debugging enable, run 
-
-make DEBUG=1.
-
-
 Scripting
 ---------
 
