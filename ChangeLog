@@ -4,6 +4,8 @@ ChangeLog:
 
 0.03
 	* Remove CMake stuff and go to a standard Makefile
+	* Documentation updates
+	* Move installation instructions to file of its own
 	
 0.02
 	* Rename set_workspace to set_window_workspace
