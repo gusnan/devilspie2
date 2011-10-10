@@ -3,7 +3,7 @@ ChangeLog:
 ----------
 
 0.03
-	* Simplify the CMakeLists.txt
+	* Remove CMake stuff and go to a standard Makefile
 	
 0.02
 	* Rename set_workspace to set_window_workspace
