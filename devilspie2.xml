@@ -9,11 +9,12 @@
 		<file>./src/xutils.c</file>
 		<file>./src/xutils.h</file>
 	</group>
-	<file>./README</file>
-	<file>./COPYING</file>
-	<file>./GPL3.txt</file>
 	<file>./ChangeLog</file>
+	<file>./COPYING</file>
 	<file>./devilspie2.1</file>
 	<file>./devilspie2.xml</file>
+	<file>./GPL3.txt</file>
+	<file>./INSTALL</file>
 	<file>./Makefile</file>
+	<file>./README</file>
 </root>
