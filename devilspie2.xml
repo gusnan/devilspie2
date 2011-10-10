@@ -9,7 +9,6 @@
 		<file>./src/xutils.c</file>
 		<file>./src/xutils.h</file>
 	</group>
-	<file>./CMakeLists.txt</file>
 	<file>./README</file>
 	<file>./COPYING</file>
 	<file>./GPL3.txt</file>
