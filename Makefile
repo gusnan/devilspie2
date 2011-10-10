@@ -9,8 +9,8 @@ else
 	STD_CFLAGS=-c -Wall
 endif
 
-LIB_CFLAGS=`pkg-config --cflags gtk+-2.0` `pkg-config --cflags lua5.1` `pkg-config --cflags libwnck-1.0`
-STD_LDFLAGS= `pkg-config --libs gtk+-2.0` `pkg-config --libs lua5.1` `pkg-config --libs libwnck-1.0`
+LIB_CFLAGS=`pkg-config --cflags gtk+-2.0 lua5.1 libwnck-1.0`
+STD_LDFLAGS= `pkg-config --libs gtk+-2.0 lua5.1 libwnck-1.0`
 
 CFLAGS=$(STD_CFLAGS) $(LIB_CFLAGS)
 LDFLAGS=$(STD_LDFLAGS)
