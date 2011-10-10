@@ -8,7 +8,6 @@ To build, you simply do a
 	make 
 
 this will in the end create the devilspie2 binary in the bin/ folder.
-
 To build the same executable, but with debugging enabled, run 
 
 	make DEBUG=1.
@@ -25,4 +24,8 @@ as root:
 or on systems using sudo:
 
 	sudo make install
+
+This will default to /usr/local, this can be changed using PREFIX variable:
+
+	make install PREFIX=/usr
 
