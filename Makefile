@@ -47,3 +47,6 @@ clean:
 
 install:
 	install -m 755 $(PROG) $(DESTDIR)/bin
+
+uninstall:
+	rm -f $(DESTDIR)/$(PROG)
