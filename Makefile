@@ -12,7 +12,7 @@ endif
 PROG=$(BIN)/devilspie2
 
 ifndef PREFIX
-DESTDIR=/usr
+DESTDIR=/usr/local
 else
 DESTDIR=$(PREFIX)
 endif
