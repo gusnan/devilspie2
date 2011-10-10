@@ -9,10 +9,14 @@ else
 	STD_CFLAGS=-c -Wall
 endif
 
+ifdef CHECK_DEPRECATED
+DEPRECATED=-DGDK_PIXBUF_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED
+endif
+
 LIB_CFLAGS=`pkg-config --cflags gtk+-2.0 lua5.1 libwnck-1.0`
 STD_LDFLAGS= `pkg-config --libs gtk+-2.0 lua5.1 libwnck-1.0`
 
-CFLAGS=$(STD_CFLAGS) $(LIB_CFLAGS)
+CFLAGS=$(STD_CFLAGS) $(LIB_CFLAGS) $(DEPRECATED)
 LDFLAGS=$(STD_LDFLAGS)
 
 all: devilspie2
