@@ -11,10 +11,8 @@ endif
 
 PROG=$(BIN)/devilspie2
 
-ifndef PREFIX
+ifndef DESTDIR
 DESTDIR=/usr/local
-else
-DESTDIR=$(PREFIX)
 endif
 
 ifdef CHECK_DEPRECATED
