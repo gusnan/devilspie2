@@ -49,6 +49,7 @@ static gchar *temp_folder=NULL;
 
 static GSList *file_list=NULL;
 
+
 /**
  *
  */
