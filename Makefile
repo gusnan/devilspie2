@@ -46,7 +46,7 @@ clean:
 	rm -rf $(OBJ)/*.o $(PROG)
 
 install:
-	install -m 755 $(PROG) $(DESTDIR)/bin
+	install -m 755 $(BIN)/devilspie2 $(DESTDIR)/bin
 
 uninstall:
 	rm -f $(DESTDIR)/$(PROG)
