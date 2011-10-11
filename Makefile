@@ -9,7 +9,7 @@ else
 	STD_CFLAGS=-c -Wall
 endif
 
-PROG=$(BIN)/devilspie2
+PROG=devilspie2
 
 ifndef DESTDIR
 DESTDIR=/usr/local
@@ -40,13 +40,13 @@ $(OBJ)/script_functions.o: $(SRC)/script_functions.c $(SRC)/script.h $(SRC)/xuti
 	$(CC) $(CFLAGS) $(SRC)/script_functions.c -o $(OBJ)/script_functions.o
 
 devilspie2: $(OBJ)/devilspie2.o $(OBJ)/xutils.o $(OBJ)/script.o $(OBJ)/script_functions.o
-	$(CC) $(LDFLAGS) $(OBJ)/devilspie2.o $(OBJ)/script.o $(OBJ)/script_functions.o $(OBJ)/xutils.o -o $(BIN)/devilspie2
+	$(CC) $(LDFLAGS) $(OBJ)/devilspie2.o $(OBJ)/script.o $(OBJ)/script_functions.o $(OBJ)/xutils.o -o $(PROG)
 
 clean:
 	rm -rf $(OBJ)/*.o $(PROG)
 
 install:
-	install -m 755 $(BIN)/devilspie2 $(DESTDIR)/bin
+	install -m 755 $(PROG) $(DESTDIR)/bin
 
 uninstall:
 	rm -f $(DESTDIR)/$(PROG)
