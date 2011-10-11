@@ -9,7 +9,7 @@ else
 	STD_CFLAGS=-c -Wall
 endif
 
-PROG=devilspie2
+PROG=bin/devilspie2
 
 ifndef DESTDIR
 DESTDIR=/usr/local
