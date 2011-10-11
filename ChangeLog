@@ -2,6 +2,9 @@
 ChangeLog:
 ----------
 
+0.08
+	* Fix manpage problems
+
 0.07
 	* Fixes to the build system
 	* Fixes of previous sloppy releases
