@@ -19,7 +19,7 @@
  */
 #ifndef __HEADER_VERSION_
 #define __HEADER_VERSION_
- 
-#define VERSION_STRING "0.05"
+
+#define VERSION_STRING "0.07"
 
 #endif /*__HEADER_VERSION_*/
