@@ -46,6 +46,7 @@ clean:
 	rm -rf $(OBJ)/*.o $(PROG)
 
 install:
+	install -d $(DESTDIR)/bin
 	install -m 755 $(PROG) $(DESTDIR)/bin
 
 uninstall:
