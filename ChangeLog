@@ -2,6 +2,12 @@
 ChangeLog:
 ----------
 
+0.05
+	* Update Makefile to allow CFLAGS changes, required by CDBS
+
+0.04
+	* Build system updates
+	
 0.03
 	* Remove CMake stuff and go to a standard Makefile
 	* Documentation updates
