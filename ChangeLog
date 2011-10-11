@@ -2,6 +2,10 @@
 ChangeLog:
 ----------
 
+0.07
+	* Fixes to the build system
+	* Fixes of previous sloppy releases
+
 0.05
 	* Update Makefile to allow CFLAGS changes, required by CDBS
 
