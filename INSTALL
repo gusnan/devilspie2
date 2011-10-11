@@ -35,7 +35,8 @@ or on systems using sudo:
 
 	sudo make install
 
-This will default to /usr/local, this can be changed using PREFIX variable:
+This will default to /usr/local, installing the binary to /usr/local/bin - this
+can be changed using PREFIX variable:
 
 	make install PREFIX=/usr
 
