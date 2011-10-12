@@ -15,7 +15,6 @@ ifndef DESTDIR
 DESTDIR=/usr/local
 endif
 
-
 LIB_CFLAGS=`pkg-config --cflags gtk+-2.0 lua5.1 libwnck-1.0`
 STD_LDFLAGS= `pkg-config --libs gtk+-2.0 lua5.1 libwnck-1.0`
 
@@ -35,7 +34,7 @@ endif
 
 all: devilspie2
 
-$(OBJ)/devilspie2.o: $(SRC)/devilspie2.c $(SRC)/version.h  $(SRC)/script.h $(SRC)/script_functions.h
+$(OBJ)/devilspie2.o: $(SRC)/devilspie2.c $(SRC)/version.h $(SRC)/script.h $(SRC)/script_functions.h
 	$(CC) $(LOCAL_CFLAGS) $(SRC)/devilspie2.c -o $(OBJ)/devilspie2.o
 
 $(OBJ)/xutils.o: $(SRC)/xutils.c $(SRC)/xutils.h
