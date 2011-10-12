@@ -58,7 +58,19 @@ it up into several.
 Scripting
 ---------
 
-The scripting langauge is LUA (see www.lua.org), 
+The scripting langauge used is LUA (see www.lua.org) - See FAQ at
+
+www.lua.org/FAQ.html
+
+, documentation at
+
+www.lua.org/docs.html 
+
+, and tutorials at 
+
+http://lua-users.org/wiki/TutorialDirectory
+
+
 The following commands are recognized by the Devilspie2 LUA interpreter:
 
 
