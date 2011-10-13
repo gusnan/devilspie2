@@ -2,6 +2,10 @@
 ChangeLog:
 ----------
 
+0.09
+	* Fixes to the Makefile
+	* Minor documentation updates
+	
 0.08
 	* Fix manpage problems
 
