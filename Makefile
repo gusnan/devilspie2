@@ -47,7 +47,7 @@ $(OBJ)/script_functions.o: $(SRC)/script_functions.c $(SRC)/script.h $(SRC)/xuti
 	$(CC) $(LOCAL_CFLAGS) $(SRC)/script_functions.c -o $(OBJ)/script_functions.o
 
 devilspie2: $(OBJ)/devilspie2.o $(OBJ)/xutils.o $(OBJ)/script.o $(OBJ)/script_functions.o
-	$(CC) $(LOCAL_LDFLAGS) $(OBJ)/devilspie2.o $(OBJ)/script.o $(OBJ)/script_functions.o $(OBJ)/xutils.o -o $(PROG)
+	$(CC) $(OBJ)/devilspie2.o $(OBJ)/script.o $(OBJ)/script_functions.o $(OBJ)/xutils.o $(LOCAL_LDFLAGS) -o $(PROG)
 
 clean:
 	rm -rf $(OBJ)/*.o $(PROG)
