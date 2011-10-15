@@ -32,7 +32,7 @@ ifdef CHECK_DEPRECATED
 	LOCAL_CFLAGS+=-DGDK_PIXBUF_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED
 endif 
 
-all: devilspie2
+all: $(BIN)/devilspie2
 
 $(OBJ)/devilspie2.o: $(SRC)/devilspie2.c $(SRC)/version.h $(SRC)/script.h $(SRC)/script_functions.h
 	$(CC) $(LOCAL_CFLAGS) $(SRC)/devilspie2.c -o $(OBJ)/devilspie2.o
@@ -46,7 +46,7 @@ $(OBJ)/script.o: $(SRC)/script.c $(SRC)/script.h $(SRC)/script_functions.h
 $(OBJ)/script_functions.o: $(SRC)/script_functions.c $(SRC)/script.h $(SRC)/xutils.h
 	$(CC) $(LOCAL_CFLAGS) $(SRC)/script_functions.c -o $(OBJ)/script_functions.o
 
-devilspie2: $(OBJ)/devilspie2.o $(OBJ)/xutils.o $(OBJ)/script.o $(OBJ)/script_functions.o
+$(BIN)/devilspie2: $(OBJ)/devilspie2.o $(OBJ)/xutils.o $(OBJ)/script.o $(OBJ)/script_functions.o
 	$(CC) $(OBJ)/devilspie2.o $(OBJ)/script.o $(OBJ)/script_functions.o $(OBJ)/xutils.o $(LOCAL_LDFLAGS) -o $(PROG)
 
 clean:
