@@ -2,6 +2,10 @@
 ChangeLog:
 ----------
 
+0.10
+	* Fixed a problem that made the project link even if no objects had changed
+	* Default to build using GTK3, and add option to build using GTK2
+
 0.09
 	* Fixes to the Makefile
 	* Minor documentation updates
