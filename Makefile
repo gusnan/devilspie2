@@ -15,8 +15,18 @@ ifndef DESTDIR
 DESTDIR=/usr/local
 endif
 
-LIB_CFLAGS=`pkg-config --cflags gtk+-2.0 lua5.1 libwnck-1.0`
-STD_LDFLAGS= `pkg-config --libs gtk+-2.0 lua5.1 libwnck-1.0`
+ifdef GTK2
+	PKG_GTK=gtk+-2.0
+	PKG_WNCK=libwnck-1.0
+	
+	CHECK_GTK3=1
+else
+	PKG_GTK=gtk+-3.0
+	PKG_WNCK=libwnck-3.0
+endif 
+
+LIB_CFLAGS=`pkg-config --cflags $(PKG_GTK) $(PKG_WNCK) lua5.1`
+STD_LDFLAGS= `pkg-config --libs $(PKG_GTK) $(PKG_WNCK) lua5.1`
 
 LOCAL_CFLAGS=$(STD_CFLAGS) $(LIB_CFLAGS) $(DEPRECATED)
 LOCAL_LDFLAGS=$(STD_LDFLAGS)
