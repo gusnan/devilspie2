@@ -3,8 +3,8 @@
 Installation:
 -------------
 
-Devilspie2 requires pkg-config, gtk, wnck and lua libraries. On a Debian system, 
-installing the following packages should do it:
+Building Devilspie2 requires pkg-config, gtk, wnck and lua libraries. On a 
+Debian system, installing the following packages should do it:
 
 pkg-config
 libglib2.0-dev
