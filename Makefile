@@ -4,7 +4,7 @@ OBJ=obj
 BIN=bin
 
 ifdef DEBUG
-	STD_CFLAGS=-c -Wall -g3 -ggdb
+	STD_CFLAGS=-c -Wall -g3 -ggdb -D_DEBUG
 else
 	STD_CFLAGS=-c -Wall
 endif
