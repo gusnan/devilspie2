@@ -2,6 +2,10 @@
 ChangeLog:
 ----------
 
+0.12
+	* Fixes to the Makefile, fixing the depends system, fixing installation
+	  prefxes
+
 0.11
 	* Fix a build problem where standard C-flags wouldn't be included in makefile
 	* Fix incorrect debug stuff to the makefile
