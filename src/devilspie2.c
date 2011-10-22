@@ -27,8 +27,8 @@
 #define WNCK_I_KNOW_THIS_IS_UNSTABLE
 #include <libwnck/libwnck.h>
 
-#include "lua.h"
-#include "lualib.h"
+#include <lua.h>
+#include <lualib.h>
 
 #include "script.h"
 #include "script_functions.h"

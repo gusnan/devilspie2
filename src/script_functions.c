@@ -24,9 +24,9 @@
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
 
-#include "lua.h"
-#include "lualib.h"
-#include "lauxlib.h"
+#include <lua.h>
+#include <lualib.h>
+#include <lauxlib.h>
 
 #include "script_functions.h"
 
