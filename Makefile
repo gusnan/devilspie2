@@ -9,10 +9,17 @@ else
 	STD_CFLAGS=-c -Wall
 endif
 
-PROG=bin/devilspie2
+PROG=$(BIN)/devilspie2
+DEPEND=Makefile.dep
 
-ifndef DESTDIR
-DESTDIR=/usr/local
+OBJECTS=$(OBJ)/devilspie2.o $(OBJ)/xutils.o $(OBJ)/script.o $(OBJ)/script_functions.o
+
+ifndef prefix
+	ifdef INSTALL_PREFIX
+		prefix=$(INSTALL_PREFIX)
+	else
+		prefix=/usr/local
+	endif
 endif
 
 ifdef GTK2
@@ -28,8 +35,8 @@ endif
 LIB_CFLAGS=`pkg-config --cflags $(PKG_GTK) $(PKG_WNCK) lua5.1`
 STD_LDFLAGS= `pkg-config --libs $(PKG_GTK) $(PKG_WNCK) lua5.1`
 
-LOCAL_CFLAGS=$(STD_CFLAGS) $(LIB_CFLAGS) $(DEPRECATED) $(CFLAGS)
-LOCAL_LDFLAGS=$(STD_LDFLAGS) $(LDFLAGS)
+LOCAL_CFLAGS=$(STD_CFLAGS) $(DEPRECATED) $(CFLAGS) $(LIB_CFLAGS)
+LOCAL_LDFLAGS=$(LDFLAGS) $(STD_LDFLAGS)
 
 ifdef CHECK_GTK3
 	LOCAL_CFLAGS+=-DGTK_DISABLE_SINGLE_INCLUDES
@@ -44,23 +51,14 @@ endif
 
 all: $(BIN)/devilspie2
 
-$(OBJ)/devilspie2.o: $(SRC)/devilspie2.c $(SRC)/version.h $(SRC)/script.h $(SRC)/script_functions.h
-	$(CC) $(LOCAL_CFLAGS) $(SRC)/devilspie2.c -o $(OBJ)/devilspie2.o
+$(OBJ)/%.o: $(SRC)/%.c
+	$(CC) $(LOCAL_CFLAGS) -c $< -o $@
 
-$(OBJ)/xutils.o: $(SRC)/xutils.c $(SRC)/xutils.h
-	$(CC) $(LOCAL_CFLAGS) $(SRC)/xutils.c -o $(OBJ)/xutils.o
-
-$(OBJ)/script.o: $(SRC)/script.c $(SRC)/script.h $(SRC)/script_functions.h
-	$(CC) $(LOCAL_CFLAGS) $(SRC)/script.c -o $(OBJ)/script.o
-
-$(OBJ)/script_functions.o: $(SRC)/script_functions.c $(SRC)/script.h $(SRC)/xutils.h
-	$(CC) $(LOCAL_CFLAGS) $(SRC)/script_functions.c -o $(OBJ)/script_functions.o
-
-$(BIN)/devilspie2: $(OBJ)/devilspie2.o $(OBJ)/xutils.o $(OBJ)/script.o $(OBJ)/script_functions.o
-	$(CC) $(OBJ)/devilspie2.o $(OBJ)/script.o $(OBJ)/script_functions.o $(OBJ)/xutils.o $(LOCAL_LDFLAGS) -o $(PROG)
+$(BIN)/devilspie2: $(OBJECTS)
+	$(CC) $(OBJECTS) -o $(PROG) $(LOCAL_LDFLAGS) 
 
 clean:
-	rm -rf $(OBJ)/*.o $(PROG)
+	rm -rf $(OBJ)/*.o $(PROG) $(DEPEND)
 
 install:
 	install -d $(DESTDIR)/bin
@@ -68,3 +66,8 @@ install:
 
 uninstall:
 	rm -f $(DESTDIR)/$(PROG)
+
+$(DEPEND):
+	$(CC) -MM $(SRC)/*.c | sed -e "s/\([A-Za-z0-9+-0._&+-]*:\)/\$(OBJ)\/\1/g" > Makefile.dep
+
+-include $(DEPEND)
