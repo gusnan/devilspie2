@@ -61,11 +61,11 @@ clean:
 	rm -rf $(OBJECTS) $(PROG) $(DEPEND)
 
 install:
-	install -d $(DESTDIR)/bin
-	install -m 755 $(PROG) $(DESTDIR)/bin
+	install -d $(DESTDIR)$(prefix)/bin
+	install -m 755 $(PROG) $(DESTDIR)$(prefix)/bin
 
 uninstall:
-	rm -f $(DESTDIR)/$(PROG)
+	rm -f $(DESTDIR)$(prefix)/$(PROG)
 
 $(DEPEND):
 	$(CC) -MM $(SRC)/*.c | sed -e "s/\([A-Za-z0-9+-0._&+-]*:\)/\$(OBJ)\/\1/g" > Makefile.dep
