@@ -58,7 +58,7 @@ $(BIN)/devilspie2: $(OBJECTS)
 	$(CC) $(OBJECTS) -o $(PROG) $(LOCAL_LDFLAGS) 
 
 clean:
-	rm -rf $(OBJ)/*.o $(PROG) $(DEPEND)
+	rm -rf $(OBJECTS) $(PROG) $(DEPEND)
 
 install:
 	install -d $(DESTDIR)/bin
