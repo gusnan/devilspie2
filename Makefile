@@ -68,6 +68,6 @@ uninstall:
 	rm -f $(DESTDIR)$(prefix)/$(PROG)
 
 $(DEPEND):
-	$(CC) -MM $(SRC)/*.c | sed -e "s/\([A-Za-z0-9+-0._&+-]*:\)/\$(OBJ)\/\1/g" > Makefile.dep
+	$(CC) -MM $(SRC)/*.c | sed -e "s/\([A-Za-z0-9+-0._&+-]*:\)/\$(OBJ)\/\1/g" > $(DEPEND)
 
 -include $(DEPEND)
