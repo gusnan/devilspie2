@@ -22,7 +22,7 @@ To build, you simply do a
 
 	make
 	
-or 
+(which will build with Gtk3 libs) or 
 
 	make GTK2=on
 
