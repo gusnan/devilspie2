@@ -2,6 +2,10 @@
 ChangeLog:
 ----------
 
+0.13
+	* Updated example in the README
+	* Makefile updates
+
 0.12
 	* Fixes to the Makefile, fixing the depends system, fixing installation
 	  prefxes
