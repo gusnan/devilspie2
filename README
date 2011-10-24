@@ -49,7 +49,8 @@ end
 --------------------->8---------------------
 
 You can choose to have all script functionality in one file, or you can split 
-it up into several.
+it up into several, Devilspie2 runs on all LUA files in .config/devilspie2 -
+that is all files with a .lua extension.
 
 
 Scripting
