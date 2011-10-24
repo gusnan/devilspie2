@@ -41,12 +41,9 @@ if (get_window_name()=="Terminal") then
 	set_window_geometry(1600,300,900,700);
 end
 
-
--- For some reason thunar doesn't always get to the top when it is started, 
--- but sometimes it starts below the rest of the windows - this little snippet 
--- solves that.
-if (get_application_name()=="Thunar") then
-	set_on_top();
+-- Make Iceweasel always start maximized.
+if (get_application_name()=="Iceweasel") then
+	maximize();
 end
 
 --------------------->8---------------------
