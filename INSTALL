@@ -34,11 +34,7 @@ To build the same executable, but with debugging enabled, run
 	make DEBUG=1.
 
 
-To install Devilspie2 system-wide - simply run
-
-	make install 
-
-as root:
+To install Devilspie2 system-wide - simply run make install as root:
 
 	su -c "make install"
 
