@@ -314,7 +314,7 @@ int c_unshade_window(lua_State *lua)
 
 
 /**
- *
+ * Minimizes the window
  */
 int c_minimize_window(lua_State *lua)
 {
@@ -333,7 +333,7 @@ int c_minimize_window(lua_State *lua)
 
 
 /**
- *
+ * unminimizes window
  */
 int c_unminimize_window(lua_State *lua)
 {
@@ -500,7 +500,7 @@ int c_change_workspace(lua_State *lua)
 
 
 /**
- *
+ * Unmaximize window
  */
 int c_unmaximize_window(lua_State *lua)
 {
@@ -519,7 +519,7 @@ int c_unmaximize_window(lua_State *lua)
 
 
 /**
- *
+ * Maximize Window
  */
 int c_maximize_window(lua_State *lua)
 {
@@ -538,7 +538,7 @@ int c_maximize_window(lua_State *lua)
 
 
 /**
- *
+ * Maximize Window Vertically
  */
 int c_maximize_window_vertically(lua_State *lua)
 {
@@ -557,7 +557,7 @@ int c_maximize_window_vertically(lua_State *lua)
 
 
 /**
- *
+ * Maximize the window horisontally
  */
 int c_maximize_window_horisontally(lua_State *lua)
 {
