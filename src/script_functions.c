@@ -52,8 +52,14 @@ int c_get_window_name(lua_State *lua)
 		luaL_error(lua,"get_window_name: No indata expected");
 		return 0;
 	}
-
-	char *test=(char*)wnck_window_get_name(get_current_window());
+	char *test=NULL;
+	
+	WnckWindow *window=get_current_window();
+	if (window) {
+		test=(char*)wnck_window_get_name(window);
+	} else {
+		test="";
+	}
 
 	lua_pushstring(lua,test);
 	
@@ -91,10 +97,14 @@ int c_set_window_geometry(lua_State *lua)
 	int ysize=lua_tonumber(lua,4);
 	
 	if (!devilspie2_emulate) {
-		wnck_window_set_geometry(get_current_window(),
-			WNCK_WINDOW_GRAVITY_CURRENT,
-			WNCK_WINDOW_CHANGE_X + WNCK_WINDOW_CHANGE_Y + WNCK_WINDOW_CHANGE_WIDTH + WNCK_WINDOW_CHANGE_HEIGHT,
-			x,y,xsize,ysize);
+		WnckWindow *window=get_current_window();
+		
+		if (window) {
+			wnck_window_set_geometry(window,
+				WNCK_WINDOW_GRAVITY_CURRENT,
+				WNCK_WINDOW_CHANGE_X + WNCK_WINDOW_CHANGE_Y + WNCK_WINDOW_CHANGE_WIDTH + WNCK_WINDOW_CHANGE_HEIGHT,
+				x,y,xsize,ysize);
+		}
 	}
 	
 	
@@ -126,10 +136,15 @@ int c_set_window_position(lua_State *lua)
 	int y=lua_tonumber(lua,2);
 	
 	if (!devilspie2_emulate) {
-		wnck_window_set_geometry(get_current_window(),
-			WNCK_WINDOW_GRAVITY_CURRENT,
-			WNCK_WINDOW_CHANGE_X + WNCK_WINDOW_CHANGE_Y,
-			x,y,-1,-1);
+		
+		WnckWindow *window=get_current_window();
+		
+		if (window) {
+			wnck_window_set_geometry(window,
+				WNCK_WINDOW_GRAVITY_CURRENT,
+				WNCK_WINDOW_CHANGE_X + WNCK_WINDOW_CHANGE_Y,
+				x,y,-1,-1);
+		}
 	}
 	
 	
@@ -162,17 +177,21 @@ int c_set_window_size(lua_State *lua)
 	
 	if (!devilspie2_emulate) {
 		
-		my_wnck_error_trap_push();
-		wnck_window_set_geometry(get_current_window(),
-			WNCK_WINDOW_GRAVITY_CURRENT,
-			WNCK_WINDOW_CHANGE_WIDTH + WNCK_WINDOW_CHANGE_HEIGHT,
-			-1,-1,x,y);
+		WnckWindow *window=get_current_window();
 		
-		if (my_wnck_error_trap_pop()) {
-			g_printerr("set_window_size failed");
-						
+		if (window) {
+			
+			my_wnck_error_trap_push();
+			wnck_window_set_geometry(window,
+				WNCK_WINDOW_GRAVITY_CURRENT,
+				WNCK_WINDOW_CHANGE_WIDTH + WNCK_WINDOW_CHANGE_HEIGHT,
+				-1,-1,x,y);
+			
+			if (my_wnck_error_trap_pop()) {
+				g_printerr("set_window_size failed");
+							
+			}
 		}
-		
 	}
 	
 	return 0;
@@ -191,8 +210,13 @@ int c_make_always_on_top(lua_State *lua)
 		return 0;
 	}
 	
-	if (!devilspie2_emulate)
-		wnck_window_make_above(get_current_window());
+	if (!devilspie2_emulate) {
+		WnckWindow *window=get_current_window();
+		
+		if (window) {
+			wnck_window_make_above(window);
+		}	
+	}
 	
 	return 0;
 }
@@ -211,9 +235,13 @@ int c_set_on_top(lua_State *lua)
 	}
 	
 	if (!devilspie2_emulate) {
-		wnck_window_make_above(get_current_window());
-	
-		wnck_window_unmake_above(get_current_window());
+		WnckWindow *window=get_current_window();
+		
+		if (window) {
+			wnck_window_make_above(window);
+		
+			wnck_window_unmake_above(window);
+		}
 	}
 	
 	return 0;
@@ -234,8 +262,16 @@ int c_get_application_name(lua_State *lua)
 	
 	const char *application_name;
 	
-	WnckApplication *application=wnck_window_get_application(get_current_window());
-	application_name=wnck_application_get_name(application);
+	WnckWindow *window=get_current_window();
+		
+	if (window) {
+
+		WnckApplication *application=wnck_window_get_application(get_current_window());
+		application_name=wnck_application_get_name(application);
+			
+	} else {
+		application_name="";
+	}
 
 	// one item returned - the application name as a string.
 	lua_pushstring(lua,application_name);
@@ -287,8 +323,14 @@ int c_shade_window(lua_State *lua)
 		return 0;
 	}
 	
-	if (!devilspie2_emulate)
-		wnck_window_shade(get_current_window());
+	if (!devilspie2_emulate) {
+		WnckWindow *window=get_current_window();
+		
+		if (window) {
+
+			wnck_window_shade(window);
+		}
+	}
 	
 	return 0;
 }
@@ -306,8 +348,14 @@ int c_unshade_window(lua_State *lua)
 		return 0;
 	}
 	
-	if (!devilspie2_emulate)
-		wnck_window_unshade(get_current_window());
+	if (!devilspie2_emulate) {
+		WnckWindow *window=get_current_window();
+		
+		if (window) {
+
+			wnck_window_unshade(window);
+		}
+	}
 	
 	return 0;
 }
@@ -325,8 +373,14 @@ int c_minimize_window(lua_State *lua)
 		return 0;
 	}
 	
-	if (!devilspie2_emulate)
-		wnck_window_minimize(get_current_window());
+	if (!devilspie2_emulate) {
+				WnckWindow *window=get_current_window();
+		
+		if (window) {
+
+			wnck_window_minimize(window);
+		}
+	}
 	
 	return 0;
 }
@@ -344,8 +398,13 @@ int c_unminimize_window(lua_State *lua)
 		return 0;
 	}
 	
-	if (!devilspie2_emulate)
-		wnck_window_unminimize (get_current_window(), GDK_CURRENT_TIME);
+	if (!devilspie2_emulate) {
+		WnckWindow *window=get_current_window();
+		
+		if (window) {
+			wnck_window_unminimize (window, GDK_CURRENT_TIME);
+		}
+	}
 	
 	return 0;
 }
@@ -383,8 +442,13 @@ int c_undecorate_window(lua_State *lua)
 	}
 	
 	if (!devilspie2_emulate) {
-		if (!undecorate_window(get_current_window())) {
-			result=FALSE;
+		WnckWindow *window=get_current_window();
+		
+		if (window) {
+
+			if (!undecorate_window(window)) {
+				result=FALSE;
+			}
 		}
 	}
 	
@@ -408,8 +472,13 @@ int c_decorate_window(lua_State *lua)
 	}
 	
 	if (!devilspie2_emulate) {
-		if (!decorate_window(get_current_window())) {
-			result=FALSE;
+		WnckWindow *window=get_current_window();
+		
+		if (window) {
+
+			if (!decorate_window(window)) {
+				result=FALSE;
+			}
 		}
 	}
 	
@@ -443,13 +512,18 @@ int c_set_window_workspace(lua_State *lua)
 	
 	int number=lua_tonumber(lua,1);
 	
-	screen=wnck_window_get_screen(current_window);
-	workspace=wnck_screen_get_workspace(screen,number-1);
-	
-	if (!workspace) {
-		g_warning("Workspace number %d does not exist!",number);
+	WnckWindow *window=get_current_window();
+		
+	if (window) {
+
+		screen=wnck_window_get_screen(window);
+		workspace=wnck_screen_get_workspace(screen,number-1);
+		
+		if (!workspace) {
+			g_warning("Workspace number %d does not exist!",number);
+		}
+		wnck_window_move_to_workspace(window,workspace);
 	}
-	wnck_window_move_to_workspace(current_window,workspace);
 	
 	lua_pushboolean(lua,TRUE);
 	
@@ -460,7 +534,7 @@ int c_set_window_workspace(lua_State *lua)
 
 
 /**
- * TODO! Implementation
+ *
  */
 int c_change_workspace(lua_State *lua)
 {
@@ -483,17 +557,21 @@ int c_change_workspace(lua_State *lua)
 	
 	int number=lua_tonumber(lua,1);
 	
-	screen=wnck_window_get_screen(current_window);
-	workspace=wnck_screen_get_workspace(screen,number-1);
-	
-	if (!workspace) {
-		g_warning("Workspace number %d does not exist!",number);
-	}
-	
-	g_get_current_time(&timestamp);
-	wnck_workspace_activate(workspace,timestamp.tv_sec);
+	WnckWindow *window=get_current_window();
+	if (window) {
+		screen=wnck_window_get_screen(window);
+		workspace=wnck_screen_get_workspace(screen,number-1);
+		
+		if (!workspace) {
+			g_warning("Workspace number %d does not exist!",number);
+		}
+		
+		g_get_current_time(&timestamp);
+		wnck_workspace_activate(workspace,timestamp.tv_sec);
+	}	
 	
 	lua_pushboolean(lua,TRUE);
+
 	
 	return 1;
 }
@@ -511,8 +589,12 @@ int c_unmaximize_window(lua_State *lua)
 		return 0;
 	}
 	
-	if (!devilspie2_emulate)
-		wnck_window_unmaximize(get_current_window());
+	if (!devilspie2_emulate) {
+		WnckWindow *window=get_current_window();
+		if (window) {
+			wnck_window_unmaximize(window);
+		}
+	}
 	
 	return 0;
 }
@@ -530,9 +612,12 @@ int c_maximize_window(lua_State *lua)
 		return 0;
 	}
 	
-	if (!devilspie2_emulate)
-		wnck_window_maximize(get_current_window());
-	
+	if (!devilspie2_emulate) {
+		WnckWindow *window=get_current_window();
+		if (window) {
+			wnck_window_maximize(window);
+		}
+	}
 	return 0;
 }
 
@@ -549,8 +634,12 @@ int c_maximize_window_vertically(lua_State *lua)
 		return 0;
 	}
 	
-	if (!devilspie2_emulate)
-		wnck_window_maximize_vertically(get_current_window());
+	if (!devilspie2_emulate) {
+		WnckWindow *window=get_current_window();
+		if (window) {
+			wnck_window_maximize_vertically(window);
+		}
+	}
 	
 	return 0;
 }
@@ -568,8 +657,12 @@ int c_maximize_window_horisontally(lua_State *lua)
 		return 0;
 	}
 	
-	if (!devilspie2_emulate)
-		wnck_window_maximize_horizontally(get_current_window());
+	if (!devilspie2_emulate) {
+		WnckWindow *window=get_current_window();
+		if (window) {
+			wnck_window_maximize_horizontally(window);
+		}
+	}
 	
 	return 0;
 }
@@ -588,8 +681,12 @@ int c_pin_window(lua_State *lua)
 		return 0;
 	}
 	
-	if (!devilspie2_emulate)
-		wnck_window_pin(get_current_window());
+	if (!devilspie2_emulate) {
+		WnckWindow *window=get_current_window();
+		if (window) {
+			wnck_window_pin(window);
+		}
+	}
 	
 	return 0;
 }
@@ -608,8 +705,13 @@ int c_unpin_window(lua_State *lua)
 		return 0;
 	}
 	
-	if (!devilspie2_emulate)
-		wnck_window_unpin(get_current_window());
+	
+	if (!devilspie2_emulate) {
+		WnckWindow *window=get_current_window();
+		if (window) {
+			wnck_window_unpin(window);
+		}
+	}
 	
 	return 0;
 }
@@ -627,8 +729,13 @@ int c_stick_window(lua_State *lua)
 		return 0;
 	}
 	
-	if (!devilspie2_emulate)
-		wnck_window_stick(get_current_window());
+	if (!devilspie2_emulate) {
+		WnckWindow *window=get_current_window();
+		if (window) {
+			wnck_window_stick(window);
+		}
+	}
+	
 	
 	return 0;
 }
@@ -646,8 +753,12 @@ int c_unstick_window(lua_State *lua)
 		return 0;
 	}
 	
-	if (!devilspie2_emulate)
-		wnck_window_unstick(get_current_window());
-	
+	if (!devilspie2_emulate) {
+		WnckWindow *window=get_current_window();
+		if (window) {
+			wnck_window_unstick(window);
+		}
+	}
+		
 	return 0;
 }
