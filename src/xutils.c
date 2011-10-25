@@ -122,10 +122,10 @@ int my_wnck_error_trap_pop()
 }
 
 
-
-
-static void
-set_decorations (WnckWindow *window, gboolean decorate)
+/**
+ *
+ */
+static void set_decorations (WnckWindow *window, gboolean decorate)
 {
 #define PROP_MOTIF_WM_HINTS_ELEMENTS 5
 #define MWM_HINTS_DECORATIONS (1L << 1)
