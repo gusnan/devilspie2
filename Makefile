@@ -50,6 +50,7 @@ ifdef CHECK_DEPRECATED
 	LOCAL_CFLAGS+=-DGDK_PIXBUF_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED
 endif 
 
+.PHONY: all
 all: $(BIN)/devilspie2
 
 $(OBJ)/%.o: $(SRC)/%.c
@@ -58,6 +59,7 @@ $(OBJ)/%.o: $(SRC)/%.c
 $(BIN)/devilspie2: $(OBJECTS)
 	$(CC) $(LOCAL_LDFLAGS) $(OBJECTS) -o $(PROG) $(LIBS)
 
+.PHONY: clean
 clean:
 	rm -rf $(OBJECTS) $(PROG) $(DEPEND)
 
@@ -65,6 +67,7 @@ install:
 	install -d $(DESTDIR)$(prefix)/bin
 	install -m 755 $(PROG) $(DESTDIR)$(prefix)/bin
 
+.PHONY: uninstall
 uninstall:
 	rm -f $(DESTDIR)$(prefix)/$(PROG)
 
