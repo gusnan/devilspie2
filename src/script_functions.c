@@ -534,7 +534,7 @@ int c_set_window_workspace(lua_State *lua)
 
 
 /**
- *
+ * Makes a workspace the active one
  */
 int c_change_workspace(lua_State *lua)
 {
