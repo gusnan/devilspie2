@@ -23,11 +23,11 @@
 /**
  *
  */
-Atom my_wnck_atom_get  (const char *atom_name);
+Atom my_wnck_atom_get(const char *atom_name);
 
-void my_wnck_change_state (Screen *screen, Window xwindow, gboolean add, Atom state1, Atom state2);
+void my_wnck_change_state(Screen *screen, Window xwindow, gboolean add, Atom state1, Atom state2);
 
-Screen* my_wnck_window_get_xscreen (WnckWindow *window);
+Screen* my_wnck_window_get_xscreen(WnckWindow *window);
 
 void my_wnck_error_trap_push();
 int my_wnck_error_trap_pop();
