@@ -35,7 +35,7 @@ static GHashTable *reverse_atom_hash = NULL;
 /**
  *
  */
-Atom my_wnck_atom_get (const char *atom_name)
+Atom my_wnck_atom_get(const char *atom_name)
 {
 	Atom retval;
 
@@ -73,7 +73,7 @@ Atom my_wnck_atom_get (const char *atom_name)
 /**
  *
  */
-void my_wnck_change_state (Screen  *screen, Window   xwindow,
+void my_wnck_change_state(Screen *screen, Window xwindow,
 							gboolean add,
 							Atom     state1,
 							Atom     state2)
@@ -125,7 +125,7 @@ int my_wnck_error_trap_pop()
 /**
  *
  */
-static void set_decorations (WnckWindow *window, gboolean decorate)
+static void set_decorations(WnckWindow *window, gboolean decorate)
 {
 #define PROP_MOTIF_WM_HINTS_ELEMENTS 5
 #define MWM_HINTS_DECORATIONS (1L << 1)
@@ -194,7 +194,7 @@ gboolean undecorate_window(WnckWindow *window)
 /**
  *
  */
-Screen *my_wnck_window_get_xscreen (WnckWindow *window)
+Screen *my_wnck_window_get_xscreen(WnckWindow *window)
 {
    Window   xid;
    XWindowAttributes attrs;
