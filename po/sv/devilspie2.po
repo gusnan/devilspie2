@@ -75,7 +75,7 @@ msgstr ""
 
 #: devilspie2.c:165
 msgid "- apply rules on windows"
-msgstr "applicera regler på fönster"
+msgstr "- applicera regler på fönster"
 
 #: devilspie2.c:168
 #, c-format
