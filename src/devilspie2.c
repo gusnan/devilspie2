@@ -158,10 +158,8 @@ int main(int argc, char *argv[])
 	gdk_init(&argc, &argv);
 
 	// Init gettext stuff
-	char *result_locale=setlocale(LC_ALL,"");
-	
-	printf("Result locale is: %s\n",result_locale);
-	
+	setlocale(LC_ALL,"");
+
 	bindtextdomain("devilspie2","/usr/share/locale");
 	textdomain("devilspie2");
 
