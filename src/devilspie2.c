@@ -30,6 +30,14 @@
 #include <lua.h>
 #include <lualib.h>
 
+#include <locale.h>
+
+#include <libintl.h>
+#define _(String) gettext (String)
+#define gettext_noop(String) String
+#define N_(String) gettext_noop (String)
+
+
 #include "script.h"
 #include "script_functions.h"
 
@@ -116,7 +124,7 @@ void devilspie_exit()
  */
 static void signal_handler(int sig)
 {
-	printf("\nReceived signal %d (%s)\n", sig, strsignal(sig));
+	printf(_("\nReceived signal %d (%s)\n"), sig, strsignal(sig));
 
 	if (sig==SIGINT)
 		exit(1);
@@ -146,16 +154,24 @@ int main(int argc, char *argv[])
 	
 	GDir *dir;
 	const gchar *current_file;
-		
+
 	gdk_init(&argc, &argv);
+
+	// Init gettext stuff
+	char *result_locale=setlocale(LC_ALL,"");
 	
-	context=g_option_context_new("- apply rules on windows");
+	printf("Result locale is: %s\n",result_locale);
+	
+	bindtextdomain("devilspie2","/usr/share/locale");
+	textdomain("devilspie2");
+
+	context=g_option_context_new(_("- apply rules on windows"));
 	g_option_context_add_main_entries(context,options,NULL);
 	if (!g_option_context_parse(context, &argc, &argv, &error)) {
-		g_print("option parsing failed: %s\n",error->message);
+		g_print(_("option parsing failed: %s\n"),error->message);
 		exit(EXIT_FAILURE);
 	}
-	
+
 	// if the folder is NULL, default to ~/.config/devilspie2/
 	if (script_folder==NULL) {
 		
@@ -166,7 +182,7 @@ int main(int argc, char *argv[])
 
 			// - and if it doesn't, create it.
 			if (g_mkdir(temp_folder,0700)!=0) {
-				g_error("Couldn't create the default devilspie folder.");
+				g_error(_("Couldn't create the default devilspie folder."));
 			}
 		}
 		
@@ -179,13 +195,13 @@ int main(int argc, char *argv[])
 	}
 	
 	if (debug) {
-		printf("Running Devilspie2 in debug mode");
+		printf(_("Running Devilspie2 in debug mode"));
 		
-		if (emulate) printf(" and Emulate mode");
+		if (emulate) printf(_(" and Emulate mode"));
 		
 		printf(".\n\n");
 		
-		printf("Using scripts from folder: %s\n",script_folder);
+		printf(_("Using scripts from folder: %s\n"),script_folder);
 		
 		devilspie2_debug=TRUE;
 	}
@@ -196,7 +212,7 @@ int main(int argc, char *argv[])
 	// add all the files in the script_folder to the file_list
 	dir=g_dir_open(script_folder,0,NULL);
 	if (!g_file_test(script_folder,G_FILE_TEST_IS_DIR)) {
-		g_error("script_folder isn't a folder.\n");
+		g_error(_("script_folder isn't a folder.\n"));
 		devilspie_exit();
 		exit(EXIT_FAILURE);
 	}
@@ -222,13 +238,13 @@ int main(int argc, char *argv[])
 	g_dir_close(dir);
 	
 	if (number_of_files==0) {
-		printf("No script files found in the script folder - exiting.\n\n");
+		printf(_("No script files found in the script folder - exiting.\n\n"));
 		exit(EXIT_SUCCESS);
 	}
 	
 	// print the list of files:
 	
-	if (debug) printf("List of LUA files in folder:\n");
+	if (debug) printf(_("List of LUA files in folder:\n"));
 		
 	if (file_list!=NULL) {
 		

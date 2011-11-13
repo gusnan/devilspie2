@@ -7,3 +7,5 @@ obj/xutils.o
 obj/devilspie2.o
 devilspie2
 Makefile.dep
+po/*.mo
+po/sv/*.mo
