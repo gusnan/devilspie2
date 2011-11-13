@@ -47,7 +47,7 @@ msgstr ""
 
 #: devilspie2.c:144
 msgid "Don't apply any rules, only emulate an execution"
-msgstr ""
+msgstr "Applicera inga regler, emulera endast körning"
 
 #: devilspie2.c:145
 msgid "folder"
@@ -55,7 +55,7 @@ msgstr ""
 
 #: devilspie2.c:146
 msgid "Folder where scripts are found"
-msgstr ""
+msgstr "Mapp att söka efter script i"
 
 #: devilspie2.c:147
 msgid "version"
@@ -129,7 +129,7 @@ msgstr ""
 #: devilspie2.c:244
 #, c-format
 msgid "List of LUA files in folder:\n"
-msgstr ""
+msgstr "LUA-filer i mappen:\n"
 
 #: devilspie2.c:252 script.c:123
 #, c-format
@@ -240,11 +240,11 @@ msgstr ""
 #: script.c:158
 #, c-format
 msgid "Error:%s\n"
-msgstr ""
+msgstr "Fel:%s\n"
 
 #: script_functions.c:57
 msgid "get_window_name: No indata expected"
-msgstr ""
+msgstr "get_window_name: Ingen indata väntad"
 
 #: script_functions.c:85
 msgid "set_window_geometry: 4 indata required - xpos,ypos, xsize,ysize"
