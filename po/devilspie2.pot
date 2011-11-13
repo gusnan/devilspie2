@@ -1,0 +1,400 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#: devilspie2.c:159 script_functions.c:66 script_functions.c:278
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-11-13 19:41+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: devilspie2.c:77 devilspie2.c:227 devilspie2.c:251
+msgid ".lua"
+msgstr ""
+
+#: devilspie2.c:106
+msgid "window_opened"
+msgstr ""
+
+#: devilspie2.c:127
+#, c-format
+msgid ""
+"\n"
+"Received signal %d (%s)\n"
+msgstr ""
+
+#: devilspie2.c:141
+msgid "debug"
+msgstr ""
+
+#: devilspie2.c:142
+msgid "Print debug info to stdout"
+msgstr ""
+
+#: devilspie2.c:143
+msgid "emulate"
+msgstr ""
+
+#: devilspie2.c:144
+msgid "Don't apply any rules, only emulate an execution"
+msgstr ""
+
+#: devilspie2.c:145
+msgid "folder"
+msgstr ""
+
+#: devilspie2.c:146
+msgid "Folder where scripts are found"
+msgstr ""
+
+#: devilspie2.c:147
+msgid "version"
+msgstr ""
+
+#: devilspie2.c:148
+msgid "Show Devilspie2 version and quit"
+msgstr ""
+
+#: devilspie2.c:160 devilspie2.c:161 devilspie2.c:175 devilspie2.c:228
+msgid "devilspie2"
+msgstr ""
+
+#: devilspie2.c:160
+msgid "/usr/share/locale"
+msgstr ""
+
+#: devilspie2.c:165
+msgid "- apply rules on windows"
+msgstr ""
+
+#: devilspie2.c:168
+#, c-format
+msgid "option parsing failed: %s\n"
+msgstr ""
+
+#: devilspie2.c:182
+msgid "Couldn't create the default devilspie folder."
+msgstr ""
+
+#: devilspie2.c:190
+#, c-format
+msgid ""
+"Devilspie2 v%s\n"
+"\n"
+msgstr ""
+
+#: devilspie2.c:195
+#, c-format
+msgid "Running Devilspie2 in debug mode"
+msgstr ""
+
+#: devilspie2.c:197
+#, c-format
+msgid " and Emulate mode"
+msgstr ""
+
+#: devilspie2.c:199
+#, c-format
+msgid ""
+".\n"
+"\n"
+msgstr ""
+
+#: devilspie2.c:201
+#, c-format
+msgid "Using scripts from folder: %s\n"
+msgstr ""
+
+#: devilspie2.c:212
+msgid "script_folder isn't a folder.\n"
+msgstr ""
+
+#: devilspie2.c:238
+#, c-format
+msgid ""
+"No script files found in the script folder - exiting.\n"
+"\n"
+msgstr ""
+
+#: devilspie2.c:244
+#, c-format
+msgid "List of LUA files in folder:\n"
+msgstr ""
+
+#: devilspie2.c:252 script.c:123
+#, c-format
+msgid "%s\n"
+msgstr ""
+
+#: devilspie2.c:258
+#, c-format
+msgid "------------\n"
+msgstr ""
+
+#: script.c:72
+msgid "get_window_name"
+msgstr ""
+
+#: script.c:74
+msgid "set_window_position"
+msgstr ""
+
+#: script.c:75
+msgid "set_window_size"
+msgstr ""
+
+#: script.c:76
+msgid "set_window_geometry"
+msgstr ""
+
+#: script.c:78
+msgid "get_application_name"
+msgstr ""
+
+#: script.c:80
+msgid "make_always_on_top"
+msgstr ""
+
+#: script.c:82
+msgid "set_on_top"
+msgstr ""
+
+#: script.c:84
+msgid "debug_print"
+msgstr ""
+
+#: script.c:86
+msgid "shade"
+msgstr ""
+
+#: script.c:87
+msgid "unshade"
+msgstr ""
+
+#: script.c:89
+msgid "maximize"
+msgstr ""
+
+#: script.c:90
+msgid "maximize_horisontally"
+msgstr ""
+
+#: script.c:91
+msgid "maximize_vertically"
+msgstr ""
+
+#: script.c:92
+msgid "unmaximize"
+msgstr ""
+
+#: script.c:94
+msgid "minimize"
+msgstr ""
+
+#: script.c:95
+msgid "unminimize"
+msgstr ""
+
+#: script.c:97
+msgid "decorate_window"
+msgstr ""
+
+#: script.c:98
+msgid "undecorate_window"
+msgstr ""
+
+#: script.c:100
+msgid "set_window_workspace"
+msgstr ""
+
+#: script.c:101
+msgid "change_workspace"
+msgstr ""
+
+#: script.c:103
+msgid "pin_window"
+msgstr ""
+
+#: script.c:104
+msgid "unpin_window"
+msgstr ""
+
+#: script.c:105
+msgid "stick_window"
+msgstr ""
+
+#: script.c:106
+msgid "unstick_window"
+msgstr ""
+
+#: script.c:158
+#, c-format
+msgid "Error:%s\n"
+msgstr ""
+
+#: script_functions.c:57
+msgid "get_window_name: No indata expected"
+msgstr ""
+
+#: script_functions.c:85
+msgid "set_window_geometry: 4 indata required - xpos,ypos, xsize,ysize"
+msgstr ""
+
+#: script_functions.c:95
+msgid "set_window_geometry: 4 numbers expected as indata."
+msgstr ""
+
+#: script_functions.c:128
+msgid "set_window_position: 2 indata required - xpos,ypos"
+msgstr ""
+
+#: script_functions.c:136
+msgid "set_window_position: 2 numbers expected as indata."
+msgstr ""
+
+#: script_functions.c:168
+msgid "set_window_size: 2 numbers required - xsize,ysize"
+msgstr ""
+
+#: script_functions.c:176
+msgid "set_window_size: 2 numbers expected as indata."
+msgstr ""
+
+#: script_functions.c:196
+msgid "set_window_size failed"
+msgstr ""
+
+#: script_functions.c:214
+msgid "make_always_on_top: No indata expected"
+msgstr ""
+
+#: script_functions.c:238
+msgid "set_on_top: No indata expected"
+msgstr ""
+
+#: script_functions.c:264
+msgid "get_application_name: No indata expected"
+msgstr ""
+
+#: script_functions.c:297 script_functions.c:305
+msgid "tostring"
+msgstr ""
+
+#: script_functions.c:305
+msgid " must return a string to "
+msgstr ""
+
+#: script_functions.c:306
+msgid "print"
+msgstr ""
+
+#: script_functions.c:308
+msgid "\t"
+msgstr ""
+
+#: script_functions.c:313
+msgid "\n"
+msgstr ""
+
+#: script_functions.c:327
+msgid "shade_window: No indata expected"
+msgstr ""
+
+#: script_functions.c:352
+msgid "unshade_window: No indata expected"
+msgstr ""
+
+#: script_functions.c:377
+msgid "minimize_window: No indata expected"
+msgstr ""
+
+#: script_functions.c:402
+msgid "unminimize_window: No indata expected"
+msgstr ""
+
+#: script_functions.c:445
+msgid "undecorate_window: No indata expected"
+msgstr ""
+
+#: script_functions.c:475
+msgid "decorate_window: No indata expected"
+msgstr ""
+
+#: script_functions.c:507
+msgid "set_window_workspace: 1 indata required"
+msgstr ""
+
+#: script_functions.c:514
+msgid "set_window_workspace: a number expected as indata"
+msgstr ""
+
+#: script_functions.c:528 script_functions.c:571
+#, c-format
+msgid "Workspace number %d does not exist!"
+msgstr ""
+
+#: script_functions.c:552
+msgid "change_workspace: 1 indata required"
+msgstr ""
+
+#: script_functions.c:559
+msgid "change_workspace: a number expected as indata"
+msgstr ""
+
+#: script_functions.c:593
+msgid "unmaximize: No indata expected"
+msgstr ""
+
+#: script_functions.c:616
+msgid "maximize: No indata expected"
+msgstr ""
+
+#: script_functions.c:638
+msgid "maximize_vertically: No indata expected"
+msgstr ""
+
+#: script_functions.c:661
+msgid "maximize_horisontally: No indata expected"
+msgstr ""
+
+#: script_functions.c:685
+msgid "pin_window: No indata expected"
+msgstr ""
+
+#: script_functions.c:709
+msgid "unpin_window: No indata expected"
+msgstr ""
+
+#: script_functions.c:733
+msgid "stick_window: No indata expected"
+msgstr ""
+
+#: script_functions.c:757
+msgid "unstick_window: No indata expected"
+msgstr ""
+
+#: xutils.c:97
+msgid "_NET_WM_STATE"
+msgstr ""
+
+#: xutils.c:150 xutils.c:151
+msgid "_MOTIF_WM_HINTS"
+msgstr ""
+
+#: xutils.c:158
+msgid "_OB_WM_STATE_UNDECORATED"
+msgstr ""
+
+#: xutils.c:173 xutils.c:191
+msgid "decorate_window Failed!\n"
+msgstr ""
