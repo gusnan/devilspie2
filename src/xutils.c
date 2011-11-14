@@ -22,11 +22,6 @@
 #include <gdk/gdkx.h>
 #include <X11/Xlib.h>
 
-#include <libintl.h>
-#define _(String) gettext (String)
-#define gettext_noop(String) String
-#define N_(String) gettext_noop (String)
-
 #define WNCK_I_KNOW_THIS_IS_UNSTABLE
 #include <libwnck/libwnck.h>
 
@@ -170,7 +165,7 @@ gboolean decorate_window(WnckWindow *window)
 	set_decorations(window,TRUE);
 	
 	if (my_wnck_error_trap_pop()) {
-		g_printerr(_("decorate_window Failed!\n"));
+		g_printerr("decorate_window Failed!\n");
 		return FALSE;
 	}
 	
@@ -188,7 +183,7 @@ gboolean undecorate_window(WnckWindow *window)
 	set_decorations(window,FALSE);
 	
 	if (my_wnck_error_trap_pop()) {
-		g_printerr(_("decorate_window Failed!\n"));
+		g_printerr("decorate_window Failed!\n");
 		return FALSE;
 	}
 	

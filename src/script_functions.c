@@ -28,11 +28,6 @@
 #include <lualib.h>
 #include <lauxlib.h>
 
-#include <libintl.h>
-#define _(String) gettext (String)
-#define gettext_noop(String) String
-#define N_(String) gettext_noop (String)
-
 #include "script_functions.h"
 
 #include "script.h"
@@ -54,7 +49,7 @@ int c_get_window_name(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=0) {
-		luaL_error(lua,_("get_window_name: No indata expected"));
+		luaL_error(lua,"get_window_name: No indata expected");
 		return 0;
 	}
 	char *test=NULL;
@@ -82,7 +77,7 @@ int c_set_window_geometry(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=4) {
-		luaL_error(lua,_("set_window_geometry: 4 indata required - xpos,ypos, xsize,ysize"));
+		luaL_error(lua,"set_window_geometry: 4 indata required - xpos,ypos, xsize,ysize");
 		return 0;
 	}
 	
@@ -92,7 +87,7 @@ int c_set_window_geometry(lua_State *lua)
 	int type4=lua_type(lua,4);
 	
 	if ((type1!=LUA_TNUMBER) || (type2!=LUA_TNUMBER) || (type3!=LUA_TNUMBER) || (type4!=LUA_TNUMBER)) {
-		luaL_error(lua,_("set_window_geometry: 4 numbers expected as indata."));
+		luaL_error(lua,"set_window_geometry: 4 numbers expected as indata.");
 		return 0;
 	}
 	
@@ -125,7 +120,7 @@ int c_set_window_position(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=2) {
-		luaL_error(lua,_("set_window_position: 2 indata required - xpos,ypos"));
+		luaL_error(lua,"set_window_position: 2 indata required - xpos,ypos");
 		return 0;
 	}
 	
@@ -133,7 +128,7 @@ int c_set_window_position(lua_State *lua)
 	int type2=lua_type(lua,2);
 	
 	if ((type1!=LUA_TNUMBER) || (type2!=LUA_TNUMBER)) {
-		luaL_error(lua,_("set_window_position: 2 numbers expected as indata."));
+		luaL_error(lua,"set_window_position: 2 numbers expected as indata.");
 		return 0;
 	}
 	
@@ -165,7 +160,7 @@ int c_set_window_size(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=2) {
-		luaL_error(lua,_("set_window_size: 2 numbers required - xsize,ysize"));
+		luaL_error(lua,"set_window_size: 2 numbers required - xsize,ysize");
 		return 0;
 	}
 	
@@ -173,7 +168,7 @@ int c_set_window_size(lua_State *lua)
 	int type2=lua_type(lua,2);
 	
 	if ((type1!=LUA_TNUMBER) || (type2!=LUA_TNUMBER)) {
-		luaL_error(lua,_("set_window_size: 2 numbers expected as indata."));
+		luaL_error(lua,"set_window_size: 2 numbers expected as indata.");
 		return 0;
 	}
 	
@@ -193,7 +188,7 @@ int c_set_window_size(lua_State *lua)
 				-1,-1,x,y);
 			
 			if (my_wnck_error_trap_pop()) {
-				g_printerr(_("set_window_size failed"));
+				g_printerr("set_window_size failed");
 							
 			}
 		}
@@ -211,7 +206,7 @@ int c_make_always_on_top(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=0) {
-		luaL_error(lua,_("make_always_on_top: No indata expected"));
+		luaL_error(lua,"make_always_on_top: No indata expected");
 		return 0;
 	}
 	
@@ -235,7 +230,7 @@ int c_set_on_top(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=0) {
-		luaL_error(lua,_("set_on_top: No indata expected"));
+		luaL_error(lua,"set_on_top: No indata expected");
 		return 0;
 	}
 	
@@ -261,7 +256,7 @@ int c_get_application_name(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=0) {
-		luaL_error(lua,_("get_application_name: No indata expected"));
+		luaL_error(lua,"get_application_name: No indata expected");
 		return 0;
 	}
 	
@@ -324,7 +319,7 @@ int c_shade_window(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=0) {
-		luaL_error(lua,_("shade_window: No indata expected"));
+		luaL_error(lua,"shade_window: No indata expected");
 		return 0;
 	}
 	
@@ -349,7 +344,7 @@ int c_unshade_window(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=0) {
-		luaL_error(lua,_("unshade_window: No indata expected"));
+		luaL_error(lua,"unshade_window: No indata expected");
 		return 0;
 	}
 	
@@ -374,7 +369,7 @@ int c_minimize_window(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=0) {
-		luaL_error(lua,_("minimize_window: No indata expected"));
+		luaL_error(lua,"minimize_window: No indata expected");
 		return 0;
 	}
 	
@@ -399,7 +394,7 @@ int c_unminimize_window(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=0) {
-		luaL_error(lua,_("unminimize_window: No indata expected"));
+		luaL_error(lua,"unminimize_window: No indata expected");
 		return 0;
 	}
 	
@@ -442,7 +437,7 @@ int c_undecorate_window(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=0) {
-		luaL_error(lua,_("undecorate_window: No indata expected"));
+		luaL_error(lua,"undecorate_window: No indata expected");
 		return 0;
 	}
 	
@@ -472,7 +467,7 @@ int c_decorate_window(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=0) {
-		luaL_error(lua,_("decorate_window: No indata expected"));
+		luaL_error(lua,"decorate_window: No indata expected");
 		return 0;
 	}
 	
@@ -504,14 +499,14 @@ int c_set_window_workspace(lua_State *lua)
 	WnckWorkspace *workspace;
 	
 	if (top!=1) {
-		luaL_error(lua,_("set_window_workspace: 1 indata required"));
+		luaL_error(lua,"set_window_workspace: 1 indata required");
 		return 0;
 	}
 	
 	int type=lua_type(lua,1);
 	
 	if (type!=LUA_TNUMBER) {
-		luaL_error(lua,_("set_window_workspace: a number expected as indata"));
+		luaL_error(lua,"set_window_workspace: a number expected as indata");
 		return 0;
 	}
 	
@@ -525,7 +520,7 @@ int c_set_window_workspace(lua_State *lua)
 		workspace=wnck_screen_get_workspace(screen,number-1);
 		
 		if (!workspace) {
-			g_warning(_("Workspace number %d does not exist!"),number);
+			g_warning("Workspace number %d does not exist!",number);
 		}
 		wnck_window_move_to_workspace(window,workspace);
 	}
@@ -549,14 +544,14 @@ int c_change_workspace(lua_State *lua)
 	GTimeVal timestamp;
 	
 	if (top!=1) {
-		luaL_error(lua,_("change_workspace: 1 indata required"));
+		luaL_error(lua,"change_workspace: 1 indata required");
 		return 0;
 	}
 	
 	int type=lua_type(lua,1);
 	
 	if (type!=LUA_TNUMBER) {
-		luaL_error(lua,_("change_workspace: a number expected as indata"));
+		luaL_error(lua,"change_workspace: a number expected as indata");
 		return 0;
 	}
 	
@@ -568,7 +563,7 @@ int c_change_workspace(lua_State *lua)
 		workspace=wnck_screen_get_workspace(screen,number-1);
 		
 		if (!workspace) {
-			g_warning(_("Workspace number %d does not exist!"),number);
+			g_warning("Workspace number %d does not exist!",number);
 		}
 		
 		g_get_current_time(&timestamp);
@@ -590,7 +585,7 @@ int c_unmaximize_window(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=0) {
-		luaL_error(lua,_("unmaximize: No indata expected"));
+		luaL_error(lua,"unmaximize: No indata expected");
 		return 0;
 	}
 	
@@ -613,7 +608,7 @@ int c_maximize_window(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=0) {
-		luaL_error(lua,_("maximize: No indata expected"));
+		luaL_error(lua,"maximize: No indata expected");
 		return 0;
 	}
 	
@@ -635,7 +630,7 @@ int c_maximize_window_vertically(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=0) {
-		luaL_error(lua,_("maximize_vertically: No indata expected"));
+		luaL_error(lua,"maximize_vertically: No indata expected");
 		return 0;
 	}
 	
@@ -658,7 +653,7 @@ int c_maximize_window_horisontally(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=0) {
-		luaL_error(lua,_("maximize_horisontally: No indata expected"));
+		luaL_error(lua,"maximize_horisontally: No indata expected");
 		return 0;
 	}
 	
@@ -682,7 +677,7 @@ int c_pin_window(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=0) {
-		luaL_error(lua,_("pin_window: No indata expected"));
+		luaL_error(lua,"pin_window: No indata expected");
 		return 0;
 	}
 	
@@ -706,7 +701,7 @@ int c_unpin_window(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=0) {
-		luaL_error(lua,_("unpin_window: No indata expected"));
+		luaL_error(lua,"unpin_window: No indata expected");
 		return 0;
 	}
 	
@@ -730,7 +725,7 @@ int c_stick_window(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=0) {
-		luaL_error(lua,_("stick_window: No indata expected"));
+		luaL_error(lua,"stick_window: No indata expected");
 		return 0;
 	}
 	
@@ -754,7 +749,7 @@ int c_unstick_window(lua_State *lua)
 	int top=lua_gettop(lua);
 	
 	if (top!=0) {
-		luaL_error(lua,_("unstick_window: No indata expected"));
+		luaL_error(lua,"unstick_window: No indata expected");
 		return 0;
 	}
 	
