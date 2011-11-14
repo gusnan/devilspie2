@@ -2,6 +2,11 @@
 ChangeLog:
 ----------
 
+0.14
+	* Better checks for valid windows
+	* Source code commenting updates
+	* Minor documentation updates
+
 0.13
 	* Updated example in the README and other documentation updates
 	* Makefile updates
