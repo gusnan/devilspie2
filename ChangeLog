@@ -2,6 +2,10 @@
 ChangeLog:
 ----------
 
+0.15
+	* Fix GPL headers, which incorrectly was LGPL
+	* Minor documentation fixes
+
 0.14
 	* Better checks for valid windows
 	* Source code commenting updates
