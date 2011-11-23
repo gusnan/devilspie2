@@ -125,73 +125,12 @@ static void signal_handler(int sig)
 
 
 /**
- * Program main entry
+ *
  */
-int main(int argc, char *argv[])
+void load_scripts()
 {
-	static const GOptionEntry options[]={
-		{ "debug",		'd',	0,	G_OPTION_ARG_NONE,		&debug,			
-			"Print debug info to stdout"},
-		{ "emulate",	'e',	0,	G_OPTION_ARG_NONE,		&emulate,		
-			"Don't apply any rules, only emulate an execution"},
-		{ "folder",		'f',	0,	G_OPTION_ARG_STRING,		&script_folder, 
-			"Folder where scripts are found"},
-		{ "version",	'v',	0,	G_OPTION_ARG_NONE,		&version,
-			"Show Devilspie2 version and quit"},
-		{ NULL }
-	};
-	
-	GError *error=NULL;
-	GOptionContext *context;
-	
 	GDir *dir;
 	const gchar *current_file;
-
-	gdk_init(&argc, &argv);
-
-	context=g_option_context_new("- apply rules on windows");
-	g_option_context_add_main_entries(context,options,NULL);
-	if (!g_option_context_parse(context, &argc, &argv, &error)) {
-		g_print("option parsing failed: %s\n",error->message);
-		exit(EXIT_FAILURE);
-	}
-
-	// if the folder is NULL, default to ~/.config/devilspie2/
-	if (script_folder==NULL) {
-		
-		temp_folder=g_build_path(G_DIR_SEPARATOR_S,g_get_user_config_dir(),"devilspie2",NULL);
-		
-		// check if the folder does exist
-		if (!g_file_test(temp_folder,G_FILE_TEST_IS_DIR)) {
-
-			// - and if it doesn't, create it.
-			if (g_mkdir(temp_folder,0700)!=0) {
-				g_error("Couldn't create the default devilspie folder.");
-			}
-		}
-		
-		script_folder=temp_folder;
-	}
-	
-	if (version) {
-		printf("Devilspie2 v%s\n\n",VERSION_STRING);
-		exit(EXIT_SUCCESS);
-	}
-	
-	if (debug) {
-		printf("Running Devilspie2 in debug mode");
-		
-		if (emulate) printf(" and Emulate mode");
-		
-		printf(".\n\n");
-		
-		printf("Using scripts from folder: %s\n",script_folder);
-		
-		devilspie2_debug=TRUE;
-	}
-	
-	// Should we only run an emulation (don't modify any windows)
-	if (emulate) devilspie2_emulate=emulate;
 	
 	// add all the files in the script_folder to the file_list
 	dir=g_dir_open(script_folder,0,NULL);
@@ -241,6 +180,76 @@ int main(int argc, char *argv[])
 			temp_list=temp_list->next;
 		}
 	}
+}
+
+
+/**
+ * Program main entry
+ */
+int main(int argc, char *argv[])
+{
+	static const GOptionEntry options[]={
+		{ "debug",		'd',	0,	G_OPTION_ARG_NONE,		&debug,			
+			"Print debug info to stdout"},
+		{ "emulate",	'e',	0,	G_OPTION_ARG_NONE,		&emulate,		
+			"Don't apply any rules, only emulate an execution"},
+		{ "folder",		'f',	0,	G_OPTION_ARG_STRING,		&script_folder, 
+			"Folder where scripts are found"},
+		{ "version",	'v',	0,	G_OPTION_ARG_NONE,		&version,
+			"Show Devilspie2 version and quit"},
+		{ NULL }
+	};
+	
+	GError *error=NULL;
+	GOptionContext *context;
+	
+	gdk_init(&argc, &argv);
+
+	context=g_option_context_new("- apply rules on windows");
+	g_option_context_add_main_entries(context,options,NULL);
+	if (!g_option_context_parse(context, &argc, &argv, &error)) {
+		g_print("option parsing failed: %s\n",error->message);
+		exit(EXIT_FAILURE);
+	}
+
+	// if the folder is NULL, default to ~/.config/devilspie2/
+	if (script_folder==NULL) {
+		
+		temp_folder=g_build_path(G_DIR_SEPARATOR_S,g_get_user_config_dir(),"devilspie2",NULL);
+		
+		// check if the folder does exist
+		if (!g_file_test(temp_folder,G_FILE_TEST_IS_DIR)) {
+
+			// - and if it doesn't, create it.
+			if (g_mkdir(temp_folder,0700)!=0) {
+				g_error("Couldn't create the default devilspie folder.");
+			}
+		}
+		
+		script_folder=temp_folder;
+	}
+	
+	if (version) {
+		printf("Devilspie2 v%s\n\n",VERSION_STRING);
+		exit(EXIT_SUCCESS);
+	}
+	
+	if (debug) {
+		printf("Running Devilspie2 in debug mode");
+		
+		if (emulate) printf(" and Emulate mode");
+		
+		printf(".\n\n");
+		
+		printf("Using scripts from folder: %s\n",script_folder);
+		
+		devilspie2_debug=TRUE;
+	}
+	
+	// Should we only run an emulation (don't modify any windows)
+	if (emulate) devilspie2_emulate=emulate;
+	
+	load_scripts();
 	
 	if (debug) printf("------------\n");
 	
