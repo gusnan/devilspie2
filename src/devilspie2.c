@@ -42,7 +42,7 @@ GMainLoop *loop=NULL;
 
 static gboolean debug=FALSE;
 static gboolean emulate=FALSE;
-static gboolean version=FALSE;
+static gboolean show_version=FALSE;
 
 static gchar *script_folder=NULL;
 static gchar *temp_folder=NULL;
@@ -195,7 +195,7 @@ int main(int argc, char *argv[])
 			"Don't apply any rules, only emulate an execution"},
 		{ "folder",		'f',	0,	G_OPTION_ARG_STRING,		&script_folder, 
 			"Folder where scripts are found"},
-		{ "version",	'v',	0,	G_OPTION_ARG_NONE,		&version,
+		{ "version",	'v',	0,	G_OPTION_ARG_NONE,		&show_version,
 			"Show Devilspie2 version and quit"},
 		{ NULL }
 	};
@@ -229,7 +229,7 @@ int main(int argc, char *argv[])
 		script_folder=temp_folder;
 	}
 	
-	if (version) {
+	if (show_version) {
 		printf("Devilspie2 v%s\n\n",VERSION_STRING);
 		exit(EXIT_SUCCESS);
 	}
