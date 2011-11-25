@@ -72,6 +72,13 @@ http://lua-users.org/wiki/TutorialDirectory
 The following commands are recognized by the Devilspie2 LUA interpreter:
 
 
+debug_print(string)
+
+	Debug helper that prints a string to stdout. The string is only printed to 
+	stdout if devilspie2 is run with the --debug option, otherwise nothing will
+	be printed.
+
+
 get_window_name()
 
 	returns a string containing the name of the current window.
@@ -107,12 +114,6 @@ set_on_top()
 
 	sets a window on top of the others. (unlike make_always_on_top, it doesn't
 	lock the window in this position.)
-
-
-debug_print()
-
-	Debug helper that prints a string to stdout. It is only printed if devilspie2
-	is run with the --debug option.
 
 
 shade()
