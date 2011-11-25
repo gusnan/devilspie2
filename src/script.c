@@ -110,7 +110,7 @@ int load_script(char *filename)
 	
 	int result=luaL_loadfile(lua,filename);
 	
-	if (result==0) {
+	if (!result) {
 		script_loaded=TRUE;
 	} else {
 		
@@ -133,7 +133,7 @@ void run_script()
 {
 	int s = lua_pcall( lua, 0, LUA_MULTRET, 0 );
 
-	if( s != 0 ) {
+	if (s) {
 	
 		char *error_msg;
 
@@ -160,7 +160,7 @@ void run_script()
  */
 void done_script()
 {
-	if (lua!=NULL)
+	if (lua)
 		lua_close(lua);
 	
 	lua=NULL;
