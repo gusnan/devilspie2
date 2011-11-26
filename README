@@ -35,7 +35,8 @@ debug_print("Window Name: "..	get_window_name());
 debug_print("Application name: "..get_application_name())
 
 -- I want my Xfce4-terminal to the right on the second screen of my two-monitor 
--- setup,
+-- setup. (Strings are case sensitive, please note this when creating rule
+-- scripts.)
 if (get_window_name()=="Terminal") then
 	-- x,y, xsize, ysize
 	set_window_geometry(1600,300,900,700);
@@ -199,6 +200,9 @@ unstick_window()
 
 	Asks the window manager to not have window's position fixed on the screen 
 	when the workspace or viewport scrolls. 
+
+Please note that strings are case sensitive, comparing "SomeProgram" with 
+"someprogram" will not report equality.
 
 
 Contact
