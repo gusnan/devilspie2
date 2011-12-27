@@ -35,6 +35,10 @@
 
 #include "version.h"
 
+#if GTK_CHECK_VERSION(3,0,0)
+#define HAVE_GTK3
+#endif
+
 /**
  *
  */
@@ -44,7 +48,7 @@ static gboolean debug=FALSE;
 static gboolean emulate=FALSE;
 static gboolean show_version=FALSE;
 
-#if GTK_CHECK_VERSION(3,0,0)
+#ifdef HAVE_GTK3
 	// libwnck Version Information is only availible if you have 
 	// libwnck 3.0 or later
 	static gboolean show_wnck_version=FALSE;
@@ -203,7 +207,7 @@ int main(int argc, char *argv[])
 			"Folder where scripts are found"},
 		{ "version",		'v',	0,	G_OPTION_ARG_NONE,		&show_version,
 			"Show Devilspie2 version and quit"},
-#if GTK_CHECK_VERSION(3,0,0)
+#ifdef HAVE_GTK3
 		// libwnck Version Information is only availible if you have 
 		// libwnck 3.0 or later
 		{ "wnck-version",	'w',	0,	G_OPTION_ARG_NONE,		&show_wnck_version,
@@ -245,7 +249,7 @@ int main(int argc, char *argv[])
 		printf("Devilspie2 v%s\n\n",VERSION_STRING);
 		exit(EXIT_SUCCESS);
 	}
-#if GTK_CHECK_VERSION(3,0,0)
+#ifdef HAVE_GTK3
 	// libwnck Version Information is only availible if you have 
 	// libwnck 3.0 or later
 	if (show_wnck_version) {
