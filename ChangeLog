@@ -2,9 +2,9 @@
 ChangeLog:
 ----------
 
-0.XX
+0.16
 	* Documentation updates
-	
+	* Add get_window_geometry and get_client_window_geometry functions
 
 0.15
 	* Fix GPL headers, which incorrectly was LGPL
