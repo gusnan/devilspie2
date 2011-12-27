@@ -35,7 +35,7 @@
 
 #include "version.h"
 
-#if GTK_CHECK_VERSION(3,0,0)
+#if (GTK_MAJOR_VERSION >= 3)
 #define HAVE_GTK3
 #endif
 
