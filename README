@@ -203,6 +203,19 @@ unstick_window()
 
 	Asks the window manager to not have window's position fixed on the screen 
 	when the workspace or viewport scrolls. 
+	
+	
+get_window_geometry()
+
+	Returns the window geometry as four numbers - x-position, y-position,
+	width and height.
+
+
+get_window_client_geometry()
+
+	returns the window geometry excluding the window manager borders as four
+	numbers, x-position, y-position, width and height.
+
 
 Please note that strings are case sensitive, comparing "SomeProgram" with 
 "someprogram" will not report equality.

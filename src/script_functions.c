@@ -761,3 +761,60 @@ int c_unstick_window(lua_State *lua)
 		
 	return 0;
 }
+
+
+/**
+ * return the geometry of the current window to the LUA script
+ */
+int c_get_window_geometry(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+	
+	if (top!=0) {
+		luaL_error(lua,"get_window_geometry: No indata expected");
+	}
+	
+	int x,y,width,height;
+	
+	WnckWindow *window=get_current_window();
+	if (window)
+	{
+		wnck_window_get_geometry(window,&x,&y,&width,&height);
+	}
+	
+	lua_pushnumber(lua,x);
+	lua_pushnumber(lua,y);
+	lua_pushnumber(lua,width);
+	lua_pushnumber(lua,height);
+	
+	return 4;
+}
+
+
+/**
+ * return the client geometry of the current window to the LUA script
+ * this is excluding the window manager frame
+ */
+int c_get_client_window_geometry(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+	
+	if (top!=0) {
+		luaL_error(lua,"get_window_geometry: No indata expected");
+	}
+	
+	int x,y,width,height;
+	
+	WnckWindow *window=get_current_window();
+	if (window)
+	{
+		wnck_window_get_client_window_geometry(window,&x,&y,&width,&height);
+	}
+	
+	lua_pushnumber(lua,x);
+	lua_pushnumber(lua,y);
+	lua_pushnumber(lua,width);
+	lua_pushnumber(lua,height);
+	
+	return 4;
+}

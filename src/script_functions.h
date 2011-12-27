@@ -62,5 +62,9 @@ int c_unstick_window(lua_State *lua);
 void set_current_window(WnckWindow *window);
 WnckWindow *get_current_window();
 
+int c_get_window_geometry(lua_State *lua);
+int c_get_client_window_geometry(lua_State *lua);
+
+
 
 #endif /*__HEADER_SCRIPT_FUNCTIONS_*/
