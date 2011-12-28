@@ -229,6 +229,8 @@ int main(int argc, char *argv[])
 	// Init gettext stuff
 	setlocale(LC_ALL,"");
 	
+	// Build the path to get the locale using DEVILSPIE2_PREFIX - 
+	// makes use of /usr or /usr/local from the build system
 	gchar *locale_folder=g_build_path(G_DIR_SEPARATOR_S,DEVILSPIE2_PREFIX,"share/locale/",NULL);
 	
 	bindtextdomain(GETTEXT_PACKAGE_NAME,locale_folder);
