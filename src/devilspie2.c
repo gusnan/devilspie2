@@ -230,6 +230,12 @@ int main(int argc, char *argv[])
 	GOptionContext *context;
 	
 	gdk_init(&argc, &argv);
+	
+	// Init gettext stuff
+	setlocale(LC_ALL,"");
+
+	bindtextdomain("devilspie2","/usr/share/locale");
+	textdomain("devilspie2");
 
 	context=g_option_context_new(_("- apply rules on windows"));
 	g_option_context_add_main_entries(context,options,NULL);
