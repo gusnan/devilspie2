@@ -62,34 +62,34 @@ int init_script_error_messages()
 	no_indata_expected_error=g_strdup_printf(_("No indata expected!"));
 	if (!no_indata_expected_error) {
 		printf(_("Couldn't allocate error string!\n"));
-		return EXIT_FAILURE;
+		return -1;
 	}
 		
 	one_indata_expected_error=g_strdup_printf(_("One indata expected!"));
 	if (!one_indata_expected_error) {
 		printf(_("Couldn't allocate error string!\n"));
-		return EXIT_FAILURE;
+		return -1;
 	}
 	
 	two_indata_expected_error=g_strdup_printf(_("Two indata expected!"));
 	if (!two_indata_expected_error) {
 		printf(_("Couldn't allocate error string!\n"));
-		return EXIT_FAILURE;
+		return -1;
 	}
 	
 	four_indata_expected_error=g_strdup_printf(_("Four indata expected!"));
 	if (!four_indata_expected_error) {
 		printf(_("Couldn't allocate error string!\n"));
-		return EXIT_FAILURE;
+		return -1;
 	}
 	
 	number_expected_as_indata_error=g_strdup_printf(_("Number expected as indata"));
 	if (!number_expected_as_indata_error) {
 		printf(_("Couldn't allocate error string!\n"));
-		return EXIT_FAILURE;
+		return -1;
 	}
 	
-	return EXIT_SUCCESS;
+	return 0;
 }
 
 
