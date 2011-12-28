@@ -231,8 +231,7 @@ int main(int argc, char *argv[])
 	
 	gchar *locale_folder=g_build_path(G_DIR_SEPARATOR_S,DEVILSPIE2_PREFIX,"share/locale/",NULL);
 	
-	gchar *bind_result=NULL;
-	bind_result=bindtextdomain(GETTEXT_PACKAGE_NAME,locale_folder);
+	bindtextdomain(GETTEXT_PACKAGE_NAME,locale_folder);
 	bind_textdomain_codeset(GETTEXT_PACKAGE_NAME,"");
 	textdomain(GETTEXT_PACKAGE_NAME);
 	
