@@ -1,0 +1,137 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Devilspie2 v0.16\n"
+"Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
+"POT-Creation-Date: 2011-12-28 16:44+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Andreas Rönnquist <gusnan@gusnan.se>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: sv_SE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: devilspie2.c:137
+#, c-format
+msgid ""
+"\n"
+"Received signal %d (%s)\n"
+msgstr ""
+"\n"
+"Tog emot signal %d (%s)\n"
+
+#: devilspie2.c:158
+msgid "script_folder isn't a folder.\n"
+msgstr "script_folder är inte en mapp.\n"
+
+#: devilspie2.c:184
+#, c-format
+msgid ""
+"No script files found in the script folder - exiting.\n"
+"\n"
+msgstr ""
+"Inga script hittades i script-mappen - avslutar.\n"
+"\n"
+
+#: devilspie2.c:190
+#, c-format
+msgid "List of LUA files in folder:\n"
+msgstr "Lista på alla LUA-filer i mappen:\n"
+
+#: devilspie2.c:213
+msgid "Print debug info to stdout"
+msgstr "Skriv debug-information till stdout"
+
+#: devilspie2.c:215
+msgid "Don't apply any rules, only emulate an execution"
+msgstr "Applicera inga regler, emulera endast en körning"
+
+#: devilspie2.c:217
+msgid "Folder where scripts are found"
+msgstr "Mapp där LUA-scripten hittas"
+
+#: devilspie2.c:219
+msgid "Show Devilspie2 version and quit"
+msgstr "Visa version av Devilspie2 och avsluta"
+
+#: devilspie2.c:224
+msgid "Show libwnck version and quit"
+msgstr "Visa version av libwnck och avsluta "
+
+#: devilspie2.c:234
+msgid "- apply rules on windows"
+msgstr "- applicera regler på fönster"
+
+#: devilspie2.c:237
+#, c-format
+msgid "option parsing failed: %s\n"
+msgstr "flagg-tolkning misslyckades: %s\n"
+
+#: devilspie2.c:251
+msgid "Couldn't create the default devilspie folder."
+msgstr "Kunde inte skapa default-mappen för devilspie2's script"
+
+#: devilspie2.c:272
+#, c-format
+msgid "Running Devilspie2 in debug mode"
+msgstr "Kör Devilspie2 i debug-mode"
+
+#: devilspie2.c:274
+#, c-format
+msgid " and Emulate mode"
+msgstr " och Emulerings-mode"
+
+#: devilspie2.c:278
+#, c-format
+msgid "Using scripts from folder: %s\n"
+msgstr "Använder script från folder: %s\n"
+
+#: devilspie2.c:287
+#, c-format
+msgid "Couldn't init script error messages!\n"
+msgstr "Kunde inte initiera script-felmeddelanden!\n"
+
+#: script.c:164
+#, c-format
+msgid "Error:%s\n"
+msgstr "Fel:%s\n"
+
+#: script_functions.c:62
+msgid "No indata expected!"
+msgstr "Ingen indata väntad!"
+
+#: script_functions.c:64 script_functions.c:70 script_functions.c:76
+#: script_functions.c:82 script_functions.c:88
+#, c-format
+msgid "Couldn't allocate error string!\n"
+msgstr "Kunde inte allokera sträng för felmeddelande!\n"
+
+#: script_functions.c:68
+msgid "One indata expected!"
+msgstr "En indata väntad!"
+
+#: script_functions.c:74
+msgid "Two indata expected!"
+msgstr "Två indata väntade!"
+
+#: script_functions.c:80
+msgid "Four indata expected!"
+msgstr "Fyra indata väntade!"
+
+#: script_functions.c:86
+msgid "Number expected as indata"
+msgstr "Väntade sig ett nummer som indata"
+
+#: script_functions.c:257 xutils.c:176 xutils.c:194
+msgid "Failed!"
+msgstr "Misslyckades!"
+
+#: script_functions.c:591 script_functions.c:634
+#, c-format
+msgid "Workspace number %d does not exist!"
+msgstr "Workspace nummer %d existerar inte!"
