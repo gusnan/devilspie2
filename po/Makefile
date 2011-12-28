@@ -17,7 +17,7 @@ VERSION = $(shell cat ../VERSION)
 DATADIR = ${DESTDIR}${prefix}/share
 LOCALEDIR = ${DATADIR}/locale
 
-XG_ARGS = --keyword=_ -w 80 --package-name=${NAME} --package-version=${VERSION} --msgid-bugs-address=gusnan@gusnan.se
+XG_ARGS = --keyword=_ --keyword=N_ -w 80 --package-name=${NAME} --package-version=${VERSION} --msgid-bugs-address=gusnan@gusnan.se
 LINGUAS = sv_SE
 
 all: build
