@@ -17,19 +17,15 @@ VERSION = $(shell cat ../VERSION)
 DATADIR = ${DESTDIR}${prefix}/share
 LOCALEDIR = ${DATADIR}/locale
 
-XG_ARGS = --keyword=_ --flag=_:1:pass-java-format -L Perl -w 80 --package-name=${NAME} --package-version=${VERSION} --msgid-bugs-address=ricardo@mones.org
+XG_ARGS = --keyword=_ -w 80 --package-name=${NAME} --package-version=${VERSION} --msgid-bugs-address=gusnan@gusnan.se
 LINGUAS = sv_SE
 
 all: build
 
-${NAME}.pot.0:
-	xgettext ${XG_ARGS} -f ./POTFILES -d ${NAME} -o ./${NAME}.pot.0
+${NAME}.pot:
+	xgettext ${XG_ARGS} --directory=../src/ devilspie2.c script.c script_functions.c xutils.c -d ${NAME} -o ./${NAME}.pot
 
-# remove bogus entry win_title
-update-pot: ${NAME}.pot.0
-	head -17 ./${NAME}.pot.0 > ./${NAME}.pot
-	tail -$(shell expr $(shell wc -l < ./${NAME}.pot.0) - 22 ) ./${NAME}.pot.0 >> ./${NAME}.pot
-	rm -f ./${NAME}.pot.0
+update-pot: ${NAME}.pot
 
 %.pox: %.po
 	msgmerge -o $@ --previous $< ${NAME}.pot 
