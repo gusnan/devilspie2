@@ -6,6 +6,7 @@ ChangeLog:
 	* Documentation updates
 	* Add get_window_geometry and get_client_window_geometry functions
 	* Add option to get system wnck version (on systems that support it)
+	* Added gettext support for translations
 
 0.15
 	* Fix GPL headers, which incorrectly was LGPL
