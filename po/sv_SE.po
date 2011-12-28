@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the devilspie2 package.
 # Andreas Rönnquist <gusnan@gusnan.se>, 2011.
 #
-#, fuzzy
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 \n"
@@ -14,7 +14,7 @@ msgstr ""
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: devilspie2.c:134
