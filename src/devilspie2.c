@@ -207,18 +207,18 @@ int main(int argc, char *argv[])
 {
 	static const GOptionEntry options[]={
 		{ "debug",			'd',	0,	G_OPTION_ARG_NONE,		&debug,			
-			"Print debug info to stdout"},
+			_("Print debug info to stdout")},
 		{ "emulate",		'e',	0,	G_OPTION_ARG_NONE,		&emulate,		
-			"Don't apply any rules, only emulate an execution"},
+			_("Don't apply any rules, only emulate an execution")},
 		{ "folder",			'f',	0,	G_OPTION_ARG_STRING,		&script_folder, 
-			"Folder where scripts are found"},
+			_("Folder where scripts are found")},
 		{ "version",		'v',	0,	G_OPTION_ARG_NONE,		&show_version,
-			"Show Devilspie2 version and quit"},
+			_("Show Devilspie2 version and quit")},
 #ifdef HAVE_GTK3
 		// libwnck Version Information is only availible if you have 
 		// libwnck 3.0 or later
 		{ "wnck-version",	'w',	0,	G_OPTION_ARG_NONE,		&show_wnck_version,
-			"Show libwnck version and quit"},
+			_("Show libwnck version and quit")},
 #endif
 		{ NULL }
 	};
