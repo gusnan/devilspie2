@@ -27,6 +27,14 @@
 #include <lualib.h>
 #include <lauxlib.h>
 
+#include <locale.h>
+
+#include <libintl.h>
+#define _(String) gettext (String)
+#define gettext_noop(String) String
+#define N_(String) gettext_noop (String)
+
+
 #include "script.h"
 
 #include "script_functions.h"
@@ -153,7 +161,7 @@ void run_script()
 		throw( ScriptException( mssOut.str().c_str(), errorMsg ) );
 		*/
 		
-		printf("Error:%s\n",error_msg);
+		printf(_("Error:%s\n"),error_msg);
 	}
 }
 

@@ -30,6 +30,14 @@
 #include <lua.h>
 #include <lualib.h>
 
+#include <locale.h>
+
+#include <libintl.h>
+#define _(String) gettext (String)
+#define gettext_noop(String) String
+#define N_(String) gettext_noop (String)
+
+
 #include "script.h"
 #include "script_functions.h"
 
@@ -126,7 +134,9 @@ void devilspie_exit()
  */
 static void signal_handler(int sig)
 {
-	printf("\nReceived signal %d (%s)\n", sig, strsignal(sig));
+	printf(_("\nReceived signal %d (%s)\n"), sig, strsignal(sig));
+	
+	done_script_error_messages();
 
 	if (sig==SIGINT)
 		exit(1);
@@ -145,7 +155,7 @@ void load_scripts()
 	// add all the files in the script_folder to the file_list
 	dir=g_dir_open(script_folder,0,NULL);
 	if (!g_file_test(script_folder,G_FILE_TEST_IS_DIR)) {
-		g_error("script_folder isn't a folder.\n");
+		g_error(_("script_folder isn't a folder.\n"));
 		devilspie_exit();
 		exit(EXIT_FAILURE);
 	}
@@ -171,13 +181,13 @@ void load_scripts()
 	g_dir_close(dir);
 	
 	if (number_of_files==0) {
-		printf("No script files found in the script folder - exiting.\n\n");
+		printf(_("No script files found in the script folder - exiting.\n\n"));
 		exit(EXIT_SUCCESS);
 	}
 	
 	// print the list of files:
 	
-	if (debug) printf("List of LUA files in folder:\n");
+	if (debug) printf(_("List of LUA files in folder:\n"));
 		
 	if (file_list!=NULL) {
 		
@@ -221,10 +231,10 @@ int main(int argc, char *argv[])
 	
 	gdk_init(&argc, &argv);
 
-	context=g_option_context_new("- apply rules on windows");
+	context=g_option_context_new(_("- apply rules on windows"));
 	g_option_context_add_main_entries(context,options,NULL);
 	if (!g_option_context_parse(context, &argc, &argv, &error)) {
-		g_print("option parsing failed: %s\n",error->message);
+		g_print(_("option parsing failed: %s\n"),error->message);
 		exit(EXIT_FAILURE);
 	}
 
@@ -238,7 +248,7 @@ int main(int argc, char *argv[])
 
 			// - and if it doesn't, create it.
 			if (g_mkdir(temp_folder,0700)!=0) {
-				g_error("Couldn't create the default devilspie folder.");
+				g_error(_("Couldn't create the default devilspie folder."));
 			}
 		}
 		
@@ -259,19 +269,24 @@ int main(int argc, char *argv[])
 #endif
 	
 	if (debug) {
-		printf("Running Devilspie2 in debug mode");
+		printf(_("Running Devilspie2 in debug mode"));
 		
-		if (emulate) printf(" and Emulate mode");
+		if (emulate) printf(_(" and Emulate mode"));
 		
 		printf(".\n\n");
 		
-		printf("Using scripts from folder: %s\n",script_folder);
+		printf(_("Using scripts from folder: %s\n"),script_folder);
 		
 		devilspie2_debug=TRUE;
 	}
 	
 	// Should we only run an emulation (don't modify any windows)
 	if (emulate) devilspie2_emulate=emulate;
+	
+	if (!init_script_error_messages()) {
+		printf(_("Couldn't init script error messages!\n"));
+		exit(EXIT_FAILURE);
+	}
 	
 	load_scripts();
 	

@@ -9,6 +9,10 @@
 		<file>./src/xutils.c</file>
 		<file>./src/xutils.h</file>
 	</group>
+	<group name='po' expanded='TRUE'>
+		<file>./po/devilspie2.pot</file>
+		<file>./po/Makefile</file>
+	</group>
 	<file>./ChangeLog</file>
 	<file>./COPYING</file>
 	<file>./devilspie2.1</file>

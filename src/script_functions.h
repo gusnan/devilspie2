@@ -23,6 +23,9 @@
 /**
  *
  */
+int init_script_error_messages();
+void done_script_error_messages();
+
 int c_get_window_name(lua_State *lua);
 
 int c_set_window_position(lua_State *lua);
