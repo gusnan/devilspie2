@@ -23,6 +23,9 @@
 #include <glib.h>
 #include <glib/gstdio.h>
 #include <gdk/gdk.h>
+#include <glib/gi18n.h>
+
+#define GETTEXT_PACKAGE_NAME "devilspie2"
 
 #define WNCK_I_KNOW_THIS_IS_UNSTABLE
 #include <libwnck/libwnck.h>
@@ -31,12 +34,6 @@
 #include <lualib.h>
 
 #include <locale.h>
-
-#include <libintl.h>
-#define _(String) gettext (String)
-#define gettext_noop(String) String
-#define N_(String) gettext_noop (String)
-
 
 #include "script.h"
 #include "script_functions.h"
@@ -229,13 +226,15 @@ int main(int argc, char *argv[])
 	GError *error=NULL;
 	GOptionContext *context;
 	
-	gdk_init(&argc, &argv);
-	
 	// Init gettext stuff
 	setlocale(LC_ALL,"");
-
-	bindtextdomain("devilspie2","/usr/share/locale");
-	textdomain("devilspie2");
+	
+	gchar *bind_result=NULL;
+	bind_result=bindtextdomain(GETTEXT_PACKAGE_NAME,"/usr/local/share/locale/");
+	bind_textdomain_codeset(GETTEXT_PACKAGE_NAME,"");
+	textdomain(GETTEXT_PACKAGE_NAME);
+	
+	gdk_init(&argc, &argv);
 
 	context=g_option_context_new(_("- apply rules on windows"));
 	g_option_context_add_main_entries(context,options,NULL);
@@ -289,7 +288,7 @@ int main(int argc, char *argv[])
 	// Should we only run an emulation (don't modify any windows)
 	if (emulate) devilspie2_emulate=emulate;
 	
-	if (!init_script_error_messages()) {
+	if (init_script_error_messages()!=0) {
 		printf(_("Couldn't init script error messages!\n"));
 		exit(EXIT_FAILURE);
 	}
