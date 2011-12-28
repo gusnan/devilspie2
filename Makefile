@@ -52,6 +52,7 @@ endif
 
 .PHONY: all
 all: $(BIN)/devilspie2
+	${MAKE} -C po build
 
 $(OBJ)/%.o: $(SRC)/%.c
 	$(CC) $(LOCAL_CFLAGS) -c $< -o $@
@@ -62,14 +63,17 @@ $(BIN)/devilspie2: $(OBJECTS)
 .PHONY: clean
 clean:
 	rm -rf $(OBJECTS) $(PROG) $(DEPEND)
+	${MAKE} -C po clean
 
 install:
 	install -d $(DESTDIR)$(prefix)/bin
 	install -m 755 $(PROG) $(DESTDIR)$(prefix)/bin
+	${MAKE} -C po install
 
 .PHONY: uninstall
 uninstall:
 	rm -f $(DESTDIR)$(prefix)/$(PROG)
+	${MAKE} -C po uninstall
 
 $(DEPEND):
 	$(CC) -MM $(SRC)/*.c | sed -e "s/\([A-Za-z0-9+-0._&+-]*:\)/\$(OBJ)\/\1/g" > $(DEPEND)
