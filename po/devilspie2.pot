@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: devilspie2 \n"
+"Project-Id-Version: devilspie2 0.16\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2011-12-29 00:39+0100\n"
+"POT-Creation-Date: 2011-12-29 19:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,118 +17,116 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: devilspie2.c:134
+#: devilspie2.c:133
 #, c-format
-msgid ""
-"\n"
-"Received signal %d (%s)\n"
+msgid "Received signal:"
 msgstr ""
 
-#: devilspie2.c:155
-msgid "script_folder isn't a folder.\n"
-msgstr ""
-
-#: devilspie2.c:181
+#: devilspie2.c:156
 #, c-format
-msgid ""
-"No script files found in the script folder - exiting.\n"
-"\n"
+msgid "script_folder isn't a folder."
 msgstr ""
 
-#: devilspie2.c:187
+#: devilspie2.c:184
 #, c-format
-msgid "List of LUA files in folder:\n"
+msgid "No script files found in the script folder - exiting."
 msgstr ""
 
-#: devilspie2.c:210
+#: devilspie2.c:192
+#, c-format
+msgid "List of LUA files in folder:"
+msgstr ""
+
+#: devilspie2.c:217
 msgid "Print debug info to stdout"
 msgstr ""
 
-#: devilspie2.c:212
+#: devilspie2.c:219
 msgid "Don't apply any rules, only emulate an execution"
 msgstr ""
 
-#: devilspie2.c:214
+#: devilspie2.c:221
 msgid "Folder where scripts are found"
 msgstr ""
 
-#: devilspie2.c:216
+#: devilspie2.c:223
 msgid "Show Devilspie2 version and quit"
 msgstr ""
 
-#: devilspie2.c:221
+#: devilspie2.c:228
 msgid "Show libwnck version and quit"
 msgstr ""
 
-#: devilspie2.c:242
-msgid "- apply rules on windows"
+#: devilspie2.c:247
+msgid "apply rules on windows"
 msgstr ""
 
-#: devilspie2.c:245
+#: devilspie2.c:254
 #, c-format
-msgid "option parsing failed: %s\n"
+msgid "option parsing failed: %s"
 msgstr ""
 
-#: devilspie2.c:259
-msgid "Couldn't create the default devilspie folder."
-msgstr ""
-
-#: devilspie2.c:280
+#: devilspie2.c:272
 #, c-format
-msgid "Running Devilspie2 in debug mode"
-msgstr ""
-
-#: devilspie2.c:282
-#, c-format
-msgid " and Emulate mode"
-msgstr ""
-
-#: devilspie2.c:286
-#, c-format
-msgid "Using scripts from folder: %s\n"
+msgid "Couldn't create the default folder for devilspie2 scripts."
 msgstr ""
 
 #: devilspie2.c:295
 #, c-format
-msgid "Couldn't init script error messages!\n"
+msgid "Running Devilspie2 in debug mode"
+msgstr ""
+
+#: devilspie2.c:299
+#, c-format
+msgid "and Emulate mode"
+msgstr ""
+
+#: devilspie2.c:304
+#, c-format
+msgid "Using scripts from folder: %s"
+msgstr ""
+
+#: devilspie2.c:315
+#, c-format
+msgid "Couldn't init script error messages!"
 msgstr ""
 
 #: script.c:164
 #, c-format
-msgid "Error:%s\n"
+msgid "Error: %s"
 msgstr ""
 
 #: script_functions.c:62
-msgid "No indata expected!"
+msgid "No indata expected"
 msgstr ""
 
-#: script_functions.c:64 script_functions.c:70 script_functions.c:76
-#: script_functions.c:82 script_functions.c:88
+#: script_functions.c:64 script_functions.c:71 script_functions.c:78
+#: script_functions.c:85 script_functions.c:92
 #, c-format
-msgid "Couldn't allocate error string!\n"
+msgid "Couldn't allocate error string!"
 msgstr ""
 
-#: script_functions.c:68
-msgid "One indata expected!"
+#: script_functions.c:69
+msgid "One indata expected"
 msgstr ""
 
-#: script_functions.c:74
-msgid "Two indata expected!"
+#: script_functions.c:76
+msgid "Two indata expected"
 msgstr ""
 
-#: script_functions.c:80
-msgid "Four indata expected!"
+#: script_functions.c:83
+msgid "Four indata expected"
 msgstr ""
 
-#: script_functions.c:86
+#: script_functions.c:90
 msgid "Number expected as indata"
 msgstr ""
 
-#: script_functions.c:257 xutils.c:176 xutils.c:194
+#: script_functions.c:262 xutils.c:176 xutils.c:194
 msgid "Failed!"
 msgstr ""
 
-#: script_functions.c:591 script_functions.c:634
+#: script_functions.c:596 script_functions.c:639
 #, c-format
 msgid "Workspace number %d does not exist!"
 msgstr ""
