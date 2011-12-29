@@ -269,7 +269,9 @@ int main(int argc, char *argv[])
 
 			// - and if it doesn't, create it.
 			if (g_mkdir(temp_folder,0700)!=0) {
-				g_error(_("Couldn't create the default devilspie folder."));
+				printf(_("Couldn't create the default folder for devilspie2 scripts."));
+				printf("\n");
+				exit(EXIT_FAILURE);
 			}
 		}
 		
