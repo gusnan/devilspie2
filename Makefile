@@ -22,6 +22,11 @@ ifndef prefix
 	endif
 endif
 
+NAME = devilspie2
+VERSION = $(shell cat ../VERSION)
+DATADIR = ${DESTDIR}${prefix}/share
+LOCALEDIR = ${DATADIR}/locale
+
 ifdef GTK2
 	PKG_GTK=gtk+-2.0
 	PKG_WNCK=libwnck-1.0
@@ -50,7 +55,7 @@ ifdef CHECK_DEPRECATED
 	LOCAL_CFLAGS+=-DGDK_PIXBUF_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED
 endif
 
-LOCAL_CFLAGS+=-DDEVILSPIE2_PREFIX=\"$(prefix)\"
+LOCAL_CFLAGS+=-DLOCALEDIR=\"$(LOCALEDIR)\" -DPACKAGE=\"$(NAME)\"
 
 .PHONY: all
 all: $(BIN)/devilspie2
