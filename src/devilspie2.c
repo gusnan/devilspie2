@@ -129,7 +129,9 @@ void devilspie_exit()
  */
 static void signal_handler(int sig)
 {
-	printf(_("\nReceived signal %d (%s)\n"), sig, strsignal(sig));
+	printf("\n");
+	printf(_("Received signal:"));
+	printf(" %d (%s)\n", sig, strsignal(sig));
 	
 	done_script_error_messages();
 
@@ -150,7 +152,10 @@ void load_scripts()
 	// add all the files in the script_folder to the file_list
 	dir=g_dir_open(script_folder,0,NULL);
 	if (!g_file_test(script_folder,G_FILE_TEST_IS_DIR)) {
-		g_error(_("script_folder isn't a folder.\n"));
+
+		printf(_("script_folder isn't a folder."));
+		printf("\n");
+		
 		devilspie_exit();
 		exit(EXIT_FAILURE);
 	}
@@ -176,13 +181,17 @@ void load_scripts()
 	g_dir_close(dir);
 	
 	if (number_of_files==0) {
-		printf(_("No script files found in the script folder - exiting.\n\n"));
+		printf(_("No script files found in the script folder - exiting."));
+		printf("\n\n");
 		exit(EXIT_SUCCESS);
 	}
 	
 	// print the list of files:
 	
-	if (debug) printf(_("List of LUA files in folder:\n"));
+	if (debug) {
+		printf(_("List of LUA files in folder:"));
+		printf("\n");
+	}
 		
 	if (file_list!=NULL) {
 		
@@ -232,13 +241,23 @@ int main(int argc, char *argv[])
 	textdomain(PACKAGE);
 	
 	gdk_init(&argc, &argv);
+	
+	gchar *devilspie2_description=NULL;
+	
+	devilspie2_description=g_strdup_printf(_("apply rules on windows"));
+	
+	gchar *full_desc_string=g_strdup_printf("- %s",devilspie2_description);
 
-	context=g_option_context_new(_("- apply rules on windows"));
+	context=g_option_context_new(full_desc_string);
 	g_option_context_add_main_entries(context,options,NULL);
 	if (!g_option_context_parse(context, &argc, &argv, &error)) {
-		g_print(_("option parsing failed: %s\n"),error->message);
+		g_print(_("option parsing failed: %s"),error->message);
+		printf("\n");
 		exit(EXIT_FAILURE);
 	}
+	
+	g_free(full_desc_string);
+	g_free(devilspie2_description);
 
 	// if the folder is NULL, default to ~/.config/devilspie2/
 	if (script_folder==NULL) {
@@ -273,11 +292,16 @@ int main(int argc, char *argv[])
 	if (debug) {
 		printf(_("Running Devilspie2 in debug mode"));
 		
-		if (emulate) printf(_(" and Emulate mode"));
+		if (emulate) {
+			printf(" ");
+			printf(_("and Emulate mode"));
+		}
 		
 		printf(".\n\n");
 		
-		printf(_("Using scripts from folder: %s\n"),script_folder);
+		printf(_("Using scripts from folder: %s"),script_folder);
+		
+		printf("\n");
 		
 		devilspie2_debug=TRUE;
 	}
@@ -286,7 +310,8 @@ int main(int argc, char *argv[])
 	if (emulate) devilspie2_emulate=emulate;
 	
 	if (init_script_error_messages()!=0) {
-		printf(_("Couldn't init script error messages!\n"));
+		printf(_("Couldn't init script error messages!"));
+		printf("\n");
 		exit(EXIT_FAILURE);
 	}
 	

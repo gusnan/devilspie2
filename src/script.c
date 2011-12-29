@@ -161,7 +161,8 @@ void run_script()
 		throw( ScriptException( mssOut.str().c_str(), errorMsg ) );
 		*/
 		
-		printf(_("Error:%s\n"),error_msg);
+		printf(_("Error: %s"),error_msg);
+		printf("\n");
 	}
 }
 
