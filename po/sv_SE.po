@@ -1,138 +1,132 @@
-# Swedish translation of Devilspie2.
+# Swedish translation of Devilspie2
 # Copyright (C) 2011 Andreas Rönnquist <gusnan@gusnan.se>
-# This file is distributed under the same license as the devilspie2 package.
+# This file is distributed under the same license as the PACKAGE package.
 # Andreas Rönnquist <gusnan@gusnan.se>, 2011.
+#
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: devilspie2 \n"
+"Project-Id-Version: devilspie2 0.16\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2011-12-29 00:14+0100\n"
-"PO-Revision-Date: 2011-12-29 18:25+0100\n"
+"POT-Creation-Date: 2011-12-29 19:08+0100\n"
+"PO-Revision-Date: 2011-12-29 19:12+0100\n"
 "Last-Translator: Andreas Rönnquist <gusnan@gusnan.se>\n"
-"Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
+"Language-Team: Swedish\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: -\n"
-"Plural-Forms: -\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 
-#: devilspie2.c:134
+#: devilspie2.c:133
 #, c-format
-msgid ""
-"\n"
-"Received signal %d (%s)\n"
-msgstr ""
-"\n"
-"Tog emot signal %d (%s)\n"
+msgid "Received signal:"
+msgstr "Tog emot signal:"
 
-#: devilspie2.c:155
-msgid "script_folder isn't a folder.\n"
-msgstr "script_folder är inte en mapp.\n"
-
-#: devilspie2.c:181
+#: devilspie2.c:156
 #, c-format
-msgid ""
-"No script files found in the script folder - exiting.\n"
-"\n"
-msgstr ""
-"Inga script hittades i script-mappen - avslutar.\n"
-"\n"
+msgid "script_folder isn't a folder."
+msgstr "script_folder är inte en folder."
 
-#: devilspie2.c:187
+#: devilspie2.c:184
 #, c-format
-msgid "List of LUA files in folder:\n"
-msgstr "Lista på LUA-filer i foldern:\n"
+msgid "No script files found in the script folder - exiting."
+msgstr "Inga script hittades i script-mappen - avslutar."
 
-#: devilspie2.c:210
+#: devilspie2.c:192
+#, c-format
+msgid "List of LUA files in folder:"
+msgstr "Lista på LUA-filer i mappen:"
+
+#: devilspie2.c:217
 msgid "Print debug info to stdout"
 msgstr "Skriv ut debug-information till stdout"
 
-#: devilspie2.c:212
+#: devilspie2.c:219
 msgid "Don't apply any rules, only emulate an execution"
-msgstr "Applicera inga regler, emulera endast körning"
+msgstr "Applicera inga regler, emulera endast en körning"
 
-#: devilspie2.c:214
+#: devilspie2.c:221
 msgid "Folder where scripts are found"
-msgstr "Folder där LUA-scripten hittas"
+msgstr "Mapp att söka efter skript i"
 
-#: devilspie2.c:216
+#: devilspie2.c:223
 msgid "Show Devilspie2 version and quit"
 msgstr "Visa version av Devilspie2 och avsluta"
 
-#: devilspie2.c:221
+#: devilspie2.c:228
 msgid "Show libwnck version and quit"
 msgstr "Visa version av libwnck och avsluta"
 
-#: devilspie2.c:242
-msgid "- apply rules on windows"
-msgstr "- applicera regler på fönster"
+#: devilspie2.c:247
+msgid "apply rules on windows"
+msgstr "applicera regler på fönster"
 
-#: devilspie2.c:245
+#: devilspie2.c:254
 #, c-format
-msgid "option parsing failed: %s\n"
-msgstr "flagg-tolkning misslyckades: %s\n"
+msgid "option parsing failed: %s"
+msgstr "tolkning av alternativ misslyckades; %s"
 
-#: devilspie2.c:259
-msgid "Couldn't create the default devilspie folder."
-msgstr "Kunde inte skapa default-mappen för devilspie2's script."
-
-#: devilspie2.c:280
+#: devilspie2.c:272
 #, c-format
-msgid "Running Devilspie2 in debug mode"
-msgstr "Kör Devilspie2 i debug-mode"
-
-#: devilspie2.c:282
-#, c-format
-msgid " and Emulate mode"
-msgstr " och Emulerings-mode"
-
-#: devilspie2.c:286
-#, c-format
-msgid "Using scripts from folder: %s\n"
-msgstr "Använder script från folder: %s\n"
+msgid "Couldn't create the default folder for devilspie2 scripts."
+msgstr "Kunde inte skapa standard-mappen för devilspie2-skript."
 
 #: devilspie2.c:295
 #, c-format
-msgid "Couldn't init script error messages!\n"
-msgstr "Kunde inte initiera script-felmeddelanden!\n"
+msgid "Running Devilspie2 in debug mode"
+msgstr "Kör Devilspie2 i Debug-mode"
+
+#: devilspie2.c:299
+#, c-format
+msgid "and Emulate mode"
+msgstr "och Emulerings-mode"
+
+#: devilspie2.c:304
+#, c-format
+msgid "Using scripts from folder: %s"
+msgstr "Använder script från mappen: %s"
+
+#: devilspie2.c:315
+#, c-format
+msgid "Couldn't init script error messages!"
+msgstr "Kunde inte initiera script-fel-meddelanden!"
 
 #: script.c:164
 #, c-format
-msgid "Error:%s\n"
-msgstr "Fel:%s\n"
+msgid "Error: %s"
+msgstr "Fel: %s"
 
 #: script_functions.c:62
-msgid "No indata expected!"
-msgstr "Ingen indata väntad!"
+msgid "No indata expected"
+msgstr "Ingen indata väntad"
 
-#: script_functions.c:64 script_functions.c:70 script_functions.c:76
-#: script_functions.c:82 script_functions.c:88
+#: script_functions.c:64 script_functions.c:71 script_functions.c:78
+#: script_functions.c:85 script_functions.c:92
 #, c-format
-msgid "Couldn't allocate error string!\n"
-msgstr "Kunde inte allokera fel-strängen!\n"
+msgid "Couldn't allocate error string!"
+msgstr "Kunde inte allokera felsträng!"
 
-#: script_functions.c:68
-msgid "One indata expected!"
-msgstr "En indata väntad!"
+#: script_functions.c:69
+msgid "One indata expected"
+msgstr "En indata väntad"
 
-#: script_functions.c:74
-msgid "Two indata expected!"
-msgstr "Två indata väntade!"
+#: script_functions.c:76
+msgid "Two indata expected"
+msgstr "Två indata väntade"
 
-#: script_functions.c:80
-msgid "Four indata expected!"
-msgstr "Fyra indata väntade!"
+#: script_functions.c:83
+msgid "Four indata expected"
+msgstr "Fyra indata väntade"
 
-#: script_functions.c:86
+#: script_functions.c:90
 msgid "Number expected as indata"
-msgstr "Numerisk indata väntad!"
+msgstr "Nummer väntat som indata"
 
-#: script_functions.c:257 xutils.c:176 xutils.c:194
+#: script_functions.c:262 xutils.c:176 xutils.c:194
 msgid "Failed!"
 msgstr "Misslyckades!"
 
-#: script_functions.c:591 script_functions.c:634
+#: script_functions.c:596 script_functions.c:639
 #, c-format
 msgid "Workspace number %d does not exist!"
-msgstr "Arbetsyta nummer %d existerar inte!"
+msgstr "Arbetsyta nummer %d finns inte!"
