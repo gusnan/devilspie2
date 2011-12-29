@@ -38,8 +38,6 @@
 #include "script.h"
 #include "script_functions.h"
 
-#include "version.h"
-
 #if (GTK_MAJOR_VERSION >= 3)
 #define HAVE_GTK3
 #endif
@@ -260,7 +258,7 @@ int main(int argc, char *argv[])
 	}
 	
 	if (show_version) {
-		printf("Devilspie2 v%s\n\n",VERSION_STRING);
+		printf("Devilspie2 v%s\n\n",DEVILSPIE2_VERSION);
 		exit(EXIT_SUCCESS);
 	}
 #ifdef HAVE_GTK3
