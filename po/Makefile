@@ -17,13 +17,15 @@ VERSION = $(shell cat ../VERSION)
 DATADIR = ${DESTDIR}${prefix}/share
 LOCALEDIR = ${DATADIR}/locale
 
+SOURCES = devilspie2.c script.c script_functions.c xutils.c
+
 XG_ARGS = --keyword=_ --keyword=N_ -w 80 --package-name=${NAME} --package-version=${VERSION} --msgid-bugs-address=gusnan@gusnan.se
 LINGUAS = sv_SE
 
 all: build
 
 ${NAME}.pot:
-	xgettext ${XG_ARGS} --directory=../src/ devilspie2.c script.c script_functions.c xutils.c -d ${NAME} -o ./${NAME}.pot
+	xgettext ${XG_ARGS} --directory=../src/ ${SOURCES} -d ${NAME} -o ./${NAME}.pot
 
 update-pot: ${NAME}.pot
 
