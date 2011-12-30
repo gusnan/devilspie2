@@ -1,0 +1,51 @@
+
+
+Information for new translators
+-------------------------------
+
+Starting fresh
+--------------
+
+Get a copy of the devilspie2 sources, and create a devilspie2.pot file:
+
+cd po 
+make devilspie2.pot
+
+Copy the devilspie2.pot to [LANGUAGE ABBREV].po, (replace [LANGUAGE ABBREV] with
+the correct abbreviation for your language, e.g. 'sv_SE' if you are translating
+into Swedish).
+
+cp devilspie2.pot sv_SE.po
+
+and start translating all strings.
+
+
+Checking your translation for errors and completeness
+-----------------------------------------------------
+
+/usr/bin/msgfmt -c --statistics sv_SE.po
+
+
+Building Devilspie2 with your translation included
+--------------------------------------------------
+
+Edit the Makefile in the po folder to include your translation under the 
+LANGUAGES variable listing.
+Then build devilspie2 as usual with make and install using make install as root.
+
+
+Updating your translation
+-------------------------
+
+When it is time to update your translation, get the latest git version of 
+devilspie2, and then do the following:
+
+cd po
+rm devilspie2.pot
+make devilspie2.pot
+
+Next issue the following command to update your po file:
+
+	/usr/bin/msgmerge --update sv_SE.po devilspie2.pot
+	
+Then open your file and locate the strings that need updating.
