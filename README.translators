@@ -17,7 +17,9 @@ into Swedish).
 
 cp devilspie2.pot sv_SE.po
 
-and start translating all strings in the sv_SE.po using for example poedit.
+and start translating all strings in the sv_SE.po using your favourite 
+texteditor, or a "gettext catalogs (.po files) editor" like poedit (which can be
+found at http://www.poedit.net.)
 
 
 Checking your translation for errors and completeness
