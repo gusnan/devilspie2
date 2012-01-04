@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: devilspie2 0.16\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
 "POT-Creation-Date: 2011-12-29 19:08+0100\n"
-"PO-Revision-Date: 2011-12-29 19:12+0100\n"
+"PO-Revision-Date: 2012-01-04 14:00+0100\n"
 "Last-Translator: Andreas Rönnquist <gusnan@gusnan.se>\n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -89,7 +89,7 @@ msgstr "Använder script från mappen: %s"
 #: devilspie2.c:315
 #, c-format
 msgid "Couldn't init script error messages!"
-msgstr "Kunde inte initiera script-fel-meddelanden!"
+msgstr "Kunde inte initiera script-felmeddelanden!"
 
 #: script.c:164
 #, c-format
@@ -100,8 +100,11 @@ msgstr "Fel: %s"
 msgid "No indata expected"
 msgstr "Ingen indata väntad"
 
-#: script_functions.c:64 script_functions.c:71 script_functions.c:78
-#: script_functions.c:85 script_functions.c:92
+#: script_functions.c:64
+#: script_functions.c:71
+#: script_functions.c:78
+#: script_functions.c:85
+#: script_functions.c:92
 #, c-format
 msgid "Couldn't allocate error string!"
 msgstr "Kunde inte allokera felsträng!"
@@ -122,11 +125,15 @@ msgstr "Fyra indata väntade"
 msgid "Number expected as indata"
 msgstr "Nummer väntat som indata"
 
-#: script_functions.c:262 xutils.c:176 xutils.c:194
+#: script_functions.c:262
+#: xutils.c:176
+#: xutils.c:194
 msgid "Failed!"
 msgstr "Misslyckades!"
 
-#: script_functions.c:596 script_functions.c:639
+#: script_functions.c:596
+#: script_functions.c:639
 #, c-format
 msgid "Workspace number %d does not exist!"
 msgstr "Arbetsyta nummer %d finns inte!"
+
