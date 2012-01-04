@@ -25,7 +25,7 @@ found at http://www.poedit.net.)
 Checking your translation for errors and completeness
 -----------------------------------------------------
 
-/usr/bin/msgfmt -c --statistics sv_SE.po
+	msgfmt -c --statistics sv_SE.po
 
 
 Building Devilspie2 with your translation included
@@ -48,6 +48,6 @@ make devilspie2.pot
 
 Next issue the following command to update your po file:
 
-	/usr/bin/msgmerge --update sv_SE.po devilspie2.pot
+	msgmerge --update sv_SE.po devilspie2.pot
 	
 Then open your file and locate the strings that need updating.
