@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.16\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2011-12-29 19:08+0100\n"
-"PO-Revision-Date: 2012-01-04 14:00+0100\n"
+"POT-Creation-Date: 2012-01-05 16:04+0100\n"
+"PO-Revision-Date: 2012-01-05 16:05+0100\n"
 "Last-Translator: Andreas Rönnquist <gusnan@gusnan.se>\n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -42,8 +42,8 @@ msgid "Print debug info to stdout"
 msgstr "Skriv ut debug-information till stdout"
 
 #: devilspie2.c:219
-msgid "Don't apply any rules, only emulate an execution"
-msgstr "Applicera inga regler, emulera endast en körning"
+msgid "Don't apply any rules, only emulate execution"
+msgstr "Applicera inga regler, emulera endast körning"
 
 #: devilspie2.c:221
 msgid "Folder where scripts are found"
