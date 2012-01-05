@@ -8,4 +8,4 @@ obj/devilspie2.o
 devilspie2
 Makefile.dep
 po/*.mo
-po/sv/*.mo
+po/devilspie2.pot
