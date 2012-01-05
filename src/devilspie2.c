@@ -216,7 +216,7 @@ int main(int argc, char *argv[])
 		{ "debug",			'd',	0,	G_OPTION_ARG_NONE,		&debug,			
 			N_("Print debug info to stdout")},
 		{ "emulate",		'e',	0,	G_OPTION_ARG_NONE,		&emulate,		
-			N_("Don't apply any rules, only emulate an execution")},
+			N_("Don't apply any rules, only emulate execution")},
 		{ "folder",			'f',	0,	G_OPTION_ARG_STRING,		&script_folder, 
 			N_("Folder where scripts are found")},
 		{ "version",		'v',	0,	G_OPTION_ARG_NONE,		&show_version,
