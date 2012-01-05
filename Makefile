@@ -9,7 +9,6 @@ else
 	STD_CFLAGS=-c -Wall
 endif
 
-PROG=$(BIN)/devilspie2
 DEPEND=Makefile.dep
 
 OBJECTS=$(OBJ)/devilspie2.o $(OBJ)/xutils.o $(OBJ)/script.o $(OBJ)/script_functions.o
@@ -23,6 +22,7 @@ ifndef prefix
 endif
 
 NAME = devilspie2
+PROG=$(BIN)/$(NAME)
 VERSION = $(shell cat ./VERSION)
 DATADIR = ${DESTDIR}${prefix}/share
 LOCALEDIR = ${DATADIR}/locale
@@ -64,7 +64,7 @@ all: $(BIN)/devilspie2
 $(OBJ)/%.o: $(SRC)/%.c
 	$(CC) $(LOCAL_CFLAGS) -c $< -o $@
 
-$(BIN)/devilspie2: $(OBJECTS)
+$(BIN)/$(NAME): $(OBJECTS)
 	$(CC) $(LOCAL_LDFLAGS) $(OBJECTS) -o $(PROG) $(LIBS)
 
 .PHONY: clean
