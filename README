@@ -221,6 +221,13 @@ Please note that strings are case sensitive, comparing "SomeProgram" with
 "someprogram" will not report equality.
 
 
+Translations
+------------
+
+Devilspie2 is now translatable using gettext - see README.translators for more 
+information.
+
+
 Contact
 -------
 
