@@ -218,7 +218,7 @@ int main(int argc, char *argv[])
 		{ "emulate",		'e',	0,	G_OPTION_ARG_NONE,		&emulate,		
 			N_("Don't apply any rules, only emulate execution")},
 		{ "folder",			'f',	0,	G_OPTION_ARG_STRING,		&script_folder, 
-			N_("Folder where scripts are found")},
+			N_("Search for scripts in this folder"),N_("FOLDER")},
 		{ "version",		'v',	0,	G_OPTION_ARG_NONE,		&show_version,
 			N_("Show Devilspie2 version and quit")},
 #ifdef HAVE_GTK3
