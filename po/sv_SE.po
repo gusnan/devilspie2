@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.16\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2012-01-05 16:04+0100\n"
-"PO-Revision-Date: 2012-01-05 16:05+0100\n"
+"POT-Creation-Date: 2012-01-08 13:29+0100\n"
+"PO-Revision-Date: 2012-01-08 13:31+0100\n"
 "Last-Translator: Andreas Rönnquist <gusnan@gusnan.se>\n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -46,8 +46,12 @@ msgid "Don't apply any rules, only emulate execution"
 msgstr "Applicera inga regler, emulera endast körning"
 
 #: devilspie2.c:221
-msgid "Folder where scripts are found"
-msgstr "Mapp att söka efter skript i"
+msgid "Search for scripts in this folder"
+msgstr "Sök efter skript i denna mapp"
+
+#: devilspie2.c:221
+msgid "FOLDER"
+msgstr "MAPP"
 
 #: devilspie2.c:223
 msgid "Show Devilspie2 version and quit"
@@ -136,4 +140,7 @@ msgstr "Misslyckades!"
 #, c-format
 msgid "Workspace number %d does not exist!"
 msgstr "Arbetsyta nummer %d finns inte!"
+
+#~ msgid "Folder where scripts are found"
+#~ msgstr "Mapp att söka efter skript i"
 
