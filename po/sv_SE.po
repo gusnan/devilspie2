@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: devilspie2 0.16\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
 "POT-Creation-Date: 2012-01-08 13:29+0100\n"
-"PO-Revision-Date: 2012-01-08 13:31+0100\n"
+"PO-Revision-Date: 2012-01-09 13:27+0100\n"
 "Last-Translator: Andreas Rönnquist <gusnan@gusnan.se>\n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -30,7 +30,7 @@ msgstr "script_folder är inte en folder."
 #: devilspie2.c:184
 #, c-format
 msgid "No script files found in the script folder - exiting."
-msgstr "Inga script hittades i script-mappen - avslutar."
+msgstr "Inga skript hittades i skript-mappen - avslutar."
 
 #: devilspie2.c:192
 #, c-format
@@ -88,12 +88,12 @@ msgstr "och Emulerings-mode"
 #: devilspie2.c:304
 #, c-format
 msgid "Using scripts from folder: %s"
-msgstr "Använder script från mappen: %s"
+msgstr "Använder skript från mappen: %s"
 
 #: devilspie2.c:315
 #, c-format
 msgid "Couldn't init script error messages!"
-msgstr "Kunde inte initiera script-felmeddelanden!"
+msgstr "Kunde inte initiera skript-felmeddelanden!"
 
 #: script.c:164
 #, c-format
