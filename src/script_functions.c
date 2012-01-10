@@ -55,6 +55,8 @@ gchar *four_indata_expected_error=NULL;
 gchar *number_expected_as_indata_error=NULL;
 gchar *boolean_expected_as_indata_error=NULL;
 
+gchar *failed_string=NULL;
+
 /**
  *
  */
@@ -101,6 +103,13 @@ int init_script_error_messages()
 		printf("\n");
 		return -1;
 	}
+
+	failed_string=g_strdup_printf(_("Failed!"));
+	if (!failed_string) {
+		printf(_("Couldn't allocate Failed string!"));
+		printf("\n");
+		return -1;
+	}
 	
 	return 0;
 }
@@ -118,6 +127,8 @@ void done_script_error_messages()
 	
 	g_free(number_expected_as_indata_error);
 	g_free(boolean_expected_as_indata_error);
+	
+	g_free(failed_string);
 }
 
 
@@ -268,7 +279,7 @@ int c_set_window_size(lua_State *lua)
 				-1,-1,x,y);
 			
 			if (my_wnck_error_trap_pop()) {
-				gchar *temperror=g_strdup_printf("set_window_size %s",_("Failed!"));
+				gchar *temperror=g_strdup_printf("set_window_size: %s",failed_string);
 				g_printerr(temperror);
 				
 				g_free(temperror);
