@@ -6,7 +6,7 @@ BIN=bin
 ifdef DEBUG
 	STD_CFLAGS=-c -Wall -g3 -ggdb -D_DEBUG
 else
-	STD_CFLAGS=-c -Wall
+	STD_CFLAGS=-c -Wall -Wformat -Wno-format-extra-args -Wformat-security -Wformat-nonliteral -Wformat=2
 endif
 
 DEPEND=Makefile.dep
