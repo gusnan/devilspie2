@@ -43,7 +43,11 @@ or on systems using sudo:
 	sudo make install
 
 This will default to /usr/local, installing the binary to /usr/local/bin - this
-can be changed using PREFIX variable:
+can be changed using PREFIX variable, and need to applied all through the build
+system - the PREFIX is used to make the location of translations known to all
+code:
 
-	make install PREFIX=/usr
+	make PREFIX=/usr
+	sudo make install
+	
 
