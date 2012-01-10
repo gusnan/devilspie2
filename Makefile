@@ -13,18 +13,18 @@ DEPEND=Makefile.dep
 
 OBJECTS=$(OBJ)/devilspie2.o $(OBJ)/xutils.o $(OBJ)/script.o $(OBJ)/script_functions.o
 
-ifndef prefix
+ifndef PREFIX
 	ifdef INSTALL_PREFIX
-		prefix=$(INSTALL_PREFIX)
+		PREFIX=$(INSTALL_PREFIX)
 	else
-		prefix=/usr/local
+		PREFIX=/usr/local
 	endif
 endif
 
 NAME = devilspie2
 PROG=$(BIN)/$(NAME)
 VERSION = $(shell cat ./VERSION)
-DATADIR = ${DESTDIR}${prefix}/share
+DATADIR = ${DESTDIR}${PREFIX}/share
 LOCALEDIR = ${DATADIR}/locale
 
 ifdef GTK2
@@ -73,13 +73,13 @@ clean:
 	${MAKE} -C po clean
 
 install:
-	install -d $(DESTDIR)$(prefix)/bin
-	install -m 755 $(PROG) $(DESTDIR)$(prefix)/bin
+	install -d $(DESTDIR)$(PREFIX)/bin
+	install -m 755 $(PROG) $(DESTDIR)$(PREFIX)/bin
 	${MAKE} -C po install
 
 .PHONY: uninstall
 uninstall:
-	rm -f $(DESTDIR)$(prefix)/$(PROG)
+	rm -f $(DESTDIR)$(PREFIX)/$(PROG)
 	${MAKE} -C po uninstall
 
 $(DEPEND):

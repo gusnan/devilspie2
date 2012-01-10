@@ -4,17 +4,17 @@
 #
 
 
-ifndef prefix
+ifndef PREFIX
 	ifdef INSTALL_PREFIX
-		prefix=$(INSTALL_PREFIX)
+		PREFIX=$(INSTALL_PREFIX)
 	else
-		prefix=/usr/local
+		PREFIX=/usr/local
 	endif
 endif
 
 NAME = devilspie2
 VERSION = $(shell cat ../VERSION)
-DATADIR = ${DESTDIR}${prefix}/share
+DATADIR = ${DESTDIR}${PREFIX}/share
 LOCALEDIR = ${DATADIR}/locale
 
 SOURCES = devilspie2.c script.c script_functions.c xutils.c
