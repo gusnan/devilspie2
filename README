@@ -220,7 +220,13 @@ get_window_client_geometry()
 set_skip_tasklist(skip)
 
 	Set this to true if you would like the window to skip listing in your 
-	tasklist.
+	tasklist. Takes a boolean(true or false) as value.
+
+
+set_skip_pager(skip)
+
+	Set this to true if you would like the window to skip listing in your pager.
+	Takes a boolean(true or false) as value.
 
 
 Please note that strings are case sensitive, comparing "SomeProgram" with 
