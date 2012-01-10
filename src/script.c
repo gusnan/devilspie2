@@ -110,6 +110,8 @@ void register_cfunctions()
 	
 	lua_register(lua,"get_window_geometry",c_get_window_geometry);
 	lua_register(lua,"get_window_client_geometry",c_get_client_window_geometry);
+	
+	lua_register(lua,"set_skip_tasklist",c_set_skip_tasklist);
 }
 
 

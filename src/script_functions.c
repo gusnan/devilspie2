@@ -53,6 +53,7 @@ gchar *two_indata_expected_error=NULL;
 gchar *four_indata_expected_error=NULL;
 
 gchar *number_expected_as_indata_error=NULL;
+gchar *boolean_expected_as_indata_error=NULL;
 
 /**
  *
@@ -94,6 +95,13 @@ int init_script_error_messages()
 		return -1;
 	}
 	
+	boolean_expected_as_indata_error=g_strdup_printf(_("Boolean expected as indata"));
+	if (!boolean_expected_as_indata_error) {
+		printf(_("Couldn't allocate error string!"));
+		printf("\n");
+		return -1;
+	}
+	
 	return 0;
 }
 
@@ -109,6 +117,7 @@ void done_script_error_messages()
 	g_free(four_indata_expected_error);
 	
 	g_free(number_expected_as_indata_error);
+	g_free(boolean_expected_as_indata_error);
 }
 
 
@@ -891,4 +900,37 @@ int c_get_client_window_geometry(lua_State *lua)
 	lua_pushnumber(lua,height);
 	
 	return 4;
+}
+
+
+/**
+ *
+ */
+int c_set_skip_tasklist(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+	
+	if (top!=1) {
+		luaL_error(lua,"set_skip_tasklist: %s", one_indata_expected_error);
+		return 0;
+	}
+	
+	int type=lua_type(lua,1);
+	
+	if (type!=LUA_TBOOLEAN) {
+		luaL_error(lua,"set_skip_tasklist: %s",boolean_expected_as_indata_error);
+		return 0;
+	}
+	
+	int value=lua_toboolean(lua,1);
+	
+	gboolean skip_tasklist=(gboolean)(value);
+	
+	WnckWindow *window=get_current_window();
+	if (window) {
+		wnck_window_set_skip_tasklist(window,skip_tasklist);
+	}
+	
+	
+	return 0;
 }
