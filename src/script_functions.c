@@ -855,6 +855,7 @@ int c_get_window_geometry(lua_State *lua)
 	
 	if (top!=0) {
 		luaL_error(lua,"get_window_geometry: %s",no_indata_expected_error);
+		return 0;
 	}
 	
 	int x,y,width,height;
@@ -884,6 +885,7 @@ int c_get_client_window_geometry(lua_State *lua)
 	
 	if (top!=0) {
 		luaL_error(lua,"get_client_window_geometry: %s",no_indata_expected_error);
+		return 0;
 	}
 	
 	int x,y,width,height;
