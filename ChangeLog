@@ -8,6 +8,7 @@ ChangeLog:
 	* Add option to get system wnck version (on systems that support it)
 	* Added gettext support for translations
 	* Add set_skip_tasklist function
+	* Add set_skip_pager function
 
 0.15
 	* Fix GPL headers, which incorrectly was LGPL

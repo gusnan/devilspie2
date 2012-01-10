@@ -936,3 +936,36 @@ int c_set_skip_tasklist(lua_State *lua)
 	
 	return 0;
 }
+
+
+/**
+ *
+ */
+int c_set_skip_pager(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+	
+	if (top!=1) {
+		luaL_error(lua,"set_skip_pager: %s", one_indata_expected_error);
+		return 0;
+	}
+	
+	int type=lua_type(lua,1);
+	
+	if (type!=LUA_TBOOLEAN) {
+		luaL_error(lua,"set_skip_pager: %s",boolean_expected_as_indata_error);
+		return 0;
+	}
+	
+	int value=lua_toboolean(lua,1);
+	
+	gboolean skip_pager=(gboolean)(value);
+	
+	WnckWindow *window=get_current_window();
+	if (window) {
+		wnck_window_set_skip_pager(window,skip_pager);
+	}
+	
+	
+	return 0;
+}
