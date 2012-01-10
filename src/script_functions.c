@@ -280,7 +280,7 @@ int c_set_window_size(lua_State *lua)
 			
 			if (my_wnck_error_trap_pop()) {
 				gchar *temperror=g_strdup_printf("set_window_size: %s",failed_string);
-				g_printerr(temperror);
+				g_printerr("%s",temperror);
 				
 				g_free(temperror);
 			}
