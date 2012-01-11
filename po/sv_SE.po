@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.16\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2012-01-10 15:00+0100\n"
-"PO-Revision-Date: 2012-01-10 15:01+0100\n"
+"POT-Creation-Date: 2012-01-11 01:01+0100\n"
+"PO-Revision-Date: 2012-01-11 01:02+0100\n"
 "Last-Translator: Andreas Rönnquist <gusnan@gusnan.se>\n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -95,53 +95,59 @@ msgstr "Använder skript från mappen: %s"
 msgid "Couldn't init script error messages!"
 msgstr "Kunde inte initiera skript-felmeddelanden!"
 
-#: script.c:166
+#: script.c:167
 #, c-format
 msgid "Error: %s"
 msgstr "Fel: %s"
 
-#: script_functions.c:63
+#: script_functions.c:65
 msgid "No indata expected"
 msgstr "Ingen indata väntad"
 
-#: script_functions.c:65
-#: script_functions.c:72
-#: script_functions.c:79
-#: script_functions.c:86
-#: script_functions.c:93
-#: script_functions.c:100
+#: script_functions.c:67
+#: script_functions.c:74
+#: script_functions.c:81
+#: script_functions.c:88
+#: script_functions.c:95
+#: script_functions.c:102
 #, c-format
 msgid "Couldn't allocate error string!"
 msgstr "Kunde inte allokera felsträng!"
 
-#: script_functions.c:70
+#: script_functions.c:72
 msgid "One indata expected"
 msgstr "En indata väntad"
 
-#: script_functions.c:77
+#: script_functions.c:79
 msgid "Two indata expected"
 msgstr "Två indata väntade"
 
-#: script_functions.c:84
+#: script_functions.c:86
 msgid "Four indata expected"
 msgstr "Fyra indata väntade"
 
-#: script_functions.c:91
+#: script_functions.c:93
 msgid "Number expected as indata"
 msgstr "Nummer väntat som indata"
 
-#: script_functions.c:98
+#: script_functions.c:100
 msgid "Boolean expected as indata"
 msgstr "Boolskt värde väntat som indata"
 
-#: script_functions.c:271
+#: script_functions.c:107
 #: xutils.c:176
 #: xutils.c:194
 msgid "Failed!"
 msgstr "Misslyckades!"
 
-#: script_functions.c:605
-#: script_functions.c:648
+#: script_functions.c:109
+#, c-format
+msgid "Couldn't allocate Failed string!"
+msgstr "Kunde inte allokera felsträng \"Misslyckades\"!"
+
+#: script_functions.c:616
+#: script_functions.c:659
 #, c-format
 msgid "Workspace number %d does not exist!"
 msgstr "Arbetsyta nummer %d finns inte!"
+
