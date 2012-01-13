@@ -292,14 +292,14 @@ int main(int argc, char *argv[])
 #endif
 	
 	if (debug) {
-		printf(_("Running Devilspie2 in debug mode"));
 		
 		if (emulate) {
-			printf(" ");
-			printf(_("and Emulate mode"));
+			printf(_("Running devilspie2 in debug and emulate mode."));
+		} else {
+			printf(_("Running devilspie2 in debug mode."));
 		}
 		
-		printf(".\n\n");
+		printf("\n\n");
 		
 		printf(_("Using scripts from folder: %s"),script_folder);
 		
