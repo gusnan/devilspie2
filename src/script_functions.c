@@ -62,51 +62,53 @@ gchar *failed_string=NULL;
  */
 int init_script_error_messages()
 {
+#define ALLOCATE_ERROR_STRING _("Couldn't allocate error string!")
+	
 	no_indata_expected_error=g_strdup_printf(_("No indata expected"));
 	if (!no_indata_expected_error) {
-		printf(_("Couldn't allocate error string!"));
+		printf(ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
 		
 	one_indata_expected_error=g_strdup_printf(_("One indata expected"));
 	if (!one_indata_expected_error) {
-		printf(_("Couldn't allocate error string!"));
+		printf(ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
 	
 	two_indata_expected_error=g_strdup_printf(_("Two indata expected"));
 	if (!two_indata_expected_error) {
-		printf(_("Couldn't allocate error string!"));
+		printf(ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
 	
 	four_indata_expected_error=g_strdup_printf(_("Four indata expected"));
 	if (!four_indata_expected_error) {
-		printf(_("Couldn't allocate error string!"));
+		printf(ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
 	
 	number_expected_as_indata_error=g_strdup_printf(_("Number expected as indata"));
 	if (!number_expected_as_indata_error) {
-		printf(_("Couldn't allocate error string!"));
+		printf(ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
 	
 	boolean_expected_as_indata_error=g_strdup_printf(_("Boolean expected as indata"));
 	if (!boolean_expected_as_indata_error) {
-		printf(_("Couldn't allocate error string!"));
+		printf(ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
 
 	failed_string=g_strdup_printf(_("Failed!"));
 	if (!failed_string) {
-		printf(_("Couldn't allocate Failed string!"));
+		printf(ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
