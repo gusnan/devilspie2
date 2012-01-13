@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.16\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2012-01-11 01:01+0100\n"
-"PO-Revision-Date: 2012-01-11 01:02+0100\n"
+"POT-Creation-Date: 2012-01-13 17:08+0100\n"
+"PO-Revision-Date: 2012-01-13 17:09+0100\n"
 "Last-Translator: Andreas Rönnquist <gusnan@gusnan.se>\n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
@@ -75,15 +75,15 @@ msgstr "tolkning av alternativ misslyckades; %s"
 msgid "Couldn't create the default folder for devilspie2 scripts."
 msgstr "Kunde inte skapa standard-mappen för devilspie2-skript."
 
-#: devilspie2.c:295
+#: devilspie2.c:297
 #, c-format
-msgid "Running Devilspie2 in debug mode"
-msgstr "Kör Devilspie2 i Debug-mode"
+msgid "Running devilspie2 in debug and emulate mode."
+msgstr "Kör Devilspie2 i debug och emulerings-mode"
 
 #: devilspie2.c:299
 #, c-format
-msgid "and Emulate mode"
-msgstr "och Emulerings-mode"
+msgid "Running devilspie2 in debug mode."
+msgstr "Kör Devilspie2 i debug-mode"
 
 #: devilspie2.c:304
 #, c-format
@@ -101,53 +101,47 @@ msgid "Error: %s"
 msgstr "Fel: %s"
 
 #: script_functions.c:65
-msgid "No indata expected"
-msgstr "Ingen indata väntad"
-
-#: script_functions.c:67
-#: script_functions.c:74
-#: script_functions.c:81
-#: script_functions.c:88
-#: script_functions.c:95
-#: script_functions.c:102
-#, c-format
 msgid "Couldn't allocate error string!"
 msgstr "Kunde inte allokera felsträng!"
 
-#: script_functions.c:72
+#: script_functions.c:67
+msgid "No indata expected"
+msgstr "Ingen indata väntad"
+
+#: script_functions.c:74
 msgid "One indata expected"
 msgstr "En indata väntad"
 
-#: script_functions.c:79
+#: script_functions.c:81
 msgid "Two indata expected"
 msgstr "Två indata väntade"
 
-#: script_functions.c:86
+#: script_functions.c:88
 msgid "Four indata expected"
 msgstr "Fyra indata väntade"
 
-#: script_functions.c:93
+#: script_functions.c:95
 msgid "Number expected as indata"
 msgstr "Nummer väntat som indata"
 
-#: script_functions.c:100
+#: script_functions.c:102
 msgid "Boolean expected as indata"
 msgstr "Boolskt värde väntat som indata"
 
-#: script_functions.c:107
+#: script_functions.c:109
 #: xutils.c:176
 #: xutils.c:194
 msgid "Failed!"
 msgstr "Misslyckades!"
 
-#: script_functions.c:109
-#, c-format
-msgid "Couldn't allocate Failed string!"
-msgstr "Kunde inte allokera felsträng \"Misslyckades\"!"
-
-#: script_functions.c:616
-#: script_functions.c:659
+#: script_functions.c:618
+#: script_functions.c:661
 #, c-format
 msgid "Workspace number %d does not exist!"
 msgstr "Arbetsyta nummer %d finns inte!"
+
+#~ msgid "and Emulate mode"
+#~ msgstr "och Emulerings-mode"
+#~ msgid "Couldn't allocate Failed string!"
+#~ msgstr "Kunde inte allokera felsträng \"Misslyckades\"!"
 
