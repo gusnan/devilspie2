@@ -1,6 +1,6 @@
 # Swedish translation of Devilspie2
 # Copyright (C) 2011 Andreas Rönnquist <gusnan@gusnan.se>
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the devilspie2 package.
 # Andreas Rönnquist <gusnan@gusnan.se>, 2011.
 #
 #
