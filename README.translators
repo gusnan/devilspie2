@@ -25,7 +25,11 @@ found at http://www.poedit.net.)
 Checking your translation for errors and completeness
 -----------------------------------------------------
 
-	msgfmt -c --statistics sv_SE.po
+	msgfmt -c --statistics sv_SE.po -o /dev/null
+	
+Checks the file for errors, and outputs the result statistics to stout, and
+other output to /dev/null (It is of no use if just checking for errors.)
+
 
 
 Building Devilspie2 with your translation included
