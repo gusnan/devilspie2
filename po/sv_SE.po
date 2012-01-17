@@ -139,9 +139,3 @@ msgstr "Misslyckades!"
 #, c-format
 msgid "Workspace number %d does not exist!"
 msgstr "Arbetsyta nummer %d finns inte!"
-
-#~ msgid "and Emulate mode"
-#~ msgstr "och Emulerings-mode"
-#~ msgid "Couldn't allocate Failed string!"
-#~ msgstr "Kunde inte allokera felsträng \"Misslyckades\"!"
-
