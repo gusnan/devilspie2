@@ -4,6 +4,7 @@ ChangeLog:
 
 0.18
 	* Translation fixes
+	* Minor translation documentation fixes
 
 0.17
 	* Fix build warning for string not using %s
