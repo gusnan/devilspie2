@@ -27,7 +27,7 @@ Checking your translation for errors and completeness
 
 	msgfmt -c --statistics sv_SE.po -o /dev/null
 	
-Checks the file for errors, and outputs the result statistics to stout, and
+Checks the file for errors, and outputs the result statistics to stdout, and
 other output to /dev/null (It is of no use if just checking for errors.)
 
 
