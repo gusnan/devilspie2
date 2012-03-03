@@ -13,7 +13,8 @@ make devilspie2.pot
 
 Copy the devilspie2.pot to [LANGUAGE ABBREV].po, (replace [LANGUAGE ABBREV] with
 the correct abbreviation for your language, e.g. 'sv_SE' if you are translating
-into Swedish).
+into Swedish - see http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes and
+http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2 for the correct language codes).
 
 cp devilspie2.pot sv_SE.po
 
