@@ -27,7 +27,7 @@ Checking your translation for errors and completeness
 -----------------------------------------------------
 
 	msgfmt -c --statistics sv_SE.po -o /dev/null
-	
+
 Checks the file for errors, and outputs the result statistics to stdout, and
 other output to /dev/null (It is of no use if just checking for errors.)
 
@@ -54,5 +54,5 @@ make devilspie2.pot
 Next issue the following command to update your po file:
 
 	msgmerge --update sv_SE.po devilspie2.pot
-	
+
 Then open your file and locate the strings that need updating.
