@@ -21,7 +21,7 @@ libgtk2.0-dev
 To build, you simply do a
 
 	make
-	
+
 (which will build with Gtk3 libs) or 
 
 	make GTK2=on
@@ -49,5 +49,5 @@ location of translations known to all code:
 
 	make PREFIX=/usr
 	sudo make install
-	
+
 
