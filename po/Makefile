@@ -20,7 +20,7 @@ LOCALEDIR = ${DATADIR}/locale
 SOURCES = devilspie2.c script.c script_functions.c xutils.c
 
 XG_ARGS = --keyword=_ --keyword=N_ -w 80 --package-name=${NAME} --package-version=${VERSION} --msgid-bugs-address=gusnan@gusnan.se
-LANGUAGES = sv_SE
+LANGUAGES = sv
 
 LANGUAGES_MO = $(foreach currlang,$(LANGUAGES),$(currlang).mo)
 LANGUAGES_PO = $(foreach currlang,$(LANGUAGES),$(currlang).po)
