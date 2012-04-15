@@ -1,0 +1,138 @@
+# French translations for devilspie2 package.
+# Copyright (C) 2012 THE devilspie2'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the devilspie2 package.
+# Robin Hahling <robin.hahling@gw-computing.net>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: devilspie2 0.18\n"
+"Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
+"POT-Creation-Date: 2012-04-15 15:44+0200\n"
+"PO-Revision-Date: 2012-04-15 15:44+0200\n"
+"Last-Translator: Robin Hahling <robin.hahling@gw-computing.net>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: devilspie2.c:131
+#, c-format
+msgid "Received signal:"
+msgstr "Signal reçu:"
+
+#: devilspie2.c:154
+#, c-format
+msgid "script_folder isn't a folder."
+msgstr "script_folder n'est pas un dossier."
+
+#: devilspie2.c:182
+#, c-format
+msgid "No script files found in the script folder - exiting."
+msgstr "Aucun fichier de script touvé dans le dossier de script - sortie du programe"
+
+#: devilspie2.c:190
+#, c-format
+msgid "List of LUA files in folder:"
+msgstr "Liste des fichiers LUA dans le dossier:"
+
+#: devilspie2.c:215
+msgid "Print debug info to stdout"
+msgstr "Affiche les informations de debug dans stdout"
+
+#: devilspie2.c:217
+msgid "Don't apply any rules, only emulate execution"
+msgstr "N'applique aucune règle, simule seulement l'exécution"
+
+#: devilspie2.c:219
+msgid "Search for scripts in this folder"
+msgstr "Recherche de scripts dans ce dossier"
+
+#: devilspie2.c:219
+msgid "FOLDER"
+msgstr "DOSSIER"
+
+#: devilspie2.c:221
+msgid "Show Devilspie2 version and quit"
+msgstr "Affiche la version de Devilspie2 et quitte"
+
+#: devilspie2.c:226
+msgid "Show libwnck version and quit"
+msgstr "Affiche la version de libwnck and quitte"
+
+#: devilspie2.c:245
+msgid "apply rules on windows"
+msgstr "applique les règles sur les fenêtres"
+
+#: devilspie2.c:252
+#, c-format
+msgid "option parsing failed: %s"
+msgstr "l'analyse des options à echoué: %s"
+
+#: devilspie2.c:270
+#, c-format
+msgid "Couldn't create the default folder for devilspie2 scripts."
+msgstr "Impossible de créer le fichier par défaut pour les scripts devilspie2"
+
+#: devilspie2.c:295
+#, c-format
+msgid "Running devilspie2 in debug and emulate mode."
+msgstr "Fcontionnement de devilspie2 en mode debug et émulation."
+
+#: devilspie2.c:297
+#, c-format
+msgid "Running devilspie2 in debug mode."
+msgstr "Fonctionnement de devilspie2 en mode debug."
+
+#: devilspie2.c:302
+#, c-format
+msgid "Using scripts from folder: %s"
+msgstr "Utilise les scripts de ce dossier: %s"
+
+#: devilspie2.c:313
+#, c-format
+msgid "Couldn't init script error messages!"
+msgstr "Impossible d'initialiser le script de messages d'ereurs"
+
+#: script.c:167
+#, c-format
+msgid "Error: %s"
+msgstr "Erreur: %s"
+
+#: script_functions.c:65
+msgid "Couldn't allocate error string!"
+msgstr "Impossible d'allouer la chaine d'erreur"
+
+#: script_functions.c:67
+msgid "No indata expected"
+msgstr "Aucune donnée d'entrée attendue"
+
+#: script_functions.c:74
+msgid "One indata expected"
+msgstr "Une donnée d'entrée attendue"
+
+#: script_functions.c:81
+msgid "Two indata expected"
+msgstr "Deux données d'entrée attendues"
+
+#: script_functions.c:88
+msgid "Four indata expected"
+msgstr "Quatre données d'entrée attendues"
+
+#: script_functions.c:95
+msgid "Number expected as indata"
+msgstr "Nombre attendu de données d'entrée"
+
+#: script_functions.c:102
+msgid "Boolean expected as indata"
+msgstr "Booléen attendu comme donnée d'entrée"
+
+#: script_functions.c:109 xutils.c:176 xutils.c:194
+msgid "Failed!"
+msgstr "Échec!"
+
+#: script_functions.c:618 script_functions.c:661
+#, c-format
+msgid "Workspace number %d does not exist!"
+msgstr "L'espace de travail numéro %d n'existe pas!"

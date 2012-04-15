@@ -5,6 +5,7 @@ ChangeLog:
 0.18
 	* Translation fixes
 	* Minor translation documentation fixes
+	* Added French translation - thanks to Robin Hahling
 
 0.17
 	* Fix build warning for string not using %s
