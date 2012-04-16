@@ -328,8 +328,7 @@ int main(int argc, char *argv[])
 	signal_action.sa_flags = 0;
 	signal_action.sa_handler = signal_handler;
 
-	if (sigaction(SIGINT, &signal_action, NULL) == -1)
-	{
+	if (sigaction(SIGINT, &signal_action, NULL) == -1) {
 		exit(EXIT_FAILURE);
 	}
 

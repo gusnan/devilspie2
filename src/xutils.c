@@ -49,19 +49,16 @@ Atom my_wnck_atom_get(const char *atom_name)
 
 	g_return_val_if_fail (atom_name != NULL, None);
 
-	if (!atom_hash)
-	{
+	if (!atom_hash) {
 		atom_hash = g_hash_table_new (g_str_hash, g_str_equal);
 		reverse_atom_hash = g_hash_table_new (NULL, NULL);
 	}
       
 	retval = GPOINTER_TO_UINT (g_hash_table_lookup (atom_hash, atom_name));
-	if (!retval)
-	{
+	if (!retval) {
 		retval = XInternAtom (gdk_x11_get_default_xdisplay(), atom_name, FALSE);
 
-		if (retval != None)
-		{
+		if (retval != None) {
 			char *name_copy;
 
 			name_copy = g_strdup (atom_name);
