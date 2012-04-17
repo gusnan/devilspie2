@@ -189,17 +189,17 @@ void load_scripts()
 	if (debug) {
 		printf(_("List of LUA files in folder:"));
 		printf("\n");
-	}
 		
-	if (file_list!=NULL) {
+		if (file_list!=NULL) {
 		
-		while(temp_list) {
+			while(temp_list) {
 
-			// is it a LUA file?
-			if (g_str_has_suffix((gchar*)(temp_list->data),".lua")) {
-				if (debug) printf("%s\n",(gchar*)temp_list->data);
+				// is it a LUA file?
+				if (g_str_has_suffix((gchar*)(temp_list->data),".lua")) {
+					printf("%s\n",(gchar*)temp_list->data);
+				}
+				temp_list=temp_list->next;
 			}
-			temp_list=temp_list->next;
 		}
 	}
 }
