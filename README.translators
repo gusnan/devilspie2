@@ -18,7 +18,7 @@ msginit --input=devilspie2.pot
 
 This copies the devilspie2.pot to [LANGUAGE ABBREV].po, (it replaces 
 [LANGUAGE ABBREV] with the correct abbreviation for your language, e.g. 'sv' 
-if you are translating into Swedish and fills it with information that it gets 
+if you are translating into Swedish) and fills it with information that it gets 
 from your system.
 
 Then start translating all strings in the sv.po using your favourite 
