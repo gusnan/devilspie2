@@ -48,7 +48,7 @@ ChangeLog:
 0.09
 	* Fixes to the Makefile
 	* Minor documentation updates
-	
+
 0.08
 	* Fix manpage problems
 
@@ -62,12 +62,12 @@ ChangeLog:
 
 0.04
 	* Build system updates
-	
+
 0.03
 	* Remove CMake stuff and go to a standard Makefile
 	* Documentation updates
 	* Move installation instructions to file of its own
-	
+
 0.02
 	* Rename set_workspace to set_window_workspace
 	* Massive documentation updates
