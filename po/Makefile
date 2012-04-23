@@ -41,7 +41,7 @@ $(LANGUAGES_MO): $(LANGUAGES_PO)
 	for po in ${LANGUAGES}; \
 	do msgfmt -v --statistics -c -o t-$${po} $${po}.po && mv -f t-$${po} $${po}.mo; \
 	done
-	
+
 
 install: all install-dirs
 	for po in ${LANGUAGES}; \
