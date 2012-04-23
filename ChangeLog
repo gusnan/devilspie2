@@ -2,6 +2,10 @@
 ChangeLog:
 ----------
 
+0.19
+	* Add C preprocessor flags to build system
+	* Minor update to documentation for translators
+
 0.18
 	* Translation fixes
 	* Minor translation documentation fixes
