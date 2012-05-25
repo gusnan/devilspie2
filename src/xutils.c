@@ -87,7 +87,7 @@ void my_wnck_change_state(Screen *screen, Window xwindow,
 
 #define _NET_WM_STATE_REMOVE        0    /* remove/unset property */
 #define _NET_WM_STATE_ADD           1    /* add/set property */
-#define _NET_WM_STATE_TOGGLE        2    /* toggle property  */  
+#define _NET_WM_STATE_TOGGLE        2    /* toggle property  */
 
 	xev.xclient.type = ClientMessage;
 	xev.xclient.serial = 0;
@@ -147,8 +147,8 @@ static void set_decorations(WnckWindow *window, gboolean decorate)
 
 	/* Set Motif hints, most window managers handle these */
 	XChangeProperty(gdk_x11_get_default_xdisplay(), wnck_window_get_xid (window),
-						my_wnck_atom_get ("_MOTIF_WM_HINTS"), 
-						my_wnck_atom_get ("_MOTIF_WM_HINTS"), 32, PropModeReplace, 
+						my_wnck_atom_get ("_MOTIF_WM_HINTS"),
+						my_wnck_atom_get ("_MOTIF_WM_HINTS"), 32, PropModeReplace,
 						(unsigned char *)&hints, PROP_MOTIF_WM_HINTS_ELEMENTS);
 
 	/* Apart from OpenBox, which doesn't respect it changing after mapping.
