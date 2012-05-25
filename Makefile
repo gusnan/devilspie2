@@ -35,7 +35,7 @@ ifdef GTK2
 else
 	PKG_GTK=gtk+-3.0
 	PKG_WNCK=libwnck-3.0
-endif 
+endif
 
 LIB_CFLAGS=`pkg-config --cflags $(PKG_GTK) $(PKG_WNCK) lua5.1`
 STD_LDFLAGS=
