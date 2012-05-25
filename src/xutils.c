@@ -53,7 +53,7 @@ Atom my_wnck_atom_get(const char *atom_name)
 		atom_hash = g_hash_table_new (g_str_hash, g_str_equal);
 		reverse_atom_hash = g_hash_table_new (NULL, NULL);
 	}
-      
+
 	retval = GPOINTER_TO_UINT (g_hash_table_lookup (atom_hash, atom_name));
 	if (!retval) {
 		retval = XInternAtom (gdk_x11_get_default_xdisplay(), atom_name, FALSE);
@@ -62,7 +62,7 @@ Atom my_wnck_atom_get(const char *atom_name)
 			char *name_copy;
 
 			name_copy = g_strdup (atom_name);
-          
+
 			g_hash_table_insert (atom_hash,
 										name_copy,
 										GUINT_TO_POINTER (retval));
@@ -166,14 +166,14 @@ static void set_decorations(WnckWindow *window, gboolean decorate)
 gboolean decorate_window(WnckWindow *window)
 {
 	my_wnck_error_trap_push();
-	
+
 	set_decorations(window,TRUE);
-	
+
 	if (my_wnck_error_trap_pop()) {
 		g_printerr("decorate_window %s\n",_("Failed!"));
 		return FALSE;
 	}
-	
+
 	return TRUE;
 }
 
@@ -184,14 +184,14 @@ gboolean decorate_window(WnckWindow *window)
 gboolean undecorate_window(WnckWindow *window)
 {
 	my_wnck_error_trap_push();
-	
+
 	set_decorations(window,FALSE);
-	
+
 	if (my_wnck_error_trap_pop()) {
 		g_printerr("decorate_window %s\n", _("Failed!"));
 		return FALSE;
 	}
-	
+
 	return TRUE;
 }
 
