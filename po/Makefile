@@ -33,7 +33,7 @@ ${NAME}.pot:
 update-pot: ${NAME}.pot
 
 %.pox: %.po
-	msgmerge -o $@ --previous $< ${NAME}.pot 
+	msgmerge -o $@ --previous $< ${NAME}.pot
 
 build: $(LANGUAGES_MO)
 
