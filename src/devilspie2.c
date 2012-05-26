@@ -169,7 +169,11 @@ void load_scripts()
 
 		// we only bother with *.lua in the folder
 		if (g_str_has_suffix(current_file,".lua")) {
-			temp_list=g_slist_prepend(temp_list,g_build_path(G_DIR_SEPARATOR_S,g_get_user_config_dir(),"devilspie2",current_file,NULL));
+			temp_list=g_slist_prepend(temp_list,
+			                          g_build_path(G_DIR_SEPARATOR_S,
+			                                       g_get_user_config_dir(),
+			                                       "devilspie2",
+			                                       current_file,NULL));
 			number_of_files++;
 		}
 	}
@@ -284,7 +288,10 @@ int main(int argc, char *argv[])
 	// libwnck Version Information is only availible if you have
 	// libwnck 3.0 or later
 	if (show_wnck_version) {
-		printf("libwnck v%d.%d.%d\n\n",WNCK_MAJOR_VERSION,WNCK_MINOR_VERSION,WNCK_MICRO_VERSION);
+		printf("libwnck v%d.%d.%d\n\n",
+		       WNCK_MAJOR_VERSION,
+		       WNCK_MINOR_VERSION,
+		       WNCK_MICRO_VERSION);
 		exit(EXIT_SUCCESS);
 	}
 #endif
