@@ -3,7 +3,7 @@
 Installation:
 -------------
 
-Building Devilspie2 requires pkg-config, gtk, wnck and lua libraries. On a 
+Building Devilspie2 requires pkg-config, gtk, wnck and lua libraries. On a
 Debian system, installing the following packages should do it:
 
 pkg-config
@@ -14,22 +14,22 @@ libgtk-3-dev
 
 on a system still using Gtk version 2 replace the wnck and gtk libs with:
 
-libwnck-dev 
-libgtk2.0-dev 
+libwnck-dev
+libgtk2.0-dev
 
 
 To build, you simply do a
 
 	make
 
-(which will build with Gtk3 libs) or 
+(which will build with Gtk3 libs) or
 
 	make GTK2=on
 
 to make the build use the Gtk2 libs.
 
 This will in the end create the devilspie2 binary in the bin/ folder.
-To build the same executable, but with debugging enabled, run 
+To build the same executable, but with debugging enabled, run
 
 	make DEBUG=1.
 
@@ -42,9 +42,9 @@ or on systems using sudo:
 
 	sudo make install
 
-depending on your system setup. This will default to /usr/local, installing the 
-binary to /usr/local/bin - this can be changed using PREFIX variable, and need 
-to applied all through the build system - the PREFIX is used to make the 
+depending on your system setup. This will default to /usr/local, installing the
+binary to /usr/local/bin - this can be changed using PREFIX variable, and need
+to applied all through the build system - the PREFIX is used to make the
 location of translations known to all code:
 
 	make PREFIX=/usr
