@@ -3,19 +3,19 @@
 Devilspie 2
 -----------
 
-Devilspie 2 is based on the excellent program Devil's Pie by Ross Burton, and 
-takes a folder as indata, and checks that folder for LUA scripts. These 
-scripts are run each time a window is opened, and the rules in them are applied 
+Devilspie 2 is based on the excellent program Devil's Pie by Ross Burton, and
+takes a folder as indata, and checks that folder for LUA scripts. These
+scripts are run each time a window is opened, and the rules in them are applied
 on the window.
 
 Unfortunately the rules of the original Devils Pie are not supported.
 
 If you don't give devilspie2 any folder with --folder, it will read LUA scripts
-from the folder that it gets from the GLib function g_get_user_config_dir - 
-this returns the config directory as defined in the XDG Base Directory 
-Specification. In most cases would be the ~/.config/devilspie2/ folder, and this 
-folder will be created if it doesn't already exist. This folder is changeable 
-with the --folder option. If devilspie2 doesn't find any LUA files in the 
+from the folder that it gets from the GLib function g_get_user_config_dir -
+this returns the config directory as defined in the XDG Base Directory
+Specification. In most cases would be the ~/.config/devilspie2/ folder, and this
+folder will be created if it doesn't already exist. This folder is changeable
+with the --folder option. If devilspie2 doesn't find any LUA files in the
 folder, it will stop execution.
 
 Devilspie2 takes some options:
@@ -32,12 +32,12 @@ simple script example:
 
 ---------------------8<---------------------
 
--- the debug_print command does only print anything to stdout 
+-- the debug_print command does only print anything to stdout
 -- if devilspie2 is run using the --debug option
 debug_print("Window Name: " .. get_window_name());
 debug_print("Application name: " .. get_application_name())
 
--- I want my Xfce4-terminal to the right on the second screen of my two-monitor 
+-- I want my Xfce4-terminal to the right on the second screen of my two-monitor
 -- setup. (Strings are case sensitive, please note this when creating rule
 -- scripts.)
 if (get_window_name()=="Terminal") then
@@ -52,7 +52,7 @@ end
 
 --------------------->8---------------------
 
-You can choose to have all script functionality in one file, or you can split 
+You can choose to have all script functionality in one file, or you can split
 it up into several, Devilspie2 runs on all LUA files in .config/devilspie2 -
 that is all files with a .lua extension.
 
@@ -66,9 +66,9 @@ www.lua.org/FAQ.html
 
 , documentation at
 
-www.lua.org/docs.html 
+www.lua.org/docs.html
 
-, and tutorials at 
+, and tutorials at
 
 http://lua-users.org/wiki/TutorialDirectory
 
@@ -78,7 +78,7 @@ The following commands are recognized by the Devilspie2 LUA interpreter:
 
 debug_print(string)
 
-	Debug helper that prints a string to stdout. The string is only printed to 
+	Debug helper that prints a string to stdout. The string is only printed to
 	stdout if devilspie2 is run with the --debug option, otherwise nothing will
 	be printed.
 
@@ -100,7 +100,7 @@ set_window_size (xsize, ysize)
 
 set_window_geometry (xpos, ypos, xsize, ysize)
 
-	Sets both size and position of a window in one command. Takes four 
+	Sets both size and position of a window in one command. Takes four
 	parameters, xpos, ypos, xsize and ysize.
 
 
@@ -173,13 +173,13 @@ undecorate_window()
 
 set_window_workspace(number)
 
-	Moves a window to another workspace. The number variable starts counting at 
+	Moves a window to another workspace. The number variable starts counting at
 	1.
 
 
 change_workspace(number)
 
-	Changes the current workspace to another. The number variable starts counting 
+	Changes the current workspace to another. The number variable starts counting
 	at 1.
 
 
@@ -195,14 +195,14 @@ unpin_window()
 
 stick_window()
 
-	Asks the window manager to keep the window's position fixed on the screen, 
-	even when the workspace or viewport scrolls. 
+	Asks the window manager to keep the window's position fixed on the screen,
+	even when the workspace or viewport scrolls.
 
 
 unstick_window()
 
-	Asks the window manager to not have window's position fixed on the screen 
-	when the workspace or viewport scrolls. 
+	Asks the window manager to not have window's position fixed on the screen
+	when the workspace or viewport scrolls.
 
 
 get_window_geometry()
@@ -219,7 +219,7 @@ get_window_client_geometry()
 
 set_skip_tasklist(skip)
 
-	Set this to true if you would like the window to skip listing in your 
+	Set this to true if you would like the window to skip listing in your
 	tasklist. Takes a boolean(true or false) as value.
 
 
@@ -229,14 +229,14 @@ set_skip_pager(skip)
 	Takes a boolean(true or false) as value.
 
 
-Please note that strings are case sensitive, comparing "SomeProgram" with 
+Please note that strings are case sensitive, comparing "SomeProgram" with
 "someprogram" will not report equality.
 
 
 Translations
 ------------
 
-Devilspie2 is now translatable using gettext - see README.translators for more 
+Devilspie2 is now translatable using gettext - see README.translators for more
 information.
 
 
