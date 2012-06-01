@@ -21,7 +21,7 @@ This copies the devilspie2.pot to [LANGUAGE ABBREV].po, (it replaces
 if you are translating into Swedish) and fills it with information that it gets
 from your system.
 
-Then start translating all strings in the sv.po using your favourite
+Then start translating all strings in the generated po file using your favourite
 texteditor, or a "gettext catalogs (.po files) editor" like poedit (which can be
 found at http://www.poedit.net.)
 
