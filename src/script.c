@@ -73,6 +73,7 @@ void init_script()
 void register_cfunctions()
 {
 	lua_register(lua,"get_window_name",c_get_window_name);
+	lua_register(lua,"get_window_has_name",c_get_window_has_name);
 
 	lua_register(lua,"set_window_position",c_set_window_position);
 	lua_register(lua,"set_window_size",c_set_window_size);

@@ -88,6 +88,11 @@ get_window_name()
 	returns a string containing the name of the current window.
 
 
+get_window_has_name()
+
+	return true or false depending on if the window has a name or not
+
+
 set_window_position(xpos,ypos)
 
 	Set the position of a window.
