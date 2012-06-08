@@ -91,6 +91,7 @@ get_window_name()
 get_window_has_name()
 
 	return true or false depending on if the window has a name or not
+	(from version 0.20)
 
 
 set_window_position(xpos,ypos)
