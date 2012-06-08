@@ -181,7 +181,7 @@ int c_get_window_has_name(lua_State *lua)
 	WnckWindow *window=get_current_window();
 	
 	if (window) {
-		if (wnck_window_has_name(window)) has_name=TRUE;
+		has_name=wnck_window_has_name(window);
 	}
 
 	lua_pushboolean(lua,has_name);
