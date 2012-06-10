@@ -11,12 +11,12 @@ on the window.
 Unfortunately the rules of the original Devils Pie are not supported.
 
 If you don't give devilspie2 any folder with --folder, it will read LUA scripts
-from the folder that it gets from the GLib function g_get_user_config_dir -
-this returns the config directory as defined in the XDG Base Directory
-Specification. In most cases would be the ~/.config/devilspie2/ folder, and this
-folder will be created if it doesn't already exist. This folder is changeable
-with the --folder option. If devilspie2 doesn't find any LUA files in the
-folder, it will stop execution.
+from the folder that it gets from the GLib function g_get_user_config_dir with
+devilspie2/ added to the end - g_get_user_config_dir returns the config
+directory as defined in the XDG Base Directory Specification. In most cases
+would be the ~/.config/devilspie2/ folder, and this folder will be created if
+ it doesn't already exist. This folder is changeable with the --folder option.
+If devilspie2 doesn't find any LUA files in the folder, it will stop execution.
 
 Devilspie2 takes some options:
 
