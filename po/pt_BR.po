@@ -35,7 +35,7 @@ msgstr "Nenhum arquivo de script encontrado no diretório de scripts - saindo."
 #: devilspie2.c:194
 #, c-format
 msgid "List of LUA files in folder:"
-msgstr "Lista de arquivos LUA no arquivo:"
+msgstr "Lista de arquivos LUA no diretório:"
 
 #: devilspie2.c:219
 msgid "Print debug info to stdout"
@@ -47,7 +47,7 @@ msgstr "Não aplique nenhuma regra, apena simule a execução"
 
 #: devilspie2.c:223
 msgid "Search for scripts in this folder"
-msgstr "Procura por scripts neste diretório"
+msgstr "Procurar por scripts neste diretório"
 
 #: devilspie2.c:223
 msgid "FOLDER"
@@ -73,7 +73,7 @@ msgstr "falha no parsing da opção: %s"
 #: devilspie2.c:274
 #, c-format
 msgid "Couldn't create the default folder for devilspie2 scripts."
-msgstr "Não pode criar o arquivo padrão para os scripts do devilspie2."
+msgstr "Não pode criar o diretório padrão para os scripts do devilspie2."
 
 #: devilspie2.c:302
 #, c-format
@@ -130,7 +130,7 @@ msgstr "Esperado boleano como entrada"
 
 #: script_functions.c:109 xutils.c:173 xutils.c:191
 msgid "Failed!"
-msgstr "Falha!"
+msgstr "Falhou!"
 
 #: script_functions.c:616 script_functions.c:659
 #, c-format
