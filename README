@@ -213,25 +213,25 @@ unstick_window()
 get_window_geometry()
 
    Returns the window geometry as four numbers - x-position, y-position,
-   width and height.
+   width and height. (from version 0.16)
 
 
 get_window_client_geometry()
 
    returns the window geometry excluding the window manager borders as four
-   numbers, x-position, y-position, width and height.
+   numbers, x-position, y-position, width and height. (from version 0.16)
 
 
 set_skip_tasklist(skip)
 
    Set this to true if you would like the window to skip listing in your
-   tasklist. Takes a boolean(true or false) as value.
+   tasklist. Takes a boolean(true or false) as value. (from version 0.16)
 
 
 set_skip_pager(skip)
 
    Set this to true if you would like the window to skip listing in your pager.
-   Takes a boolean(true or false) as value.
+   Takes a boolean(true or false) as value. (from version 0.16)
 
 
 Please note that strings are case sensitive, comparing "SomeProgram" with
