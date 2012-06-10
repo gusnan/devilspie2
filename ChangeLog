@@ -2,6 +2,12 @@
 ChangeLog:
 ----------
 
+0.20
+	* Add get_window_has_name function
+	* Added Brasilian Portugese translation
+	  - thanks to Hélder Máximo Botter Ribas
+	* Massive whitespace fixes in the source
+
 0.19
 	* Add C preprocessor flags to build system
 	* Minor update to documentation for translators
