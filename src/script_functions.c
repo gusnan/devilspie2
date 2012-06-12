@@ -163,14 +163,14 @@ int c_get_window_name(lua_State *lua)
 
 /**
  * c_get_window_name always returns a string, even if a window hasn't
- * got a name - use this function to determine if a window really has 
+ * got a name - use this function to determine if a window really has
  * a name or not.
  * returns a boolean true or false
  */
 int c_get_window_has_name(lua_State *lua)
 {
 	int top=lua_gettop(lua);
-	
+
 	if (top!=0) {
 		luaL_error(lua,"get_window_has_name: %s",no_indata_expected_error);
 		return 0;
@@ -179,7 +179,7 @@ int c_get_window_has_name(lua_State *lua)
 	gboolean has_name=FALSE;
 
 	WnckWindow *window=get_current_window();
-	
+
 	if (window) {
 		has_name=wnck_window_has_name(window);
 	}
