@@ -11,6 +11,8 @@
 	<group name='po' expanded='TRUE'>
 		<file>./po/devilspie2.pot</file>
 		<file>./po/Makefile</file>
+		<file>./po/fr.po</file>
+		<file>./po/pt_BR.po</file>
 		<file>./po/sv.po</file>
 	</group>
 	<file>./ChangeLog</file>
