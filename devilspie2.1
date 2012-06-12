@@ -1,4 +1,4 @@
-.TH devilspie2 1 "11 October 2011" "Version 0.07"
+.TH devilspie2 1 "12 June 2012" "Version 0.20"
 .SH NAME
 Devilspie2 - perform scripted actions on windows as they are created
 .SH Description
@@ -23,126 +23,8 @@ and doesn't affect the windows that the scripts otherwise would modify.
 .SH Script Commands
 
 .TP
-\fBget_window_name()\fR
-returns a string containing the name of the current window.
-
-.TP
-\fBget_application_name()\fR
-returns the application name of the current window.
-
-.TP
-\fBset_window_position(xpos, ypos)\fR
-Sets the position of a window.
-
-.TP
-\fBset_window_size(xsize, ysize)\fR
-Sets the size of a window.
-
-.TP
-\fBset_window_geometry(xpos, ypos, xsize ysize)\fR
-Set the geometry of a window.
-
-.TP
-\fBmake_always_on_top()\fR
-Set the windows always on top flag.
-
-.TP
-\fBset_on_top()\fR
-Sets a window on top of the others (this will however not lock the window in
-this position).
-
-.TP
-\fBdebug_print()\fR
-Debug helper that prints a string to stdout. It is only printed if devilspie2
-is run with the \-\-debug option.
-
-.TP
-\fBshade()\fR
-"Shades" a window, showing only the title-bar.
-
-.TP
-\fBunshade()\fR
-Unshades a window - the opposite of "shade"
-
-.TP
-\fBmaximize()\fR
-maximizes a window
-
-.TP
-\fBunmaximize()\fR
-unmaximizes a window
-
-.TP
-\fBmaximize_vertically()\fR
-maximizes the current window vertically.
-
-.TP
-\fBmaximize_horisontally()\fR
-maximizes the current window horisontally.
-
-.TP
-\fBminimize()\fR
-minimizes a window
-
-.TP
-\fBunminimize()\fR
-unminimizes a window, that is bringing it back to screen from the minimized
-position/size.
-
-.TP
-\fBdecorate_window()\fR
-Shows all window decoration.
-
-.TP
-\fBundecorate_window()\fR
-Removes all window decorations.
-
-.TP
-\fBset_window_workspace(number)\fR
-Moves a window to another workspace. The number variable starts counting at 1.
-
-.TP
-\fBchange_workspace(number)\fR
-Changes the current workspace to another. The number variable starts counting at
-1.
-
-.TP
-\fBpin_window()\fR
-asks the window manager to put the window on all workspaces.
-
-.TP
-\fBunpin_window()\fR
-Asks the window manager to put window only in the currently active workspace.
-
-.TP
-\fBstick_window()\fR
-Asks the window manager to keep the window's position fixed on the screen, even
-when the workspace or viewport scrolls.
-
-.TP
-\fBunstick_window()\fR
-Asks the window manager to not have window's position fixed on the screen when
-the workspace or viewport scrolls.
-
-.TP
-\fget_window_geometry()\fR
-Returns the window geometry as four numbers - x-position, y-position,
-width and height.
-
-.TP
-\fget_window_client_geometry()\fR
-returns the window geometry excluding the window manager borders as four
-numbers, x-position, y-position, width and height.
-
-.TP
-\fset_skip_tasklist(bool)\fR
-Set this to true if you would like the window to skip listing in your
-tasklist.
-
-.TP
-\fset_skip_pager(bool)\fR
-Set this to true if you would like the window to skip listing in your pager.
-Takes a boolean(true or false) as value.
+See the README or the manual linked from the homepage for a detailed description 
+of the commands recognized by the LUA script.
 
 .SH Author
 .B Devilspie2
