@@ -59,8 +59,8 @@ Next issue the following command to update your po file:
 
    msgmerge --update sv.po devilspie2.pot
 
-Then open your file and locate the strings that need updating. To get the 
-translation to me you can fork devilspie2 on github, do the translation, and 
+Then open your file and locate the strings that need updating. To get the
+translation to me you can fork devilspie2 on github, do the translation, and
 make a pull request to me, which I will merge into my devilspie2 repository.
-Please use English language in your commit messages so that I can understand 
+Please use English language in your commit messages so that I can understand
 what you have done.
