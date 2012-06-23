@@ -8,6 +8,7 @@ ChangeLog:
 	  - thanks to Hélder Máximo Botter Ribas
 	* Massive whitespace fixes in the source
 	* Documentation updates
+	* Add linking to X11 (fixes linker error on some ports)
 
 0.19
 	* Add C preprocessor flags to build system
