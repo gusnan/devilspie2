@@ -39,7 +39,7 @@ endif
 
 LIB_CFLAGS=`pkg-config --cflags $(PKG_GTK) $(PKG_WNCK) lua5.1`
 STD_LDFLAGS=
-LIBS=`pkg-config --libs $(PKG_GTK) $(PKG_WNCK) lua5.1`
+LIBS=-lX11 `pkg-config --libs $(PKG_GTK) $(PKG_WNCK) lua5.1`
 
 LOCAL_CFLAGS=$(STD_CFLAGS) $(DEPRECATED) $(CFLAGS) $(LIB_CFLAGS)
 LOCAL_LDFLAGS=$(LDFLAGS) $(STD_LDFLAGS)
