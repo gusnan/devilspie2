@@ -49,8 +49,9 @@ Then build devilspie2 as usual with make and install using make install as root.
 Updating your translation
 -------------------------
 
-When it is time to update your translation, you update your po file from the 
-content of the devilspie2.pot file (in this example sv.po):
+When it is time to update your translation, you update your language po file
+from the content of the devilspie2.pot file (in this example the language is
+Swedish, and the po is called sv.po):
 
    msgmerge --update sv.po devilspie2.pot
 
