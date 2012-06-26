@@ -1,0 +1,138 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: devilspie2 0.17\n"
+"Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
+"POT-Creation-Date: 2012-01-17 14:53+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: devilspie2.c:133
+#, c-format
+msgid "Received signal:"
+msgstr ""
+
+#: devilspie2.c:156
+#, c-format
+msgid "script_folder isn't a folder."
+msgstr ""
+
+#: devilspie2.c:184
+#, c-format
+msgid "No script files found in the script folder - exiting."
+msgstr ""
+
+#: devilspie2.c:192
+#, c-format
+msgid "List of LUA files in folder:"
+msgstr ""
+
+#: devilspie2.c:217
+msgid "Print debug info to stdout"
+msgstr ""
+
+#: devilspie2.c:219
+msgid "Don't apply any rules, only emulate execution"
+msgstr ""
+
+#: devilspie2.c:221
+msgid "Search for scripts in this folder"
+msgstr ""
+
+#: devilspie2.c:221
+msgid "FOLDER"
+msgstr ""
+
+#: devilspie2.c:223
+msgid "Show Devilspie2 version and quit"
+msgstr ""
+
+#: devilspie2.c:228
+msgid "Show libwnck version and quit"
+msgstr ""
+
+#: devilspie2.c:247
+msgid "apply rules on windows"
+msgstr ""
+
+#: devilspie2.c:254
+#, c-format
+msgid "option parsing failed: %s"
+msgstr ""
+
+#: devilspie2.c:272
+#, c-format
+msgid "Couldn't create the default folder for devilspie2 scripts."
+msgstr ""
+
+#: devilspie2.c:297
+#, c-format
+msgid "Running devilspie2 in debug and emulate mode."
+msgstr ""
+
+#: devilspie2.c:299
+#, c-format
+msgid "Running devilspie2 in debug mode."
+msgstr ""
+
+#: devilspie2.c:304
+#, c-format
+msgid "Using scripts from folder: %s"
+msgstr ""
+
+#: devilspie2.c:315
+#, c-format
+msgid "Couldn't init script error messages!"
+msgstr ""
+
+#: script.c:167
+#, c-format
+msgid "Error: %s"
+msgstr ""
+
+#: script_functions.c:65
+msgid "Couldn't allocate error string!"
+msgstr ""
+
+#: script_functions.c:67
+msgid "No indata expected"
+msgstr ""
+
+#: script_functions.c:74
+msgid "One indata expected"
+msgstr ""
+
+#: script_functions.c:81
+msgid "Two indata expected"
+msgstr ""
+
+#: script_functions.c:88
+msgid "Four indata expected"
+msgstr ""
+
+#: script_functions.c:95
+msgid "Number expected as indata"
+msgstr ""
+
+#: script_functions.c:102
+msgid "Boolean expected as indata"
+msgstr ""
+
+#: script_functions.c:109 xutils.c:176 xutils.c:194
+msgid "Failed!"
+msgstr ""
+
+#: script_functions.c:618 script_functions.c:661
+#, c-format
+msgid "Workspace number %d does not exist!"
+msgstr ""
