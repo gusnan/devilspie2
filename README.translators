@@ -6,13 +6,14 @@ Information for new translators
 Starting fresh
 --------------
 
-Get a copy of the devilspie2 sources, and create a devilspie2.pot file in the po
-folder:
+Get a copy of the devilspie2 sources, and if a devilspie2.pot isn't availible
+in the po folder, create one:
 
 cd po
 make devilspie2.pot
 
-Then generate a po file for your language using msginit:
+When you have made sure you have a devilspie2.pot, generate a po file for your
+language using msginit:
 
 msginit --input=devilspie2.pot
 
@@ -21,9 +22,9 @@ This copies the devilspie2.pot to [LANGUAGE ABBREV].po, (it replaces
 if you are translating into Swedish) and fills it with information that it gets
 from your system.
 
-Then start translating all strings in the generated po file using your favourite
-texteditor, or a "gettext catalogs (.po files) editor" like poedit (which can be
-found at http://www.poedit.net.)
+Then start translating all strings in the generated po file using your 
+favourite texteditor, or a "gettext catalogs (.po files) editor" like poedit 
+(which can be found at http://www.poedit.net.)
 
 
 Checking your translation for errors and completeness
