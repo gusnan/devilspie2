@@ -2,6 +2,10 @@
 ChangeLog:
 ----------
 
+0.21
+	* Add get_window_is_maximized, get_window_is_maximized_horisontally
+	  and get_window_is_maximized_vertically functions
+
 0.20
 	* Add get_window_has_name function
 	* Added Brasilian Portugese translation
