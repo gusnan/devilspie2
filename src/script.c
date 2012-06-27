@@ -114,6 +114,11 @@ void register_cfunctions()
 
 	lua_register(lua,"set_skip_tasklist",c_set_skip_tasklist);
 	lua_register(lua,"set_skip_pager",c_set_skip_pager);
+
+	lua_register(lua,"get_window_is_maximized",c_get_window_is_maximized);
+
+	lua_register(lua,"get_window_is_maximized_vertically",c_get_window_is_maximized_vertically);
+	lua_register(lua,"get_window_is_maximized_horisontally",c_get_window_is_maximized_horisontally);
 }
 
 

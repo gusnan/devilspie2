@@ -72,5 +72,8 @@ int c_get_client_window_geometry(lua_State *lua);
 int c_set_skip_tasklist(lua_State *lua);
 int c_set_skip_pager(lua_State *lua);
 
+int c_get_window_is_maximized(lua_State *lua);
+int c_get_window_is_maximized_vertically(lua_State *lua);
+int c_get_window_is_maximized_horisontally(lua_State *lua);
 
 #endif /*__HEADER_SCRIPT_FUNCTIONS_*/

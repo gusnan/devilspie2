@@ -1005,3 +1005,78 @@ int c_set_skip_pager(lua_State *lua)
 
 	return 0;
 }
+
+
+/**
+ *
+ */
+int c_get_window_is_maximized(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+
+	if (top!=0) {
+		luaL_error(lua,"get_window_is__maximized: %s",no_indata_expected_error);
+		return 0;
+	}
+
+	WnckWindow *window=get_current_window();
+
+	gboolean is_maximized=FALSE;
+	if (window) {
+		is_maximized=wnck_window_is_maximized(window);
+	}
+
+	lua_pushboolean(lua,is_maximized);
+
+	return 1;
+}
+
+/**
+ *
+ */
+int c_get_window_is_maximized_vertically(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+
+	if (top!=0) {
+		luaL_error(lua,"get_window_is_horisontally_maximized: %s",no_indata_expected_error);
+		return 0;
+	}
+
+	WnckWindow *window=get_current_window();
+
+	gboolean is_vertically_maximized=FALSE;
+	if (window) {
+		is_vertically_maximized=wnck_window_is_maximized_vertically(window);
+	}
+
+	lua_pushboolean(lua,is_vertically_maximized);
+
+	return 1;
+}
+
+
+/**
+ *
+ */
+int c_get_window_is_maximized_horisontally(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+
+	if (top!=0) {
+		luaL_error(lua,"get_window_is_horisontally_maximized: %s",no_indata_expected_error);
+		return 0;
+	}
+
+	WnckWindow *window=get_current_window();
+
+	gboolean is_horisontally_maximized=FALSE;
+	if (window) {
+		is_horisontally_maximized=wnck_window_is_maximized_horizontally(window);
+	}
+
+	lua_pushboolean(lua,is_horisontally_maximized);
+
+	return 1;
+}
+

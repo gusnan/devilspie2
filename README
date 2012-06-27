@@ -235,6 +235,25 @@ set_skip_pager(skip)
    Takes a boolean(true or false) as value. (from version 0.16)
 
 
+get_window_is_maximized()
+   
+   Returns true if the window is maximized, false otherwise. (available from
+   version 0.21)
+
+
+get_window_is_maximized_vertically()
+   
+   Returns true if the window is vertically maximized, false otherwise.
+   (available from version 0.21)
+
+
+get_window_is_maximized_horisontally()
+   
+   Returns true if the window is horisontally maximized, false otherwise. 
+   (available from version 0.21)
+
+
+
 Please note that strings are case sensitive, comparing "SomeProgram" with
 "someprogram" will not report equality.
 
