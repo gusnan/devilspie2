@@ -5,6 +5,8 @@ ChangeLog:
 0.21
 	* Add get_window_is_maximized, get_window_is_maximized_horisontally
 	  and get_window_is_maximized_vertically functions
+	* Add set_window_geometry2 and set_window_position2 functions,
+	  giving more similar behaviour to original devilspie functionality
 
 0.20
 	* Add get_window_has_name function
