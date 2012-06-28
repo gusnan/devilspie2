@@ -100,6 +100,14 @@ set_window_position(xpos,ypos)
    Set the position of a window.
 
 
+set_window_position2(xpos,ypos)
+
+   Set the position of a window - Compared to set_window_position, this
+   function uses XMoveWindow instead of wnck_window_set_geometry which
+   gives a slightly different result.
+   (Availible from version 0.21)
+
+
 set_window_size (xsize, ysize)
 
    Sets the size of a window - takes xsize and ysize as parameters.

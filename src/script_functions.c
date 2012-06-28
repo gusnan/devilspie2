@@ -322,6 +322,44 @@ int c_set_window_position(lua_State *lua)
 
 
 /**
+ *
+ */
+int c_set_window_position2(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+
+	if (top!=2) {
+		luaL_error(lua,"set_window_position2: %s", two_indata_expected_error);
+		return 0;
+	}
+
+	int type1=lua_type(lua,1);
+	int type2=lua_type(lua,2);
+
+	if ((type1!=LUA_TNUMBER) || (type2!=LUA_TNUMBER)) {
+		luaL_error(lua,"set_window_position2: %s", two_indata_expected_error);
+		return 0;
+	}
+
+	int x=lua_tonumber(lua,1);
+	int y=lua_tonumber(lua,2);
+
+	if (!devilspie2_emulate) {
+
+		WnckWindow *window=get_current_window();
+
+		if (window) {
+			XMoveWindow(GDK_DISPLAY_XDISPLAY(gdk_display_get_default()),
+			            wnck_window_get_xid(window),
+			            x,y);
+		}
+	}
+
+	return 0;
+}
+
+
+/**
  * Sets the size of the window
  */
 int c_set_window_size(lua_State *lua)
