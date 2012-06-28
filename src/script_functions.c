@@ -24,6 +24,9 @@
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
 
+#include <gdk/gdk.h>
+#include <gdk/gdkx.h>
+
 #include <locale.h>
 
 #include <libintl.h>
@@ -190,7 +193,6 @@ int c_get_window_has_name(lua_State *lua)
 }
 
 
-
 /**
  * Set the Window Geometry
  * 	set_window_geometry(x,y,xsize,ysize);
@@ -227,6 +229,52 @@ int c_set_window_geometry(lua_State *lua)
 				WNCK_WINDOW_GRAVITY_CURRENT,
 				WNCK_WINDOW_CHANGE_X + WNCK_WINDOW_CHANGE_Y + WNCK_WINDOW_CHANGE_WIDTH + WNCK_WINDOW_CHANGE_HEIGHT,
 				x,y,xsize,ysize);
+		}
+	}
+
+	return 0;
+}
+
+
+/**
+ * Set the Window Geometry2
+ * 	set_window_geometry2(x,y,xsize,ysize);
+ */
+int c_set_window_geometry2(lua_State *lua)
+{
+	WnckScreen *screen=NULL;
+	int top=lua_gettop(lua);
+
+	if (top!=4) {
+		luaL_error(lua,"set_window_geometry: %s",four_indata_expected_error);
+		return 0;
+	}
+
+	int type1=lua_type(lua,1);
+	int type2=lua_type(lua,2);
+	int type3=lua_type(lua,3);
+	int type4=lua_type(lua,4);
+
+	if ((type1!=LUA_TNUMBER) || (type2!=LUA_TNUMBER) || (type3!=LUA_TNUMBER) || (type4!=LUA_TNUMBER)) {
+		luaL_error(lua,"set_window_geometry: %s", four_indata_expected_error);
+		return 0;
+	}
+
+	int x=lua_tonumber(lua,1);
+	int y=lua_tonumber(lua,2);
+	int xsize=lua_tonumber(lua,3);
+	int ysize=lua_tonumber(lua,4);
+
+	if (!devilspie2_emulate) {
+		WnckWindow *window=get_current_window();
+
+		screen=wnck_window_get_screen(window);
+
+		if (window) {
+			XMoveResizeWindow(gdk_x11_get_default_xdisplay(),
+			                  wnck_window_get_xid(window),
+			                  x,y,
+			                  xsize,ysize);
 		}
 	}
 

@@ -31,6 +31,7 @@ int c_get_window_has_name(lua_State *lua);
 
 int c_set_window_position(lua_State *lua);
 int c_set_window_geometry(lua_State *lua);
+int c_set_window_geometry2(lua_State *lua);
 int c_set_window_size(lua_State *lua);
 
 int c_make_always_on_top(lua_State *lua);

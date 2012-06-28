@@ -111,6 +111,14 @@ set_window_geometry (xpos, ypos, xsize, ysize)
    parameters, xpos, ypos, xsize and ysize.
 
 
+set_window_geometry2 (xpos, ypos, xsize, ysize)
+
+   Sets the window geometry just as set_window_geometry, using 
+   XMoveResizeWindow instead of its libwnck alternative. This results in 
+   different coordinates than the set_window_geometry function, and results
+   are more similar to the results of the original devilspie geometry function.
+   (available from version 0.21)
+
 get_application_name()
 
    returns the application name of the current window.
