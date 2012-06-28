@@ -242,7 +242,6 @@ int c_set_window_geometry(lua_State *lua)
  */
 int c_set_window_geometry2(lua_State *lua)
 {
-	WnckScreen *screen=NULL;
 	int top=lua_gettop(lua);
 
 	if (top!=4) {
@@ -267,8 +266,6 @@ int c_set_window_geometry2(lua_State *lua)
 
 	if (!devilspie2_emulate) {
 		WnckWindow *window=get_current_window();
-
-		screen=wnck_window_get_screen(window);
 
 		if (window) {
 			XMoveResizeWindow(gdk_x11_get_default_xdisplay(),
