@@ -20,7 +20,7 @@ If devilspie2 doesn't find any LUA files in the folder, it will stop execution.
 
 Devilspie2 takes some options:
 
--h, --help         Show help options
+-h, --help          Show help options
 
 -d, --debug         Print debug information to stdout
 -e, --emulate       Don't apply any rules, but only emulate execution
