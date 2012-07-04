@@ -1163,3 +1163,50 @@ int c_get_window_is_maximized_horisontally(lua_State *lua)
 	return 1;
 }
 
+
+/**
+ *
+ */
+int c_set_window_above(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+	
+	if (top!=0) {
+		luaL_error(lua,"set_window_above: %s", no_indata_expected_error);
+		return 0;
+	}
+
+	WnckWindow *window=get_current_window();
+
+	my_wnck_change_state(my_wnck_window_get_xscreen(window),
+	                     wnck_window_get_xid(window),
+	                     TRUE,
+	                     my_wnck_atom_get("_NET_WM_STATE_ABOVE"),
+	                     0);
+
+	return 0;
+}
+
+
+/**
+ *
+ */
+int c_set_window_below(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+	
+	if (top!=0) {
+		luaL_error(lua,"set_window_above: %s", no_indata_expected_error);
+		return 0;
+	}
+
+	WnckWindow *window=get_current_window();
+
+	my_wnck_change_state(my_wnck_window_get_xscreen(window),
+	                     wnck_window_get_xid(window),
+	                     TRUE,
+	                     my_wnck_atom_get("_NET_WM_STATE_BELOW"),
+	                     0);
+
+	return 0;
+}

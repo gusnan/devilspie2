@@ -269,6 +269,16 @@ get_window_is_maximized_horisontally()
    (available from version 0.21)
 
 
+set_window_above()
+
+   Set the current window above all normal windows. (availible from version
+   0.21)
+
+set_window_below()
+
+   Set the current window below all normal windows. (availible from version
+   0.21)
+
 
 Please note that strings are case sensitive, comparing "SomeProgram" with
 "someprogram" will not report equality.
