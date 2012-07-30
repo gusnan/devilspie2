@@ -23,6 +23,8 @@
 
 #include <glib.h>
 
+#include <gdk/gdk.h>
+
 #include <lua.h>
 #include <lualib.h>
 #include <lauxlib.h>
