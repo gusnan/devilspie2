@@ -77,11 +77,8 @@ http://lua-users.org/wiki/TutorialDirectory
 The following commands are recognized by the Devilspie2 LUA interpreter:
 
 
-debug_print(string)
 
-   Debug helper that prints a string to stdout. The string is only printed to
-   stdout if devilspie2 is run with the --debug option, otherwise nothing will
-   be printed.
+The first group are functions to get data from a window:
 
 
 get_window_name()
@@ -93,6 +90,89 @@ get_window_has_name()
 
    return true or false depending on if the window has a name or not
    (from version 0.20)
+
+
+get_application_name()
+
+   returns the application name of the current window.
+
+
+get_window_geometry()
+
+   Returns the window geometry as four numbers - x-position, y-position,
+   width and height. (from version 0.16)
+
+
+get_window_client_geometry()
+
+   returns the window geometry excluding the window manager borders as four
+   numbers, x-position, y-position, width and height. (from version 0.16)
+
+
+get_window_is_maximized()
+
+   Returns true if the window is maximized, false otherwise. (available from
+   version 0.21)
+
+
+get_window_is_maximized_vertically()
+
+   Returns true if the window is vertically maximized, false otherwise.
+   (available from version 0.21)
+
+
+get_window_is_maximized_horisontally()
+
+   Returns true if the window is horisontally maximized, false otherwise.
+   (available from version 0.21)
+
+
+get_window_type()
+
+   Returns the type of the window - The result type is a string, and can
+   be one of the following:
+
+   "WINDOW_TYPE_NORMAL"
+   "WINDOW_TYPE_DESKTOP"
+   "WINDOW_TYPE_DOCK"
+   "WINDOW_TYPE_DIALOG"
+   "WINDOW_TYPE_TOOLBAR"
+   "WINDOW_TYPE_MENU"
+   "WINDOW_TYPE_UTILITY"
+   "WINDOW_TYPE_SPLASHSCREEN"
+
+   or "WINDOW_TYPE_UNRECOGNIZED" if libwnck didn't recognize the type.
+
+   If the function for some reason didn't have a window to work on the string
+   result is "WINDOW_ERROR".
+
+   (availible from version 0.21)
+
+
+get_class_instance_name()
+
+   Gets the class instance name from the WM_CLASS Property for the current window.
+   Only available on libwnck 3+, and in devilspie2 version 0.21 or later.
+
+
+get_window_property(property)
+
+   Returns the window property described in the property string. For a list of
+   available properties, you should see the page
+   http://standards.freedesktop.org/wm-spec/wm-spec-latest.html
+
+   (Available from version 0.21)
+
+
+
+and the rest of the commands are used to change the properties of the windows:
+
+
+debug_print(string)
+
+   Debug helper that prints a string to stdout. The string is only printed to
+   stdout if devilspie2 is run with the --debug option, otherwise nothing will
+   be printed.
 
 
 set_window_position(xpos,ypos)
@@ -126,10 +206,6 @@ set_window_geometry2 (xpos, ypos, xsize, ysize)
    different coordinates than the set_window_geometry function, and results
    are more similar to the results of the original devilspie geometry function.
    (available from version 0.21)
-
-get_application_name()
-
-   returns the application name of the current window.
 
 
 make_always_on_top()
@@ -227,18 +303,6 @@ unstick_window()
    when the workspace or viewport scrolls.
 
 
-get_window_geometry()
-
-   Returns the window geometry as four numbers - x-position, y-position,
-   width and height. (from version 0.16)
-
-
-get_window_client_geometry()
-
-   returns the window geometry excluding the window manager borders as four
-   numbers, x-position, y-position, width and height. (from version 0.16)
-
-
 set_skip_tasklist(skip)
 
    Set this to true if you would like the window to skip listing in your
@@ -249,24 +313,6 @@ set_skip_pager(skip)
 
    Set this to true if you would like the window to skip listing in your pager.
    Takes a boolean(true or false) as value. (from version 0.16)
-
-
-get_window_is_maximized()
-
-   Returns true if the window is maximized, false otherwise. (available from
-   version 0.21)
-
-
-get_window_is_maximized_vertically()
-
-   Returns true if the window is vertically maximized, false otherwise.
-   (available from version 0.21)
-
-
-get_window_is_maximized_horisontally()
-
-   Returns true if the window is horisontally maximized, false otherwise.
-   (available from version 0.21)
 
 
 set_window_above()
@@ -281,41 +327,6 @@ set_window_below()
    0.21)
 
 
-get_window_type()
-
-   Returns the type of the window - The result type is a string, and can
-   be one of the following:
-
-   "WINDOW_TYPE_NORMAL"
-   "WINDOW_TYPE_DESKTOP"
-   "WINDOW_TYPE_DOCK"
-   "WINDOW_TYPE_DIALOG"
-   "WINDOW_TYPE_TOOLBAR"
-   "WINDOW_TYPE_MENU"
-   "WINDOW_TYPE_UTILITY"
-   "WINDOW_TYPE_SPLASHSCREEN"
-
-   or "WINDOW_TYPE_UNRECOGNIZED" if libwnck didn't recognize the type.
-
-   If the function for some reason didn't have a window to work on the string
-   result is "WINDOW_ERROR".
-
-   (availible from version 0.21)
-
-
-get_class_instance_name()
-
-   Gets the class instance name from the WM_CLASS Property for the current window.
-   Only available on libwnck 3+, and in devilspie2 version 0.21 or later.
-
-
-get_window_property(property)
-
-   Returns the window property described in the property string. For a list of
-   available properties, you should see the page
-   http://standards.freedesktop.org/wm-spec/wm-spec-latest.html
-
-   (Available from version 0.21)
 
 
 Please note that strings are case sensitive, comparing "SomeProgram" with
