@@ -12,6 +12,8 @@ ChangeLog:
 	* Add get_class_instance_name function
 	* Add get_window_property function
 	* Add get_window_role function
+	* Add get_window_xid function
+	* Add get_window_class function
 
 0.20
 	* Add get_window_has_name function

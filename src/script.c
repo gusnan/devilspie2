@@ -139,6 +139,8 @@ void register_cfunctions()
 	lua_register(lua,"get_window_role",c_get_window_role);
 	lua_register(lua,"get_window_xid",c_get_window_xid);
 
+	lua_register(lua,"get_window_class",c_get_window_class);
+
 #ifdef HAVE_GTK3
 	// wnck_window_get_class_instance_name is only availible on wnck 3 and later
 	lua_register(lua,"get_class_instance_name",c_get_class_instance_name);

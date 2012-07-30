@@ -1423,3 +1423,34 @@ int c_get_window_xid(lua_State *lua)
 
 	return 1;
 }
+
+
+/**
+ *
+ */
+int c_get_window_class(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+
+	if (top!=0) {
+		luaL_error(lua,"get_window_class: %s",no_indata_expected_error);
+		return 0;
+	}
+
+	WnckWindow *window=get_current_window();
+
+	gchar *result;
+
+	if (window) {
+		result=g_strdup(wnck_class_group_get_res_class (wnck_window_get_class_group(window)));
+
+	} else {
+		result=g_strdup("");
+	}
+
+	lua_pushstring(lua,result);
+
+	g_free(result);
+
+	return 1;
+}
