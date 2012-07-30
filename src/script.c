@@ -39,12 +39,12 @@
 
 #include "script.h"
 
-#include "script_functions.h"
-
-
 #if (GTK_MAJOR_VERSION >= 3)
 #define HAVE_GTK3
 #endif
+
+#include "script_functions.h"
+
 
 
 /**
