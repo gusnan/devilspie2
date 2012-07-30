@@ -1396,3 +1396,30 @@ int c_get_window_role(lua_State *lua)
 	return 1;
 }
 
+
+/**
+ *
+ */
+int c_get_window_xid(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+
+	if (top!=0) {
+		luaL_error(lua,"get_window_xid: %s",no_indata_expected_error);
+		return 0;
+	}
+
+	WnckWindow *window=get_current_window();
+
+	gulong result;
+
+	if (window) {
+		result=wnck_window_get_xid(window);
+	} else {
+		result=0;
+	}
+
+	lua_pushnumber(lua,result);
+
+	return 1;
+}
