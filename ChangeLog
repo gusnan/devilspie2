@@ -9,6 +9,7 @@ ChangeLog:
 	  giving more similar behaviour to original devilspie functionality
 	* Add set_window_above and set_window_below functions
 	* Add get_window_type function
+	* Add get_class_instance_name
 
 0.20
 	* Add get_window_has_name function

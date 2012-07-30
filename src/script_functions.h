@@ -85,4 +85,8 @@ int c_set_window_below(lua_State *lua);
 
 int c_get_window_type(lua_State *lua);
 
+#ifdef HAVE_GTK3
+int c_get_class_instance_name(lua_State *lua);
+#endif
+
 #endif /*__HEADER_SCRIPT_FUNCTIONS_*/
