@@ -90,5 +90,6 @@ int c_get_class_instance_name(lua_State *lua);
 #endif
 
 int c_get_window_property(lua_State *lua);
+int c_get_window_role(lua_State *lua);
 
 #endif /*__HEADER_SCRIPT_FUNCTIONS_*/
