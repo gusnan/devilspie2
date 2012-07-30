@@ -306,7 +306,7 @@ get_window_type()
 get_class_instance_name()
 
    Gets the class instance name from the WM_CLASS Property for the current window.
-   Only available on libwnck 3+.
+   Only available on libwnck 3+, and in devilspie2 version 0.21 or later.
 
 
 Please note that strings are case sensitive, comparing "SomeProgram" with
