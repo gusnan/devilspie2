@@ -164,6 +164,16 @@ get_window_property(property)
    (Available from version 0.21)
 
 
+get_window_role
+
+   Returns a string describing the current window role of the matched window as
+   defined by it's WM_WINDOW_ROLE hint.
+
+
+get_window_xid
+
+   Returns the X window id of the current window.
+
 
 and the rest of the commands are used to change the properties of the windows:
 
