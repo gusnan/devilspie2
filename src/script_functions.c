@@ -1170,7 +1170,7 @@ int c_get_window_is_maximized_horisontally(lua_State *lua)
 int c_set_window_above(lua_State *lua)
 {
 	int top=lua_gettop(lua);
-	
+
 	if (top!=0) {
 		luaL_error(lua,"set_window_above: %s", no_indata_expected_error);
 		return 0;
@@ -1194,7 +1194,7 @@ int c_set_window_above(lua_State *lua)
 int c_set_window_below(lua_State *lua)
 {
 	int top=lua_gettop(lua);
-	
+
 	if (top!=0) {
 		luaL_error(lua,"set_window_above: %s", no_indata_expected_error);
 		return 0;
