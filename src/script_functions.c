@@ -65,6 +65,8 @@ gchar *four_indata_expected_error=NULL;
 gchar *number_expected_as_indata_error=NULL;
 gchar *boolean_expected_as_indata_error=NULL;
 
+gchar *string_expected_as_indata_error=NULL;
+
 gchar *failed_string=NULL;
 
 /**
@@ -111,6 +113,13 @@ int init_script_error_messages()
 
 	boolean_expected_as_indata_error=g_strdup_printf(_("Boolean expected as indata"));
 	if (!boolean_expected_as_indata_error) {
+		printf(ALLOCATE_ERROR_STRING);
+		printf("\n");
+		return -1;
+	}
+
+	string_expected_as_indata_error=g_strdup_printf(_("String expected as indata"));
+	if (!string_expected_as_indata_error) {
 		printf(ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
@@ -1311,3 +1320,46 @@ int c_get_class_instance_name(lua_State *lua)
 
 #endif
 
+
+/**
+ *
+ */
+int c_get_window_property(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+
+	if (top!=1) {
+		luaL_error(lua,"get_window_property: %s",one_indata_expected_error);
+		return 0;
+	}
+
+	//	gchar *property=
+	int type=lua_type(lua,1);
+
+	if (type!=LUA_TSTRING) {
+		luaL_error(lua,"get_window_property: %s",string_expected_as_indata_error);
+		return 0;
+	}
+
+	const gchar *value=lua_tostring(lua,1);
+
+	WnckWindow *window=get_current_window();
+
+	gchar *result;
+
+	if (window) {
+		result=my_wnck_get_string_property_latin1(wnck_window_get_xid(window),my_wnck_atom_get(value));
+	} else {
+		result=g_strdup_printf("NO RESULT");
+	}
+
+	if (result) {
+		lua_pushstring(lua,result);
+	} else {
+		lua_pushstring(lua,"");
+	}
+
+	g_free(result);
+
+	return 1;
+}

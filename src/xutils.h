@@ -37,4 +37,6 @@ int my_wnck_error_trap_pop();
 gboolean decorate_window(WnckWindow *window);
 gboolean undecorate_window(WnckWindow *window);
 
+char* my_wnck_get_string_property_latin1 (Window xwindow, Atom atom);
+
 #endif /*__HEADER_XUTILS_*/
