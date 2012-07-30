@@ -1280,7 +1280,8 @@ int c_get_window_type(lua_State *lua)
 
 #ifdef HAVE_GTK3
 /**
- *
+ * c_get_class_instance_name
+ * Only available on libwnck 3+
  */
 int c_get_class_instance_name(lua_State *lua)
 {
