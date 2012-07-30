@@ -121,8 +121,8 @@ set_window_geometry (xpos, ypos, xsize, ysize)
 
 set_window_geometry2 (xpos, ypos, xsize, ysize)
 
-   Sets the window geometry just as set_window_geometry, using 
-   XMoveResizeWindow instead of its libwnck alternative. This results in 
+   Sets the window geometry just as set_window_geometry, using
+   XMoveResizeWindow instead of its libwnck alternative. This results in
    different coordinates than the set_window_geometry function, and results
    are more similar to the results of the original devilspie geometry function.
    (available from version 0.21)
@@ -252,20 +252,20 @@ set_skip_pager(skip)
 
 
 get_window_is_maximized()
-   
+
    Returns true if the window is maximized, false otherwise. (available from
    version 0.21)
 
 
 get_window_is_maximized_vertically()
-   
+
    Returns true if the window is vertically maximized, false otherwise.
    (available from version 0.21)
 
 
 get_window_is_maximized_horisontally()
-   
-   Returns true if the window is horisontally maximized, false otherwise. 
+
+   Returns true if the window is horisontally maximized, false otherwise.
    (available from version 0.21)
 
 
