@@ -309,6 +309,15 @@ get_class_instance_name()
    Only available on libwnck 3+, and in devilspie2 version 0.21 or later.
 
 
+get_window_property(property)
+
+   Returns the window property described in the property string. For a list of
+   available properties, you should see the page
+   http://standards.freedesktop.org/wm-spec/wm-spec-latest.html
+
+   (Available from version 0.21)
+
+
 Please note that strings are case sensitive, comparing "SomeProgram" with
 "someprogram" will not report equality.
 
