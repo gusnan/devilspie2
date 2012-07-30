@@ -8,6 +8,7 @@ ChangeLog:
 	* Add set_window_geometry2 and set_window_position2 functions,
 	  giving more similar behaviour to original devilspie functionality
 	* Add set_window_above and set_window_below functions
+	* Add get_window_type function
 
 0.20
 	* Add get_window_has_name function

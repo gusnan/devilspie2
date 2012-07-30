@@ -83,4 +83,6 @@ int c_get_window_is_maximized_horisontally(lua_State *lua);
 int c_set_window_above(lua_State *lua);
 int c_set_window_below(lua_State *lua);
 
+int c_get_window_type(lua_State *lua);
+
 #endif /*__HEADER_SCRIPT_FUNCTIONS_*/

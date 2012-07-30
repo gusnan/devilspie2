@@ -274,10 +274,33 @@ set_window_above()
    Set the current window above all normal windows. (availible from version
    0.21)
 
+
 set_window_below()
 
    Set the current window below all normal windows. (availible from version
    0.21)
+
+
+get_window_type()
+
+   Returns the type of the window - The result type is a string, and can
+   be one of the following:
+
+   "WINDOW_TYPE_NORMAL"
+   "WINDOW_TYPE_DESKTOP"
+   "WINDOW_TYPE_DOCK"
+   "WINDOW_TYPE_DIALOG"
+   "WINDOW_TYPE_TOOLBAR"
+   "WINDOW_TYPE_MENU"
+   "WINDOW_TYPE_UTILITY"
+   "WINDOW_TYPE_SPLASHSCREEN"
+
+   or "WINDOW_TYPE_UNRECOGNIZED" if libwnck didn't recognize the type.
+
+   If the function for some reason didn't have a window to work on the string
+   result is "WINDOW_ERROR".
+
+   (availible from version 0.21)
 
 
 Please note that strings are case sensitive, comparing "SomeProgram" with
