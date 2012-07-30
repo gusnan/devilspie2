@@ -39,16 +39,17 @@
 #include <lualib.h>
 #include <lauxlib.h>
 
+
+#if (GTK_MAJOR_VERSION >= 3)
+#define HAVE_GTK3
+#endif
+
+
 #include "script_functions.h"
 
 #include "script.h"
 
 #include "xutils.h"
-
-
-#if (GTK_MAJOR_VERSION >= 3)
-#define HAVE_GTK3
-#endif
 
 
 /**
