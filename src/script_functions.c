@@ -1393,6 +1393,6 @@ int c_get_window_role(lua_State *lua)
 
 	g_free(result);
 
-	return 0;
+	return 1;
 }
 
