@@ -229,10 +229,6 @@ char* my_wnck_get_string_property_latin1(Window xwindow, Atom atom)
 	unsigned char *property;
 	int err, result;
 	char *retval;
-	int i;
-	long *pp;
-	char* prop_name;
-	char** prop_names;
 
 	my_wnck_error_trap_push();
 	property = NULL;
@@ -251,49 +247,45 @@ char* my_wnck_get_string_property_latin1(Window xwindow, Atom atom)
 	if (type == XA_STRING) {
 		retval = g_strdup ((char*)property);
 	}
-	else if (type == XA_ATOM && nitems > 0 && format == 32)
-		{
-			pp = (long *)property; // we can assume (long *) since format == 32
-			if (nitems == 1)
-				{
-					prop_name = XGetAtomName (gdk_x11_get_default_xdisplay (), *pp);
-					if (prop_name)
-						{
-							retval = g_strdup (prop_name);
-							XFree (prop_name);
-						}
-				}
-			else
-				{
-					prop_names = g_new (char *, nitems + 1);
-					prop_names[nitems] = NULL;
-					for (i=0; i < nitems; i++)
-						{
-							prop_names[i] = XGetAtomName (gdk_x11_get_default_xdisplay (), *pp++);
-						}
-					retval = g_strjoinv (", ", prop_names);
-					for (i=0; i < nitems; i++)
-						{
-							if (prop_names[i]) XFree (prop_names[i]);
-						}
-					g_free (prop_names);
-				}
+	else if (type == XA_ATOM && nitems > 0 && format == 32) {
+		long *pp;
+
+		pp = (long *)property; // we can assume (long *) since format == 32
+		if (nitems == 1) {
+			char* prop_name;
+			prop_name = XGetAtomName (gdk_x11_get_default_xdisplay (), *pp);
+			if (prop_name) {
+				retval = g_strdup (prop_name);
+				XFree (prop_name);
+			}
+		} else {
+			int i;
+			char** prop_names;
+
+			prop_names = g_new (char *, nitems + 1);
+			prop_names[nitems] = NULL;
+			for (i=0; i < nitems; i++) {
+				prop_names[i] = XGetAtomName (gdk_x11_get_default_xdisplay (), *pp++);
+			}
+			retval = g_strjoinv (", ", prop_names);
+			for (i=0; i < nitems; i++) {
+				if (prop_names[i]) XFree (prop_names[i]);
+			}
+			g_free (prop_names);
 		}
-	else if (type == XA_CARDINAL && nitems == 1)
-		{
-			switch(format)
-				{
-				case 32:
-					retval = g_strdup_printf("%lu",*(unsigned long*)property);
-					break;
-				case 16:
-					retval = g_strdup_printf("%u",*(unsigned int*)property);
-					break;
-				case 8:
-					retval = g_strdup_printf("%c",*(unsigned char*)property);
-					break;
-				}
+	} else if (type == XA_CARDINAL && nitems == 1) {
+		switch(format) {
+		case 32:
+			retval = g_strdup_printf("%lu",*(unsigned long*)property);
+			break;
+		case 16:
+			retval = g_strdup_printf("%u",*(unsigned int*)property);
+			break;
+		case 8:
+			retval = g_strdup_printf("%c",*(unsigned char*)property);
+			break;
 		}
+	}
 
 	XFree (property);
 	return retval;
