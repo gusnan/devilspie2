@@ -45,6 +45,12 @@
 
 #include "xutils.h"
 
+
+#if (GTK_MAJOR_VERSION >= 3)
+#define HAVE_GTK3
+#endif
+
+
 /**
  *
  */
