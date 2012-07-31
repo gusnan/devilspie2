@@ -129,7 +129,6 @@ msgid "Boolean expected as indata"
 msgstr "Esperado boleano como dado de entrada"
 
 #: script_functions.c:121
-#, fuzzy
 msgid "String expected as indata"
 msgstr "Esperado string como dado de entrada"
 
