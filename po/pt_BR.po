@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.19\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2012-06-05 14:01-0300\n"
+"POT-Creation-Date: 2012-07-31 15:06-0300\n"
 "PO-Revision-Date: 2012-06-05 14:01-0300\n"
 "Last-Translator: Helder Maximo Botter Ribas <>\n"
 "Language-Team: Brazilian Portuguese\n"
@@ -95,44 +95,49 @@ msgstr "Usando scripts do diretório: %s"
 msgid "Couldn't init script error messages!"
 msgstr "Não pode iniciar script de mensagens de erro!"
 
-#: script.c:167
+#: script.c:200
 #, c-format
 msgid "Error: %s"
 msgstr "Error: %s"
 
-#: script_functions.c:65
+#: script_functions.c:77
 msgid "Couldn't allocate error string!"
 msgstr "Não pode alocar string de erro!"
 
-#: script_functions.c:67
+#: script_functions.c:79
 msgid "No indata expected"
 msgstr "Nenhum dado de entrada esperado"
 
-#: script_functions.c:74
+#: script_functions.c:86
 msgid "One indata expected"
 msgstr "Um dado de entrada esperado"
 
-#: script_functions.c:81
+#: script_functions.c:93
 msgid "Two indata expected"
 msgstr "Dois dados de entrada esperados"
 
-#: script_functions.c:88
+#: script_functions.c:100
 msgid "Four indata expected"
 msgstr "Quatro dados de entrada esperados"
 
-#: script_functions.c:95
+#: script_functions.c:107
 msgid "Number expected as indata"
 msgstr "Esperado número como dado de entrada"
 
-#: script_functions.c:102
+#: script_functions.c:114
 msgid "Boolean expected as indata"
 msgstr "Esperado boleano como dado de entrada"
 
-#: script_functions.c:109 xutils.c:173 xutils.c:191
+#: script_functions.c:121
+#, fuzzy
+msgid "String expected as indata"
+msgstr "Esperado string como dado de entrada"
+
+#: script_functions.c:128 xutils.c:179 xutils.c:197
 msgid "Failed!"
 msgstr "Falhou!"
 
-#: script_functions.c:616 script_functions.c:659
+#: script_functions.c:745 script_functions.c:788
 #, c-format
 msgid "Workspace number %d does not exist!"
 msgstr "Workspace de número %d não existe!"
