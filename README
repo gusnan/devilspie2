@@ -18,6 +18,8 @@ would be the ~/.config/devilspie2/ folder, and this folder will be created if
 it doesn't already exist. This folder is changeable with the --folder option.
 If devilspie2 doesn't find any LUA files in the folder, it will stop execution.
 
+Devilspie2 will load all the LUA files in this folder in alphabetical order.
+
 Devilspie2 takes some options:
 
 -h, --help          Show help options
