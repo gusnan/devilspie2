@@ -140,6 +140,18 @@ static void signal_handler(int sig)
 
 
 /**
+ * filename_list_sortfunc
+ *   function to sort the inserted filenames, to be able to determine
+ *   which order files are loaded.
+ */
+gint filename_list_sortfunc(gconstpointer a,gconstpointer b)
+{
+	return g_ascii_strcasecmp(a,b);
+}
+
+
+
+/**
  *
  */
 void load_scripts()
@@ -169,11 +181,11 @@ void load_scripts()
 
 		// we only bother with *.lua in the folder
 		if (g_str_has_suffix(current_file,".lua")) {
-			temp_list=g_slist_prepend(temp_list,
+			temp_list=g_slist_insert_sorted(temp_list,
 			                          g_build_path(G_DIR_SEPARATOR_S,
 			                                       g_get_user_config_dir(),
 			                                       "devilspie2",
-			                                       current_file,NULL));
+			                                       current_file,NULL),filename_list_sortfunc);
 			number_of_files++;
 		}
 	}
