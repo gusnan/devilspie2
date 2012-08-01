@@ -14,6 +14,8 @@ ChangeLog:
 	* Add get_window_role function
 	* Add get_window_xid function
 	* Add get_window_class function
+	* Sort the list of scripts loaded, making it easier to determine scipt
+	  order.
 
 0.20
 	* Add get_window_has_name function
