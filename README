@@ -78,9 +78,19 @@ http://lua-users.org/wiki/TutorialDirectory
 
 The following commands are recognized by the Devilspie2 LUA interpreter:
 
+First; a function to show some debug info
 
 
-The first group are functions to get data from a window:
+debug_print(string)
+
+   Debug helper that prints a string to stdout. The string is only printed to
+   stdout if devilspie2 is run with the --debug option, otherwise nothing will
+   be printed.
+
+
+
+
+Then, there's the functions to get the properties of a window:
 
 
 get_window_name()
@@ -182,14 +192,7 @@ get_window_class
    Returns a string representing the class of the current window.
 
 
-and the rest of the commands are used to change the properties of the windows:
-
-
-debug_print(string)
-
-   Debug helper that prints a string to stdout. The string is only printed to
-   stdout if devilspie2 is run with the --debug option, otherwise nothing will
-   be printed.
+and the rest of the commands are used to modify the properties of the windows:
 
 
 set_window_position(xpos,ypos)
