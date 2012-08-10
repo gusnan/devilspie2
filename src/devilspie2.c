@@ -23,6 +23,7 @@
 #include <glib.h>
 #include <glib/gstdio.h>
 #include <gdk/gdk.h>
+#include <gdk/gdkx.h>
 #include <glib/gi18n.h>
 
 #define WNCK_I_KNOW_THIS_IS_UNSTABLE
@@ -36,10 +37,6 @@
 #include "script.h"
 #include "script_functions.h"
 
-#if (GTK_MAJOR_VERSION >= 3)
-#define HAVE_GTK3
-#include <gdk/gdkx11display.h>
-#endif
 
 /**
  *
