@@ -38,6 +38,7 @@
 
 #if (GTK_MAJOR_VERSION >= 3)
 #define HAVE_GTK3
+#include <gdk/gdkx11display.h>
 #endif
 
 /**
@@ -306,6 +307,15 @@ int main(int argc, char *argv[])
 		       WNCK_MICRO_VERSION);
 		exit(EXIT_SUCCESS);
 	}
+#endif
+
+#if (GTK_MAJOR_VERSION >= 3)
+	if (!GDK_IS_X11_DISPLAY(gdk_display_get_default())) {
+		printf(_("An X11 display is required for devilspie2."));
+		printf("\n\n");
+		return EXIT_FAILURE;
+	}
+
 #endif
 
 	if (debug) {
