@@ -242,9 +242,12 @@ int c_set_window_geometry(lua_State *lua)
 
 		if (window) {
 			wnck_window_set_geometry(window,
-				WNCK_WINDOW_GRAVITY_CURRENT,
-				WNCK_WINDOW_CHANGE_X + WNCK_WINDOW_CHANGE_Y + WNCK_WINDOW_CHANGE_WIDTH + WNCK_WINDOW_CHANGE_HEIGHT,
-				x,y,xsize,ysize);
+			                         WNCK_WINDOW_GRAVITY_CURRENT,
+			                         WNCK_WINDOW_CHANGE_X +
+			                         WNCK_WINDOW_CHANGE_Y +
+			                         WNCK_WINDOW_CHANGE_WIDTH +
+			                         WNCK_WINDOW_CHANGE_HEIGHT,
+			                         x,y,xsize,ysize);
 		}
 	}
 
