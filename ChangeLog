@@ -16,6 +16,7 @@ ChangeLog:
 	* Add get_window_class function
 	* Sort the list of scripts loaded, making it easier to determine script
 	  loading order.
+	* Require and X11 to run display on GTK3
 
 0.20
 	* Add get_window_has_name function
