@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.18\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2012-04-15 15:44+0200\n"
+"POT-Creation-Date: 2012-07-30 18:25+0200\n"
 "PO-Revision-Date: 2012-04-15 15:44+0200\n"
 "Last-Translator: Robin Hahling <robin.hahling@gw-computing.net>\n"
 "Language-Team: French\n"
@@ -27,112 +27,117 @@ msgstr "Signal reçu:"
 msgid "script_folder isn't a folder."
 msgstr "script_folder n'est pas un dossier."
 
-#: devilspie2.c:182
+#: devilspie2.c:186
 #, c-format
 msgid "No script files found in the script folder - exiting."
-msgstr "Aucun fichier de script touvé dans le dossier de script - sortie du programe"
+msgstr ""
+"Aucun script trouvé dans le dossier de scripts - sortie du programme."
 
-#: devilspie2.c:190
+#: devilspie2.c:194
 #, c-format
 msgid "List of LUA files in folder:"
 msgstr "Liste des fichiers LUA dans le dossier:"
 
-#: devilspie2.c:215
+#: devilspie2.c:219
 msgid "Print debug info to stdout"
-msgstr "Affiche les informations de debug dans stdout"
+msgstr "Affiche les informations de debug dans la sortie standard (stdout)"
 
-#: devilspie2.c:217
+#: devilspie2.c:221
 msgid "Don't apply any rules, only emulate execution"
 msgstr "N'applique aucune règle, simule seulement l'exécution"
 
-#: devilspie2.c:219
+#: devilspie2.c:223
 msgid "Search for scripts in this folder"
 msgstr "Recherche de scripts dans ce dossier"
 
-#: devilspie2.c:219
+#: devilspie2.c:223
 msgid "FOLDER"
 msgstr "DOSSIER"
 
-#: devilspie2.c:221
+#: devilspie2.c:225
 msgid "Show Devilspie2 version and quit"
-msgstr "Affiche la version de Devilspie2 et quitte"
+msgstr "Affiche la version de Devilspie2 et quitte le programme"
 
-#: devilspie2.c:226
+#: devilspie2.c:230
 msgid "Show libwnck version and quit"
-msgstr "Affiche la version de libwnck and quitte"
+msgstr "Affiche la version de libwnck et quitte le programme"
 
-#: devilspie2.c:245
+#: devilspie2.c:249
 msgid "apply rules on windows"
 msgstr "applique les règles sur les fenêtres"
 
-#: devilspie2.c:252
+#: devilspie2.c:256
 #, c-format
 msgid "option parsing failed: %s"
-msgstr "l'analyse des options à echoué: %s"
+msgstr "l'analyse des options a echoué: %s"
 
-#: devilspie2.c:270
+#: devilspie2.c:274
 #, c-format
 msgid "Couldn't create the default folder for devilspie2 scripts."
 msgstr "Impossible de créer le fichier par défaut pour les scripts devilspie2"
 
-#: devilspie2.c:295
+#: devilspie2.c:302
 #, c-format
 msgid "Running devilspie2 in debug and emulate mode."
-msgstr "Fcontionnement de devilspie2 en mode debug et émulation."
+msgstr "Fonctionnement de devilspie2 en mode debug et simulation."
 
-#: devilspie2.c:297
+#: devilspie2.c:304
 #, c-format
 msgid "Running devilspie2 in debug mode."
 msgstr "Fonctionnement de devilspie2 en mode debug."
 
-#: devilspie2.c:302
+#: devilspie2.c:309
 #, c-format
 msgid "Using scripts from folder: %s"
 msgstr "Utilise les scripts de ce dossier: %s"
 
-#: devilspie2.c:313
+#: devilspie2.c:320
 #, c-format
 msgid "Couldn't init script error messages!"
-msgstr "Impossible d'initialiser le script de messages d'ereurs"
+msgstr "Impossible d'initialiser le script de messages d'erreurs"
 
-#: script.c:167
+#: script.c:196
 #, c-format
 msgid "Error: %s"
 msgstr "Erreur: %s"
 
-#: script_functions.c:65
+#: script_functions.c:77
 msgid "Couldn't allocate error string!"
-msgstr "Impossible d'allouer la chaine d'erreur"
+msgstr "Impossible d'allouer la chaine de caractères de l'erreur"
 
-#: script_functions.c:67
+#: script_functions.c:79
 msgid "No indata expected"
 msgstr "Aucune donnée d'entrée attendue"
 
-#: script_functions.c:74
+#: script_functions.c:86
 msgid "One indata expected"
 msgstr "Une donnée d'entrée attendue"
 
-#: script_functions.c:81
+#: script_functions.c:93
 msgid "Two indata expected"
 msgstr "Deux données d'entrée attendues"
 
-#: script_functions.c:88
+#: script_functions.c:100
 msgid "Four indata expected"
 msgstr "Quatre données d'entrée attendues"
 
-#: script_functions.c:95
+#: script_functions.c:107
 msgid "Number expected as indata"
 msgstr "Nombre attendu de données d'entrée"
 
-#: script_functions.c:102
+#: script_functions.c:114
 msgid "Boolean expected as indata"
 msgstr "Booléen attendu comme donnée d'entrée"
 
-#: script_functions.c:109 xutils.c:176 xutils.c:194
+#: script_functions.c:121
+msgid "String expected as indata"
+msgstr "Chaine de caractères attendue comme donnée d'entrée"
+
+#: script_functions.c:128 xutils.c:179 xutils.c:197
 msgid "Failed!"
 msgstr "Échec!"
 
-#: script_functions.c:618 script_functions.c:661
+#: script_functions.c:745 script_functions.c:788
 #, c-format
 msgid "Workspace number %d does not exist!"
 msgstr "L'espace de travail numéro %d n'existe pas!"
