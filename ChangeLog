@@ -17,6 +17,7 @@ ChangeLog:
 	* Sort the list of scripts loaded, making it easier to determine script
 	  loading order.
 	* Require an X11 display to run on GTK3
+	* Updated translations (Thanks guys!)
 
 0.20
 	* Add get_window_has_name function
