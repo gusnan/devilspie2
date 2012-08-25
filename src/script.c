@@ -50,7 +50,7 @@
 /**
  *
  */
-lua_State *lua=NULL;
+//lua_State *lua=NULL;
 
 gboolean script_loaded=FALSE;
 
@@ -61,23 +61,23 @@ gboolean devilspie2_emulate=FALSE;
 /**
  *
  */
-void init_script()
+lua_State *
+init_script()
 {
-
-	if (lua) {
-	}
-
-	lua=lua_open();
+	lua_State *lua=lua_open();
 	luaL_openlibs(lua);
 
-	register_cfunctions();
+	register_cfunctions(lua);
+
+	return lua;
 }
 
 
 /**
  *
  */
-void register_cfunctions()
+void
+register_cfunctions(lua_State *lua)
 {
 	lua_register(lua,"get_window_name",c_get_window_name);
 	lua_register(lua,"get_window_has_name",c_get_window_has_name);
@@ -152,20 +152,23 @@ void register_cfunctions()
 /**
  *
  */
-int load_script(char *filename)
+int load_script(lua_State *lua,char *filename)
 {
+	if (lua) {
+		int result=luaL_loadfile(lua,filename);
 
-	int result=luaL_loadfile(lua,filename);
+		if (!result) {
+			script_loaded=TRUE;
+		} else {
 
-	if (!result) {
-		script_loaded=TRUE;
+			// We got an error, print it
+			printf("%s\n",lua_tostring(lua,-1));
+
+			lua_pop(lua,1);
+
+			return -1;
+		}
 	} else {
-
-		// We got an error, print it
-		printf("%s\n",lua_tostring(lua,-1));
-
-		lua_pop(lua,1);
-
 		return -1;
 	}
 
@@ -176,7 +179,7 @@ int load_script(char *filename)
 /**
  *
  */
-void run_script()
+void run_script(lua_State *lua)
 {
 	int s = lua_pcall( lua, 0, LUA_MULTRET, 0 );
 
@@ -206,11 +209,11 @@ void run_script()
 /**
  *
  */
-void done_script()
+void done_script(lua_State *lua)
 {
 	if (lua)
 		lua_close(lua);
 
-	lua=NULL;
+	//lua=NULL;
 }
 
