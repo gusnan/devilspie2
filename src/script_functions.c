@@ -720,8 +720,6 @@ int c_decorate_window(lua_State *lua)
 int c_set_window_workspace(lua_State *lua)
 {
 	int top=lua_gettop(lua);
-	WnckScreen *screen;
-	WnckWorkspace *workspace;
 
 	if (top!=1) {
 		luaL_error(lua,"set_window_workspace: %s",one_indata_expected_error);
@@ -740,6 +738,8 @@ int c_set_window_workspace(lua_State *lua)
 	WnckWindow *window=get_current_window();
 
 	if (window) {
+		WnckScreen *screen=NULL;
+		WnckWorkspace *workspace=NULL;
 
 		screen=wnck_window_get_screen(window);
 		workspace=wnck_screen_get_workspace(screen,number-1);
@@ -764,8 +764,6 @@ int c_set_window_workspace(lua_State *lua)
 int c_change_workspace(lua_State *lua)
 {
 	int top=lua_gettop(lua);
-	WnckScreen *screen;
-	WnckWorkspace *workspace;
 	GTimeVal timestamp;
 
 	if (top!=1) {
@@ -784,6 +782,9 @@ int c_change_workspace(lua_State *lua)
 
 	WnckWindow *window=get_current_window();
 	if (window) {
+		WnckScreen *screen=NULL;
+		WnckWorkspace *workspace=NULL;
+
 		screen=wnck_window_get_screen(window);
 		workspace=wnck_screen_get_workspace(screen,number-1);
 
