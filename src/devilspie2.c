@@ -123,6 +123,29 @@ void init_screens()
 void devilspie_exit()
 {
 	//done_script();
+	GSList *temp_file_list=file_list;
+
+	if (file_list) {
+
+		while(temp_file_list) {
+
+			struct lua_File *lua_file;
+			lua_file=(struct lua_File*)temp_file_list->data;
+
+			if (lua_file) {
+
+				g_free(lua_file->file_name);
+
+				done_script(lua_file->lua_state);
+
+				//lua_file=g_slice_alloc(sizeof(struct lua_File));
+				g_slice_free1(sizeof(struct lua_File),lua_file);
+			}
+
+			temp_file_list=temp_file_list->next;
+		}
+	}
+
 
 	if (temp_folder!=NULL) g_free(temp_folder);
 }
