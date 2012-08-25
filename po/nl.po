@@ -1,0 +1,146 @@
+# Dutch translation of Devilspie2
+# Copyright (C) 2011 Andreas Rönnquist <gusnan@gusnan.se>
+# This file is distributed under the same license as the devilspie2 package.
+# Andreas Rönnquist <gusnan@gusnan.se>, 2011.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: devilspie2 0.16\n"
+"Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
+"POT-Creation-Date: 2012-07-30 18:25+0200\n"
+"PO-Revision-Date: 2012-08-25 19:32+0100\n"
+"Last-Translator: Frans de Jonge <fransdejonge@gmail.com>\n"
+"Language-Team: Dutch\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: devilspie2.c:131
+#, c-format
+msgid "Received signal:"
+msgstr "Ontvangen signaal:"
+
+#: devilspie2.c:154
+#, c-format
+msgid "script_folder isn't a folder."
+msgstr "script_folder is geen map."
+
+#: devilspie2.c:186
+#, c-format
+msgid "No script files found in the script folder - exiting."
+msgstr "Er werden geen scriptbestanden in de scriptmap gevonden — programma wordt afgesloten."
+
+#: devilspie2.c:194
+#, c-format
+msgid "List of LUA files in folder:"
+msgstr "Lijst van LUA-bestanden in de map:"
+
+#: devilspie2.c:219
+msgid "Print debug info to stdout"
+msgstr "Print debuginformatie naar stdout"
+
+#: devilspie2.c:221
+msgid "Don't apply any rules, only emulate execution"
+msgstr "Pas geen regels permanent toe; enkel emulatie van uitvoering"
+
+#: devilspie2.c:223
+msgid "Search for scripts in this folder"
+msgstr "Zoek naar scripts in deze map"
+
+#: devilspie2.c:223
+msgid "FOLDER"
+msgstr "MAP"
+
+#: devilspie2.c:225
+msgid "Show Devilspie2 version and quit"
+msgstr "Toon Devilspie2 versie en sluit af"
+
+#: devilspie2.c:230
+msgid "Show libwnck version and quit"
+msgstr "Toon libwnck versie en sluit af"
+
+#: devilspie2.c:249
+msgid "apply rules on windows"
+msgstr "Pas regels toe op vensters"
+
+#: devilspie2.c:256
+#, c-format
+msgid "option parsing failed: %s"
+msgstr "de volgende optie wordt niet begrepen: %s"
+
+#: devilspie2.c:274
+#, c-format
+msgid "Couldn't create the default folder for devilspie2 scripts."
+msgstr "Kon geen standaardmap aanmaken voor devilspie2 scripts."
+
+#: devilspie2.c:302
+#, c-format
+msgid "Running devilspie2 in debug and emulate mode."
+msgstr "Devilspie2 draait in debug- en emuleringsmodus."
+
+#: devilspie2.c:304
+#, c-format
+msgid "Running devilspie2 in debug mode."
+msgstr "Devilspie2 draait in debugmodus."
+
+#: devilspie2.c:309
+#, c-format
+msgid "Using scripts from folder: %s"
+msgstr "Scripts uit deze map worden worden gebruikt: %s"
+
+#: devilspie2.c:320
+#, c-format
+msgid "Couldn't init script error messages!"
+msgstr "Scriptfoutmeldingen konden niet geïnitialiseerd worden!"
+
+#: script.c:196
+#, c-format
+msgid "Error: %s"
+msgstr "Fout: %s"
+
+#: script_functions.c:77
+msgid "Couldn't allocate error string!"
+msgstr "Foutmeldingsreeks kon niet worden gealloceerd!"
+
+#: script_functions.c:79
+msgid "No indata expected"
+msgstr "Geen indata verwacht"
+
+#: script_functions.c:86
+msgid "One indata expected"
+msgstr "Eén indata verwacht"
+
+#: script_functions.c:93
+msgid "Two indata expected"
+msgstr "Twee indata verwacht"
+
+#: script_functions.c:100
+msgid "Four indata expected"
+msgstr "Vier indata verwacht"
+
+#: script_functions.c:107
+msgid "Number expected as indata"
+msgstr "Nummer verwacht als indata"
+
+#: script_functions.c:114
+msgid "Boolean expected as indata"
+msgstr "Boolean verwacht als indata"
+
+#: script_functions.c:121
+msgid "String expected as indata"
+msgstr "String verwacht als indata"
+
+#: script_functions.c:128
+#: xutils.c:179
+#: xutils.c:197
+msgid "Failed!"
+msgstr "Mislukt!"
+
+#: script_functions.c:745
+#: script_functions.c:788
+#, c-format
+msgid "Workspace number %d does not exist!"
+msgstr "Werkruimte nummer %d bestaat niet!"
+
