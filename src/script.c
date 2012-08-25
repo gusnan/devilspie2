@@ -152,7 +152,8 @@ register_cfunctions(lua_State *lua)
 /**
  *
  */
-int load_script(lua_State *lua,char *filename)
+int
+load_script(lua_State *lua,char *filename)
 {
 	if (lua) {
 		int result=luaL_loadfile(lua,filename);
@@ -179,7 +180,8 @@ int load_script(lua_State *lua,char *filename)
 /**
  *
  */
-void run_script(lua_State *lua)
+void
+run_script(lua_State *lua)
 {
 	int s = lua_pcall( lua, 0, LUA_MULTRET, 0 );
 
@@ -209,7 +211,8 @@ void run_script(lua_State *lua)
 /**
  *
  */
-void done_script(lua_State *lua)
+void
+done_script(lua_State *lua)
 {
 	if (lua)
 		lua_close(lua);
