@@ -63,10 +63,10 @@ get the latest git version of devilspie2, and then do the following:
    rm devilspie2.pot
    make devilspie2.pot
 
-and then generate the po as described above.
+and then update your po file as described above.
 
 Open your file and locate the strings that need updating. To get the 
 translation to me you can fork devilspie2 on github, do the translation, and
-make a pull request to me, which I will merge into my devilspie2 repository.
+send a pull request to me, which I will merge into my devilspie2 repository.
 Please use English language in your commit messages so that I can understand
 what you have done.
