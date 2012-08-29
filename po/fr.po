@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.18\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2012-07-30 18:25+0200\n"
+"POT-Creation-Date: 2012-08-26 00:23+0200\n"
 "PO-Revision-Date: 2012-04-15 15:44+0200\n"
 "Last-Translator: Robin Hahling <robin.hahling@gw-computing.net>\n"
 "Language-Team: French\n"
@@ -17,86 +17,90 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: devilspie2.c:131
+#: devilspie2.c:160
 #, c-format
 msgid "Received signal:"
 msgstr "Signal reçu:"
 
-#: devilspie2.c:154
+#: devilspie2.c:198
 #, c-format
 msgid "script_folder isn't a folder."
 msgstr "script_folder n'est pas un dossier."
 
-#: devilspie2.c:186
+#: devilspie2.c:267
 #, c-format
 msgid "No script files found in the script folder - exiting."
-msgstr ""
-"Aucun script trouvé dans le dossier de scripts - sortie du programme."
+msgstr "Aucun script trouvé dans le dossier de scripts - sortie du programme."
 
-#: devilspie2.c:194
+#: devilspie2.c:275
 #, c-format
 msgid "List of LUA files in folder:"
 msgstr "Liste des fichiers LUA dans le dossier:"
 
-#: devilspie2.c:219
+#: devilspie2.c:307
 msgid "Print debug info to stdout"
 msgstr "Affiche les informations de debug dans la sortie standard (stdout)"
 
-#: devilspie2.c:221
+#: devilspie2.c:309
 msgid "Don't apply any rules, only emulate execution"
 msgstr "N'applique aucune règle, simule seulement l'exécution"
 
-#: devilspie2.c:223
+#: devilspie2.c:311
 msgid "Search for scripts in this folder"
 msgstr "Recherche de scripts dans ce dossier"
 
-#: devilspie2.c:223
+#: devilspie2.c:311
 msgid "FOLDER"
 msgstr "DOSSIER"
 
-#: devilspie2.c:225
+#: devilspie2.c:313
 msgid "Show Devilspie2 version and quit"
 msgstr "Affiche la version de Devilspie2 et quitte le programme"
 
-#: devilspie2.c:230
+#: devilspie2.c:318
 msgid "Show libwnck version and quit"
 msgstr "Affiche la version de libwnck et quitte le programme"
 
-#: devilspie2.c:249
+#: devilspie2.c:337
 msgid "apply rules on windows"
 msgstr "applique les règles sur les fenêtres"
 
-#: devilspie2.c:256
+#: devilspie2.c:344
 #, c-format
 msgid "option parsing failed: %s"
 msgstr "l'analyse des options a echoué: %s"
 
-#: devilspie2.c:274
+#: devilspie2.c:362
 #, c-format
 msgid "Couldn't create the default folder for devilspie2 scripts."
 msgstr "Impossible de créer le fichier par défaut pour les scripts devilspie2"
 
-#: devilspie2.c:302
+#: devilspie2.c:389
+#, c-format
+msgid "An X11 display is required for devilspie2."
+msgstr "Un affichage X11 est requis pour devilspie2."
+
+#: devilspie2.c:399
 #, c-format
 msgid "Running devilspie2 in debug and emulate mode."
 msgstr "Fonctionnement de devilspie2 en mode debug et simulation."
 
-#: devilspie2.c:304
+#: devilspie2.c:401
 #, c-format
 msgid "Running devilspie2 in debug mode."
 msgstr "Fonctionnement de devilspie2 en mode debug."
 
-#: devilspie2.c:309
+#: devilspie2.c:406
 #, c-format
 msgid "Using scripts from folder: %s"
 msgstr "Utilise les scripts de ce dossier: %s"
 
-#: devilspie2.c:320
+#: devilspie2.c:417
 #, c-format
 msgid "Couldn't init script error messages!"
 msgstr "Impossible d'initialiser le script de messages d'erreurs"
 
-#: script.c:196
+#: script.c:205
 #, c-format
 msgid "Error: %s"
 msgstr "Erreur: %s"
@@ -137,7 +141,7 @@ msgstr "Chaine de caractères attendue comme donnée d'entrée"
 msgid "Failed!"
 msgstr "Échec!"
 
-#: script_functions.c:745 script_functions.c:788
+#: script_functions.c:748 script_functions.c:792
 #, c-format
 msgid "Workspace number %d does not exist!"
 msgstr "L'espace de travail numéro %d n'existe pas!"
