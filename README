@@ -41,8 +41,8 @@ debug_print("Window Name: " .. get_window_name());
 debug_print("Application name: " .. get_application_name())
 
 -- I want my Xfce4-terminal to the right on the second screen of my two-monitor
--- setup. (Strings are case sensitive, please note this when creating rule
--- scripts.)
+-- setup. (String comparison are case sensitive, please note this when 
+-- creating rule scripts.)
 if (get_window_name()=="Terminal") then
    -- x,y, xsize, ysize
    set_window_geometry(1600,300,900,700);
