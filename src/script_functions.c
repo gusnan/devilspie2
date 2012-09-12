@@ -227,7 +227,10 @@ int c_set_window_geometry(lua_State *lua)
 	int type3=lua_type(lua,3);
 	int type4=lua_type(lua,4);
 
-	if ((type1!=LUA_TNUMBER) || (type2!=LUA_TNUMBER) || (type3!=LUA_TNUMBER) || (type4!=LUA_TNUMBER)) {
+	if ((type1!=LUA_TNUMBER) || 
+	    (type2!=LUA_TNUMBER) || 
+	    (type3!=LUA_TNUMBER) || 
+	    (type4!=LUA_TNUMBER)) {
 		luaL_error(lua,"set_window_geometry: %s", four_indata_expected_error);
 		return 0;
 	}
@@ -273,7 +276,10 @@ int c_set_window_geometry2(lua_State *lua)
 	int type3=lua_type(lua,3);
 	int type4=lua_type(lua,4);
 
-	if ((type1!=LUA_TNUMBER) || (type2!=LUA_TNUMBER) || (type3!=LUA_TNUMBER) || (type4!=LUA_TNUMBER)) {
+	if ((type1!=LUA_TNUMBER) || 
+	    (type2!=LUA_TNUMBER) || 
+	    (type3!=LUA_TNUMBER) || 
+	    (type4!=LUA_TNUMBER)) {
 		luaL_error(lua,"set_window_geometry: %s", four_indata_expected_error);
 		return 0;
 	}
