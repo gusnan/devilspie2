@@ -332,9 +332,7 @@ int main(int argc, char *argv[])
 
 	gdk_init(&argc, &argv);
 
-	gchar *devilspie2_description=NULL;
-
-	devilspie2_description=g_strdup_printf(_("apply rules on windows"));
+	gchar *devilspie2_description=g_strdup_printf(_("apply rules on windows"));
 
 	gchar *full_desc_string=g_strdup_printf("- %s",devilspie2_description);
 

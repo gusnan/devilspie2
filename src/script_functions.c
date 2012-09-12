@@ -738,8 +738,8 @@ int c_set_window_workspace(lua_State *lua)
 	WnckWindow *window=get_current_window();
 
 	if (window) {
-		WnckScreen *screen=NULL;
-		WnckWorkspace *workspace=NULL;
+		WnckScreen *screen;
+		WnckWorkspace *workspace;
 
 		screen=wnck_window_get_screen(window);
 		workspace=wnck_screen_get_workspace(screen,number-1);
@@ -782,8 +782,8 @@ int c_change_workspace(lua_State *lua)
 
 	WnckWindow *window=get_current_window();
 	if (window) {
-		WnckScreen *screen=NULL;
-		WnckWorkspace *workspace=NULL;
+		WnckScreen *screen;
+		WnckWorkspace *workspace;
 
 		screen=wnck_window_get_screen(window);
 		workspace=wnck_screen_get_workspace(screen,number-1);
