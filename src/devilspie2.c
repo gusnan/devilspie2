@@ -162,8 +162,10 @@ static void signal_handler(int sig)
 
 	done_script_error_messages();
 
-	if (sig==SIGINT)
+	if (sig==SIGINT) {
+		devilspie_exit();
 		exit(1);
+	}
 
 }
 
