@@ -2,6 +2,12 @@
 ChangeLog:
 ----------
 
+0.22
+	* Make scripts keep their environment between runs - Makes it possible
+	  to do something to a window class the "n-th" time a window of that
+	  class opens.
+	* Documentation and translation updates.
+
 0.21
 	* Add get_window_is_maximized, get_window_is_maximized_horisontally
 	  and get_window_is_maximized_vertically functions
