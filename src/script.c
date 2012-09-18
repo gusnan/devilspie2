@@ -50,8 +50,6 @@
 /**
  *
  */
-//lua_State *lua=NULL;
-
 gboolean script_loaded=FALSE;
 
 gboolean devilspie2_debug=FALSE;
