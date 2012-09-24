@@ -2,6 +2,9 @@
 ChangeLog:
 ----------
 
+0.23
+	* Added Russian translation - Thanks to Roman V. Nikolaev
+
 0.22
 	* Make scripts keep their environment between runs - Makes it possible
 	  to do something to a window class the "n-th" time a window of that
