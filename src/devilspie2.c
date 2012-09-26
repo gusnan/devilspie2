@@ -304,15 +304,55 @@ static int handle_command_line(GApplication *application, GApplicationCommandLin
 	gchar **argv;
 	gint argc;
 	int co;
+	GError *error=NULL;
+	GOptionContext *context;
+
+	static const GOptionEntry options[]={
+		{ "debug",			'd',	0,	G_OPTION_ARG_NONE,		&debug,
+			N_("Print debug info to stdout")},
+		{ "emulate",		'e',	0,	G_OPTION_ARG_NONE,		&emulate,
+			N_("Don't apply any rules, only emulate execution")},
+		{ "folder",			'f',	0,	G_OPTION_ARG_STRING,		&script_folder,
+			N_("Search for scripts in this folder"),N_("FOLDER")},
+		{ "version",		'v',	0,	G_OPTION_ARG_NONE,		&show_version,
+			N_("Show Devilspie2 version and quit")},
+#ifdef HAVE_GTK3
+		// libwnck Version Information is only availible if you have
+		// libwnck 3.0 or later
+		{ "wnck-version",	'w',	0,	G_OPTION_ARG_NONE,		&show_wnck_version,
+			N_("Show libwnck version and quit")},
+#endif
+		{ NULL }
+	};
 
 	argv=g_application_command_line_get_arguments(cmdline, &argc);
 
-	for (co=0;co<argc; co++) {
-		g_application_command_line_print(cmdline, "%s\n",argv[co]);
+	// Init gettext stuff
+	setlocale(LC_ALL,"");
+
+	bindtextdomain(PACKAGE,LOCALEDIR);
+	bind_textdomain_codeset(PACKAGE,"");
+	textdomain(PACKAGE);
+
+	gdk_init(&argc, &argv);
+
+	gchar *devilspie2_description=g_strdup_printf(_("apply rules on windows"));
+
+	gchar *full_desc_string=g_strdup_printf("- %s",devilspie2_description);
+
+	context=g_option_context_new(full_desc_string);
+	g_option_context_add_main_entries(context,options,NULL);
+	if (!g_option_context_parse(context, &argc, &argv, &error)) {
+		g_print(_("option parsing failed: %s"),error->message);
+		printf("\n");
+		exit(EXIT_FAILURE);
 	}
 
+	g_free(full_desc_string);
+	g_free(devilspie2_description);
+
 	if (program_running) {
-		g_application_command_line_print(cmdline, "Already running!\n");
+		//g_application_command_line_print(cmdline, "Already running!\n");
 	}
 
 	//g_application_command_line_print(cmdline,"argc: %d\n",argc);
@@ -363,102 +403,9 @@ devilspie2_application_finalize(GObject *object)
 static void
 devilspie2_application_init(Devilspie2Application *app)
 {
-	
-}
 
+	printf("devilspie2_application_init...\n");
 
-static void
-devilspie2_application_class_init(Devilspie2ApplicationClass *class)
-{
-	G_OBJECT_CLASS(class)->finalize = devilspie2_application_finalize;
-	G_APPLICATION_CLASS (class)->local_command_line=devilspie2_local_command_line;
-}
-
-
-/**
- *
- */
-static GApplication *
-devilspie2_application_new(const gchar *application_id)
-{
-	g_return_val_if_fail(g_application_id_is_valid(application_id), NULL);
-	g_type_init();
-	return g_object_new(devilspie2_application_get_type(),
-	                    "application_id", application_id,
-	                    "flags", G_APPLICATION_HANDLES_COMMAND_LINE,
-	                    NULL);
-}
-
-
-/**
- * Program main entry
- */
-int main(int argc, char *argv[])
-{
-	/*
-	static const GOptionEntry options[]={
-		{ "debug",			'd',	0,	G_OPTION_ARG_NONE,		&debug,
-			N_("Print debug info to stdout")},
-		{ "emulate",		'e',	0,	G_OPTION_ARG_NONE,		&emulate,
-			N_("Don't apply any rules, only emulate execution")},
-		{ "folder",			'f',	0,	G_OPTION_ARG_STRING,		&script_folder,
-			N_("Search for scripts in this folder"),N_("FOLDER")},
-		{ "version",		'v',	0,	G_OPTION_ARG_NONE,		&show_version,
-			N_("Show Devilspie2 version and quit")},
-#ifdef HAVE_GTK3
-		// libwnck Version Information is only availible if you have
-		// libwnck 3.0 or later
-		{ "wnck-version",	'w',	0,	G_OPTION_ARG_NONE,		&show_wnck_version,
-			N_("Show libwnck version and quit")},
-#endif
-		{ NULL }
-	};
-*/
-
-	GError *error=NULL;
-	GOptionContext *context;
-	GApplication *app;
-	gint status;
-
-	if (!g_application_id_is_valid("org.gtk.devilspie2")) {
-		printf("Application id not valid!\n");
-	}
-
-	app=devilspie2_application_new("org.gtk.devilspie2");
-	//g_signal_connect(app, "activate", G_CALLBACK(activate), NULL);
-	g_signal_connect(app, "command-line", G_CALLBACK(handle_command_line), NULL);
-
-	status=g_application_run(app,argc,argv);
-
-	g_object_unref(app);
-
-	return status;
-
-	/*
-
-	// Init gettext stuff
-	setlocale(LC_ALL,"");
-
-	bindtextdomain(PACKAGE,LOCALEDIR);
-	bind_textdomain_codeset(PACKAGE,"");
-	textdomain(PACKAGE);
-
-	gdk_init(&argc, &argv);
-
-	gchar *devilspie2_description=g_strdup_printf(_("apply rules on windows"));
-
-	gchar *full_desc_string=g_strdup_printf("- %s",devilspie2_description);
-
-	context=g_option_context_new(full_desc_string);
-	g_option_context_add_main_entries(context,options,NULL);
-	if (!g_option_context_parse(context, &argc, &argv, &error)) {
-		g_print(_("option parsing failed: %s"),error->message);
-		printf("\n");
-		exit(EXIT_FAILURE);
-	}
-
-	g_free(full_desc_string);
-	g_free(devilspie2_description);
 
 	// if the folder is NULL, default to ~/.config/devilspie2/
 	if (script_folder==NULL) {
@@ -521,6 +468,9 @@ int main(int argc, char *argv[])
 		devilspie2_debug=TRUE;
 	}
 
+	load_scripts();
+
+
 	// Should we only run an emulation (don't modify any windows)
 	if (emulate) devilspie2_emulate=emulate;
 
@@ -529,8 +479,6 @@ int main(int argc, char *argv[])
 		printf("\n");
 		exit(EXIT_FAILURE);
 	}
-
-	load_scripts();
 
 	if (debug) printf("------------\n");
 
@@ -549,6 +497,65 @@ int main(int argc, char *argv[])
 
 	init_screens();
 
+}
+
+
+static void
+devilspie2_application_class_init(Devilspie2ApplicationClass *class)
+{
+	G_OBJECT_CLASS(class)->finalize = devilspie2_application_finalize;
+	G_APPLICATION_CLASS (class)->local_command_line=devilspie2_local_command_line;
+}
+
+
+/**
+ *
+ */
+static GApplication *
+devilspie2_application_new(const gchar *application_id)
+{
+	g_return_val_if_fail(g_application_id_is_valid(application_id), NULL);
+	g_type_init();
+	printf("devilspie2_application_new\n");
+	return g_object_new(devilspie2_application_get_type(),
+	                    "application_id", application_id,
+	                    "flags", G_APPLICATION_HANDLES_COMMAND_LINE,
+	                    NULL);
+}
+
+
+void
+startup (GApplication *application, gpointer user_data)
+{
+	printf("Krooth.\n");
+}
+
+
+/**
+ * Program main entry
+ */
+int main(int argc, char *argv[])
+{
+
+	GApplication *app;
+	gint status;
+
+	if (!g_application_id_is_valid("org.gtk.devilspie2")) {
+		printf("Application id not valid!\n");
+	}
+
+	app=devilspie2_application_new("org.gtk.devilspie2");
+	//g_signal_connect(app, "activate", G_CALLBACK(activate), NULL);
+	g_signal_connect(app, "command-line", G_CALLBACK(handle_command_line), NULL);
+	g_signal_connect(app, "startup", G_CALLBACK(startup), NULL);
+
+	status=g_application_run(app,argc,argv);
+
+	g_object_unref(app);
+
+	return status;
+
+	/*
 	loop=g_main_loop_new(NULL,TRUE);
 	g_main_loop_run(loop);
 	*/
