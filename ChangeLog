@@ -4,6 +4,8 @@ ChangeLog:
 
 0.23
 	* Added Russian translation - Thanks to Roman V. Nikolaev
+	* Fix a string memory leak
+	* Some source cleanups
 
 0.22
 	* Make scripts keep their environment between runs - Makes it possible
