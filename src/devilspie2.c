@@ -75,8 +75,7 @@ static void window_opened_cb(WnckScreen *screen, WnckWindow *window)
 	// set the window to work on
 	set_current_window(window);
 
-	// for every file in the folder:	// print the list
-
+	// for every file in the folder - load the script
 	if (file_list!=NULL) {
 
 		while(temp_file_list) {
@@ -251,8 +250,7 @@ void load_scripts()
 		exit(EXIT_SUCCESS);
 	}
 
-	// print the list of files:
-
+	// If we are running debug mode - print the list of files:
 	if (debug) {
 		printf(_("List of LUA files in folder:"));
 		printf("\n");
