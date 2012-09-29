@@ -148,6 +148,7 @@ void done_script_error_messages()
 
 	g_free(number_expected_as_indata_error);
 	g_free(boolean_expected_as_indata_error);
+	g_free(string_expected_as_indata_error);
 
 	g_free(failed_string);
 }
