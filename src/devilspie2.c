@@ -237,25 +237,6 @@ void load_scripts()
 			                                     (struct lua_File*)lua_file,
 			                                     filename_list_sortfunc);
 
-			/*
-		struct lua_File *lua_file;
-			lua_file=temp_file_list->data;
-
-			// is it a LUA file?
-			if (g_str_has_suffix((gchar*)(lua_file->file_name),".lua")) {
-
-				// init the script, run it, and clean up afterwards
-				lua_State *lua=init_script();
-
-				if (load_script(lua,(gchar*)lua_file->file_name)!=0) {
-					return;
-				}
-
-				run_script(lua);
-				done_script(lua);
-			 */
-
-
 			number_of_files++;
 		}
 	}
