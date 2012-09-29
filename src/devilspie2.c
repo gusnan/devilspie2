@@ -278,12 +278,16 @@ void load_scripts()
 	}
 }
 
+static gboolean program_running=FALSE;
 
-/**
- * Program main entry
- */
-int main(int argc, char *argv[])
+static int handle_command_line(GApplication *application, GApplicationCommandLine *cmdline)
 {
+	gchar **argv;
+	gint argc;
+	int co;
+	GError *error=NULL;
+	GOptionContext *context;
+
 	static const GOptionEntry options[]={
 		{ "debug",			'd',	0,	G_OPTION_ARG_NONE,		&debug,
 			N_("Print debug info to stdout")},
@@ -302,8 +306,7 @@ int main(int argc, char *argv[])
 		{ NULL }
 	};
 
-	GError *error=NULL;
-	GOptionContext *context;
+	argv=g_application_command_line_get_arguments(cmdline, &argc);
 
 	// Init gettext stuff
 	setlocale(LC_ALL,"");
@@ -328,6 +331,62 @@ int main(int argc, char *argv[])
 
 	g_free(full_desc_string);
 	g_free(devilspie2_description);
+
+	if (program_running) {
+		//g_application_command_line_print(cmdline, "Already running!\n");
+	}
+
+	//g_application_command_line_print(cmdline,"argc: %d\n",argc);
+
+	if (argc==1) {
+		if (!program_running) {
+			g_application_hold(application);
+			program_running=TRUE;
+		}
+	}
+
+	if (argc==2) {
+		if (strcmp(argv[1],"--kill")==0) {
+			g_application_command_line_print(cmdline,"kill command\n");
+			g_application_release(application);
+		}
+	}
+
+	return 0;
+}
+
+
+static gboolean
+devilspie2_local_command_line(GApplication *application,
+                   gchar **arguments,
+                   gint *exit_status)
+{
+	return FALSE;
+}
+
+typedef GApplication Devilspie2Application;
+typedef GApplicationClass Devilspie2ApplicationClass;
+
+static GType devilspie2_application_get_type(void);
+G_DEFINE_TYPE (Devilspie2Application, devilspie2_application, G_TYPE_APPLICATION)
+
+
+static void
+devilspie2_application_finalize(GObject *object)
+{
+	G_OBJECT_CLASS(devilspie2_application_parent_class)->finalize(object);
+}
+
+
+/**
+ *
+ */
+static void
+devilspie2_application_init(Devilspie2Application *app)
+{
+
+	printf("devilspie2_application_init...\n");
+
 
 	// if the folder is NULL, default to ~/.config/devilspie2/
 	if (script_folder==NULL) {
@@ -390,6 +449,9 @@ int main(int argc, char *argv[])
 		devilspie2_debug=TRUE;
 	}
 
+	load_scripts();
+
+
 	// Should we only run an emulation (don't modify any windows)
 	if (emulate) devilspie2_emulate=emulate;
 
@@ -398,8 +460,6 @@ int main(int argc, char *argv[])
 		printf("\n");
 		exit(EXIT_FAILURE);
 	}
-
-	load_scripts();
 
 	if (debug) printf("------------\n");
 
@@ -418,8 +478,68 @@ int main(int argc, char *argv[])
 
 	init_screens();
 
+}
+
+
+static void
+devilspie2_application_class_init(Devilspie2ApplicationClass *class)
+{
+	G_OBJECT_CLASS(class)->finalize = devilspie2_application_finalize;
+	G_APPLICATION_CLASS (class)->local_command_line=devilspie2_local_command_line;
+}
+
+
+/**
+ *
+ */
+static GApplication *
+devilspie2_application_new(const gchar *application_id)
+{
+	g_return_val_if_fail(g_application_id_is_valid(application_id), NULL);
+	g_type_init();
+	printf("devilspie2_application_new\n");
+	return g_object_new(devilspie2_application_get_type(),
+	                    "application_id", application_id,
+	                    "flags", G_APPLICATION_HANDLES_COMMAND_LINE,
+	                    NULL);
+}
+
+
+void
+startup (GApplication *application, gpointer user_data)
+{
+	printf("Krooth.\n");
+}
+
+
+/**
+ * Program main entry
+ */
+int main(int argc, char *argv[])
+{
+
+	GApplication *app;
+	gint status;
+
+	if (!g_application_id_is_valid("org.gtk.devilspie2")) {
+		printf("Application id not valid!\n");
+	}
+
+	app=devilspie2_application_new("org.gtk.devilspie2");
+	//g_signal_connect(app, "activate", G_CALLBACK(activate), NULL);
+	g_signal_connect(app, "command-line", G_CALLBACK(handle_command_line), NULL);
+	g_signal_connect(app, "startup", G_CALLBACK(startup), NULL);
+
+	status=g_application_run(app,argc,argv);
+
+	g_object_unref(app);
+
+	return status;
+
+	/*
 	loop=g_main_loop_new(NULL,TRUE);
 	g_main_loop_run(loop);
+	*/
 
 	return EXIT_SUCCESS;
 }
