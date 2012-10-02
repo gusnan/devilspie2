@@ -677,9 +677,11 @@ int c_undecorate_window(lua_State *lua)
 		WnckWindow *window=get_current_window();
 
 		if (window) {
+			if (!devilspie2_emulate) {
 
-			if (!undecorate_window(window)) {
-				result=FALSE;
+				if (!undecorate_window(window)) {
+					result=FALSE;
+				}
 			}
 		}
 	}
@@ -708,8 +710,10 @@ int c_decorate_window(lua_State *lua)
 
 		if (window) {
 
-			if (!decorate_window(window)) {
-				result=FALSE;
+			if (!devilspie2_emulate) {
+				if (!decorate_window(window)) {
+					result=FALSE;
+				}
 			}
 		}
 	}
@@ -754,7 +758,9 @@ int c_set_window_workspace(lua_State *lua)
 		if (!workspace) {
 			g_warning(_("Workspace number %d does not exist!"),number);
 		}
-		wnck_window_move_to_workspace(window,workspace);
+		if (!devilspie2_emulate) {
+			wnck_window_move_to_workspace(window,workspace);
+		}
 	}
 
 	lua_pushboolean(lua,TRUE);
@@ -800,7 +806,9 @@ int c_change_workspace(lua_State *lua)
 		}
 
 		g_get_current_time(&timestamp);
-		wnck_workspace_activate(workspace,timestamp.tv_sec);
+		if (!devilspie2_emulate) {
+			wnck_workspace_activate(workspace,timestamp.tv_sec);
+		}
 	}
 
 	lua_pushboolean(lua,TRUE);
@@ -1076,9 +1084,11 @@ int c_set_skip_tasklist(lua_State *lua)
 
 	gboolean skip_tasklist=(gboolean)(value);
 
-	WnckWindow *window=get_current_window();
-	if (window) {
-		wnck_window_set_skip_tasklist(window,skip_tasklist);
+	if (!devilspie2_emulate) {
+		WnckWindow *window=get_current_window();
+		if (window) {
+			wnck_window_set_skip_tasklist(window,skip_tasklist);
+		}
 	}
 
 	return 0;
@@ -1108,9 +1118,11 @@ int c_set_skip_pager(lua_State *lua)
 
 	gboolean skip_pager=(gboolean)(value);
 
-	WnckWindow *window=get_current_window();
-	if (window) {
-		wnck_window_set_skip_pager(window,skip_pager);
+	if (!devilspie2_emulate) {
+		WnckWindow *window=get_current_window();
+		if (window) {
+			wnck_window_set_skip_pager(window,skip_pager);
+		}
 	}
 
 	return 0;
@@ -1205,11 +1217,14 @@ int c_set_window_above(lua_State *lua)
 
 	WnckWindow *window=get_current_window();
 
-	my_wnck_change_state(my_wnck_window_get_xscreen(window),
-	                     wnck_window_get_xid(window),
-	                     TRUE,
-	                     my_wnck_atom_get("_NET_WM_STATE_ABOVE"),
-	                     0);
+	if (!devilspie2_emulate) {
+
+		my_wnck_change_state(my_wnck_window_get_xscreen(window),
+		                     wnck_window_get_xid(window),
+		                     TRUE,
+		                     my_wnck_atom_get("_NET_WM_STATE_ABOVE"),
+		                     0);
+	}
 
 	return 0;
 }
@@ -1229,11 +1244,14 @@ int c_set_window_below(lua_State *lua)
 
 	WnckWindow *window=get_current_window();
 
-	my_wnck_change_state(my_wnck_window_get_xscreen(window),
-	                     wnck_window_get_xid(window),
-	                     TRUE,
-	                     my_wnck_atom_get("_NET_WM_STATE_BELOW"),
-	                     0);
+	if (!devilspie2_emulate) {
+
+		my_wnck_change_state(my_wnck_window_get_xscreen(window),
+		                     wnck_window_get_xid(window),
+		                     TRUE,
+		                     my_wnck_atom_get("_NET_WM_STATE_BELOW"),
+		                     0);
+	}
 
 	return 0;
 }
