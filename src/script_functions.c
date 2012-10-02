@@ -1491,7 +1491,7 @@ int c_get_window_class(lua_State *lua)
 int c_set_window_fullscreen(lua_State *lua)
 {
 	int top=lua_gettop(lua);
-	
+
 	if (top!=1) {
 		luaL_error(lua,"set_window_fullscreen: %s", one_indata_expected_error);
 		return 0;

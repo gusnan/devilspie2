@@ -349,7 +349,7 @@ set_window_below()
 set_window_fullscreen(fullscreen)
 
    Asks the window manager to set the fullscreen state of the window according to the
-   fullscreen boolean. (available from version 0.24) 
+   fullscreen boolean. (available from version 0.24)
 
 
 
