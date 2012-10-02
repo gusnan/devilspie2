@@ -158,7 +158,7 @@ get_window_type()
    If the function for some reason didn't have a window to work on the string
    result is "WINDOW_ERROR".
 
-   (availible from version 0.21)
+   (available from version 0.21)
 
 
 get_class_instance_name()
@@ -205,7 +205,7 @@ set_window_position2(xpos,ypos)
    Set the position of a window - Compared to set_window_position, this
    function uses XMoveWindow instead of wnck_window_set_geometry which
    gives a slightly different result.
-   (Availible from version 0.21)
+   (Available from version 0.21)
 
 
 set_window_size (xsize, ysize)
@@ -337,13 +337,13 @@ set_skip_pager(skip)
 
 set_window_above()
 
-   Set the current window above all normal windows. (availible from version
+   Set the current window above all normal windows. (available from version
    0.21)
 
 
 set_window_below()
 
-   Set the current window below all normal windows. (availible from version
+   Set the current window below all normal windows. (available from version
    0.21)
 
 set_window_fullscreen(fullscreen)
