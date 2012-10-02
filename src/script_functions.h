@@ -80,6 +80,8 @@ int c_get_window_is_maximized(lua_State *lua);
 int c_get_window_is_maximized_vertically(lua_State *lua);
 int c_get_window_is_maximized_horisontally(lua_State *lua);
 
+int c_set_window_fullscreen(lua_State *lua);
+
 int c_set_window_above(lua_State *lua);
 int c_set_window_below(lua_State *lua);
 

@@ -1465,3 +1465,37 @@ int c_get_window_class(lua_State *lua)
 
 	return 1;
 }
+
+
+/**
+ *
+ */
+int c_set_window_fullscreen(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+	
+	if (top!=1) {
+		luaL_error(lua,"set_window_fullscreen: %s", one_indata_expected_error);
+		return 0;
+	}
+
+	WnckWindow *window=get_current_window();
+
+	int type=lua_type(lua,1);
+
+	if (type!=LUA_TBOOLEAN) {
+		luaL_error(lua,"set_window_fullscreen: %s",boolean_expected_as_indata_error);
+		return 0;
+	}
+
+	gboolean fullscreen=lua_toboolean(lua,1);
+
+	if (window) {
+		if (!devilspie2_emulate) {
+			wnck_window_set_fullscreen(window,fullscreen);
+		}
+	}
+
+
+	return 0;
+}
