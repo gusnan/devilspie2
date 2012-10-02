@@ -130,6 +130,7 @@ register_cfunctions(lua_State *lua)
 
 	lua_register(lua,"set_window_below",c_set_window_below);
 	lua_register(lua,"set_window_above",c_set_window_above);
+	lua_register(lua,"set_window_fullscreen",c_set_window_fullscreen);
 
 	lua_register(lua,"get_window_type",c_get_window_type);
 
