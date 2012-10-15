@@ -216,8 +216,7 @@ void load_scripts()
 		lua_file=g_slice_alloc(sizeof(struct lua_File));
 
 		lua_file->file_name=g_build_path(G_DIR_SEPARATOR_S,
-		                                 g_get_user_config_dir(),
-		                                 "devilspie2",
+		                                 script_folder,
 		                                 current_file,
 		                                 NULL);
 
