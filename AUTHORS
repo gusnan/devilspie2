@@ -18,3 +18,6 @@ Frans de Jonge <fransdejonge (at) gmail (dot) com>
 
 Roman V. Nikolaev <rshadow (at) rambler (dot) ru>
 - Russian translation
+
+Andreas Müller <schnitzeltony (at) googlemail (dot) com>
+- Patch fixing --folder setting getting overridden in load_scripts
