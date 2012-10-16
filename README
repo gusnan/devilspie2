@@ -353,6 +353,11 @@ set_window_fullscreen(fullscreen)
    fullscreen boolean. (available from version 0.24)
 
 
+set_viewport(viewport)
+
+   Moves the window to the requested viewport - Counting starts at number 1.
+   (Available from version 0.25)
+
 
 Please note that strings are case sensitive, comparing "SomeProgram" with
 "someprogram" will not report equality.
