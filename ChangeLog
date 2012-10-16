@@ -2,6 +2,12 @@
 ChangeLog:
 ----------
 
+0.24
+	* Fix bug where folder settings got overridden
+	  - Thanks Andreas Müller!
+	* Add set_window_fullscreen function
+	* Add some required checks for running in emulation mode
+
 0.23
 	* Added Russian translation - Thanks to Roman V. Nikolaev
 	* Fix a string memory leak
