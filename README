@@ -359,8 +359,8 @@ set_viewport(viewport)
    (Available from version 0.25)
 
 
-Please note that strings are case sensitive, comparing "SomeProgram" with
-"someprogram" will not report equality.
+Please note that strings comparisons are case sensitive, comparing
+"SomeProgram" with "someprogram" will not report equality.
 
 
 Translations
