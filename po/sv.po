@@ -6,10 +6,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: devilspie2 0.16\n"
+"Project-Id-Version: devilspie2 0.25\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2012-08-26 00:23+0200\n"
-"PO-Revision-Date: 2012-01-13 17:09+0100\n"
+"POT-Creation-Date: 2012-10-16 20:30+0200\n"
+"PO-Revision-Date: 2012-10-16 20:37+0100\n"
 "Last-Translator: Andreas Rönnquist <gusnan@gusnan.se>\n"
 "Language-Team: Swedish\n"
 "Language: sv\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: devilspie2.c:160
+#: devilspie2.c:159
 #, c-format
 msgid "Received signal:"
 msgstr "Tog emot signal:"
@@ -27,121 +27,137 @@ msgstr "Tog emot signal:"
 msgid "script_folder isn't a folder."
 msgstr "script_folder är inte en folder."
 
-#: devilspie2.c:267
+#: devilspie2.c:247
 #, c-format
 msgid "No script files found in the script folder - exiting."
 msgstr "Inga skript hittades i skript-mappen - avslutar."
 
-#: devilspie2.c:275
+#: devilspie2.c:254
 #, c-format
 msgid "List of LUA files in folder:"
 msgstr "Lista på LUA-filer i mappen:"
 
-#: devilspie2.c:307
+#: devilspie2.c:286
 msgid "Print debug info to stdout"
 msgstr "Skriv ut debug-information till stdout"
 
-#: devilspie2.c:309
+#: devilspie2.c:288
 msgid "Don't apply any rules, only emulate execution"
 msgstr "Applicera inga regler, emulera endast körning"
 
-#: devilspie2.c:311
+#: devilspie2.c:290
 msgid "Search for scripts in this folder"
 msgstr "Sök efter skript i denna mapp"
 
-#: devilspie2.c:311
+#: devilspie2.c:290
 msgid "FOLDER"
 msgstr "MAPP"
 
-#: devilspie2.c:313
+#: devilspie2.c:292
 msgid "Show Devilspie2 version and quit"
 msgstr "Visa version av Devilspie2 och avsluta"
 
-#: devilspie2.c:318
+#: devilspie2.c:297
 msgid "Show libwnck version and quit"
 msgstr "Visa version av libwnck och avsluta"
 
-#: devilspie2.c:337
+#: devilspie2.c:314
 msgid "apply rules on windows"
 msgstr "applicera regler på fönster"
 
-#: devilspie2.c:344
+#: devilspie2.c:321
 #, c-format
 msgid "option parsing failed: %s"
 msgstr "tolkning av alternativ misslyckades; %s"
 
-#: devilspie2.c:362
+#: devilspie2.c:339
 #, c-format
 msgid "Couldn't create the default folder for devilspie2 scripts."
 msgstr "Kunde inte skapa standard-mappen för devilspie2-skript."
 
-#: devilspie2.c:389
+#: devilspie2.c:366
 #, c-format
 msgid "An X11 display is required for devilspie2."
 msgstr "En X11-display krävs för att köra devilspie2"
 
-#: devilspie2.c:399
+#: devilspie2.c:376
 #, c-format
 msgid "Running devilspie2 in debug and emulate mode."
 msgstr "Kör Devilspie2 i debug och emulerings-mode"
 
-#: devilspie2.c:401
+#: devilspie2.c:378
 #, c-format
 msgid "Running devilspie2 in debug mode."
 msgstr "Kör Devilspie2 i debug-mode"
 
-#: devilspie2.c:406
+#: devilspie2.c:383
 #, c-format
 msgid "Using scripts from folder: %s"
 msgstr "Använder skript från mappen: %s"
 
-#: devilspie2.c:417
+#: devilspie2.c:394
 #, c-format
 msgid "Couldn't init script error messages!"
 msgstr "Kunde inte initiera skript-felmeddelanden!"
 
-#: script.c:205
+#: script.c:206
 #, c-format
 msgid "Error: %s"
 msgstr "Fel: %s"
 
-#: script_functions.c:77
+#: script_functions.c:82
 msgid "Couldn't allocate error string!"
 msgstr "Kunde inte allokera felsträng!"
 
-#: script_functions.c:79
+#: script_functions.c:84
 msgid "No indata expected"
 msgstr "Ingen indata väntad"
 
-#: script_functions.c:86
+#: script_functions.c:91
 msgid "One indata expected"
 msgstr "En indata väntad"
 
-#: script_functions.c:93
+#: script_functions.c:98
 msgid "Two indata expected"
 msgstr "Två indata väntade"
 
-#: script_functions.c:100
+#: script_functions.c:105
 msgid "Four indata expected"
 msgstr "Fyra indata väntade"
 
-#: script_functions.c:107
+#: script_functions.c:112
 msgid "Number expected as indata"
 msgstr "Nummer väntat som indata"
 
-#: script_functions.c:114
+#: script_functions.c:119
 msgid "Boolean expected as indata"
 msgstr "Boolskt värde väntat som indata"
 
-#: script_functions.c:121
+#: script_functions.c:126
 msgid "String expected as indata"
 msgstr "Sträng väntad som indata"
 
-#: script_functions.c:128 xutils.c:179 xutils.c:197
+#: script_functions.c:133
+msgid "Integer greater than zero expected"
+msgstr "Heltal större än noll väntat"
+
+#: script_functions.c:140
+msgid "Could not find current viewport"
+msgstr "Kunde inte hitta aktuell visningsyta"
+
+#: script_functions.c:147
+msgid "Setting viewport failed"
+msgstr "Kunde inte sätta visningsyta"
+
+#: script_functions.c:154
+#: xutils.c:180
+#: xutils.c:198
 msgid "Failed!"
 msgstr "Misslyckades!"
 
-#: script_functions.c:748 script_functions.c:792
+#: script_functions.c:789
+#: script_functions.c:835
 #, c-format
 msgid "Workspace number %d does not exist!"
 msgstr "Arbetsyta nummer %d finns inte!"
+
