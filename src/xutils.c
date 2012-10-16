@@ -22,6 +22,7 @@
 #include <gdk/gdk.h>
 #include <gdk/gdkx.h>
 #include <X11/Xlib.h>
+#include <string.h>
 
 #include <locale.h>
 
@@ -291,3 +292,110 @@ char* my_wnck_get_string_property_latin1(Window xwindow, Atom atom)
 	return retval;
 }
 
+
+
+gboolean
+my_wnck_get_cardinal_list (Window xwindow, Atom atom,
+                          gulong **cardinals, int *len)
+{
+	Atom type;
+	int format;
+	gulong nitems;
+	gulong bytes_after;
+	gulong *nums;
+	int err, result;
+
+	*cardinals=NULL;
+	*len=0;
+
+	my_wnck_error_trap_push();
+	type=None;
+	result=XGetWindowProperty(gdk_x11_get_default_xdisplay (),
+	                             xwindow,
+	                             atom,
+	                             0, G_MAXLONG,
+	                             False, XA_CARDINAL, &type, &format, &nitems,
+	                             &bytes_after, (void*)&nums);
+	
+	err=my_wnck_error_trap_pop();
+	
+	if ((err!=Success) || (result!=Success))
+		return FALSE;
+
+	if (type!=XA_CARDINAL) {
+		XFree (nums);
+		return FALSE;
+	}
+
+	*cardinals=g_new(gulong, nitems);
+	memcpy(*cardinals, nums, sizeof (gulong) * nitems);
+	*len=nitems;
+
+	XFree(nums);
+
+	return TRUE;
+}
+
+
+/**
+ *
+ */
+glong my_wnck_get_cardinal(Window xwindow, Atom atom)
+{
+	Atom type;
+	int format;
+	gulong nitems;
+	gulong bytes_after;
+	gulong *nums;
+	glong data;
+	int err,result;
+
+	my_wnck_error_trap_push();
+	type=None;
+	result=XGetWindowProperty(gdk_x11_get_default_xdisplay(),
+	                          xwindow,
+	                          atom,
+	                          0, G_MAXLONG,
+	                          False, XA_CARDINAL, &type, &format, &nitems,
+	                          &bytes_after, (void*)&nums);
+
+	if (result!=Success)
+		return -1;
+
+	err=my_wnck_error_trap_pop();
+	if (err!=Success)
+		return -1;
+
+	if (type!=XA_CARDINAL) {
+		XFree(nums);
+		return -1;
+	}
+
+	data=nums[0];
+	XFree(nums);
+
+	return data;	
+}
+
+
+/**
+ *
+ */
+int my_wnck_get_viewport_start(WnckWindow *win)
+{
+	gulong *list;
+	int len;
+
+	int result=-1;
+
+	my_wnck_get_cardinal_list(RootWindowOfScreen(my_wnck_window_get_xscreen(win)),
+	                          my_wnck_atom_get("_NET_DESKTOP_VIEWPORT"), &list, &len);
+
+	if (len>0) {
+		result=list[0];
+	}
+
+	g_free(list);
+
+	return result;
+}

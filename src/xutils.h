@@ -39,4 +39,9 @@ gboolean undecorate_window(WnckWindow *window);
 
 char* my_wnck_get_string_property_latin1 (Window xwindow, Atom atom);
 
+gboolean my_wnck_get_cardinal_list(Window xwindow, Atom atom, gulong **cardinals, int *len);
+glong my_wnck_get_cardinal(Window xwindow, Atom atom);
+
+int my_wnck_get_viewport_start(WnckWindow *win);
+
 #endif /*__HEADER_XUTILS_*/

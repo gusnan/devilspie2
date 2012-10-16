@@ -67,6 +67,11 @@ gchar *boolean_expected_as_indata_error=NULL;
 
 gchar *string_expected_as_indata_error=NULL;
 
+gchar *integer_greater_than_zero_expected_error=NULL;
+gchar *could_not_find_current_viewport_error=NULL;
+
+gchar *setting_viewport_failed_error=NULL;
+
 gchar *failed_string=NULL;
 
 /**
@@ -125,6 +130,27 @@ int init_script_error_messages()
 		return -1;
 	}
 
+	integer_greater_than_zero_expected_error=g_strdup_printf(_("Integer greater than zero expected"));
+	if (!integer_greater_than_zero_expected_error) {
+		printf(ALLOCATE_ERROR_STRING);
+		printf("\n");
+		return -1;
+	}
+
+	could_not_find_current_viewport_error=g_strdup_printf(_("Could not find current viewport"));
+	if (!could_not_find_current_viewport_error) {
+		printf(ALLOCATE_ERROR_STRING);
+		printf("\n");
+		return -1;
+	}
+
+	setting_viewport_failed_error=g_strdup_printf(_("Setting viewport failed"));
+	if (!setting_viewport_failed_error) {
+		printf(ALLOCATE_ERROR_STRING);
+		printf("\n");
+		return -1;
+	}
+
 	failed_string=g_strdup_printf(_("Failed!"));
 	if (!failed_string) {
 		printf(ALLOCATE_ERROR_STRING);
@@ -149,6 +175,10 @@ void done_script_error_messages()
 	g_free(number_expected_as_indata_error);
 	g_free(boolean_expected_as_indata_error);
 	g_free(string_expected_as_indata_error);
+
+	g_free(integer_greater_than_zero_expected_error);
+	g_free(could_not_find_current_viewport_error);
+	g_free(setting_viewport_failed_error);
 
 	g_free(failed_string);
 }
@@ -1516,4 +1546,63 @@ int c_set_window_fullscreen(lua_State *lua)
 
 
 	return 0;
+}
+
+
+/**
+ *
+ */
+int c_set_viewport(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+	WnckScreen *screen;
+	int x,y,width,height, viewport_start;
+
+	if (top!=1) {
+		luaL_error(lua,"set_viewport: %s", one_indata_expected_error);
+		return 0;
+	}
+
+	int type=lua_type(lua,1);
+	if (type!=LUA_TNUMBER) {
+		luaL_error(lua,"set_viewport: %s",number_expected_as_indata_error);
+		return 0;
+	}
+
+	int num=lua_tonumber(lua,1);
+
+	if (num<=0) {
+		g_error("set_viewport: %s",integer_greater_than_zero_expected_error);
+		lua_pushboolean(lua,FALSE);
+		return 1;
+	}
+
+	WnckWindow *window=get_current_window();
+
+	screen=wnck_window_get_screen(window);
+
+	wnck_window_get_geometry(window, &x, &y, &width, &height);
+
+	viewport_start=my_wnck_get_viewport_start(window);
+	if (viewport_start<0) {
+		g_printerr("set_viewport: %s",could_not_find_current_viewport_error);
+		lua_pushboolean(lua,FALSE);
+		return 1;
+	}
+
+	x=((num-1) * wnck_screen_get_width(screen)) - viewport_start + x;
+
+	my_wnck_error_trap_push();
+	XMoveResizeWindow(gdk_x11_get_default_xdisplay(),
+	                  wnck_window_get_xid(window),
+	                  x,y,width,height);
+
+	if (my_wnck_error_trap_pop()) {
+		g_printerr("set_viewport: %s",setting_viewport_failed_error);
+		lua_pushboolean(lua,FALSE);
+		return 1;
+	}
+
+	lua_pushboolean(lua,TRUE);
+	return 1;
 }
