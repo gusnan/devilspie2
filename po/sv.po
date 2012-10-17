@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.25\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2012-10-16 20:30+0200\n"
+"POT-Creation-Date: 2012-10-17 13:22+0200\n"
 "PO-Revision-Date: 2012-10-16 20:37+0100\n"
 "Last-Translator: Andreas Rönnquist <gusnan@gusnan.se>\n"
 "Language-Team: Swedish\n"
@@ -105,59 +105,55 @@ msgstr "Kunde inte initiera skript-felmeddelanden!"
 msgid "Error: %s"
 msgstr "Fel: %s"
 
-#: script_functions.c:82
-msgid "Couldn't allocate error string!"
-msgstr "Kunde inte allokera felsträng!"
-
-#: script_functions.c:84
-msgid "No indata expected"
-msgstr "Ingen indata väntad"
-
-#: script_functions.c:91
-msgid "One indata expected"
-msgstr "En indata väntad"
-
-#: script_functions.c:98
-msgid "Two indata expected"
-msgstr "Två indata väntade"
-
-#: script_functions.c:105
-msgid "Four indata expected"
-msgstr "Fyra indata väntade"
-
-#: script_functions.c:112
-msgid "Number expected as indata"
-msgstr "Nummer väntat som indata"
-
-#: script_functions.c:119
-msgid "Boolean expected as indata"
-msgstr "Boolskt värde väntat som indata"
-
-#: script_functions.c:126
-msgid "String expected as indata"
-msgstr "Sträng väntad som indata"
-
-#: script_functions.c:133
-msgid "Integer greater than zero expected"
-msgstr "Heltal större än noll väntat"
-
-#: script_functions.c:140
-msgid "Could not find current viewport"
-msgstr "Kunde inte hitta aktuell visningsyta"
-
-#: script_functions.c:147
-msgid "Setting viewport failed"
-msgstr "Kunde inte sätta visningsyta"
-
-#: script_functions.c:154
-#: xutils.c:180
-#: xutils.c:198
-msgid "Failed!"
-msgstr "Misslyckades!"
-
-#: script_functions.c:789
-#: script_functions.c:835
+#: script_functions.c:666 script_functions.c:712
 #, c-format
 msgid "Workspace number %d does not exist!"
 msgstr "Arbetsyta nummer %d finns inte!"
 
+#: xutils.c:180 xutils.c:198 error_strings.c:121
+msgid "Failed!"
+msgstr "Misslyckades!"
+
+#: error_strings.c:49
+msgid "Couldn't allocate error string!"
+msgstr "Kunde inte allokera felsträng!"
+
+#: error_strings.c:51
+msgid "No indata expected"
+msgstr "Ingen indata väntad"
+
+#: error_strings.c:58
+msgid "One indata expected"
+msgstr "En indata väntad"
+
+#: error_strings.c:65
+msgid "Two indata expected"
+msgstr "Två indata väntade"
+
+#: error_strings.c:72
+msgid "Four indata expected"
+msgstr "Fyra indata väntade"
+
+#: error_strings.c:79
+msgid "Number expected as indata"
+msgstr "Nummer väntat som indata"
+
+#: error_strings.c:86
+msgid "Boolean expected as indata"
+msgstr "Boolskt värde väntat som indata"
+
+#: error_strings.c:93
+msgid "String expected as indata"
+msgstr "Sträng väntad som indata"
+
+#: error_strings.c:100
+msgid "Integer greater than zero expected"
+msgstr "Heltal större än noll väntat"
+
+#: error_strings.c:107
+msgid "Could not find current viewport"
+msgstr "Kunde inte hitta aktuell visningsyta"
+
+#: error_strings.c:114
+msgid "Setting viewport failed"
+msgstr "Kunde inte sätta visningsyta"
