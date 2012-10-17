@@ -2,6 +2,10 @@
 ChangeLog:
 ----------
 
+0.25
+	* Add set_viewport function
+	* Move error strings to a source file of their own
+
 0.24
 	* Fix bug where folder settings got overridden
 	  - Thanks Andreas Müller!
