@@ -38,6 +38,8 @@
 #include "script.h"
 #include "script_functions.h"
 
+#include "error_strings.h"
+
 
 /**
  *
