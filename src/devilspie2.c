@@ -164,7 +164,7 @@ static void signal_handler(int sig)
 	done_script_error_messages();
 
 	if (sig==SIGINT) {
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 
 }
