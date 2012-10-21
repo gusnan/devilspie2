@@ -391,10 +391,8 @@ int my_wnck_get_viewport_start(WnckWindow *win)
 	my_wnck_get_cardinal_list(RootWindowOfScreen(my_wnck_window_get_xscreen(win)),
 	                          my_wnck_atom_get("_NET_DESKTOP_VIEWPORT"), &list, &len);
 
-	if (len>0) {
-		result=list[0];
-	}
-
+	if (len>0) result=list[0];
+  
 	g_free(list);
 
 	return result;
