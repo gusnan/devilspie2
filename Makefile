@@ -61,7 +61,7 @@ LOCAL_CFLAGS+=-DLOCALEDIR=\"$(LOCALEDIR)\" -DPACKAGE=\"$(NAME)\" -DDEVILSPIE2_VE
 
 .PHONY: all
 all: $(BIN)/devilspie2
-	${MAKE} -C po all
+	${MAKE} -j1 -C po all
 
 $(OBJ)/%.o: $(SRC)/%.c
 	$(CC) $(LOCAL_CFLAGS) $(LOCAL_CPPFLAGS) -c $< -o $@
