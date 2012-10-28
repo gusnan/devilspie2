@@ -5,7 +5,9 @@ ChangeLog:
 0.25
 	* Add set_viewport function
 	* Move error strings to a source file of their own
-	* Update translations - Thanks guys!
+	* Updated translations - Thanks guys!
+	* Make it possible to build using -j without screwing up
+	  translation build
 
 0.24
 	* Fix bug where folder settings got overridden
