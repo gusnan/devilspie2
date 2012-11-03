@@ -1483,3 +1483,61 @@ int c_set_viewport(lua_State *lua)
 	lua_pushboolean(lua,TRUE);
 	return 1;
 }
+
+
+/**
+ *
+ */
+int c_center(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+
+	int workspace_width, workspace_height, window_width, window_height;
+	int xoffset, yoffset;
+	WnckScreen *screen;
+	WnckWorkspace *workspace;
+
+	if (top!=0) {
+		luaL_error(lua,"center: %s",no_indata_expected_error);
+		return 0;
+	}
+
+	WnckWindow *window=get_current_window();
+
+	wnck_window_get_geometry(window, NULL, NULL, &window_width, &window_height);
+
+	screen = wnck_window_get_screen(window);
+
+	workspace = wnck_screen_get_active_workspace(screen);
+
+	if (workspace==NULL) {
+		workspace=wnck_screen_get_workspace(screen,0);
+	}
+
+	if (workspace==NULL) {
+		g_printerr(_("Cannot get workspace"));
+		lua_pushboolean(lua,FALSE);
+		return 1;
+	}
+
+	workspace_width = wnck_workspace_get_width(workspace);
+	workspace_height = wnck_workspace_get_height(workspace);
+
+	xoffset = (workspace_width - window_width) / 2;
+	yoffset = (workspace_height - window_height) / 2;
+
+	my_wnck_error_trap_push();
+	XMoveWindow (gdk_x11_get_default_xdisplay(),
+	             wnck_window_get_xid(window),
+	             xoffset, yoffset);
+
+	if (my_wnck_error_trap_pop()) {
+		g_printerr("center: %s",failed_string);
+		lua_pushboolean(lua,FALSE);
+		return 1;
+	}
+
+	lua_pushboolean(lua,TRUE);
+
+	return 1;
+}
