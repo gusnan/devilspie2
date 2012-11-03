@@ -32,8 +32,6 @@ Screen* my_wnck_window_get_xscreen(WnckWindow *window);
 void my_wnck_error_trap_push();
 int my_wnck_error_trap_pop();
 
-//static void set_decorations (WnckWindow *window, gboolean decorate);
-
 gboolean decorate_window(WnckWindow *window);
 gboolean undecorate_window(WnckWindow *window);
 
