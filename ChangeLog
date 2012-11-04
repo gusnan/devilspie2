@@ -4,6 +4,8 @@ ChangeLog:
 
 0.26
 	* Add "center" function
+	* Register set_window_position2 under the correct name - Fixes
+	  bug where set_window_position2 couldn't be found
 
 0.25
 	* Add set_viewport function
