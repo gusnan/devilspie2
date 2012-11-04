@@ -362,6 +362,7 @@ set_viewport(viewport)
 center()
 
    Centers the current window on the current workspace.
+   (Available from version 0.26)
 
 
 Please note that strings comparisons are case sensitive, comparing
