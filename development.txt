@@ -7,7 +7,7 @@ code to devilspie2, the first thing to do is - learn git.
 
 Number two to think about is if you are willing to release your code as
 GPL. Devilspie2 is released under the GPL license version 3, and I will
-do what I can to only include code that is compatible to this.
+only accept code under that license.
 
 As with any C program, program execution starts in the main function - which
 is placed in devilspie2.c in this case. The main function interprets the 
