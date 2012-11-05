@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.16\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2012-10-17 13:22+0200\n"
-"PO-Revision-Date: 2012-10-19 13:11+0100\n"
+"POT-Creation-Date: 2012-11-03 13:02+0100\n"
+"PO-Revision-Date: 2012-11-05 16:01+0100\n"
 "Last-Translator: Frans de Jonge <fransdejonge@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl\n"
@@ -17,90 +17,90 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: devilspie2.c:159
+#: devilspie2.c:161
 #, c-format
 msgid "Received signal:"
 msgstr "Ontvangen signaal:"
 
-#: devilspie2.c:198
+#: devilspie2.c:200
 #, c-format
 msgid "script_folder isn't a folder."
 msgstr "script_folder is geen map."
 
-#: devilspie2.c:247
+#: devilspie2.c:249
 #, c-format
 msgid "No script files found in the script folder - exiting."
 msgstr "Er werden geen scriptbestanden in de scriptmap gevonden — programma wordt afgesloten."
 
-#: devilspie2.c:254
+#: devilspie2.c:256
 #, c-format
 msgid "List of LUA files in folder:"
 msgstr "Lijst van LUA-bestanden in de map:"
 
-#: devilspie2.c:286
+#: devilspie2.c:288
 msgid "Print debug info to stdout"
 msgstr "Print debuginformatie naar stdout"
 
-#: devilspie2.c:288
+#: devilspie2.c:290
 msgid "Don't apply any rules, only emulate execution"
 msgstr "Pas geen regels permanent toe; enkel emulatie van uitvoering"
 
-#: devilspie2.c:290
+#: devilspie2.c:292
 msgid "Search for scripts in this folder"
 msgstr "Zoek naar scripts in deze map"
 
-#: devilspie2.c:290
+#: devilspie2.c:292
 msgid "FOLDER"
 msgstr "MAP"
 
-#: devilspie2.c:292
+#: devilspie2.c:294
 msgid "Show Devilspie2 version and quit"
 msgstr "Toon Devilspie2 versie en sluit af"
 
-#: devilspie2.c:297
+#: devilspie2.c:299
 msgid "Show libwnck version and quit"
 msgstr "Toon libwnck versie en sluit af"
 
-#: devilspie2.c:314
+#: devilspie2.c:316
 msgid "apply rules on windows"
 msgstr "Pas regels toe op vensters"
 
-#: devilspie2.c:321
+#: devilspie2.c:323
 #, c-format
 msgid "option parsing failed: %s"
 msgstr "de volgende optie wordt niet begrepen: %s"
 
-#: devilspie2.c:339
+#: devilspie2.c:341
 #, c-format
 msgid "Couldn't create the default folder for devilspie2 scripts."
 msgstr "Kon geen standaardmap aanmaken voor devilspie2 scripts."
 
-#: devilspie2.c:366
+#: devilspie2.c:368
 #, c-format
 msgid "An X11 display is required for devilspie2."
 msgstr "Een X11-scherm is noodzakelijk voor devilspie2."
 
-#: devilspie2.c:376
+#: devilspie2.c:378
 #, c-format
 msgid "Running devilspie2 in debug and emulate mode."
 msgstr "Devilspie2 draait in debug- en emuleringsmodus."
 
-#: devilspie2.c:378
+#: devilspie2.c:380
 #, c-format
 msgid "Running devilspie2 in debug mode."
 msgstr "Devilspie2 draait in debugmodus."
 
-#: devilspie2.c:383
+#: devilspie2.c:385
 #, c-format
 msgid "Using scripts from folder: %s"
 msgstr "Scripts uit deze map worden worden gebruikt: %s"
 
-#: devilspie2.c:394
+#: devilspie2.c:396
 #, c-format
 msgid "Couldn't init script error messages!"
 msgstr "Scriptfoutmeldingen konden niet geïnitialiseerd worden!"
 
-#: script.c:206
+#: script.c:208
 #, c-format
 msgid "Error: %s"
 msgstr "Fout: %s"
@@ -110,6 +110,10 @@ msgstr "Fout: %s"
 #, c-format
 msgid "Workspace number %d does not exist!"
 msgstr "Werkruimte nummer %d bestaat niet!"
+
+#: script_functions.c:1518
+msgid "Cannot get workspace"
+msgstr "Kon werkruimte niet achterhalen."
 
 #: xutils.c:180
 #: xutils.c:198
