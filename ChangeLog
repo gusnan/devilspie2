@@ -8,6 +8,7 @@ ChangeLog:
 	  bug where set_window_position2 couldn't be found
 	* Add a text file describing development for people who
 	  want to join
+	* Add a TODO file
 
 0.25
 	* Add set_viewport function
