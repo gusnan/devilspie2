@@ -316,9 +316,9 @@ my_wnck_get_cardinal_list (Window xwindow, Atom atom,
 	                             0, G_MAXLONG,
 	                             False, XA_CARDINAL, &type, &format, &nitems,
 	                             &bytes_after, (void*)&nums);
-	
+
 	err=my_wnck_error_trap_pop();
-	
+
 	if ((err!=Success) || (result!=Success))
 		return FALSE;
 
@@ -374,7 +374,7 @@ glong my_wnck_get_cardinal(Window xwindow, Atom atom)
 	data=nums[0];
 	XFree(nums);
 
-	return data;	
+	return data;
 }
 
 
@@ -392,7 +392,7 @@ int my_wnck_get_viewport_start(WnckWindow *win)
 	                          my_wnck_atom_get("_NET_DESKTOP_VIEWPORT"), &list, &len);
 
 	if (len>0) result=list[0];
-  
+
 	g_free(list);
 
 	return result;
