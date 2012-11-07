@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.22pre\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2012-10-17 13:22+0200\n"
+"POT-Creation-Date: 2012-11-03 13:02+0100\n"
 "PO-Revision-Date: 2012-09-24 19:44+0400\n"
 "Last-Translator: Roman V. Nikolaev <rshadow@rambler.ru>\n"
 "Language-Team: Russian\n"
@@ -16,90 +16,90 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: devilspie2.c:159
+#: devilspie2.c:161
 #, c-format
 msgid "Received signal:"
 msgstr "Получен сигнал:"
 
-#: devilspie2.c:198
+#: devilspie2.c:200
 #, c-format
 msgid "script_folder isn't a folder."
 msgstr "script_folder не является директорией"
 
-#: devilspie2.c:247
+#: devilspie2.c:249
 #, c-format
 msgid "No script files found in the script folder - exiting."
 msgstr "В директории для скриптов нет скриптов - выходим."
 
-#: devilspie2.c:254
+#: devilspie2.c:256
 #, c-format
 msgid "List of LUA files in folder:"
 msgstr "Список LUA файлов в директории:"
 
-#: devilspie2.c:286
+#: devilspie2.c:288
 msgid "Print debug info to stdout"
 msgstr "Вывод отладочной информации в stdout"
 
-#: devilspie2.c:288
+#: devilspie2.c:290
 msgid "Don't apply any rules, only emulate execution"
 msgstr "Не применять правила, только эмулировать выполнение"
 
-#: devilspie2.c:290
+#: devilspie2.c:292
 msgid "Search for scripts in this folder"
 msgstr "Искать скрипты в заданной директории"
 
-#: devilspie2.c:290
+#: devilspie2.c:292
 msgid "FOLDER"
 msgstr "ДИРЕКТОРИЯ"
 
-#: devilspie2.c:292
+#: devilspie2.c:294
 msgid "Show Devilspie2 version and quit"
 msgstr "Показать версию Devilspie2 и выйти"
 
-#: devilspie2.c:297
+#: devilspie2.c:299
 msgid "Show libwnck version and quit"
 msgstr "Показать версию libwnck и выйти"
 
-#: devilspie2.c:314
+#: devilspie2.c:316
 msgid "apply rules on windows"
 msgstr "применить правила на окна"
 
-#: devilspie2.c:321
+#: devilspie2.c:323
 #, c-format
 msgid "option parsing failed: %s"
 msgstr "ошибка парсинга: %s"
 
-#: devilspie2.c:339
+#: devilspie2.c:341
 #, c-format
 msgid "Couldn't create the default folder for devilspie2 scripts."
 msgstr "Не могу создать директорию по умолчанию для скриптов."
 
-#: devilspie2.c:366
+#: devilspie2.c:368
 #, c-format
 msgid "An X11 display is required for devilspie2."
 msgstr "Для работы необходим дисплей X11"
 
-#: devilspie2.c:376
+#: devilspie2.c:378
 #, c-format
 msgid "Running devilspie2 in debug and emulate mode."
 msgstr "Запустить devilspie2 в режиме отладки и эмуляции."
 
-#: devilspie2.c:378
+#: devilspie2.c:380
 #, c-format
 msgid "Running devilspie2 in debug mode."
 msgstr "Запустить devilspie2 в режиме отладки."
 
-#: devilspie2.c:383
+#: devilspie2.c:385
 #, c-format
 msgid "Using scripts from folder: %s"
 msgstr "Используются скрипты из директории: %s"
 
-#: devilspie2.c:394
+#: devilspie2.c:396
 #, c-format
 msgid "Couldn't init script error messages!"
 msgstr "Не удалось инициализировать сообщения об ошибке скрипта!"
 
-#: script.c:206
+#: script.c:208
 #, c-format
 msgid "Error: %s"
 msgstr "Ошибка: %s"
@@ -108,6 +108,10 @@ msgstr "Ошибка: %s"
 #, c-format
 msgid "Workspace number %d does not exist!"
 msgstr "Рабочий стол номер %d не найден!"
+
+#: script_functions.c:1518
+msgid "Cannot get workspace"
+msgstr "Не могу найти рабочий стол"
 
 #: xutils.c:180 xutils.c:198 error_strings.c:121
 msgid "Failed!"
