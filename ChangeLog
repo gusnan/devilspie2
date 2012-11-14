@@ -9,6 +9,7 @@ ChangeLog:
 	* Add a text file describing development for people who
 	  want to join
 	* Add a TODO file
+	* Updated translations
 
 0.25
 	* Add set_viewport function
