@@ -4,9 +4,9 @@ OBJ=obj
 BIN=bin
 
 ifdef DEBUG
-	STD_CFLAGS=-c -Wall -g3 -ggdb -D_DEBUG
+	STD_CFLAGS=-Wall -g3 -ggdb -D_DEBUG
 else
-	STD_CFLAGS=-c -Wall -Wformat -Wno-format-extra-args -Wformat-security -Wformat-nonliteral -Wformat=2
+	STD_CFLAGS=-Wall -Wformat -Wno-format-extra-args -Wformat-security -Wformat-nonliteral -Wformat=2
 endif
 
 DEPEND=Makefile.dep
@@ -67,7 +67,7 @@ $(OBJ)/%.o: $(SRC)/%.c
 	$(CC) $(LOCAL_CFLAGS) $(LOCAL_CPPFLAGS) -c $< -o $@
 
 $(BIN)/$(NAME): $(OBJECTS)
-	$(CC) $(LOCAL_LDFLAGS) $(OBJECTS) -o $(PROG) $(LIBS)
+	$(CC) $(LOCAL_CFLAGS) $(LOCAL_LDFLAGS) $(OBJECTS) -o $(PROG) $(LIBS)
 
 .PHONY: clean
 clean:
