@@ -3,7 +3,7 @@ ChangeLog:
 ----------
 
 0.27
-	* Update Makefile to fix LUA with pkg-config
+	* Update Makefile to fix a LUA problem with pkg-config
 
 0.26
 	* Add "center" function
