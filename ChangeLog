@@ -2,6 +2,9 @@
 ChangeLog:
 ----------
 
+0.27
+	* Update Makefile to fix LUA with pkg-config
+
 0.26
 	* Add "center" function
 	* Register set_window_position2 under the correct name - Fixes
