@@ -4,6 +4,7 @@ ChangeLog:
 
 0.27
 	* Update Makefile to fix a LUA problem with pkg-config
+	* Update the email contact address in the README
 
 0.26
 	* Add "center" function
