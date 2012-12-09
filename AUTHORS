@@ -21,3 +21,6 @@ Roman V. Nikolaev <rshadow (at) rambler (dot) ru>
 
 Andreas Müller <schnitzeltony (at) googlemail (dot) com>
 - Patch fixing --folder setting getting overridden in load_scripts
+
+Hans Nieser <hans (at) nieser (dot) nl>
+- Patch adding get_workspace_count function
