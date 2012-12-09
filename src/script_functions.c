@@ -733,7 +733,7 @@ int c_get_workspace_count(lua_State *lua)
 	int top=lua_gettop(lua);
 
 	if (top!=0) {
-		luaL_error(lua,"get_window_class: %s",no_indata_expected_error);
+		luaL_error(lua,"get_workspace_count: %s",no_indata_expected_error);
 		return 0;
 	}
 
