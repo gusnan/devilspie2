@@ -725,6 +725,34 @@ int c_change_workspace(lua_State *lua)
 
 
 /**
+ * Return workspace count
+ */
+int c_get_workspace_count(lua_State *lua)
+{
+	int count=0;
+	int top=lua_gettop(lua);
+
+	if (top!=0) {
+		luaL_error(lua,"get_window_class: %s",no_indata_expected_error);
+		return 0;
+	}
+
+	WnckWindow *window=get_current_window();
+
+	if (window) {
+		WnckScreen *screen;
+
+		screen=wnck_window_get_screen(window);
+		count=wnck_screen_get_workspace_count(screen);
+	}
+
+	lua_pushnumber(lua,count);
+
+	return 1;
+}
+
+
+/**
  * Unmaximize window
  */
 int c_unmaximize_window(lua_State *lua)
