@@ -111,6 +111,7 @@ register_cfunctions(lua_State *lua)
 
 	lua_register(lua,"set_window_workspace",c_set_window_workspace);
 	lua_register(lua,"change_workspace",c_change_workspace);
+	lua_register(lua,"get_workspace_count",c_get_workspace_count);
 
 	lua_register(lua,"pin_window",c_pin_window);
 	lua_register(lua,"unpin_window",c_unpin_window);
