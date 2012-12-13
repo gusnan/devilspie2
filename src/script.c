@@ -62,7 +62,7 @@ gboolean devilspie2_emulate=FALSE;
 lua_State *
 init_script()
 {
-	lua_State *lua=lua_open();
+	lua_State *lua=luaL_newstate();
 	luaL_openlibs(lua);
 
 	register_cfunctions(lua);
