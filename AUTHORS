@@ -24,3 +24,6 @@ Andreas Müller <schnitzeltony (at) googlemail (dot) com>
 
 Hans Nieser <hans (at) nieser (dot) nl>
 - Patch adding get_workspace_count function
+
+larchunix
+- Patch replacing lua_open with luaL_newstate, to make it work with LUA 5.2.
