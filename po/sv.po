@@ -111,7 +111,6 @@ msgid "Workspace number %d does not exist!"
 msgstr "Arbetsyta nummer %d finns inte!"
 
 #: script_functions.c:1558
-#, fuzzy
 msgid "Could not get workspace"
 msgstr "Kunde inte hämta arbetsytan"
 
