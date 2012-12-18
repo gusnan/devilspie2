@@ -1406,7 +1406,19 @@ int c_get_window_class(lua_State *lua)
 	gchar *result;
 
 	if (window) {
-		result=g_strdup(wnck_class_group_get_res_class (wnck_window_get_class_group(window)));
+		WnckClassGroup *class_group=wnck_window_get_class_group(window);
+
+#ifdef WNCK_MAJOR_VERSION
+#if WNCK_CHECK_VERSION(3,2,0)
+	gchar *class_name=wnck_class_group_get_id(class_group);
+#else
+	gchar *class_name=(char*)wnck_class_group_get_res_class (class_group);
+#endif
+#else
+	gchar *class_name=(char*)wnck_class_group_get_res_class (class_group);
+#endif
+
+		result=g_strdup(class_name);
 
 	} else {
 		result=g_strdup("");
