@@ -2,6 +2,11 @@
 ChangeLog:
 ----------
 
+0.28
+	* Make get workspace error string consistent with other paste-tense strings
+	* wnck_class_group_get_res_class is deprecated, use wnck_class_group_get_id 
+	  instead on wnck versions it isn't available
+
 0.27
 	* Update Makefile to fix a LUA problem with pkg-config
 	* Update the email contact address in the README
