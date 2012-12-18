@@ -1555,7 +1555,7 @@ int c_center(lua_State *lua)
 	}
 
 	if (workspace==NULL) {
-		g_printerr(_("Cannot get workspace"));
+		g_printerr(_("Could not get workspace"));
 		lua_pushboolean(lua,FALSE);
 		return 1;
 	}
