@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.26\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2012-11-03 13:02+0100\n"
+"POT-Creation-Date: 2012-12-18 16:20+0100\n"
 "PO-Revision-Date: 2012-10-16 20:37+0100\n"
 "Last-Translator: Andreas Rönnquist <gusnan@gusnan.se>\n"
 "Language-Team: Swedish\n"
@@ -100,7 +100,7 @@ msgstr "Använder skript från mappen: %s"
 msgid "Couldn't init script error messages!"
 msgstr "Kunde inte initiera skript-felmeddelanden!"
 
-#: script.c:208
+#: script.c:209
 #, c-format
 msgid "Error: %s"
 msgstr "Fel: %s"
@@ -110,8 +110,9 @@ msgstr "Fel: %s"
 msgid "Workspace number %d does not exist!"
 msgstr "Arbetsyta nummer %d finns inte!"
 
-#: script_functions.c:1518
-msgid "Cannot get workspace"
+#: script_functions.c:1558
+#, fuzzy
+msgid "Could not get workspace"
 msgstr "Kunde inte hämta arbetsytan"
 
 #: xutils.c:180 xutils.c:198 error_strings.c:121
