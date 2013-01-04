@@ -295,7 +295,9 @@ char* my_wnck_get_string_property_latin1(Window xwindow, Atom atom)
 }
 
 
-
+/**
+ *
+ */
 gboolean
 my_wnck_get_cardinal_list (Window xwindow, Atom atom,
                           gulong **cardinals, int *len)
