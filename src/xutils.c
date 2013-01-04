@@ -234,10 +234,11 @@ char* my_wnck_get_string_property_latin1(Window xwindow, Atom atom)
 	my_wnck_error_trap_push();
 	property = NULL;
 	result = XGetWindowProperty (gdk_x11_get_default_xdisplay (),
-	                             xwindow, atom,
-	                             0, G_MAXLONG,
-	                             False, AnyPropertyType, &type, &format, &nitems,
-	                             &bytes_after, &property);
+											xwindow, atom,
+											0, G_MAXLONG,
+											False, AnyPropertyType, &type,
+											&format, &nitems,
+											&bytes_after, &property);
 
 	err = my_wnck_error_trap_pop ();
 	if (err != Success || result != Success)
@@ -266,7 +267,8 @@ char* my_wnck_get_string_property_latin1(Window xwindow, Atom atom)
 			prop_names = g_new (char *, nitems + 1);
 			prop_names[nitems] = NULL;
 			for (i=0; i < nitems; i++) {
-				prop_names[i] = XGetAtomName (gdk_x11_get_default_xdisplay (), *pp++);
+				prop_names[i] = XGetAtomName (gdk_x11_get_default_xdisplay (), 
+					*pp++);
 			}
 			retval = g_strjoinv (", ", prop_names);
 			for (i=0; i < nitems; i++) {
@@ -388,8 +390,10 @@ int my_wnck_get_viewport_start(WnckWindow *win)
 
 	int result=-1;
 
-	my_wnck_get_cardinal_list(RootWindowOfScreen(my_wnck_window_get_xscreen(win)),
-	                          my_wnck_atom_get("_NET_DESKTOP_VIEWPORT"), &list, &len);
+	my_wnck_get_cardinal_list(RootWindowOfScreen(
+										my_wnck_window_get_xscreen(win)),
+										my_wnck_atom_get("_NET_DESKTOP_VIEWPORT"), 
+										&list, &len);
 
 	if (len>0) result=list[0];
 

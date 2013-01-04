@@ -331,7 +331,10 @@ int main(int argc, char *argv[])
 	// if the folder is NULL, default to ~/.config/devilspie2/
 	if (script_folder==NULL) {
 
-		temp_folder=g_build_path(G_DIR_SEPARATOR_S,g_get_user_config_dir(),"devilspie2",NULL);
+		temp_folder=g_build_path(G_DIR_SEPARATOR_S,
+										g_get_user_config_dir(),
+										"devilspie2",
+										NULL);
 
 		// check if the folder does exist
 		if (!g_file_test(temp_folder,G_FILE_TEST_IS_DIR)) {

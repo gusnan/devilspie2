@@ -325,7 +325,8 @@ int c_set_window_size(lua_State *lua)
 				-1,-1,x,y);
 
 			if (my_wnck_error_trap_pop()) {
-				gchar *temperror=g_strdup_printf("set_window_size: %s",failed_string);
+				gchar *temperror=
+					g_strdup_printf("set_window_size: %s",failed_string);
 				g_printerr("%s",temperror);
 
 				g_free(temperror);
@@ -405,7 +406,8 @@ int c_get_application_name(lua_State *lua)
 
 	if (window) {
 
-		WnckApplication *application=wnck_window_get_application(get_current_window());
+		WnckApplication *application=
+			wnck_window_get_application(get_current_window());
 		application_name=wnck_application_get_name(application);
 
 	} else {
@@ -647,7 +649,8 @@ int c_set_window_workspace(lua_State *lua)
 	int type=lua_type(lua,1);
 
 	if (type!=LUA_TNUMBER) {
-		luaL_error(lua,"set_window_workspace: %s",number_expected_as_indata_error);
+		luaL_error(lua,"set_window_workspace: %s",
+			number_expected_as_indata_error);
 		return 0;
 	}
 
@@ -1072,7 +1075,8 @@ int c_get_window_is_maximized(lua_State *lua)
 	int top=lua_gettop(lua);
 
 	if (top!=0) {
-		luaL_error(lua,"get_window_is__maximized: %s",no_indata_expected_error);
+		luaL_error(lua,"get_window_is__maximized: %s",
+			no_indata_expected_error);
 		return 0;
 	}
 
@@ -1096,7 +1100,8 @@ int c_get_window_is_maximized_vertically(lua_State *lua)
 	int top=lua_gettop(lua);
 
 	if (top!=0) {
-		luaL_error(lua,"get_window_is_horisontally_maximized: %s",no_indata_expected_error);
+		luaL_error(lua,"get_window_is_horisontally_maximized: %s",
+			no_indata_expected_error);
 		return 0;
 	}
 
@@ -1121,7 +1126,8 @@ int c_get_window_is_maximized_horisontally(lua_State *lua)
 	int top=lua_gettop(lua);
 
 	if (top!=0) {
-		luaL_error(lua,"get_window_is_horisontally_maximized: %s",no_indata_expected_error);
+		luaL_error(lua,"get_window_is_horisontally_maximized: %s",
+			no_indata_expected_error);
 		return 0;
 	}
 
@@ -1261,7 +1267,8 @@ int c_get_class_instance_name(lua_State *lua)
 	int top=lua_gettop(lua);
 
 	if (top!=0) {
-		luaL_error(lua,"get_window_class_instance_name: %s",no_indata_expected_error);
+		luaL_error(lua,"get_window_class_instance_name: %s",
+			no_indata_expected_error);
 		return 0;
 	}
 
@@ -1312,7 +1319,8 @@ int c_get_window_property(lua_State *lua)
 	gchar *result=NULL;
 
 	if (window) {
-		result=my_wnck_get_string_property_latin1(wnck_window_get_xid(window),my_wnck_atom_get(value));
+		result=my_wnck_get_string_property_latin1(wnck_window_get_xid(window),
+			my_wnck_atom_get(value));
 	} else {
 		result=g_strdup_printf("NO RESULT");
 	}
@@ -1346,7 +1354,8 @@ int c_get_window_role(lua_State *lua)
 	gchar *result=NULL;
 
 	if (window) {
-		result=my_wnck_get_string_property_latin1(wnck_window_get_xid(window),my_wnck_atom_get("WM_WINDOW_ROLE"));
+		result=my_wnck_get_string_property_latin1(wnck_window_get_xid(window),
+			my_wnck_atom_get("WM_WINDOW_ROLE"));
 	}
 
 	if (result) {
@@ -1440,7 +1449,8 @@ int c_set_window_fullscreen(lua_State *lua)
 	int top=lua_gettop(lua);
 
 	if (top!=1) {
-		luaL_error(lua,"set_window_fullscreen: %s", one_indata_expected_error);
+		luaL_error(lua,"set_window_fullscreen: %s",
+			one_indata_expected_error);
 		return 0;
 	}
 
@@ -1449,7 +1459,8 @@ int c_set_window_fullscreen(lua_State *lua)
 	int type=lua_type(lua,1);
 
 	if (type!=LUA_TBOOLEAN) {
-		luaL_error(lua,"set_window_fullscreen: %s",boolean_expected_as_indata_error);
+		luaL_error(lua,"set_window_fullscreen: %s",
+			boolean_expected_as_indata_error);
 		return 0;
 	}
 

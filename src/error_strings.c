@@ -76,42 +76,48 @@ int init_script_error_messages()
 		return -1;
 	}
 
-	number_expected_as_indata_error=g_strdup_printf(_("Number expected as indata"));
+	number_expected_as_indata_error=
+		g_strdup_printf(_("Number expected as indata"));
 	if (!number_expected_as_indata_error) {
 		printf(ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
 
-	boolean_expected_as_indata_error=g_strdup_printf(_("Boolean expected as indata"));
+	boolean_expected_as_indata_error=
+		g_strdup_printf(_("Boolean expected as indata"));
 	if (!boolean_expected_as_indata_error) {
 		printf(ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
 
-	string_expected_as_indata_error=g_strdup_printf(_("String expected as indata"));
+	string_expected_as_indata_error=
+		g_strdup_printf(_("String expected as indata"));
 	if (!string_expected_as_indata_error) {
 		printf(ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
 
-	integer_greater_than_zero_expected_error=g_strdup_printf(_("Integer greater than zero expected"));
+	integer_greater_than_zero_expected_error=
+		g_strdup_printf(_("Integer greater than zero expected"));
 	if (!integer_greater_than_zero_expected_error) {
 		printf(ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
 
-	could_not_find_current_viewport_error=g_strdup_printf(_("Could not find current viewport"));
+	could_not_find_current_viewport_error=
+		g_strdup_printf(_("Could not find current viewport"));
 	if (!could_not_find_current_viewport_error) {
 		printf(ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
 
-	setting_viewport_failed_error=g_strdup_printf(_("Setting viewport failed"));
+	setting_viewport_failed_error=
+		g_strdup_printf(_("Setting viewport failed"));
 	if (!setting_viewport_failed_error) {
 		printf(ALLOCATE_ERROR_STRING);
 		printf("\n");
