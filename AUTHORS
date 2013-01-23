@@ -27,3 +27,6 @@ Hans Nieser <hans (at) nieser (dot) nl>
 
 larchunix
 - Patch replacing lua_open with luaL_newstate, to make it work with LUA 5.2.
+
+Laurent Brachet <yg (dot) oenpurg (at) gmail (dot) com>
+- Patch to make set_window_geometry accept negative values
