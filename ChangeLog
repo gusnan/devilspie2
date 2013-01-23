@@ -8,6 +8,7 @@ ChangeLog:
 	  instead on wnck versions it isn't available
 	* Make 'relative window positioning' possible, allowing negative values to
 	  set_window_geometry
+	* Remove sciteproj project file
 
 0.27
 	* Update Makefile to fix a LUA problem with pkg-config
