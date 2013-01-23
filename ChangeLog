@@ -6,6 +6,8 @@ ChangeLog:
 	* Make get workspace error string consistent with other past-tense strings
 	* wnck_class_group_get_res_class is deprecated, use wnck_class_group_get_id 
 	  instead on wnck versions it isn't available
+	* Make 'relative window positioning' possible, allowing negative values to
+	  set_window_geometry
 
 0.27
 	* Update Makefile to fix a LUA problem with pkg-config
