@@ -152,8 +152,25 @@ int c_set_window_geometry(lua_State *lua)
 		WnckWindow *window=get_current_window();
 
 		if (window) {
+			WnckScreen *screen = wnck_window_get_screen(window);
+			int sw = wnck_screen_get_width(screen);
+			int sh = wnck_screen_get_height(screen);
+
+			int gravity = WNCK_WINDOW_GRAVITY_CURRENT;
+			if (x >= 0 && y >= 0)
+				gravity = WNCK_WINDOW_GRAVITY_NORTHWEST;
+			if (x >= 0 && y < 0)
+				gravity = WNCK_WINDOW_GRAVITY_SOUTHWEST;
+			if (x < 0 && y >= 0)
+				gravity = WNCK_WINDOW_GRAVITY_NORTHEAST;
+			if (x < 0 && y < 0)
+				gravity = WNCK_WINDOW_GRAVITY_SOUTHEAST;
+			if (x < 0)
+				x = sw + x;
+			if (y < 0)
+				y = sh + y;			
 			wnck_window_set_geometry(window,
-			                         WNCK_WINDOW_GRAVITY_CURRENT,
+			                         gravity,
 			                         WNCK_WINDOW_CHANGE_X +
 			                         WNCK_WINDOW_CHANGE_Y +
 			                         WNCK_WINDOW_CHANGE_WIDTH +
