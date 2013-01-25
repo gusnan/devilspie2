@@ -100,4 +100,6 @@ int c_set_viewport(lua_State *lua);
 
 int c_center(lua_State *lua);
 
+int c_set_opacity(lua_State *lua);
+
 #endif /*__HEADER_SCRIPT_FUNCTIONS_*/

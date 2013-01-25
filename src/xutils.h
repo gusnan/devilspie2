@@ -49,4 +49,6 @@ glong my_wnck_get_cardinal(Window xwindow, Atom atom);
 
 int my_wnck_get_viewport_start(WnckWindow *win);
 
+void my_window_set_opacity(WnckWindow *window, double value);
+
 #endif /*__HEADER_XUTILS_*/

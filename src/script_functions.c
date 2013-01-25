@@ -1609,3 +1609,43 @@ int c_center(lua_State *lua)
 
 	return 1;
 }
+
+
+/**
+ *
+ */
+int c_set_opacity(lua_State *lua)
+{
+	
+	int top=lua_gettop(lua);
+	//WnckScreen *screen;
+
+	if (top!=1) {
+		luaL_error(lua,"set_opacity: %s", one_indata_expected_error);
+		return 0;
+	}
+
+	int type=lua_type(lua,1);
+	if (type!=LUA_TNUMBER) {
+		luaL_error(lua,"set_opacity: %s",number_expected_as_indata_error);
+		return 0;
+	}
+
+	double value=(double)lua_tonumber(lua,1);
+
+	/*
+	if (num<=0) {
+		g_error("set_opacity: %s",integer_greater_than_zero_expected_error);
+		lua_pushboolean(lua,FALSE);
+		return 1;
+	}
+	*/
+
+	WnckWindow *window=get_current_window();
+
+	//screen=wnck_window_get_screen(window);
+		
+	my_window_set_opacity(window, value);
+
+	return 0;
+}

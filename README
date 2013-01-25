@@ -370,6 +370,13 @@ center()
    (Available from version 0.26)
 
 
+set_window_opacity(value)
+
+	Sets the window opacity, takes a float value, 1.0 = completely opaque, 
+	0.0, completely see-through.
+	(Available from version 0.28)
+
+
 Please note that strings comparisons are case sensitive, comparing
 "SomeProgram" with "someprogram" will not report equality.
 

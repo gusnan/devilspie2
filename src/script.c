@@ -147,6 +147,8 @@ register_cfunctions(lua_State *lua)
 	lua_register(lua,"set_viewport",c_set_viewport);
 
 	lua_register(lua,"center",c_center);
+	
+	lua_register(lua,"set_opacity", c_set_opacity);
 
 #ifdef HAVE_GTK3
 	// wnck_window_get_class_instance_name is only availible on wnck 3 and later

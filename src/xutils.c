@@ -403,3 +403,19 @@ int my_wnck_get_viewport_start(WnckWindow *win)
 
 	return result;
 }
+/**
+ *
+ */
+void my_window_set_opacity(WnckWindow *window, double value)
+{
+	Display *display = gdk_x11_get_default_xdisplay();
+	
+	unsigned int opacity = (uint)(0xffffffff * value);
+	Atom atom_net_wm_opacity = XInternAtom(display, "_NET_WM_WINDOW_OPACITY", False);
+	
+	
+	XChangeProperty(gdk_x11_get_default_xdisplay(), wnck_window_get_xid(window),
+						atom_net_wm_opacity, XA_CARDINAL, 32,
+						PropModeReplace, (unsigned char *) &opacity, 1L);
+		
+}
