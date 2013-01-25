@@ -377,6 +377,33 @@ set_window_opacity(value)
 	(Available from version 0.28)
 
 
+set_window_type(type)
+
+	Sets the window type, according to _NET_WM_WINDOW_TYPE. The allowed types
+	are the standard _NET_WM ones (formatted as a string):
+
+	"_NET_WM_WINDOW_TYPE_DESKTOP"
+	"_NET_WM_WINDOW_TYPE_DOCK"
+	"_NET_WM_WINDOW_TYPE_TOOLBAR"
+	"_NET_WM_WINDOW_TYPE_MENU"
+	"_NET_WM_WINDOW_TYPE_UTILITY"
+	"_NET_WM_WINDOW_TYPE_SPLASH"
+	"_NET_WM_WINDOW_TYPE_DIALOG"
+	"_NET_WM_WINDOW_TYPE_NORMAL"
+
+	or shorter versions of the same values 
+
+	"WINDOW_TYPE_DESKTOP"
+	"WINDOW_TYPE_DOCK"
+	"WINDOW_TYPE_TOOLBAR"
+	"WINDOW_TYPE_MENU"
+	"WINDOW_TYPE_UTILITY"
+	"WINDOW_TYPE_SPLASH"
+	"WINDOW_TYPE_DIALOG"
+	"WINDOW_TYPE_NORMAL"
+
+	(Function is available from version 0.28)
+
 Please note that strings comparisons are case sensitive, comparing
 "SomeProgram" with "someprogram" will not report equality.
 

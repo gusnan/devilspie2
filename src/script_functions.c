@@ -1649,3 +1649,34 @@ int c_set_opacity(lua_State *lua)
 
 	return 0;
 }
+
+
+/**
+ *
+ */
+int c_set_window_type(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+	//WnckScreen *screen;
+
+	if (top!=1) {
+		luaL_error(lua,"set_window_type: %s", one_indata_expected_error);
+		return 0;
+	}
+
+	int type=lua_type(lua,1);
+	if (type!=LUA_TSTRING) {
+		luaL_error(lua,"set_window_type: %s",string_expected_as_indata_error);
+		return 0;
+	}
+
+	//double value=(double)lua_tonumber(lua,1);
+	
+	gchar *indata=(gchar*)lua_tostring(lua,1);
+
+	WnckWindow *window=get_current_window();
+		
+	my_window_set_window_type(window, indata);
+
+	return 0;
+}

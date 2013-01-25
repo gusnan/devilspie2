@@ -403,6 +403,70 @@ int my_wnck_get_viewport_start(WnckWindow *win)
 
 	return result;
 }
+
+
+/**
+ *
+ */
+void my_window_set_window_type(WnckWindow *window, gchar *window_type)
+{
+	Display *display = gdk_x11_get_default_xdisplay();
+	
+	Atom atoms[10];
+	
+	/*
+	_NET_WM_WINDOW_TYPE_DESKTOP, ATOM
+	_NET_WM_WINDOW_TYPE_DOCK, ATOM
+	_NET_WM_WINDOW_TYPE_TOOLBAR, ATOM
+	_NET_WM_WINDOW_TYPE_MENU, ATOM
+	_NET_WM_WINDOW_TYPE_UTILITY, ATOM
+	_NET_WM_WINDOW_TYPE_SPLASH, ATOM
+	_NET_WM_WINDOW_TYPE_DIALOG, ATOM
+	_NET_WM_WINDOW_TYPE_NORMAL, ATOM
+	*/
+	
+	gchar *type = NULL;
+
+	//	Make it a recognized _NET_WM_TYPE
+
+	if (g_ascii_strcasecmp(window_type, "WINDOW_TYPE_DESKTOP")==0) {
+		type = g_strdup("_NET_WM_WINDOW_TYPE_DESKTOP");
+
+	} else if (g_ascii_strcasecmp(window_type, "WINDOW_TYPE_DOCK")==0) {
+		type = g_strdup("_NET_WM_WINDOW_TYPE_DOCK");
+
+	} else if (g_ascii_strcasecmp(window_type, "WINDOW_TYPE_TOOLBAR")==0) {
+		type = g_strdup("_NET_WM_WINDOW_TYPE_TOOLBAR");
+
+	} else if (g_ascii_strcasecmp(window_type, "WINDOW_TYPE_MENU")==0) {
+		type = g_strdup("_NET_WM_WINDOW_TYPE_MENU");
+
+	} else if (g_ascii_strcasecmp(window_type, "WINDOW_TYPE_UTILITY")==0) {
+		type = g_strdup("_NET_WM_WINDOW_TYPE_UTILITY");
+
+	} else if (g_ascii_strcasecmp(window_type, "WINDOW_TYPE_SPLASH")==0) {
+		type = g_strdup("_NET_WM_WINDOW_TYPE_SPLASH");
+
+	} else if (g_ascii_strcasecmp(window_type, "WINDOW_TYPE_DIALOG")==0) {
+		type = g_strdup("_NET_WM_WINDOW_TYPE_DIALOG");
+
+	} else if (g_ascii_strcasecmp(window_type, "WINDOW_TYPE_NORMAL")==0) {
+		type = g_strdup("_NET_WM_WINDOW_TYPE_NORMAL");
+
+	} else {
+		type = g_strdup(window_type);
+	}
+	
+	atoms[0]=XInternAtom(display, type, False);
+	
+	XChangeProperty(gdk_x11_get_default_xdisplay(), wnck_window_get_xid(window),
+						XInternAtom(display, "_NET_WM_WINDOW_TYPE", False), XA_ATOM, 32,
+						PropModeReplace, (unsigned char *) &atoms, 1);
+		
+	if (type) g_free(type);
+}
+
+
 /**
  *
  */
