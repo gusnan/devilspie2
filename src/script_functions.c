@@ -1633,17 +1633,7 @@ int c_set_opacity(lua_State *lua)
 
 	double value=(double)lua_tonumber(lua,1);
 
-	/*
-	if (num<=0) {
-		g_error("set_opacity: %s",integer_greater_than_zero_expected_error);
-		lua_pushboolean(lua,FALSE);
-		return 1;
-	}
-	*/
-
 	WnckWindow *window=get_current_window();
-
-	//screen=wnck_window_get_screen(window);
 		
 	my_window_set_opacity(window, value);
 
@@ -1657,7 +1647,6 @@ int c_set_opacity(lua_State *lua)
 int c_set_window_type(lua_State *lua)
 {
 	int top=lua_gettop(lua);
-	//WnckScreen *screen;
 
 	if (top!=1) {
 		luaL_error(lua,"set_window_type: %s", one_indata_expected_error);
@@ -1669,8 +1658,6 @@ int c_set_window_type(lua_State *lua)
 		luaL_error(lua,"set_window_type: %s",string_expected_as_indata_error);
 		return 0;
 	}
-
-	//double value=(double)lua_tonumber(lua,1);
 	
 	gchar *indata=(gchar*)lua_tostring(lua,1);
 
