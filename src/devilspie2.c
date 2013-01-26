@@ -113,7 +113,7 @@ void init_screens()
 	for (i=0;i<num_screens;i++) {
 		WnckScreen *screen=wnck_screen_get(i);
 
-		g_signal_connect(screen,"window_opened",(GCallback)window_opened_cb,NULL);
+		g_signal_connect(screen,"window-opened",(GCallback)window_opened_cb,NULL);
 	}
 }
 
