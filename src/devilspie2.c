@@ -218,7 +218,7 @@ void load_scripts()
 	// in file_list
 	GSList *temp_file_list=file_list;
 
-	int number_of_files=0;
+	int total_number_of_files=0;
 
 	// add the files in the folder to our linked list
 	while ((current_file = g_dir_read_name(dir))) {
@@ -247,7 +247,7 @@ void load_scripts()
 			                                     (struct lua_File*)lua_file,
 			                                     filename_list_sortfunc);
 
-			number_of_files++;
+			total_number_of_files++;
 		}
 	}
 
@@ -255,7 +255,7 @@ void load_scripts()
 
 	g_dir_close(dir);
 
-	if (number_of_files == 0) {
+	if (total_number_of_files == 0) {
 		printf(_("No script files found in the script folder - exiting."));
 		printf("\n\n");
 		exit(EXIT_SUCCESS);
