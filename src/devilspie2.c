@@ -216,7 +216,7 @@ void load_scripts()
 
 	// a temp list so we dont ruin the start of the list that is stored
 	// in file_list
-	GSList *temp_file_list=file_list;
+	GSList *temp_window_open_file_list = file_list;
 
 	int total_number_of_files=0;
 
@@ -234,24 +234,20 @@ void load_scripts()
 
 		// we only bother with *.lua in the folder
 		if (g_str_has_suffix(current_file,".lua")) {
-
-
 			lua_file->lua_state = init_script();
 
-			if (load_script(lua_file->lua_state,lua_file->file_name)!=0) {
+			if (load_script(lua_file->lua_state,lua_file->file_name)!=0)
 				printf("Error!\n");
-			}
 
-
-			temp_file_list=g_slist_insert_sorted(temp_file_list,
+			temp_window_open_file_list=g_slist_insert_sorted(
+															 temp_window_open_file_list,
 			                                     (struct lua_File*)lua_file,
 			                                     filename_list_sortfunc);
-
 			total_number_of_files++;
 		}
 	}
 
-	file_list=temp_file_list;
+	file_list=temp_window_open_file_list;
 
 	g_dir_close(dir);
 
@@ -268,11 +264,11 @@ void load_scripts()
 
 		if (file_list != NULL) {
 
-			while(temp_file_list) {
+			while(temp_window_open_file_list) {
 
 				struct lua_File *lua_file;
 
-				lua_file = (struct lua_File*)temp_file_list->data;
+				lua_file = (struct lua_File*)temp_window_open_file_list->data;
 
 				// is it a LUA file?
 				if (g_str_has_suffix((gchar*)(lua_file->file_name),".lua")) {
@@ -281,7 +277,7 @@ void load_scripts()
 
 				// load the script
 
-				temp_file_list = temp_file_list->next;
+				temp_window_open_file_list = temp_window_open_file_list->next;
 			}
 		}
 	}
