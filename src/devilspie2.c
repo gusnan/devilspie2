@@ -118,12 +118,12 @@ static void window_closed_cb(WnckScreen *screen, WnckWindow *window)
 void init_screens()
 {
 	int i;
-	const int num_screens=gdk_display_get_n_screens(gdk_display_get_default());
-	for (i=0;i<num_screens;i++) {
-		WnckScreen *screen=wnck_screen_get(i);
+	const int num_screens = gdk_display_get_n_screens(gdk_display_get_default());
+	for (i=0; i<num_screens; i++) {
+		WnckScreen *screen = wnck_screen_get(i);
 
-		g_signal_connect(screen,"window-opened",(GCallback)window_opened_cb,NULL);
-		g_signal_connect(screen,"window-closed",(GCallback)window_closed_cb,NULL);
+		g_signal_connect(screen, "window-opened", (GCallback)window_opened_cb, NULL);
+		g_signal_connect(screen, "window-closed", (GCallback)window_closed_cb, NULL);
 	}
 }
 
@@ -134,14 +134,14 @@ void init_screens()
 void devilspie_exit()
 {
 	//done_script();
-	GSList *temp_file_list=file_list;
+	GSList *temp_file_list = file_list;
 
 	if (file_list) {
 
 		while(temp_file_list) {
 
 			struct lua_File *lua_file;
-			lua_file=(struct lua_File*)temp_file_list->data;
+			lua_file = (struct lua_File*)temp_file_list->data;
 
 			if (lua_file) {
 
@@ -150,10 +150,10 @@ void devilspie_exit()
 				done_script(lua_file->lua_state);
 
 				//lua_file=g_slice_alloc(sizeof(struct lua_File));
-				g_slice_free1(sizeof(struct lua_File),lua_file);
+				g_slice_free1(sizeof(struct lua_File), lua_file);
 			}
 
-			temp_file_list=temp_file_list->next;
+			temp_file_list = temp_file_list->next;
 		}
 	}
 
@@ -311,21 +311,21 @@ int main(int argc, char *argv[])
 		{ NULL }
 	};
 
-	GError *error=NULL;
+	GError *error = NULL;
 	GOptionContext *context;
 
 	// Init gettext stuff
 	setlocale(LC_ALL,"");
 
 	bindtextdomain(PACKAGE,LOCALEDIR);
-	bind_textdomain_codeset(PACKAGE,"");
+	bind_textdomain_codeset(PACKAGE, "");
 	textdomain(PACKAGE);
 
 	gdk_init(&argc, &argv);
 
-	gchar *devilspie2_description=g_strdup_printf(_("apply rules on windows"));
+	gchar *devilspie2_description = g_strdup_printf(_("apply rules on windows"));
 
-	gchar *full_desc_string=g_strdup_printf("- %s",devilspie2_description);
+	gchar *full_desc_string = g_strdup_printf("- %s",devilspie2_description);
 
 	context=g_option_context_new(full_desc_string);
 	g_option_context_add_main_entries(context,options,NULL);
@@ -341,16 +341,16 @@ int main(int argc, char *argv[])
 	// if the folder is NULL, default to ~/.config/devilspie2/
 	if (script_folder==NULL) {
 
-		temp_folder=g_build_path(G_DIR_SEPARATOR_S,
+		temp_folder = g_build_path(G_DIR_SEPARATOR_S,
 										g_get_user_config_dir(),
 										"devilspie2",
 										NULL);
 
 		// check if the folder does exist
-		if (!g_file_test(temp_folder,G_FILE_TEST_IS_DIR)) {
+		if (!g_file_test(temp_folder, G_FILE_TEST_IS_DIR)) {
 
 			// - and if it doesn't, create it.
-			if (g_mkdir(temp_folder,0700)!=0) {
+			if (g_mkdir(temp_folder, 0700)!=0) {
 				printf(_("Couldn't create the default folder for devilspie2 scripts."));
 				printf("\n");
 				exit(EXIT_FAILURE);
@@ -361,7 +361,7 @@ int main(int argc, char *argv[])
 	}
 
 	if (show_version) {
-		printf("Devilspie2 v%s\n\n",DEVILSPIE2_VERSION);
+		printf("Devilspie2 v%s\n\n", DEVILSPIE2_VERSION);
 		exit(EXIT_SUCCESS);
 	}
 #ifdef HAVE_GTK3
@@ -395,15 +395,15 @@ int main(int argc, char *argv[])
 
 		printf("\n\n");
 
-		printf(_("Using scripts from folder: %s"),script_folder);
+		printf(_("Using scripts from folder: %s"), script_folder);
 
 		printf("\n");
 
-		devilspie2_debug=TRUE;
+		devilspie2_debug = TRUE;
 	}
 
 	// Should we only run an emulation (don't modify any windows)
-	if (emulate) devilspie2_emulate=emulate;
+	if (emulate) devilspie2_emulate = emulate;
 
 	if (init_script_error_messages()!=0) {
 		printf(_("Couldn't init script error messages!"));
@@ -430,7 +430,7 @@ int main(int argc, char *argv[])
 
 	init_screens();
 
-	loop=g_main_loop_new(NULL,TRUE);
+	loop=g_main_loop_new(NULL, TRUE);
 	g_main_loop_run(loop);
 
 	return EXIT_SUCCESS;
