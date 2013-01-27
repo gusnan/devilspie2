@@ -106,6 +106,15 @@ static void window_opened_cb(WnckScreen *screen, WnckWindow *window)
 /**
  *
  */
+static void window_closed_cb(WnckScreen *screen, WnckWindow *window)
+{
+	
+}
+
+
+/**
+ *
+ */
 void init_screens()
 {
 	int i;
@@ -114,6 +123,7 @@ void init_screens()
 		WnckScreen *screen=wnck_screen_get(i);
 
 		g_signal_connect(screen,"window-opened",(GCallback)window_opened_cb,NULL);
+		g_signal_connect(screen,"window-closed",(GCallback)window_closed_cb,NULL);
 	}
 }
 
