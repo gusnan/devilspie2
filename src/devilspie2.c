@@ -46,14 +46,14 @@
  */
 GMainLoop *loop=NULL;
 
-static gboolean debug=FALSE;
-static gboolean emulate=FALSE;
-static gboolean show_version=FALSE;
+static gboolean debug = FALSE;
+static gboolean emulate = FALSE;
+static gboolean show_version = FALSE;
 
 #ifdef HAVE_GTK3
 	// libwnck Version Information is only availible if you have
 	// libwnck 3.0 or later
-	static gboolean show_wnck_version=FALSE;
+	static gboolean show_wnck_version = FALSE;
 #endif
 
 typedef struct lua_File
@@ -62,10 +62,10 @@ typedef struct lua_File
 	lua_State *lua_state;
 } _lua_File;
 
-static gchar *script_folder=NULL;
-static gchar *temp_folder=NULL;
+static gchar *script_folder = NULL;
+static gchar *temp_folder = NULL;
 
-static GSList *file_list=NULL;
+static GSList *file_list = NULL;
 
 
 /**
@@ -108,7 +108,7 @@ static void window_opened_cb(WnckScreen *screen, WnckWindow *window)
  */
 static void window_closed_cb(WnckScreen *screen, WnckWindow *window)
 {
-	
+
 }
 
 
@@ -187,8 +187,8 @@ static void signal_handler(int sig)
  */
 gint filename_list_sortfunc(gconstpointer a,gconstpointer b)
 {
-	struct lua_File *file1=(struct lua_File *)a;
-	struct lua_File *file2=(struct lua_File *)b;
+	struct lua_File *file1 = (struct lua_File *)a;
+	struct lua_File *file2 = (struct lua_File *)b;
 
 	return g_ascii_strcasecmp(file1->file_name,file2->file_name);
 }
@@ -225,9 +225,9 @@ void load_scripts()
 
 		struct lua_File *lua_file;
 
-		lua_file=g_slice_alloc(sizeof(struct lua_File));
+		lua_file = g_slice_alloc(sizeof(struct lua_File));
 
-		lua_file->file_name=g_build_path(G_DIR_SEPARATOR_S,
+		lua_file->file_name = g_build_path(G_DIR_SEPARATOR_S,
 		                                 script_folder,
 		                                 current_file,
 		                                 NULL);
@@ -236,7 +236,7 @@ void load_scripts()
 		if (g_str_has_suffix(current_file,".lua")) {
 
 
-			lua_file->lua_state=init_script();
+			lua_file->lua_state = init_script();
 
 			if (load_script(lua_file->lua_state,lua_file->file_name)!=0) {
 				printf("Error!\n");
