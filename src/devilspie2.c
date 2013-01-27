@@ -272,7 +272,7 @@ void load_scripts()
 
 				struct lua_File *lua_file;
 
-				lua_file=(struct lua_File*)temp_file_list->data;
+				lua_file = (struct lua_File*)temp_file_list->data;
 
 				// is it a LUA file?
 				if (g_str_has_suffix((gchar*)(lua_file->file_name),".lua")) {
@@ -281,7 +281,7 @@ void load_scripts()
 
 				// load the script
 
-				temp_file_list=temp_file_list->next;
+				temp_file_list = temp_file_list->next;
 			}
 		}
 	}
