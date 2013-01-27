@@ -222,18 +222,19 @@ void load_scripts()
 
 	// add the files in the folder to our linked list
 	while ((current_file = g_dir_read_name(dir))) {
-
-		struct lua_File *lua_file;
-
-		lua_file = g_slice_alloc(sizeof(struct lua_File));
-
-		lua_file->file_name = g_build_path(G_DIR_SEPARATOR_S,
+		
+		gchar *temp_filename = g_build_path(G_DIR_SEPARATOR_S,
 		                                 script_folder,
 		                                 current_file,
 		                                 NULL);
 
 		// we only bother with *.lua in the folder
 		if (g_str_has_suffix(current_file,".lua")) {
+
+			struct lua_File *lua_file;
+
+			lua_file = g_slice_alloc(sizeof(struct lua_File));
+			lua_file->file_name = g_strdup(temp_filename);
 			lua_file->lua_state = init_script();
 
 			if (load_script(lua_file->lua_state,lua_file->file_name)!=0)
@@ -245,6 +246,8 @@ void load_scripts()
 			                                     filename_list_sortfunc);
 			total_number_of_files++;
 		}
+		
+		g_free(temp_filename);
 	}
 
 	file_list=temp_window_open_file_list;
