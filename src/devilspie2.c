@@ -44,7 +44,7 @@
 /**
  *
  */
-GMainLoop *loop=NULL;
+GMainLoop *loop = NULL;
 
 static gboolean debug = FALSE;
 static gboolean emulate = FALSE;
@@ -73,12 +73,12 @@ static GSList *file_list = NULL;
  */
 static void window_opened_cb(WnckScreen *screen, WnckWindow *window)
 {
-	GSList *temp_file_list=file_list;
+	GSList *temp_file_list = file_list;
 	// set the window to work on
 	set_current_window(window);
 
 	// for every file in the folder - load the script
-	if (file_list!=NULL) {
+	if (file_list != NULL) {
 
 		while(temp_file_list) {
 
@@ -158,7 +158,7 @@ void devilspie_exit()
 	}
 
 
-	if (temp_folder!=NULL) g_free(temp_folder);
+	if (temp_folder != NULL) g_free(temp_folder);
 }
 
 
@@ -173,7 +173,7 @@ static void signal_handler(int sig)
 
 	done_script_error_messages();
 
-	if (sig==SIGINT) {
+	if (sig == SIGINT) {
 		exit(EXIT_FAILURE);
 	}
 
@@ -204,7 +204,7 @@ void load_scripts()
 	const gchar *current_file;
 
 	// add all the files in the script_folder to the file_list
-	dir=g_dir_open(script_folder,0,NULL);
+	dir = g_dir_open(script_folder,0,NULL);
 	if (!g_file_test(script_folder,G_FILE_TEST_IS_DIR)) {
 
 		printf(_("script_folder isn't a folder."));
@@ -221,7 +221,7 @@ void load_scripts()
 	int number_of_files=0;
 
 	// add the files in the folder to our linked list
-	while ((current_file=g_dir_read_name(dir))) {
+	while ((current_file = g_dir_read_name(dir))) {
 
 		struct lua_File *lua_file;
 
@@ -255,7 +255,7 @@ void load_scripts()
 
 	g_dir_close(dir);
 
-	if (number_of_files==0) {
+	if (number_of_files == 0) {
 		printf(_("No script files found in the script folder - exiting."));
 		printf("\n\n");
 		exit(EXIT_SUCCESS);
@@ -266,7 +266,7 @@ void load_scripts()
 		printf(_("List of LUA files in folder:"));
 		printf("\n");
 
-		if (file_list!=NULL) {
+		if (file_list != NULL) {
 
 			while(temp_file_list) {
 
@@ -339,7 +339,7 @@ int main(int argc, char *argv[])
 	g_free(devilspie2_description);
 
 	// if the folder is NULL, default to ~/.config/devilspie2/
-	if (script_folder==NULL) {
+	if (script_folder == NULL) {
 
 		temp_folder = g_build_path(G_DIR_SEPARATOR_S,
 										g_get_user_config_dir(),
@@ -357,7 +357,7 @@ int main(int argc, char *argv[])
 			}
 		}
 
-		script_folder=temp_folder;
+		script_folder = temp_folder;
 	}
 
 	if (show_version) {
