@@ -90,7 +90,7 @@ static void window_opened_cb(WnckScreen *screen, WnckWindow *window)
 
 				// init the script, run it
 
-				if (!load_script(lua_file->lua_state,lua_file->file_name)) {
+				if (!load_script(lua_file->lua_state, lua_file->file_name)) {
 				}
 
 				run_script(lua_file->lua_state);
@@ -190,7 +190,7 @@ gint filename_list_sortfunc(gconstpointer a,gconstpointer b)
 	struct lua_File *file1 = (struct lua_File *)a;
 	struct lua_File *file2 = (struct lua_File *)b;
 
-	return g_ascii_strcasecmp(file1->file_name,file2->file_name);
+	return g_ascii_strcasecmp(file1->file_name, file2->file_name);
 }
 
 
@@ -204,8 +204,8 @@ void load_scripts()
 	const gchar *current_file;
 
 	// add all the files in the script_folder to the file_list
-	dir = g_dir_open(script_folder,0,NULL);
-	if (!g_file_test(script_folder,G_FILE_TEST_IS_DIR)) {
+	dir = g_dir_open(script_folder, 0, NULL);
+	if (!g_file_test(script_folder, G_FILE_TEST_IS_DIR)) {
 
 		printf(_("script_folder isn't a folder."));
 		printf("\n");
@@ -218,7 +218,7 @@ void load_scripts()
 	// in file_list
 	GSList *temp_window_open_file_list = file_list;
 
-	int total_number_of_files=0;
+	int total_number_of_files = 0;
 
 	// add the files in the folder to our linked list
 	while ((current_file = g_dir_read_name(dir))) {
@@ -229,7 +229,7 @@ void load_scripts()
 		                                 NULL);
 
 		// we only bother with *.lua in the folder
-		if (g_str_has_suffix(current_file,".lua")) {
+		if (g_str_has_suffix(current_file, ".lua")) {
 
 			struct lua_File *lua_file;
 
@@ -237,7 +237,7 @@ void load_scripts()
 			lua_file->file_name = g_strdup(temp_filename);
 			lua_file->lua_state = init_script();
 
-			if (load_script(lua_file->lua_state,lua_file->file_name)!=0)
+			if (load_script(lua_file->lua_state, lua_file->file_name)!=0)
 				printf("Error!\n");
 
 			temp_window_open_file_list=g_slist_insert_sorted(
@@ -250,7 +250,7 @@ void load_scripts()
 		g_free(temp_filename);
 	}
 
-	file_list=temp_window_open_file_list;
+	file_list = temp_window_open_file_list;
 
 	g_dir_close(dir);
 
@@ -314,9 +314,9 @@ int main(int argc, char *argv[])
 	GOptionContext *context;
 
 	// Init gettext stuff
-	setlocale(LC_ALL,"");
+	setlocale(LC_ALL, "");
 
-	bindtextdomain(PACKAGE,LOCALEDIR);
+	bindtextdomain(PACKAGE, LOCALEDIR);
 	bind_textdomain_codeset(PACKAGE, "");
 	textdomain(PACKAGE);
 
@@ -324,12 +324,12 @@ int main(int argc, char *argv[])
 
 	gchar *devilspie2_description = g_strdup_printf(_("apply rules on windows"));
 
-	gchar *full_desc_string = g_strdup_printf("- %s",devilspie2_description);
+	gchar *full_desc_string = g_strdup_printf("- %s", devilspie2_description);
 
 	context=g_option_context_new(full_desc_string);
 	g_option_context_add_main_entries(context,options,NULL);
 	if (!g_option_context_parse(context, &argc, &argv, &error)) {
-		g_print(_("option parsing failed: %s"),error->message);
+		g_print(_("option parsing failed: %s"), error->message);
 		printf("\n");
 		exit(EXIT_FAILURE);
 	}
@@ -349,7 +349,7 @@ int main(int argc, char *argv[])
 		if (!g_file_test(temp_folder, G_FILE_TEST_IS_DIR)) {
 
 			// - and if it doesn't, create it.
-			if (g_mkdir(temp_folder, 0700)!=0) {
+			if (g_mkdir(temp_folder, 0700) != 0) {
 				printf(_("Couldn't create the default folder for devilspie2 scripts."));
 				printf("\n");
 				exit(EXIT_FAILURE);
