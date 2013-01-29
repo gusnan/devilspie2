@@ -82,8 +82,6 @@ static void load_list_of_scripts(WnckScreen *screen, WnckWindow *window,
 
 			// is it a LUA file?
 			if (g_str_has_suffix((gchar*)(lua_file->file_name),".lua")) {
-				
-				gchar *filename = (gchar *)(lua_file->file_name);
 
 				// init the script, run it
 				if (!load_script(lua_file->lua_state, lua_file->file_name)) {
