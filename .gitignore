@@ -6,6 +6,7 @@ obj/script_functions.o
 obj/xutils.o
 obj/devilspie2.o
 obj/error_strings.o
+obj/config.o
 devilspie2
 Makefile.dep
 po/*.mo
