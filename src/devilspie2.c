@@ -72,9 +72,10 @@ static GSList *file_window_close_list = NULL;
 /**
  *
  */
-static void window_opened_cb(WnckScreen *screen, WnckWindow *window)
+static void load_list_of_scripts(WnckScreen *screen, WnckWindow *window,
+											GSList *file_list)
 {
-	GSList *temp_file_list = file_window_open_list;
+	GSList *temp_file_list = file_list;
 	// set the window to work on
 	set_current_window(window);
 
@@ -90,7 +91,6 @@ static void window_opened_cb(WnckScreen *screen, WnckWindow *window)
 			if (g_str_has_suffix((gchar*)(lua_file->file_name),".lua")) {
 
 				// init the script, run it
-
 				if (!load_script(lua_file->lua_state, lua_file->file_name)) {
 				}
 
@@ -101,6 +101,16 @@ static void window_opened_cb(WnckScreen *screen, WnckWindow *window)
 		}
 	}
 	return;
+	
+}
+
+
+/**
+ *
+ */
+static void window_opened_cb(WnckScreen *screen, WnckWindow *window)
+{
+	load_list_of_scripts(screen, window, file_window_open_list);
 }
 
 
@@ -109,31 +119,7 @@ static void window_opened_cb(WnckScreen *screen, WnckWindow *window)
  */
 static void window_closed_cb(WnckScreen *screen, WnckWindow *window)
 {
-	GSList *temp_file_list = file_window_close_list;
-
-	set_current_window(window);
-
-	if (file_window_close_list) {
-
-		while(temp_file_list) {
-
-			struct lua_File *lua_file;
-			lua_file=(struct lua_File*)temp_file_list->data;
-
-			// is it a LUA file?
-			if (g_str_has_suffix((gchar*)(lua_file->file_name),".lua")) {
-
-				// init the script, run it
-
-				if (!load_script(lua_file->lua_state, lua_file->file_name)) {
-				}
-
-				run_script(lua_file->lua_state);
-
-			}
-			temp_file_list = temp_file_list->next;
-		}
-	}
+	load_list_of_scripts(screen, window, file_window_close_list);
 }
 
 
