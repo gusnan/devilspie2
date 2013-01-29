@@ -140,19 +140,16 @@ void init_screens()
 
 
 /**
- * atexit handler - kill the script
+ *
  */
-void devilspie_exit()
+void unalloacte_lua_file_list(GSList *lua_list)
 {
-	//done_script();
-	GSList *temp_file_list = file_window_open_list;
-
-	if (file_window_open_list) {
-
-		while(temp_file_list) {
+	if (lua_list) {
+		
+		while(lua_list) {
 
 			struct lua_File *lua_file;
-			lua_file = (struct lua_File*)temp_file_list->data;
+			lua_file = (struct lua_File*)lua_list->data;
 
 			if (lua_file) {
 
@@ -164,27 +161,23 @@ void devilspie_exit()
 				g_slice_free1(sizeof(struct lua_File), lua_file);
 			}
 
-			temp_file_list = temp_file_list->next;
+			lua_list = lua_list->next;
 		}
+	}		
+}
+
+
+/**
+ * atexit handler - kill the script
+ */
+void devilspie_exit()
+{
+	if (file_window_open_list) {
+		unalloacte_lua_file_list(file_window_open_list);
 	}
 	
-	GSList *temp_window_closed_file_list = file_window_close_list;
-	
 	if (file_window_close_list) {
-		
-		while (temp_window_closed_file_list) {
-			struct lua_File *lua_file;
-			lua_file = (struct lua_File *)temp_window_closed_file_list->data;
-			
-			if (lua_file) {
-				g_free(lua_file->file_name);
-				
-				done_script(lua_file->lua_state);
-				
-				g_slice_free1(sizeof(struct lua_File), lua_file);
-			}
-			temp_window_closed_file_list = temp_window_closed_file_list->next;
-		}
+		unalloacte_lua_file_list(file_window_close_list);
 	}
 
 	if (temp_folder != NULL) g_free(temp_folder);
