@@ -40,6 +40,8 @@
 
 #include "error_strings.h"
 
+#include "config.h"
+
 
 /**
  *
@@ -56,17 +58,8 @@ static gboolean show_version = FALSE;
 	static gboolean show_wnck_version = FALSE;
 #endif
 
-typedef struct lua_File
-{
-	gchar *file_name;
-	lua_State *lua_state;
-} _lua_File;
-
 static gchar *script_folder = NULL;
 static gchar *temp_folder = NULL;
-
-static GSList *file_window_open_list = NULL;
-static GSList *file_window_close_list = NULL;
 
 
 /**
@@ -89,6 +82,8 @@ static void load_list_of_scripts(WnckScreen *screen, WnckWindow *window,
 
 			// is it a LUA file?
 			if (g_str_has_suffix((gchar*)(lua_file->file_name),".lua")) {
+				
+				gchar *filename = (gchar *)(lua_file->file_name);
 
 				// init the script, run it
 				if (!load_script(lua_file->lua_state, lua_file->file_name)) {
@@ -203,50 +198,15 @@ static void signal_handler(int sig)
 
 
 /**
- * filename_list_sortfunc
- *   function to sort the inserted filenames, to be able to determine
- *   which order files are loaded.
- */
-gint filename_list_sortfunc(gconstpointer a,gconstpointer b)
-{
-	struct lua_File *file1 = (struct lua_File *)a;
-	struct lua_File *file2 = (struct lua_File *)b;
-
-	return g_ascii_strcasecmp(file1->file_name, file2->file_name);
-}
-
-
-/**
- *
- */
-GSList *add_lua_file_to_list(GSList *list, gchar *filename)
-{
-	struct lua_File *lua_file;
-
-	lua_file = g_slice_alloc(sizeof(struct lua_File));
-	lua_file->file_name = g_strdup(filename);
-	lua_file->lua_state = init_script();
-
-	if (load_script(lua_file->lua_state, lua_file->file_name)!=0)
-		printf("Error!\n");
-
-	list=g_slist_insert_sorted(list,
-										(struct lua_File*)lua_file,
-										filename_list_sortfunc);
-	
-	return list;
-}
-
-
-/**
  *
  */
 void load_scripts()
 {
-	GDir *dir;
-	const gchar *current_file;
+	//GDir *dir;
+	//const gchar *current_file;
 
 	// add all the files in the script_folder to the file_list
+	/*
 	dir = g_dir_open(script_folder, 0, NULL);
 	if (!g_file_test(script_folder, G_FILE_TEST_IS_DIR)) {
 
@@ -256,12 +216,14 @@ void load_scripts()
 		devilspie_exit();
 		exit(EXIT_FAILURE);
 	}
+	*/
 
+	GSList *temp_window_open_file_list = NULL;
+	GSList *temp_window_close_file_list = NULL;
+
+	/*
 	// a temp list so we dont ruin the start of the list that is stored
 	// in file_list
-	GSList *temp_window_open_file_list = file_window_open_list;
-	GSList *temp_window_close_file_list = file_window_close_list;
-
 	int total_number_of_files = 0;
 
 	// add the files in the folder to our linked list
@@ -293,8 +255,9 @@ void load_scripts()
 	file_window_close_list = temp_window_close_file_list;
 
 	g_dir_close(dir);
+	*/
 
-	if (total_number_of_files == 0) {
+	if ((file_window_open_list == NULL) && (file_window_close_list == NULL)) {
 		printf(_("No script files found in the script folder - exiting."));
 		printf("\n\n");
 		exit(EXIT_SUCCESS);
@@ -306,6 +269,7 @@ void load_scripts()
 		printf("\n");
 
 		if (file_window_open_list != NULL) {
+			temp_window_open_file_list = file_window_open_list;
 
 			while(temp_window_open_file_list) {
 
@@ -327,15 +291,21 @@ void load_scripts()
 		printf("\n");
 		
 		if (file_window_close_list != NULL) {
+			temp_window_close_file_list = file_window_close_list;
 			
 			while (temp_window_close_file_list) {
 				struct lua_File *lua_file;
 				
 				lua_file = (struct lua_File*)temp_window_close_file_list->data;
 				
+				if (lua_file) {
+
+/*				
 				if (g_str_has_suffix((gchar*)(lua_file->file_name), 
 					"window-closed.lua")) {
+				*/
 					printf("%s\n", (gchar*)lua_file->file_name);
+				//}
 				}
 				
 				temp_window_close_file_list = temp_window_close_file_list->next;
@@ -441,6 +411,16 @@ int main(int argc, char *argv[])
 	}
 
 #endif
+	
+	gchar *config_filename = g_build_filename(script_folder, "devilspie2.lua", NULL);
+	
+	if (load_config(config_filename)!=0) {
+		
+		devilspie_exit();
+		return EXIT_FAILURE;
+	}
+	
+	g_free(config_filename);
 
 	if (debug) {
 

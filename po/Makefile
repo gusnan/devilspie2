@@ -17,7 +17,7 @@ VERSION = $(shell cat ../VERSION)
 DATADIR = ${DESTDIR}${PREFIX}/share
 LOCALEDIR = ${DATADIR}/locale
 
-SOURCES = devilspie2.c script.c script_functions.c xutils.c error_strings.c
+SOURCES = config.c devilspie2.c script.c script_functions.c xutils.c error_strings.c
 
 XG_ARGS = --keyword=_ --keyword=N_ -w 80 --package-name=${NAME} --package-version=${VERSION} --msgid-bugs-address=gusnan@gusnan.se
 LANGUAGES = sv fr pt_BR nl ru

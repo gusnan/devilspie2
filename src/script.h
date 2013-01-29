@@ -19,6 +19,16 @@
 #ifndef __HEADER_SCRIPT_
 #define __HEADER_SCRIPT_
 
+/**
+ *
+ */
+
+typedef struct lua_File
+{
+	gchar *file_name;
+	lua_State *lua_state;
+} _lua_File;
+
 
 /**
  *

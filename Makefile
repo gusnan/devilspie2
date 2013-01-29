@@ -11,7 +11,7 @@ endif
 
 DEPEND=Makefile.dep
 
-OBJECTS=$(OBJ)/devilspie2.o $(OBJ)/xutils.o $(OBJ)/script.o $(OBJ)/script_functions.o $(OBJ)/error_strings.o
+OBJECTS=$(OBJ)/config.o $(OBJ)/devilspie2.o $(OBJ)/xutils.o $(OBJ)/script.o $(OBJ)/script_functions.o $(OBJ)/error_strings.o
 
 ifndef PREFIX
 	ifdef INSTALL_PREFIX
