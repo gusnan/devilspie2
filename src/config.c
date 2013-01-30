@@ -179,8 +179,6 @@ int load_config(gchar *filename)
 
 	int total_number_of_files = 0;
 
-
-
 	config_lua_state = init_script();
 
 	if (g_file_test(filename, G_FILE_TEST_EXISTS)) {
