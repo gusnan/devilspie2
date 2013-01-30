@@ -198,9 +198,6 @@ int load_config(gchar *filename)
 		file_window_close_list = get_table_of_strings(config_lua_state,
 																	 script_folder,
 																	 "scripts_window_close");
-
-		// Step through the
-
 	}
 
 	// add the files in the folder to our linked list
