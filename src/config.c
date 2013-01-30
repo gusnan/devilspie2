@@ -116,7 +116,8 @@ EXITPOINT:
 
 
 /**
- *
+ *  is_in_list
+ * Go through _one_ list, and check if the filename is in this list
  */
 gboolean is_in_list(GSList *list, gchar *filename)
 {
@@ -141,7 +142,8 @@ gboolean is_in_list(GSList *list, gchar *filename)
 
 
 /**
- *
+ *  is_in_any_list
+ * Go through our lists, and check if the file is already in any of them
  */
 gboolean is_in_any_list(gchar *filename)
 {
