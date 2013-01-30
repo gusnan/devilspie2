@@ -201,42 +201,6 @@ void load_scripts()
 	GSList *temp_window_open_file_list = NULL;
 	GSList *temp_window_close_file_list = NULL;
 
-	/*
-	// a temp list so we dont ruin the start of the list that is stored
-	// in file_list
-	int total_number_of_files = 0;
-
-	// add the files in the folder to our linked list
-	while ((current_file = g_dir_read_name(dir))) {
-
-		gchar *temp_filename = g_build_path(G_DIR_SEPARATOR_S,
-		                                 script_folder,
-		                                 current_file,
-		                                 NULL);
-
-		// we only bother with *.lua in the folder
-		if (g_str_has_suffix(current_file, "window-closed.lua")) {
-			temp_window_close_file_list =
-				add_lua_file_to_list(temp_window_close_file_list, temp_filename);
-
-			total_number_of_files++;
-
-		} else if (g_str_has_suffix(current_file, ".lua")) {
-
-			temp_window_open_file_list =
-				add_lua_file_to_list(temp_window_open_file_list, temp_filename);
-			total_number_of_files++;
-		}
-
-		g_free(temp_filename);
-	}
-
-	file_window_open_list = temp_window_open_file_list;
-	file_window_close_list = temp_window_close_file_list;
-
-	g_dir_close(dir);
-	*/
-
 	if ((file_window_open_list == NULL) && (file_window_close_list == NULL)) {
 		printf(_("No script files found in the script folder - exiting."));
 		printf("\n\n");
@@ -265,15 +229,6 @@ void load_scripts()
 
 					if (debug)
 						printf("%s\n",(gchar*)lua_file->file_name);
-
-
-					// load the script
-					/*
-					if (!load_script(global_lua_state, lua_file->file_name)) {
-					}
-
-					run_script(global_lua_state);
-*/
 				}
 			}
 
@@ -300,14 +255,6 @@ void load_scripts()
 
 					if (debug)
 						printf("%s\n", (gchar*)lua_file->file_name);
-
-					// load the script
-					/*
-					  if (!load_script(global_lua_state, lua_file->file_name)) {
-					  }
-
-					  run_script(global_lua_state);
-					*/
 				}
 			}
 			temp_window_close_file_list = temp_window_close_file_list->next;
