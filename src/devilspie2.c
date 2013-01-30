@@ -84,10 +84,10 @@ static void load_list_of_scripts(WnckScreen *screen, WnckWindow *window,
 			if (g_str_has_suffix((gchar*)(lua_file->file_name),".lua")) {
 
 				// init the script, run it
-				if (!load_script(lua_file->lua_state, lua_file->file_name)) {
+				if (!load_script(global_lua_state, lua_file->file_name)) {
 				}
 
-				run_script(lua_file->lua_state);
+				run_script(global_lua_state);
 
 			}
 			temp_file_list=temp_file_list->next;
@@ -148,8 +148,6 @@ void unalloacte_lua_file_list(GSList *lua_list)
 
 				g_free(lua_file->file_name);
 
-				done_script(lua_file->lua_state);
-
 				//lua_file=g_slice_alloc(sizeof(struct lua_File));
 				g_slice_free1(sizeof(struct lua_File), lua_file);
 			}
@@ -200,22 +198,6 @@ static void signal_handler(int sig)
  */
 void load_scripts()
 {
-	//GDir *dir;
-	//const gchar *current_file;
-
-	// add all the files in the script_folder to the file_list
-	/*
-	dir = g_dir_open(script_folder, 0, NULL);
-	if (!g_file_test(script_folder, G_FILE_TEST_IS_DIR)) {
-
-		printf(_("script_folder isn't a folder."));
-		printf("\n");
-
-		devilspie_exit();
-		exit(EXIT_FAILURE);
-	}
-	*/
-
 	GSList *temp_window_open_file_list = NULL;
 	GSList *temp_window_close_file_list = NULL;
 
@@ -265,49 +247,70 @@ void load_scripts()
 	if (debug) {
 		printf(_("List of window open LUA files in folder:"));
 		printf("\n");
+	}
 
-		if (file_window_open_list != NULL) {
-			temp_window_open_file_list = file_window_open_list;
+	if (file_window_open_list != NULL) {
+		temp_window_open_file_list = file_window_open_list;
 
-			while(temp_window_open_file_list) {
+		while(temp_window_open_file_list) {
 
-				struct lua_File *lua_file;
+			struct lua_File *lua_file;
 
-				lua_file = (struct lua_File*)temp_window_open_file_list->data;
+			lua_file = (struct lua_File*)temp_window_open_file_list->data;
+
+			if (lua_file) {
 
 				// is it a LUA file?
 				if (g_str_has_suffix((gchar*)(lua_file->file_name),".lua")) {
-					printf("%s\n",(gchar*)lua_file->file_name);
+
+					if (debug)
+						printf("%s\n",(gchar*)lua_file->file_name);
+
+
+					// load the script
+					/*
+					if (!load_script(global_lua_state, lua_file->file_name)) {
+					}
+
+					run_script(global_lua_state);
+*/
 				}
-
-				// load the script
-				temp_window_open_file_list = temp_window_open_file_list->next;
 			}
-		}
 
+			temp_window_open_file_list = temp_window_open_file_list->next;
+		}
+	}
+
+	if (debug) {
 		printf(_("List of window close LUA files in folder:"));
 		printf("\n");
+	}
 
-		if (file_window_close_list != NULL) {
-			temp_window_close_file_list = file_window_close_list;
+	if (file_window_close_list != NULL) {
+		temp_window_close_file_list = file_window_close_list;
 
-			while (temp_window_close_file_list) {
-				struct lua_File *lua_file;
+		while (temp_window_close_file_list) {
+			struct lua_File *lua_file;
 
-				lua_file = (struct lua_File*)temp_window_close_file_list->data;
+			lua_file = (struct lua_File*)temp_window_close_file_list->data;
 
-				if (lua_file) {
+			if (lua_file) {
 
-/*
-				if (g_str_has_suffix((gchar*)(lua_file->file_name),
-					"window-closed.lua")) {
-				*/
-					printf("%s\n", (gchar*)lua_file->file_name);
-				//}
+				if (g_str_has_suffix((gchar*)(lua_file->file_name),".lua")) {
+
+					if (debug)
+						printf("%s\n", (gchar*)lua_file->file_name);
+
+					// load the script
+					/*
+					  if (!load_script(global_lua_state, lua_file->file_name)) {
+					  }
+
+					  run_script(global_lua_state);
+					*/
 				}
-
-				temp_window_close_file_list = temp_window_close_file_list->next;
 			}
+			temp_window_close_file_list = temp_window_close_file_list->next;
 		}
 	}
 }
@@ -446,6 +449,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
+	global_lua_state = init_script();
 	load_scripts();
 
 	if (debug) printf("------------\n");

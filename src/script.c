@@ -55,6 +55,7 @@ gboolean script_loaded=FALSE;
 gboolean devilspie2_debug=FALSE;
 gboolean devilspie2_emulate=FALSE;
 
+lua_State *global_lua_state=NULL;
 
 /**
  *

@@ -26,7 +26,6 @@
 typedef struct lua_File
 {
 	gchar *file_name;
-	lua_State *lua_state;
 } _lua_File;
 
 
@@ -44,5 +43,7 @@ void done_script(lua_State *lua);
 
 extern gboolean devilspie2_debug;
 extern gboolean devilspie2_emulate;
+
+extern lua_State *global_lua_state;
 
 #endif /*__HEADER_SCRIPT_*/

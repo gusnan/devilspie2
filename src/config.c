@@ -55,16 +55,17 @@ gint filename_list_sortfunc(gconstpointer a,gconstpointer b)
 /**
  *
  */
-GSList *add_lua_file_to_list(GSList *list, gchar *filename)
+GSList *add_lua_file_to_list(/*lua_State *lua,*/ GSList *list, gchar *filename)
 {
 	struct lua_File *lua_file;
 
 	lua_file = g_slice_alloc(sizeof(struct lua_File));
 	lua_file->file_name = g_strdup(filename);
-	lua_file->lua_state = init_script();
 
-	if (load_script(lua_file->lua_state, lua_file->file_name)!=0)
+	/*	
+	if (load_script(lua, lua_file->file_name)!=0)
 		printf("Error!\n");
+*/
 
 	list=g_slist_insert_sorted(list,
 										(struct lua_File*)lua_file,
@@ -78,42 +79,42 @@ GSList *add_lua_file_to_list(GSList *list, gchar *filename)
 /**
  *
  */
-GSList *get_table_of_strings(lua_State *lua,
+GSList *get_table_of_strings(lua_State *luastate,
 									  gchar *script_folder,
 									  gchar *table_name)
 {
 	GSList *list=NULL;
 
-	if (lua) {
+	if (luastate) {
 
-		lua_getglobal(lua, table_name);
+		lua_getglobal(luastate, table_name);
 
 		// Do we have a value?
-		if (lua_isnil(lua, -1)) {
+		if (lua_isnil(luastate, -1)) {
 			goto EXITPOINT;
 		}
 
 		// Is it a table?
-		if (!lua_istable(lua, -1)) {
+		if (!lua_istable(luastate, -1)) {
 			goto EXITPOINT;
 		}
 
-		lua_pushnil(lua);
+		lua_pushnil(luastate);
 
-		while(lua_next(lua, -2)) {
-			if (lua_isstring(lua, -1)) {
-				char *temp = (char *)lua_tostring(lua, -1);
+		while(lua_next(luastate, -2)) {
+			if (lua_isstring(luastate, -1)) {
+				char *temp = (char *)lua_tostring(luastate, -1);
 
 				gchar *added_filename = g_build_path(G_DIR_SEPARATOR_S,
 													script_folder,
 													temp,
 													NULL);
 
-				list = add_lua_file_to_list(list, added_filename);
+				list = add_lua_file_to_list(/*luastate,*/ list, added_filename);
 			}
-			lua_pop(lua, 1);
+			lua_pop(luastate, 1);
 		}
-		lua_pop(lua, 1);
+		lua_pop(luastate, 1);
 	}
 
 EXITPOINT:
@@ -177,9 +178,9 @@ int load_config(gchar *filename)
 
 
 
-	if (g_file_test(filename, G_FILE_TEST_EXISTS)) {
+	config_lua_state = init_script();
 
-		config_lua_state = init_script();
+	if (g_file_test(filename, G_FILE_TEST_EXISTS)) {
 
 		if (load_script(config_lua_state, filename)!=0) {
 			printf("Error loading script: %s\n", filename);
@@ -189,7 +190,7 @@ int load_config(gchar *filename)
 
 		run_script(config_lua_state);
 
-		lua_getglobal(config_lua_state, "scripts_window_close");
+		//lua_getglobal(config_lua_state, "scripts_window_close");
 
 		file_window_close_list = get_table_of_strings(config_lua_state,
 																	 script_folder,
@@ -212,7 +213,7 @@ int load_config(gchar *filename)
 
 			if (!is_in_list(temp_filename)) {
 				temp_window_open_file_list =
-					add_lua_file_to_list(temp_window_open_file_list, temp_filename);
+					add_lua_file_to_list(/*config_lua_state,*/ temp_window_open_file_list, temp_filename);
 			}
 			total_number_of_files++;
 		}
