@@ -23,11 +23,6 @@
  *
  */
 
-typedef struct lua_File
-{
-	gchar *file_name;
-} _lua_File;
-
 
 /**
  *

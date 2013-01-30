@@ -45,10 +45,10 @@ GSList *file_window_close_list = NULL;
  */
 gint filename_list_sortfunc(gconstpointer a,gconstpointer b)
 {
-	struct lua_File *file1 = (struct lua_File *)a;
-	struct lua_File *file2 = (struct lua_File *)b;
+	gchar *file1 = (gchar*)a;
+	gchar *file2 = (gchar*)b;
 
-	return g_ascii_strcasecmp(file1->file_name, file2->file_name);
+	return g_ascii_strcasecmp(file1, file2);
 }
 
 
@@ -57,13 +57,10 @@ gint filename_list_sortfunc(gconstpointer a,gconstpointer b)
  */
 GSList *add_lua_file_to_list(GSList *list, gchar *filename)
 {
-	struct lua_File *lua_file;
-
-	lua_file = g_slice_alloc(sizeof(struct lua_File));
-	lua_file->file_name = g_strdup(filename);
+	gchar *temp_filename = g_strdup(filename);
 
 	list=g_slist_insert_sorted(list,
-										(struct lua_File*)lua_file,
+										temp_filename,
 										filename_list_sortfunc);
 
 	return list;
@@ -131,9 +128,9 @@ gboolean is_in_list(gchar *filename)
 
 		//printf("C1 : %s\n", (gchar*)(temp_list->data));
 
-		struct lua_File *temp = (struct lua_File *)(temp_list->data);
+		//struct lua_File *temp = (struct lua_File *)(temp_list->data);
 
-		gchar *list_filename = (temp->file_name);
+		gchar *list_filename = (gchar*)temp_list->data;
 
 		if (g_ascii_strcasecmp(list_filename, filename)==0) {
 			result=TRUE;

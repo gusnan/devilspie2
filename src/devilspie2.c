@@ -76,15 +76,13 @@ static void load_list_of_scripts(WnckScreen *screen, WnckWindow *window,
 	if (file_window_open_list != NULL) {
 
 		while(temp_file_list) {
-
-			struct lua_File *lua_file;
-			lua_file=(struct lua_File*)temp_file_list->data;
+			gchar *filename = (gchar*)temp_file_list->data;
 
 			// is it a LUA file?
-			if (g_str_has_suffix((gchar*)(lua_file->file_name),".lua")) {
+			if (g_str_has_suffix((gchar*)filename,".lua")) {
 
 				// init the script, run it
-				if (!load_script(global_lua_state, lua_file->file_name)) {
+				if (!load_script(global_lua_state, filename)) {
 				}
 
 				run_script(global_lua_state);
@@ -141,15 +139,14 @@ void unalloacte_lua_file_list(GSList *lua_list)
 
 		while(lua_list) {
 
-			struct lua_File *lua_file;
-			lua_file = (struct lua_File*)lua_list->data;
+			gchar *file_name = (gchar*)lua_list->data;
 
-			if (lua_file) {
+			if (file_name) {
 
-				g_free(lua_file->file_name);
+				g_free(file_name);
 
 				//lua_file=g_slice_alloc(sizeof(struct lua_File));
-				g_slice_free1(sizeof(struct lua_File), lua_file);
+				//g_slice_free1(sizeof(struct lua_File), lua_file);
 			}
 
 			lua_list = lua_list->next;
@@ -218,17 +215,15 @@ void load_scripts()
 
 		while(temp_window_open_file_list) {
 
-			struct lua_File *lua_file;
+			gchar *file_name = temp_window_open_file_list->data;
 
-			lua_file = (struct lua_File*)temp_window_open_file_list->data;
-
-			if (lua_file) {
+			if (file_name) {
 
 				// is it a LUA file?
-				if (g_str_has_suffix((gchar*)(lua_file->file_name),".lua")) {
+				if (g_str_has_suffix((gchar*)(file_name),".lua")) {
 
 					if (debug)
-						printf("%s\n",(gchar*)lua_file->file_name);
+						printf("%s\n",(gchar*)file_name);
 				}
 			}
 
@@ -245,16 +240,14 @@ void load_scripts()
 		temp_window_close_file_list = file_window_close_list;
 
 		while (temp_window_close_file_list) {
-			struct lua_File *lua_file;
+			gchar *file_name = (gchar*)temp_window_close_file_list->data;
 
-			lua_file = (struct lua_File*)temp_window_close_file_list->data;
+			if (file_name) {
 
-			if (lua_file) {
-
-				if (g_str_has_suffix((gchar*)(lua_file->file_name),".lua")) {
+				if (g_str_has_suffix((gchar*)(file_name),".lua")) {
 
 					if (debug)
-						printf("%s\n", (gchar*)lua_file->file_name);
+						printf("%s\n", (gchar*)file_name);
 				}
 			}
 			temp_window_close_file_list = temp_window_close_file_list->next;
