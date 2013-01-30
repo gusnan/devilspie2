@@ -191,8 +191,6 @@ int load_config(gchar *filename)
 
 		run_script(config_lua_state);
 
-		//lua_getglobal(config_lua_state, "scripts_window_close");
-
 		file_window_close_list = get_table_of_strings(config_lua_state,
 																	 script_folder,
 																	 "scripts_window_close");
