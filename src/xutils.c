@@ -267,7 +267,7 @@ char* my_wnck_get_string_property_latin1(Window xwindow, Atom atom)
 			prop_names = g_new (char *, nitems + 1);
 			prop_names[nitems] = NULL;
 			for (i=0; i < nitems; i++) {
-				prop_names[i] = XGetAtomName (gdk_x11_get_default_xdisplay (), 
+				prop_names[i] = XGetAtomName (gdk_x11_get_default_xdisplay (),
 					*pp++);
 			}
 			retval = g_strjoinv (", ", prop_names);
@@ -394,7 +394,7 @@ int my_wnck_get_viewport_start(WnckWindow *win)
 
 	my_wnck_get_cardinal_list(RootWindowOfScreen(
 										my_wnck_window_get_xscreen(win)),
-										my_wnck_atom_get("_NET_DESKTOP_VIEWPORT"), 
+										my_wnck_atom_get("_NET_DESKTOP_VIEWPORT"),
 										&list, &len);
 
 	if (len>0) result=list[0];
@@ -411,9 +411,9 @@ int my_wnck_get_viewport_start(WnckWindow *win)
 void my_window_set_window_type(WnckWindow *window, gchar *window_type)
 {
 	Display *display = gdk_x11_get_default_xdisplay();
-	
+
 	Atom atoms[10];
-	
+
 	/*
 	_NET_WM_WINDOW_TYPE_DESKTOP, ATOM
 	_NET_WM_WINDOW_TYPE_DOCK, ATOM
@@ -424,7 +424,7 @@ void my_window_set_window_type(WnckWindow *window, gchar *window_type)
 	_NET_WM_WINDOW_TYPE_DIALOG, ATOM
 	_NET_WM_WINDOW_TYPE_NORMAL, ATOM
 	*/
-	
+
 	gchar *type = NULL;
 
 	//	Make it a recognized _NET_WM_TYPE
@@ -456,13 +456,13 @@ void my_window_set_window_type(WnckWindow *window, gchar *window_type)
 	} else {
 		type = g_strdup(window_type);
 	}
-	
+
 	atoms[0]=XInternAtom(display, type, False);
-	
+
 	XChangeProperty(gdk_x11_get_default_xdisplay(), wnck_window_get_xid(window),
 						XInternAtom(display, "_NET_WM_WINDOW_TYPE", False), XA_ATOM, 32,
 						PropModeReplace, (unsigned char *) &atoms, 1);
-		
+
 	if (type) g_free(type);
 }
 
@@ -473,13 +473,13 @@ void my_window_set_window_type(WnckWindow *window, gchar *window_type)
 void my_window_set_opacity(WnckWindow *window, double value)
 {
 	Display *display = gdk_x11_get_default_xdisplay();
-	
+
 	unsigned int opacity = (uint)(0xffffffff * value);
 	Atom atom_net_wm_opacity = XInternAtom(display, "_NET_WM_WINDOW_OPACITY", False);
-	
-	
+
+
 	XChangeProperty(gdk_x11_get_default_xdisplay(), wnck_window_get_xid(window),
 						atom_net_wm_opacity, XA_CARDINAL, 32,
 						PropModeReplace, (unsigned char *) &opacity, 1L);
-		
+
 }

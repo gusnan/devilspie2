@@ -2,8 +2,8 @@
  *	This file is part of devilspie2
  *	Copyright (C) 2013 Andreas Rönnquist
  *
- *	devilspie2 is free software: you can redistribute it and/or 
- *	modify it under the terms of the GNU General Public License as published 
+ *	devilspie2 is free software: you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License as published
  *	by the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *
@@ -13,7 +13,7 @@
  *	GNU General Public License for more details.
  *
  *	You should have received a copy of the GNU General Public License
- *	along with devilspie2.  
+ *	along with devilspie2.
  *	If not, see <http://www.gnu.org/licenses/>.
  */
 #include <glib.h>
@@ -69,7 +69,7 @@ GSList *add_lua_file_to_list(GSList *list, gchar *filename)
 	list=g_slist_insert_sorted(list,
 										(struct lua_File*)lua_file,
 										filename_list_sortfunc);
-	
+
 	return list;
 }
 
@@ -83,9 +83,9 @@ GSList *get_table_of_strings(lua_State *lua,
 									  gchar *table_name)
 {
 	GSList *list=NULL;
-	
+
 	if (lua) {
-	
+
 		lua_getglobal(lua, table_name);
 
 		// Do we have a value?
@@ -103,12 +103,12 @@ GSList *get_table_of_strings(lua_State *lua,
 		while(lua_next(lua, -2)) {
 			if (lua_isstring(lua, -1)) {
 				char *temp = (char *)lua_tostring(lua, -1);
-				
+
 				gchar *added_filename = g_build_path(G_DIR_SEPARATOR_S,
 													script_folder,
 													temp,
 													NULL);
-				
+
 				list = add_lua_file_to_list(list, added_filename);
 			}
 			lua_pop(lua, 1);
@@ -117,7 +117,7 @@ GSList *get_table_of_strings(lua_State *lua,
 	}
 
 EXITPOINT:
-	
+
 	return list;
 }
 
@@ -129,22 +129,22 @@ gboolean is_in_list(gchar *filename)
 {
 	GSList *temp_list = file_window_close_list;
 	gboolean result = FALSE;
-	
-	
+
+
 	while (temp_list) {
-		
+
 		//printf("C1 : %s\n", (gchar*)(temp_list->data));
-		
+
 		struct lua_File *temp = (struct lua_File *)(temp_list->data);
-		
+
 		gchar *list_filename = (temp->file_name);
-		
+
 		if (g_ascii_strcasecmp(list_filename, filename)==0) {
 			result=TRUE;
 		}
 		temp_list = temp_list->next;
 	}
-	
+
 	return result;
 }
 
@@ -159,10 +159,10 @@ int load_config(gchar *filename)
 	int result = 0;
 	const gchar *current_file = NULL;
 	GSList *temp_window_open_file_list = NULL;
-	
+
 	// First get list of Lua files in folder - Then read variables from
 	// devilspie2.lua and put the files in the required lists.
-	
+
 	gchar *script_folder = g_path_get_dirname(filename);
 
 	GDir *dir = g_dir_open(script_folder, 0, NULL);
@@ -176,32 +176,32 @@ int load_config(gchar *filename)
 	int total_number_of_files = 0;
 
 
-	
+
 	if (g_file_test(filename, G_FILE_TEST_EXISTS)) {
-		
+
 		lua = init_script();
-		
+
 		if (load_script(lua, filename)!=0) {
 			printf("Error loading script: %s\n", filename);
 			result = -1;
 			goto EXITPOINT;
 		}
-		
+
 		run_script(lua);
-		
+
 		lua_getglobal(lua, "scripts_window_close");
-		
-		file_window_close_list = get_table_of_strings(lua, 
+
+		file_window_close_list = get_table_of_strings(lua,
 																	 script_folder,
 																	 "scripts_window_close");
-		
-		// Step through the 		
-		
+
+		// Step through the
+
 	}
 
 	// add the files in the folder to our linked list
 	while ((current_file = g_dir_read_name(dir))) {
-		
+
 		gchar *temp_filename = g_build_path(G_DIR_SEPARATOR_S,
 		                                 script_folder,
 		                                 current_file,
@@ -209,21 +209,21 @@ int load_config(gchar *filename)
 
 		// we only bother with *.lua in the folder
 		if (g_str_has_suffix(current_file, ".lua")) {
-			
+
 			if (!is_in_list(temp_filename)) {
-				temp_window_open_file_list = 
+				temp_window_open_file_list =
 					add_lua_file_to_list(temp_window_open_file_list, temp_filename);
 			}
 			total_number_of_files++;
 		}
-		
+
 		g_free(temp_filename);
 	}
-	
-	file_window_open_list = temp_window_open_file_list; 
+
+	file_window_open_list = temp_window_open_file_list;
 EXITPOINT:
 	if (lua)
 		done_script(lua);
-	
+
 	return result;
 }

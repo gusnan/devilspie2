@@ -94,7 +94,7 @@ static void load_list_of_scripts(WnckScreen *screen, WnckWindow *window,
 		}
 	}
 	return;
-	
+
 }
 
 
@@ -138,7 +138,7 @@ void init_screens()
 void unalloacte_lua_file_list(GSList *lua_list)
 {
 	if (lua_list) {
-		
+
 		while(lua_list) {
 
 			struct lua_File *lua_file;
@@ -156,7 +156,7 @@ void unalloacte_lua_file_list(GSList *lua_list)
 
 			lua_list = lua_list->next;
 		}
-	}		
+	}
 }
 
 
@@ -168,7 +168,7 @@ void devilspie_exit()
 	if (file_window_open_list) {
 		unalloacte_lua_file_list(file_window_open_list);
 	}
-	
+
 	if (file_window_close_list) {
 		unalloacte_lua_file_list(file_window_close_list);
 	}
@@ -226,7 +226,7 @@ void load_scripts()
 
 	// add the files in the folder to our linked list
 	while ((current_file = g_dir_read_name(dir))) {
-		
+
 		gchar *temp_filename = g_build_path(G_DIR_SEPARATOR_S,
 		                                 script_folder,
 		                                 current_file,
@@ -236,16 +236,16 @@ void load_scripts()
 		if (g_str_has_suffix(current_file, "window-closed.lua")) {
 			temp_window_close_file_list =
 				add_lua_file_to_list(temp_window_close_file_list, temp_filename);
-			
+
 			total_number_of_files++;
-			
+
 		} else if (g_str_has_suffix(current_file, ".lua")) {
-			
-			temp_window_open_file_list = 
+
+			temp_window_open_file_list =
 				add_lua_file_to_list(temp_window_open_file_list, temp_filename);
 			total_number_of_files++;
 		}
-		
+
 		g_free(temp_filename);
 	}
 
@@ -284,28 +284,28 @@ void load_scripts()
 				temp_window_open_file_list = temp_window_open_file_list->next;
 			}
 		}
-		
+
 		printf(_("List of window close LUA files in folder:"));
 		printf("\n");
-		
+
 		if (file_window_close_list != NULL) {
 			temp_window_close_file_list = file_window_close_list;
-			
+
 			while (temp_window_close_file_list) {
 				struct lua_File *lua_file;
-				
+
 				lua_file = (struct lua_File*)temp_window_close_file_list->data;
-				
+
 				if (lua_file) {
 
-/*				
-				if (g_str_has_suffix((gchar*)(lua_file->file_name), 
+/*
+				if (g_str_has_suffix((gchar*)(lua_file->file_name),
 					"window-closed.lua")) {
 				*/
 					printf("%s\n", (gchar*)lua_file->file_name);
 				//}
 				}
-				
+
 				temp_window_close_file_list = temp_window_close_file_list->next;
 			}
 		}
@@ -409,15 +409,15 @@ int main(int argc, char *argv[])
 	}
 
 #endif
-	
+
 	gchar *config_filename = g_build_filename(script_folder, "devilspie2.lua", NULL);
-	
+
 	if (load_config(config_filename)!=0) {
-		
+
 		devilspie_exit();
 		return EXIT_FAILURE;
 	}
-	
+
 	g_free(config_filename);
 
 	if (debug) {
