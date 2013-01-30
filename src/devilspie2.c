@@ -217,7 +217,7 @@ void print_list(GSList *list)
 /**
  *
  */
-void load_scripts()
+void print_script_lists()
 {
 	if ((file_window_open_list == NULL) && (file_window_close_list == NULL)) {
 		printf(_("No script files found in the script folder - exiting."));
@@ -377,7 +377,7 @@ int main(int argc, char *argv[])
 	}
 
 	global_lua_state = init_script();
-	load_scripts();
+	print_script_lists();
 
 	if (debug) printf("------------\n");
 
