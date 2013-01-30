@@ -55,17 +55,12 @@ gint filename_list_sortfunc(gconstpointer a,gconstpointer b)
 /**
  *
  */
-GSList *add_lua_file_to_list(/*lua_State *lua,*/ GSList *list, gchar *filename)
+GSList *add_lua_file_to_list(GSList *list, gchar *filename)
 {
 	struct lua_File *lua_file;
 
 	lua_file = g_slice_alloc(sizeof(struct lua_File));
 	lua_file->file_name = g_strdup(filename);
-
-	/*	
-	if (load_script(lua, lua_file->file_name)!=0)
-		printf("Error!\n");
-*/
 
 	list=g_slist_insert_sorted(list,
 										(struct lua_File*)lua_file,
@@ -110,7 +105,7 @@ GSList *get_table_of_strings(lua_State *luastate,
 													temp,
 													NULL);
 
-				list = add_lua_file_to_list(/*luastate,*/ list, added_filename);
+				list = add_lua_file_to_list(list, added_filename);
 			}
 			lua_pop(luastate, 1);
 		}
@@ -213,7 +208,7 @@ int load_config(gchar *filename)
 
 			if (!is_in_list(temp_filename)) {
 				temp_window_open_file_list =
-					add_lua_file_to_list(/*config_lua_state,*/ temp_window_open_file_list, temp_filename);
+					add_lua_file_to_list(temp_window_open_file_list, temp_filename);
 			}
 			total_number_of_files++;
 		}
