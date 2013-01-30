@@ -155,7 +155,9 @@ gboolean is_in_any_list(gchar *filename)
 
 
 /**
- *
+ *  load_config
+ * Load configuration from a file - From this we set up the lists of files
+ * which decides what script to load on what wnck event.
  */
 int load_config(gchar *filename)
 {
