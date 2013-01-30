@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.28pre\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2012-12-18 16:20+0100\n"
+"POT-Creation-Date: 2013-01-30 22:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,104 +17,109 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: devilspie2.c:161
-#, c-format
-msgid "Received signal:"
-msgstr ""
-
-#: devilspie2.c:200
+#: config.c:179
 #, c-format
 msgid "script_folder isn't a folder."
 msgstr ""
 
-#: devilspie2.c:249
+#: devilspie2.c:181
+#, c-format
+msgid "Received signal:"
+msgstr ""
+
+#: devilspie2.c:223
 #, c-format
 msgid "No script files found in the script folder - exiting."
 msgstr ""
 
-#: devilspie2.c:256
+#: devilspie2.c:230
 #, c-format
-msgid "List of LUA files in folder:"
+msgid "List of window open LUA files in folder:"
 msgstr ""
 
-#: devilspie2.c:288
+#: devilspie2.c:237
+#, c-format
+msgid "List of window close LUA files in folder:"
+msgstr ""
+
+#: devilspie2.c:253
 msgid "Print debug info to stdout"
 msgstr ""
 
-#: devilspie2.c:290
+#: devilspie2.c:255
 msgid "Don't apply any rules, only emulate execution"
 msgstr ""
 
-#: devilspie2.c:292
+#: devilspie2.c:257
 msgid "Search for scripts in this folder"
 msgstr ""
 
-#: devilspie2.c:292
+#: devilspie2.c:257
 msgid "FOLDER"
 msgstr ""
 
-#: devilspie2.c:294
+#: devilspie2.c:259
 msgid "Show Devilspie2 version and quit"
 msgstr ""
 
-#: devilspie2.c:299
+#: devilspie2.c:264
 msgid "Show libwnck version and quit"
 msgstr ""
 
-#: devilspie2.c:316
+#: devilspie2.c:281
 msgid "apply rules on windows"
 msgstr ""
 
-#: devilspie2.c:323
+#: devilspie2.c:288
 #, c-format
 msgid "option parsing failed: %s"
 msgstr ""
 
-#: devilspie2.c:341
+#: devilspie2.c:309
 #, c-format
 msgid "Couldn't create the default folder for devilspie2 scripts."
 msgstr ""
 
-#: devilspie2.c:368
+#: devilspie2.c:336
 #, c-format
 msgid "An X11 display is required for devilspie2."
 msgstr ""
 
-#: devilspie2.c:378
+#: devilspie2.c:356
 #, c-format
 msgid "Running devilspie2 in debug and emulate mode."
 msgstr ""
 
-#: devilspie2.c:380
+#: devilspie2.c:358
 #, c-format
 msgid "Running devilspie2 in debug mode."
 msgstr ""
 
-#: devilspie2.c:385
+#: devilspie2.c:363
 #, c-format
 msgid "Using scripts from folder: %s"
 msgstr ""
 
-#: devilspie2.c:396
+#: devilspie2.c:374
 #, c-format
 msgid "Couldn't init script error messages!"
 msgstr ""
 
-#: script.c:209
+#: script.c:216
 #, c-format
 msgid "Error: %s"
 msgstr ""
 
-#: script_functions.c:666 script_functions.c:712
+#: script_functions.c:686 script_functions.c:732
 #, c-format
 msgid "Workspace number %d does not exist!"
 msgstr ""
 
-#: script_functions.c:1558
+#: script_functions.c:1586
 msgid "Could not get workspace"
 msgstr ""
 
-#: xutils.c:180 xutils.c:198 error_strings.c:121
+#: xutils.c:180 xutils.c:198 error_strings.c:127
 msgid "Failed!"
 msgstr ""
 
@@ -138,26 +143,26 @@ msgstr ""
 msgid "Four indata expected"
 msgstr ""
 
-#: error_strings.c:79
+#: error_strings.c:80
 msgid "Number expected as indata"
 msgstr ""
 
-#: error_strings.c:86
+#: error_strings.c:88
 msgid "Boolean expected as indata"
 msgstr ""
 
-#: error_strings.c:93
+#: error_strings.c:96
 msgid "String expected as indata"
 msgstr ""
 
-#: error_strings.c:100
+#: error_strings.c:104
 msgid "Integer greater than zero expected"
 msgstr ""
 
-#: error_strings.c:107
+#: error_strings.c:112
 msgid "Could not find current viewport"
 msgstr ""
 
-#: error_strings.c:114
+#: error_strings.c:120
 msgid "Setting viewport failed"
 msgstr ""
