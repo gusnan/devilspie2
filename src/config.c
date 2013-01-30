@@ -155,7 +155,7 @@ gboolean is_in_list(gchar *filename)
  */
 int load_config(gchar *filename)
 {
-	lua_State *lua = NULL;
+	lua_State *config_lua_state = NULL;
 	int result = 0;
 	const gchar *current_file = NULL;
 	GSList *temp_window_open_file_list = NULL;
@@ -179,19 +179,19 @@ int load_config(gchar *filename)
 
 	if (g_file_test(filename, G_FILE_TEST_EXISTS)) {
 
-		lua = init_script();
+		config_lua_state = init_script();
 
-		if (load_script(lua, filename)!=0) {
+		if (load_script(config_lua_state, filename)!=0) {
 			printf("Error loading script: %s\n", filename);
 			result = -1;
 			goto EXITPOINT;
 		}
 
-		run_script(lua);
+		run_script(config_lua_state);
 
-		lua_getglobal(lua, "scripts_window_close");
+		lua_getglobal(config_lua_state, "scripts_window_close");
 
-		file_window_close_list = get_table_of_strings(lua,
+		file_window_close_list = get_table_of_strings(config_lua_state,
 																	 script_folder,
 																	 "scripts_window_close");
 
@@ -222,8 +222,8 @@ int load_config(gchar *filename)
 
 	file_window_open_list = temp_window_open_file_list;
 EXITPOINT:
-	if (lua)
-		done_script(lua);
+	if (config_lua_state)
+		done_script(config_lua_state);
 
 	return result;
 }
