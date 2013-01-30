@@ -114,30 +114,40 @@ EXITPOINT:
 	return list;
 }
 
+/**
+ *
+ */
+gboolean is_in_list(GSList *list, gchar *filename)
+{
+	gboolean result=FALSE;
+	
+	if (list) {
+		GSList *temp_list = list;
+	
+		while (temp_list) {
+			gchar *list_filename = (gchar*)temp_list->data;
+			if (list_filename) {
+				
+				if (g_ascii_strcasecmp(list_filename, filename)==0) {
+					result=TRUE;
+				}
+			}
+		}
+	}
+	
+	return result;
+}
+
 
 /**
  *
  */
-gboolean is_in_list(gchar *filename)
+gboolean is_in_any_list(gchar *filename)
 {
-	GSList *temp_list = file_window_close_list;
 	gboolean result = FALSE;
-
-
-	while (temp_list) {
-
-		//printf("C1 : %s\n", (gchar*)(temp_list->data));
-
-		//struct lua_File *temp = (struct lua_File *)(temp_list->data);
-
-		gchar *list_filename = (gchar*)temp_list->data;
-
-		if (g_ascii_strcasecmp(list_filename, filename)==0) {
-			result=TRUE;
-		}
-		temp_list = temp_list->next;
-	}
-
+	
+	if (is_in_list(file_window_close_list, filename)) result = TRUE;
+	
 	return result;
 }
 
@@ -203,7 +213,7 @@ int load_config(gchar *filename)
 		// we only bother with *.lua in the folder
 		if (g_str_has_suffix(current_file, ".lua")) {
 
-			if (!is_in_list(temp_filename)) {
+			if (!is_in_any_list(temp_filename)) {
 				temp_window_open_file_list =
 					add_lua_file_to_list(temp_window_open_file_list, temp_filename);
 			}
