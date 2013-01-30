@@ -193,11 +193,32 @@ static void signal_handler(int sig)
 /**
  *
  */
+void print_list(GSList *list)
+{
+	GSList *temp_list;
+	if (list != NULL) {
+		temp_list = list;
+		
+		while(temp_list) {
+			gchar *file_name = temp_list->data;
+			
+			if (file_name) {
+				if (g_str_has_suffix((gchar*)file_name, ".lua")) {
+					printf("%s\n", (gchar*)file_name);
+				}
+			}
+			temp_list = temp_list->next;
+		}
+		
+	}
+}
+
+
+/**
+ *
+ */
 void load_scripts()
 {
-	GSList *temp_window_open_file_list = NULL;
-	GSList *temp_window_close_file_list = NULL;
-
 	if ((file_window_open_list == NULL) && (file_window_close_list == NULL)) {
 		printf(_("No script files found in the script folder - exiting."));
 		printf("\n\n");
@@ -208,51 +229,17 @@ void load_scripts()
 	if (debug) {
 		printf(_("List of window open LUA files in folder:"));
 		printf("\n");
-	}
-
-	if (file_window_open_list != NULL) {
-		temp_window_open_file_list = file_window_open_list;
-
-		while(temp_window_open_file_list) {
-
-			gchar *file_name = temp_window_open_file_list->data;
-
-			if (file_name) {
-
-				// is it a LUA file?
-				if (g_str_has_suffix((gchar*)(file_name),".lua")) {
-
-					if (debug)
-						printf("%s\n",(gchar*)file_name);
-				}
-			}
-
-			temp_window_open_file_list = temp_window_open_file_list->next;
-		}
+		if (file_window_open_list)
+			print_list(file_window_open_list);
 	}
 
 	if (debug) {
 		printf(_("List of window close LUA files in folder:"));
 		printf("\n");
+		if (file_window_close_list)
+			print_list(file_window_close_list);
 	}
 
-	if (file_window_close_list != NULL) {
-		temp_window_close_file_list = file_window_close_list;
-
-		while (temp_window_close_file_list) {
-			gchar *file_name = (gchar*)temp_window_close_file_list->data;
-
-			if (file_name) {
-
-				if (g_str_has_suffix((gchar*)(file_name),".lua")) {
-
-					if (debug)
-						printf("%s\n", (gchar*)file_name);
-				}
-			}
-			temp_window_close_file_list = temp_window_close_file_list->next;
-		}
-	}
 }
 
 
