@@ -120,12 +120,16 @@ static void window_closed_cb(WnckScreen *screen, WnckWindow *window)
 void init_screens()
 {
 	int i;
-	const int num_screens = gdk_display_get_n_screens(gdk_display_get_default());
+	const int num_screens =
+		gdk_display_get_n_screens(gdk_display_get_default());
+
 	for (i=0; i<num_screens; i++) {
 		WnckScreen *screen = wnck_screen_get(i);
 
-		g_signal_connect(screen, "window-opened", (GCallback)window_opened_cb, NULL);
-		g_signal_connect(screen, "window-closed", (GCallback)window_closed_cb, NULL);
+		g_signal_connect(screen, "window-opened",
+								(GCallback)window_opened_cb, NULL);
+		g_signal_connect(screen, "window-closed",
+								(GCallback)window_closed_cb, NULL);
 	}
 }
 
@@ -271,7 +275,8 @@ int main(int argc, char *argv[])
 
 	gdk_init(&argc, &argv);
 
-	gchar *devilspie2_description = g_strdup_printf(_("apply rules on windows"));
+	gchar *devilspie2_description =
+		g_strdup_printf(_("apply rules on windows"));
 
 	gchar *full_desc_string = g_strdup_printf("- %s", devilspie2_description);
 
@@ -333,7 +338,8 @@ int main(int argc, char *argv[])
 
 #endif
 
-	gchar *config_filename = g_build_filename(script_folder, "devilspie2.lua", NULL);
+	gchar *config_filename =
+		g_build_filename(script_folder, "devilspie2.lua", NULL);
 
 	if (load_config(config_filename)!=0) {
 
