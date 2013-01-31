@@ -170,8 +170,9 @@ get_window_type()
 
 get_class_instance_name()
 
-   Gets the class instance name from the WM_CLASS Property for the current window.
-   Only available on libwnck 3+, and in devilspie2 version 0.21 or later.
+   Gets the class instance name from the WM_CLASS Property for the current
+   window. Only available on libwnck 3+, and in devilspie2 version 0.21 or 
+   later.
 
 
 get_window_property(property)
@@ -303,7 +304,8 @@ undecorate_window()
 
 set_window_workspace(number)
 
-   Moves a window to another workspace. The number variable starts counting at 1.
+   Moves a window to another workspace. The number variable starts counting at 
+   1.
 
 
 change_workspace(number)
@@ -360,8 +362,8 @@ set_window_below()
 
 set_window_fullscreen(fullscreen)
 
-   Asks the window manager to set the fullscreen state of the window according to the
-   fullscreen boolean. (available from version 0.24)
+   Asks the window manager to set the fullscreen state of the window according
+   to the fullscreen boolean. (available from version 0.24)
 
 
 set_viewport(viewport)
