@@ -209,7 +209,6 @@ void print_list(GSList *list)
 			}
 			temp_list = temp_list->next;
 		}
-		
 	}
 }
 
