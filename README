@@ -59,6 +59,12 @@ You can choose to have all script functionality in one file, or you can split
 it up into several, Devilspie2 runs on all LUA files in ~/.config/devilspie2 -
 that is all files with a .lua extension.
 
+If there is a file named devilspie2.lua in this folder, it is read and it is
+searched for a variable (a lua table of strings) named scripts_window_close - 
+The filenames in the strings in the this table will be called when windows 
+are closed. 
+
+
 
 Scripting
 ---------
