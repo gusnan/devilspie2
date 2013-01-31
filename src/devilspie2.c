@@ -141,13 +141,7 @@ void unalloacte_lua_file_list(GSList *lua_list)
 
 			gchar *file_name = (gchar*)lua_list->data;
 
-			if (file_name) {
-
-				g_free(file_name);
-
-				//lua_file=g_slice_alloc(sizeof(struct lua_File));
-				//g_slice_free1(sizeof(struct lua_File), lua_file);
-			}
+			if (file_name) g_free(file_name);
 
 			lua_list = lua_list->next;
 		}
