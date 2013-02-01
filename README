@@ -31,44 +31,36 @@ Devilspie2 takes some options:
 -w, --wnck-version  Show version of libwnck and quit
 
 
-simple script example:
+Config
+-------
 
----------------------8<---------------------
+A config is read from the folder where we read all scripts, and is customizable
+by the --folder option. By default this folder is ~/.config/devilspie2/.
 
--- the debug_print command does only print anything to stdout
--- if devilspie2 is run using the --debug option
-debug_print("Window Name: " .. get_window_name());
-debug_print("Application name: " .. get_application_name())
+If there is a file named devilspie2.lua in this folder, it is read and it is
+searched for a variable (a lua table of strings) named scripts_window_close -
+The filenames in the strings in the this table will be called when windows are
+closed. If these variables isn't present in this file, it will be called as a
+devilspie2 script file like any other.
 
--- I want my Xfce4-terminal to the right on the second screen of my two-monitor
--- setup. (String comparison are case sensitive, please note this when 
--- creating rule scripts.)
-if (get_window_name()=="Terminal") then
-   -- x,y, xsize, ysize
-   set_window_geometry(1600,300,900,700);
-end
+For example:
 
--- Make Iceweasel always start maximized.
-if (get_application_name()=="Iceweasel") then
-   maximize();
-end
+--
+scripts_window_close = {
+   "file1.lua",
+	"file2.lua"
+}
 
---------------------->8---------------------
+This would make file1.lua and file2.lua interpreted on window closing.
+
+
+Scripting
+---------
 
 You can choose to have all script functionality in one file, or you can split
 it up into several, Devilspie2 runs on all LUA files in your requested 
 devilspie2 folder, by default ~/.config/devilspie2 - that is all files with a 
 .lua extension.
-
-If there is a file named devilspie2.lua in this folder, it is read and it is
-searched for a variable (a lua table of strings) named scripts_window_close - 
-The filenames in the strings in the this table will be called when windows 
-are closed. 
-
-
-
-Scripting
----------
 
 The scripting language used is LUA (see www.lua.org) - See FAQ at
 
@@ -415,6 +407,33 @@ set_window_type(type)
 
 Please note that strings comparisons are case sensitive, comparing
 "SomeProgram" with "someprogram" will not report equality.
+
+
+Simple script example
+---------------------
+
+
+---------------------8<---------------------
+
+-- the debug_print command does only print anything to stdout
+-- if devilspie2 is run using the --debug option
+debug_print("Window Name: " .. get_window_name());
+debug_print("Application name: " .. get_application_name())
+
+-- I want my Xfce4-terminal to the right on the second screen of my two-monitor
+-- setup. (String comparison are case sensitive, please note this when 
+-- creating rule scripts.)
+if (get_window_name()=="Terminal") then
+   -- x,y, xsize, ysize
+   set_window_geometry(1600,300,900,700);
+end
+
+-- Make Iceweasel always start maximized.
+if (get_application_name()=="Iceweasel") then
+   maximize();
+end
+
+--------------------->8---------------------
 
 
 Translations
