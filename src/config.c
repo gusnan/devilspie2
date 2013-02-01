@@ -18,6 +18,9 @@
  */
 #include <glib.h>
 
+#define WNCK_I_KNOW_THIS_IS_UNSTABLE
+#include <libwnck/libwnck.h>
+
 #include <glib/gi18n.h>
 
 #include <locale.h>
@@ -28,6 +31,7 @@
 #include <lauxlib.h>
 
 #include "script.h"
+#include "script_functions.h"
 
 #include "config.h"
 
@@ -167,6 +171,10 @@ int load_config(gchar *filename)
 	int result = 0;
 	const gchar *current_file = NULL;
 	GSList *temp_window_open_file_list = NULL;
+	
+	// set the current window to NULL, we don't need to be able to modify
+	// the windows when reading the config
+	set_current_window(NULL);
 
 	// First get list of Lua files in folder - Then read variables from
 	// devilspie2.lua and put the files in the required lists.
