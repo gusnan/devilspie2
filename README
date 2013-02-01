@@ -48,7 +48,7 @@ For example:
 --
 scripts_window_close = {
    "file1.lua",
-	"file2.lua"
+   "file2.lua"
 }
 
 This would make file1.lua and file2.lua interpreted on windows closing instead
