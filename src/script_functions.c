@@ -1523,6 +1523,11 @@ int c_set_viewport(lua_State *lua)
 	}
 
 	WnckWindow *window=get_current_window();
+	
+	if (!window) {
+		lua_pushboolean(lua, FALSE);
+		return 1;
+	}
 
 	screen=wnck_window_get_screen(window);
 
@@ -1571,6 +1576,11 @@ int c_center(lua_State *lua)
 	}
 
 	WnckWindow *window=get_current_window();
+	
+	if (!window) {
+		lua_pushboolean(lua, FALSE);
+		return 1;
+	}
 
 	wnck_window_get_geometry(window, NULL, NULL, &window_width, &window_height);
 
@@ -1634,8 +1644,9 @@ int c_set_opacity(lua_State *lua)
 	double value=(double)lua_tonumber(lua,1);
 
 	WnckWindow *window=get_current_window();
-		
-	my_window_set_opacity(window, value);
+
+	if (window)
+		my_window_set_opacity(window, value);
 
 	return 0;
 }
@@ -1662,8 +1673,9 @@ int c_set_window_type(lua_State *lua)
 	gchar *indata=(gchar*)lua_tostring(lua,1);
 
 	WnckWindow *window=get_current_window();
-		
-	my_window_set_window_type(window, indata);
+	
+	if (window)
+		my_window_set_window_type(window, indata);
 
 	return 0;
 }
