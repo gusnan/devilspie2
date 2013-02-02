@@ -237,3 +237,38 @@ EXITPOINT:
 
 	return result;
 }
+
+
+
+/**
+ *
+ */
+void unalloacte_file_list(GSList *file_list)
+{
+	if (file_list) {
+
+		while(file_list) {
+
+			gchar *file_name = (gchar*)file_list->data;
+
+			if (file_name) g_free(file_name);
+
+			file_list = file_list->next;
+		}
+	}
+}
+
+
+/**
+ *
+ */
+void clear_file_lists()
+{
+	if (file_window_open_list) {
+		unalloacte_file_list(file_window_open_list);
+	}
+
+	if (file_window_close_list) {
+		unalloacte_file_list(file_window_close_list);
+	}
+}

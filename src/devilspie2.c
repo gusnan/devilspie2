@@ -61,6 +61,9 @@ static gboolean show_version = FALSE;
 static gchar *script_folder = NULL;
 static gchar *temp_folder = NULL;
 
+GFileMonitor *mon = NULL;
+
+gchar *config_filename = NULL;
 
 /**
  *
@@ -135,38 +138,17 @@ void init_screens()
 
 
 /**
- *
- */
-void unalloacte_lua_file_list(GSList *lua_list)
-{
-	if (lua_list) {
-
-		while(lua_list) {
-
-			gchar *file_name = (gchar*)lua_list->data;
-
-			if (file_name) g_free(file_name);
-
-			lua_list = lua_list->next;
-		}
-	}
-}
-
-
-/**
  * atexit handler - kill the script
  */
 void devilspie_exit()
 {
-	if (file_window_open_list) {
-		unalloacte_lua_file_list(file_window_open_list);
-	}
-
-	if (file_window_close_list) {
-		unalloacte_lua_file_list(file_window_close_list);
-	}
+	clear_file_lists();
 
 	if (temp_folder != NULL) g_free(temp_folder);
+	
+	g_object_unref(mon);
+	
+	if (config_filename) g_free(config_filename);
 }
 
 
@@ -216,6 +198,9 @@ void print_list(GSList *list)
  */
 void print_script_lists()
 {
+	if (debug)
+		printf("------------\n");
+
 	if ((file_window_open_list == NULL) && (file_window_close_list == NULL)) {
 		printf(_("No script files found in the script folder - exiting."));
 		printf("\n\n");
@@ -236,7 +221,51 @@ void print_script_lists()
 		if (file_window_close_list)
 			print_list(file_window_close_list);
 	}
+}
 
+
+/**
+ *
+ */
+void folder_changed_callback(GFileMonitor *mon, 
+										GFile *first_file,
+										GFile *second_file, 
+										GFileMonitorEvent event,
+										gpointer user_data)
+{
+	
+	gchar *our_filename = (gchar*)(user_data);
+	
+	// If a file is created or deleted, we need to check the file lists again
+	if ((event == G_FILE_MONITOR_EVENT_CREATED) || 
+		 (event == G_FILE_MONITOR_EVENT_DELETED)) {
+			 
+		clear_file_lists();
+			 
+		load_config(our_filename);
+			 
+		if (debug)
+			printf("Files in folder updated!\n - new lists:\n\n");
+
+		print_script_lists();
+		
+		if (debug)
+			printf("-----------\n");
+	}
+	
+	// Also monitor if our devilspie2.lua file is changed - since it handles 
+	// which files are window close or window open scripts.
+	if (event == G_FILE_MONITOR_EVENT_CHANGED) {
+		if (first_file) {
+			gchar *short_filename = g_file_get_basename(first_file);
+			
+			printf("filename: %s\n", short_filename);
+			
+			if (g_strcmp0(short_filename, "devilspie2.lua")==0) {
+				printf("devilspie2!\n\n");
+			}
+		}
+	}
 }
 
 
@@ -338,7 +367,7 @@ int main(int argc, char *argv[])
 
 #endif
 
-	gchar *config_filename =
+	config_filename =
 		g_build_filename(script_folder, "devilspie2.lua", NULL);
 
 	if (load_config(config_filename)!=0) {
@@ -346,8 +375,6 @@ int main(int argc, char *argv[])
 		devilspie_exit();
 		return EXIT_FAILURE;
 	}
-
-	g_free(config_filename);
 
 	if (debug) {
 
@@ -374,6 +401,17 @@ int main(int argc, char *argv[])
 		printf("\n");
 		exit(EXIT_FAILURE);
 	}
+	
+	GFile *directory_file;
+	directory_file = g_file_new_for_path(script_folder);
+	mon = g_file_monitor_directory(directory_file, G_FILE_MONITOR_WATCH_MOUNTS,
+												NULL, NULL);
+	if (!mon) {
+		printf("Couldn't create directory monitor!\n");
+		return EXIT_FAILURE;
+	}
+	
+	g_signal_connect(mon, "changed", G_CALLBACK(folder_changed_callback), (gpointer)(config_filename));
 
 	global_lua_state = init_script();
 	print_script_lists();

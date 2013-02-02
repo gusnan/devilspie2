@@ -24,6 +24,7 @@
  */
 int load_config(gchar *config_filename);
 
+void clear_file_lists();
 
 extern GSList *file_window_open_list;
 extern GSList *file_window_close_list;
