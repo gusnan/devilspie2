@@ -233,36 +233,41 @@ void folder_changed_callback(GFileMonitor *mon,
 										GFileMonitorEvent event,
 										gpointer user_data)
 {
-	
 	gchar *our_filename = (gchar*)(user_data);
-	
+
 	// If a file is created or deleted, we need to check the file lists again
 	if ((event == G_FILE_MONITOR_EVENT_CREATED) || 
 		 (event == G_FILE_MONITOR_EVENT_DELETED)) {
-			 
+
 		clear_file_lists();
-			 
+
 		load_config(our_filename);
-			 
+
 		if (debug)
 			printf("Files in folder updated!\n - new lists:\n\n");
 
 		print_script_lists();
-		
+
 		if (debug)
 			printf("-----------\n");
 	}
-	
+
 	// Also monitor if our devilspie2.lua file is changed - since it handles 
 	// which files are window close or window open scripts.
 	if (event == G_FILE_MONITOR_EVENT_CHANGED) {
 		if (first_file) {
 			gchar *short_filename = g_file_get_basename(first_file);
 			
-			printf("filename: %s\n", short_filename);
-			
 			if (g_strcmp0(short_filename, "devilspie2.lua")==0) {
-				printf("devilspie2!\n\n");
+
+				clear_file_lists();
+
+				load_config(our_filename);
+
+				print_script_lists();
+
+				if (debug)
+					printf("----------");
 			}
 		}
 	}
@@ -404,7 +409,8 @@ int main(int argc, char *argv[])
 	
 	GFile *directory_file;
 	directory_file = g_file_new_for_path(script_folder);
-	mon = g_file_monitor_directory(directory_file, G_FILE_MONITOR_WATCH_MOUNTS,
+//	mon = g_file_monitor_directory(directory_file, G_FILE_MONITOR_WATCH_MOUNTS,
+	mon = g_file_monitor_directory(directory_file, G_FILE_MONITOR_NONE,
 												NULL, NULL);
 	if (!mon) {
 		printf("Couldn't create directory monitor!\n");
