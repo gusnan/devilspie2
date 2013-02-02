@@ -129,7 +129,7 @@ gboolean is_in_list(GSList *list, gchar *filename)
 	
 	if (list) {
 		GSList *temp_list = list;
-	
+
 		while (temp_list) {
 			gchar *list_filename = (gchar*)temp_list->data;
 			if (list_filename) {
@@ -138,6 +138,7 @@ gboolean is_in_list(GSList *list, gchar *filename)
 					result=TRUE;
 				}
 			}
+			temp_list = temp_list->next;
 		}
 	}
 	
