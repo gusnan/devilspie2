@@ -146,7 +146,7 @@ void devilspie_exit()
 
 	if (temp_folder != NULL) g_free(temp_folder);
 	
-	g_object_unref(mon);
+	if (mon) g_object_unref(mon);
 	
 	if (config_filename) g_free(config_filename);
 }
@@ -372,6 +372,12 @@ int main(int argc, char *argv[])
 
 #endif
 
+	if (init_script_error_messages()!=0) {
+		printf(_("Couldn't init script error messages!"));
+		printf("\n");
+		exit(EXIT_FAILURE);
+	}
+
 	config_filename =
 		g_build_filename(script_folder, "devilspie2.lua", NULL);
 
@@ -400,12 +406,6 @@ int main(int argc, char *argv[])
 
 	// Should we only run an emulation (don't modify any windows)
 	if (emulate) devilspie2_emulate = emulate;
-
-	if (init_script_error_messages()!=0) {
-		printf(_("Couldn't init script error messages!"));
-		printf("\n");
-		exit(EXIT_FAILURE);
-	}
 	
 	GFile *directory_file;
 	directory_file = g_file_new_for_path(script_folder);
