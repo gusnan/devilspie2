@@ -7,8 +7,10 @@ obj/xutils.o
 obj/devilspie2.o
 obj/error_strings.o
 obj/config.o
+obj/gitversion.o
 devilspie2
 Makefile.dep
 po/*.mo
 po/sv_SE.po~
 src/#*
+src/gitversion.c
