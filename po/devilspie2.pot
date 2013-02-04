@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.28pre\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2013-01-30 22:17+0100\n"
+"POT-Creation-Date: 2013-02-04 19:52+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,97 +17,97 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: config.c:179
+#: config.c:188
 #, c-format
 msgid "script_folder isn't a folder."
 msgstr ""
 
-#: devilspie2.c:181
+#: config.c:200 script.c:216
+#, c-format
+msgid "Error: %s"
+msgstr ""
+
+#: devilspie2.c:161
 #, c-format
 msgid "Received signal:"
 msgstr ""
 
-#: devilspie2.c:223
+#: devilspie2.c:205
 #, c-format
 msgid "No script files found in the script folder - exiting."
 msgstr ""
 
-#: devilspie2.c:230
+#: devilspie2.c:212
 #, c-format
 msgid "List of window open LUA files in folder:"
 msgstr ""
 
-#: devilspie2.c:237
+#: devilspie2.c:219
 #, c-format
 msgid "List of window close LUA files in folder:"
 msgstr ""
 
-#: devilspie2.c:253
+#: devilspie2.c:284
 msgid "Print debug info to stdout"
 msgstr ""
 
-#: devilspie2.c:255
+#: devilspie2.c:286
 msgid "Don't apply any rules, only emulate execution"
 msgstr ""
 
-#: devilspie2.c:257
+#: devilspie2.c:288
 msgid "Search for scripts in this folder"
 msgstr ""
 
-#: devilspie2.c:257
+#: devilspie2.c:288
 msgid "FOLDER"
 msgstr ""
 
-#: devilspie2.c:259
+#: devilspie2.c:290
 msgid "Show Devilspie2 version and quit"
 msgstr ""
 
-#: devilspie2.c:264
+#: devilspie2.c:295
 msgid "Show libwnck version and quit"
 msgstr ""
 
-#: devilspie2.c:281
+#: devilspie2.c:313
 msgid "apply rules on windows"
 msgstr ""
 
-#: devilspie2.c:288
+#: devilspie2.c:320
 #, c-format
 msgid "option parsing failed: %s"
 msgstr ""
 
-#: devilspie2.c:309
+#: devilspie2.c:341
 #, c-format
 msgid "Couldn't create the default folder for devilspie2 scripts."
 msgstr ""
 
-#: devilspie2.c:336
+#: devilspie2.c:368
 #, c-format
 msgid "An X11 display is required for devilspie2."
 msgstr ""
 
-#: devilspie2.c:356
-#, c-format
-msgid "Running devilspie2 in debug and emulate mode."
-msgstr ""
-
-#: devilspie2.c:358
-#, c-format
-msgid "Running devilspie2 in debug mode."
-msgstr ""
-
-#: devilspie2.c:363
-#, c-format
-msgid "Using scripts from folder: %s"
-msgstr ""
-
-#: devilspie2.c:374
+#: devilspie2.c:376
 #, c-format
 msgid "Couldn't init script error messages!"
 msgstr ""
 
-#: script.c:216
+#: devilspie2.c:393
 #, c-format
-msgid "Error: %s"
+msgid "Running devilspie2 in debug and emulate mode."
+msgstr ""
+
+#: devilspie2.c:395
+#, c-format
+msgid "Running devilspie2 in debug mode."
+msgstr ""
+
+#: devilspie2.c:400
+#, c-format
+msgid "Using scripts from folder: %s"
 msgstr ""
 
 #: script_functions.c:686 script_functions.c:732
@@ -115,7 +115,7 @@ msgstr ""
 msgid "Workspace number %d does not exist!"
 msgstr ""
 
-#: script_functions.c:1586
+#: script_functions.c:1596
 msgid "Could not get workspace"
 msgstr ""
 
