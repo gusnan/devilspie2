@@ -197,7 +197,8 @@ int load_config(gchar *filename)
 	if (g_file_test(filename, G_FILE_TEST_EXISTS)) {
 
 		if (load_script(config_lua_state, filename)!=0) {
-			printf("Error loading script: %s\n", filename);
+			printf(_("Error: %s"), filename);
+			printf("\n");
 			result = -1;
 			goto EXITPOINT;
 		}
