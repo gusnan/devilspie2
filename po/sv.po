@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.26\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2013-02-05 17:08+0100\n"
-"PO-Revision-Date: 2013-02-05 17:10+0100\n"
+"POT-Creation-Date: 2013-02-05 17:13+0100\n"
+"PO-Revision-Date: 2013-02-05 17:13+0100\n"
 "Last-Translator: Andreas Rönnquist <gusnan@gusnan.se>\n"
 "Language-Team: Swedish\n"
 "Language: sv\n"
@@ -40,12 +40,12 @@ msgstr "Inga skript hittades i skript-mappen - avslutar."
 
 #: devilspie2.c:212
 #, c-format
-msgid "List of window open LUA files in folder:"
+msgid "List of LUA files handling \"window open\" events in folder:"
 msgstr "Lista på LUA-filer som hanterar \"window open\"-händelser i mappen:"
 
 #: devilspie2.c:219
 #, c-format
-msgid "List of window close LUA files in folder:"
+msgid "List of LUA files handling \"window close\" events in folder:"
 msgstr "Lista på LUA-filer som hanterar \"window close\"-händelser i mappen:"
 
 #: devilspie2.c:284
