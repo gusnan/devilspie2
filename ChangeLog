@@ -12,6 +12,8 @@ ChangeLog:
 	* Add set_window_type function
 	* Add set_window_opacity function
 	* Added handling of window closing events
+	* Add file monitor to automatically load added scripts
+	* Make an option to make --version print git hash too
 
 0.27
 	* Update Makefile to fix a LUA problem with pkg-config
