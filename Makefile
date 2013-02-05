@@ -57,6 +57,10 @@ ifdef CHECK_DEPRECATED
 	LOCAL_CFLAGS+=-DGDK_PIXBUF_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED
 endif
 
+ifdef IGNORE_GIT_VERSION
+	LOCAL_CFLAGS+=-DIGNORE_GIT_VERSION
+endif
+
 LOCAL_CFLAGS+=-DLOCALEDIR=\"$(LOCALEDIR)\" -DPACKAGE=\"$(NAME)\" -DDEVILSPIE2_VERSION=\"$(VERSION)\"
 
 .PHONY: all
@@ -64,7 +68,11 @@ all: $(BIN)/devilspie2
 	${MAKE} -C po -j1 all
 
 src/gitversion.c: .git/HEAD .git/index .git/packed-refs .git/refs/*
-	echo "const char *gitversion = \"`git rev-parse --short HEAD 2>/dev/null`\";" > $@
+	echo "#ifndef IGNORE_GIT_VERSION" >$@
+	echo "   const char *gitversion = \"`git rev-parse --short HEAD 2>/dev/null`\";" >>$@
+	echo "#else" >>$@
+	echo "   const char *gitversion = \"\";" >>$@
+	echo "#endif" >>$@
 
 $(OBJ)/%.o: $(SRC)/%.c
 	$(CC) $(LOCAL_CFLAGS) $(LOCAL_CPPFLAGS) -c $< -o $@
