@@ -77,7 +77,6 @@ $(BIN)/$(NAME): $(OBJECTS)
 clean:
 	rm -rf $(OBJECTS) $(PROG) $(DEPEND)
 	${MAKE} -C po clean
-	rm src/gitversion.c
 
 install:
 	install -d $(DESTDIR)$(PREFIX)/bin
