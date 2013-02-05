@@ -209,14 +209,14 @@ void print_script_lists()
 
 	// If we are running debug mode - print the list of files:
 	if (debug) {
-		printf(_("List of window open LUA files in folder:"));
+		printf(_("List of LUA files handling \"window open\" events in folder:"));
 		printf("\n");
 		if (file_window_open_list)
 			print_list(file_window_open_list);
 	}
 
 	if (debug) {
-		printf(_("List of window close LUA files in folder:"));
+		printf(_("List of LUA files handling \"window close\" events in folder:"));
 		printf("\n");
 		if (file_window_close_list)
 			print_list(file_window_close_list);
