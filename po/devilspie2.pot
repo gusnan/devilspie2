@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.28pre\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2013-02-05 17:08+0100\n"
+"POT-Creation-Date: 2013-02-05 17:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,12 +39,12 @@ msgstr ""
 
 #: devilspie2.c:212
 #, c-format
-msgid "List of window open LUA files in folder:"
+msgid "List of LUA files handling \"window open\" events in folder:"
 msgstr ""
 
 #: devilspie2.c:219
 #, c-format
-msgid "List of window close LUA files in folder:"
+msgid "List of LUA files handling \"window close\" events in folder:"
 msgstr ""
 
 #: devilspie2.c:284
