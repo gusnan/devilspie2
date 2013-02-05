@@ -29,5 +29,7 @@ void clear_file_lists();
 extern GSList *file_window_open_list;
 extern GSList *file_window_close_list;
 
+// Our git version which is defined through some magic in the build system
+extern const char *gitversion;
 
 #endif /*__HEADER_CONFIG_*/

@@ -348,7 +348,11 @@ int main(int argc, char *argv[])
 	}
 
 	if (show_version) {
-		printf("Devilspie2 v%s\n\n", DEVILSPIE2_VERSION);
+		if (g_strcmp0(gitversion, "")==0) {
+			printf("Devilspie2 v%s\n\n", DEVILSPIE2_VERSION);
+		} else {
+			printf("Devilspie2 v%s (git %s)\n\n", DEVILSPIE2_VERSION, gitversion);
+		}
 		exit(EXIT_SUCCESS);
 	}
 #ifdef HAVE_GTK3
