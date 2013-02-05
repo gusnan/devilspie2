@@ -11,7 +11,7 @@ endif
 
 DEPEND=Makefile.dep
 
-OBJECTS=$(OBJ)/config.o $(OBJ)/devilspie2.o $(OBJ)/xutils.o $(OBJ)/script.o $(OBJ)/script_functions.o $(OBJ)/error_strings.o $(OBJ)/gitversion.o
+OBJECTS=$(OBJ)/config.o $(OBJ)/devilspie2.o $(OBJ)/xutils.o $(OBJ)/script.o $(OBJ)/script_functions.o $(OBJ)/error_strings.o
 
 ifndef PREFIX
 	ifdef INSTALL_PREFIX
@@ -66,13 +66,6 @@ LOCAL_CFLAGS+=-DLOCALEDIR=\"$(LOCALEDIR)\" -DPACKAGE=\"$(NAME)\" -DDEVILSPIE2_VE
 .PHONY: all
 all: $(BIN)/devilspie2
 	${MAKE} -C po -j1 all
-
-src/gitversion.c: .git/HEAD .git/index .git/packed-refs .git/refs/*
-	echo "#ifndef IGNORE_GIT_VERSION" >$@
-	echo "   const char *gitversion = \"`git rev-parse --short HEAD 2>/dev/null`\";" >>$@
-	echo "#else" >>$@
-	echo "   const char *gitversion = \"\";" >>$@
-	echo "#endif" >>$@
 
 $(OBJ)/%.o: $(SRC)/%.c
 	$(CC) $(LOCAL_CFLAGS) $(LOCAL_CPPFLAGS) -c $< -o $@
