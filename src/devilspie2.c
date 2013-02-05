@@ -413,7 +413,8 @@ int main(int argc, char *argv[])
 	mon = g_file_monitor_directory(directory_file, G_FILE_MONITOR_NONE,
 												NULL, NULL);
 	if (!mon) {
-		printf(_("Couldn't create directory monitor!\n"));
+		printf(_("Couldn't create directory monitor!"));
+		printf("\n");
 		return EXIT_FAILURE;
 	}
 	
