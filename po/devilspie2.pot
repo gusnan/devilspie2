@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.28pre\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2013-02-05 17:05+0100\n"
+"POT-Creation-Date: 2013-02-05 17:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -112,7 +112,7 @@ msgstr ""
 
 #: devilspie2.c:416
 #, c-format
-msgid "Couldn't create directory monitor!\n"
+msgid "Couldn't create directory monitor!"
 msgstr ""
 
 #: script_functions.c:686 script_functions.c:732
