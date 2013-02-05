@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.28pre\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2013-02-05 16:28+0100\n"
+"POT-Creation-Date: 2013-02-05 17:05+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -85,32 +85,32 @@ msgstr ""
 msgid "Couldn't create the default folder for devilspie2 scripts."
 msgstr ""
 
-#: devilspie2.c:372
+#: devilspie2.c:368
 #, c-format
 msgid "An X11 display is required for devilspie2."
 msgstr ""
 
-#: devilspie2.c:380
+#: devilspie2.c:376
 #, c-format
 msgid "Couldn't init script error messages!"
 msgstr ""
 
-#: devilspie2.c:397
+#: devilspie2.c:393
 #, c-format
 msgid "Running devilspie2 in debug and emulate mode."
 msgstr ""
 
-#: devilspie2.c:399
+#: devilspie2.c:395
 #, c-format
 msgid "Running devilspie2 in debug mode."
 msgstr ""
 
-#: devilspie2.c:404
+#: devilspie2.c:400
 #, c-format
 msgid "Using scripts from folder: %s"
 msgstr ""
 
-#: devilspie2.c:420
+#: devilspie2.c:416
 #, c-format
 msgid "Couldn't create directory monitor!\n"
 msgstr ""
