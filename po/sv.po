@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.26\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2013-02-05 17:13+0100\n"
-"PO-Revision-Date: 2013-02-05 17:13+0100\n"
+"POT-Creation-Date: 2013-02-07 14:16+0100\n"
+"PO-Revision-Date: 2013-02-07 14:17+0100\n"
 "Last-Translator: Andreas Rönnquist <gusnan@gusnan.se>\n"
 "Language-Team: Swedish\n"
 "Language: sv\n"
@@ -39,14 +39,10 @@ msgid "No script files found in the script folder - exiting."
 msgstr "Inga skript hittades i skript-mappen - avslutar."
 
 #: devilspie2.c:212
-#, c-format
-msgid "List of LUA files handling \"window open\" events in folder:"
-msgstr "Lista på LUA-filer som hanterar \"window open\"-händelser i mappen:"
-
 #: devilspie2.c:219
 #, c-format
-msgid "List of LUA files handling \"window close\" events in folder:"
-msgstr "Lista på LUA-filer som hanterar \"window close\"-händelser i mappen:"
+msgid "List of LUA files handling \"%s\" events in folder:"
+msgstr "Lista på LUA-filer som hanterar \"%s\"-händelser i mappen:"
 
 #: devilspie2.c:284
 msgid "Print debug info to stdout"
@@ -176,3 +172,5 @@ msgstr "Kunde inte hitta aktuell visningsyta"
 msgid "Setting viewport failed"
 msgstr "Kunde inte sätta visningsyta"
 
+#~ msgid "List of LUA files handling \"window open\" events in folder:"
+#~ msgstr "Lista på LUA-filer som hanterar \"window open\"-händelser i mappen:"
