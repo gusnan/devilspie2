@@ -1182,8 +1182,9 @@ int c_set_window_above(lua_State *lua)
 
 	if (!devilspie2_emulate) {
 
-		devilspie2_change_state(my_wnck_window_get_xscreen(window),
-		                     wnck_window_get_xid(window),
+		Window xid = wnck_window_get_xid(window);
+		devilspie2_change_state(devilspie2_window_get_xscreen(xid),
+		                     xid,
 		                     TRUE,
 		                     my_wnck_atom_get("_NET_WM_STATE_ABOVE"),
 		                     0);
@@ -1209,8 +1210,9 @@ int c_set_window_below(lua_State *lua)
 
 	if (!devilspie2_emulate) {
 
-		devilspie2_change_state(my_wnck_window_get_xscreen(window),
-		                     wnck_window_get_xid(window),
+		Window xid = wnck_window_get_xid(window);
+		devilspie2_change_state(devilspie2_window_get_xscreen(xid),
+		                     xid,
 		                     TRUE,
 		                     my_wnck_atom_get("_NET_WM_STATE_BELOW"),
 		                     0);

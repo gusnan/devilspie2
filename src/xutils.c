@@ -213,12 +213,10 @@ gboolean undecorate_window(Window xid)
 /**
  *
  */
-Screen *my_wnck_window_get_xscreen(WnckWindow *window)
+Screen *devilspie2_window_get_xscreen(Window xid)
 {
-   Window   xid;
    XWindowAttributes attrs;
 
-   xid = wnck_window_get_xid (window);
    XGetWindowAttributes(gdk_x11_get_default_xdisplay(), xid, &attrs);
 
    return attrs.screen;
@@ -398,9 +396,11 @@ int my_wnck_get_viewport_start(WnckWindow *win)
 	int len;
 
 	int result=-1;
+	
+	Window xid = wnck_window_get_xid(win);
 
 	my_wnck_get_cardinal_list(RootWindowOfScreen(
-										my_wnck_window_get_xscreen(win)),
+										devilspie2_window_get_xscreen(xid)),
 										my_wnck_atom_get("_NET_DESKTOP_VIEWPORT"),
 										&list, &len);
 

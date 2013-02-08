@@ -31,7 +31,7 @@ void devilspie2_change_state(Screen *screen,
 									Atom state1,
 									Atom state2);
 
-Screen* my_wnck_window_get_xscreen(WnckWindow *window);
+Screen* devilspie2_window_get_xscreen(Window xid);
 
 void devilspie2_error_trap_push();
 int devilspie2_error_trap_pop();
