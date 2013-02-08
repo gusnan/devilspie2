@@ -1539,8 +1539,10 @@ int c_set_viewport(lua_State *lua)
 	screen=wnck_window_get_screen(window);
 
 	wnck_window_get_geometry(window, &x, &y, &width, &height);
+	
+	gulong xid = wnck_window_get_xid(window);
 
-	viewport_start=my_wnck_get_viewport_start(window);
+	viewport_start = devilspie2_get_viewport_start(xid);
 	if (viewport_start<0) {
 		g_printerr("set_viewport: %s",could_not_find_current_viewport_error);
 		lua_pushboolean(lua,FALSE);

@@ -390,15 +390,13 @@ glong my_wnck_get_cardinal(Window xwindow, Atom atom)
 /**
  *
  */
-int my_wnck_get_viewport_start(WnckWindow *win)
+int devilspie2_get_viewport_start(Window xid)
 {
 	gulong *list;
 	int len;
 
 	int result=-1;
 	
-	Window xid = wnck_window_get_xid(win);
-
 	my_wnck_get_cardinal_list(RootWindowOfScreen(
 										devilspie2_window_get_xscreen(xid)),
 										my_wnck_atom_get("_NET_DESKTOP_VIEWPORT"),
