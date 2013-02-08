@@ -118,7 +118,7 @@ void my_wnck_change_state(Screen *screen, Window xwindow,
 /**
  *
  */
-void my_wnck_error_trap_push()
+void devilspie2_error_trap_push()
 {
 	gdk_error_trap_push();
 }
@@ -127,7 +127,7 @@ void my_wnck_error_trap_push()
 /**
  *
  */
-int my_wnck_error_trap_pop()
+int devilspie2_error_trap_pop()
 {
 	XSync(gdk_x11_get_default_xdisplay(),False);
 	return gdk_error_trap_pop();
@@ -172,11 +172,11 @@ static void set_decorations(WnckWindow *window, gboolean decorate)
  */
 gboolean decorate_window(WnckWindow *window)
 {
-	my_wnck_error_trap_push();
+	devilspie2_error_trap_push();
 
 	set_decorations(window,TRUE);
 
-	if (my_wnck_error_trap_pop()) {
+	if (devilspie2_error_trap_pop()) {
 		g_printerr("decorate_window %s\n",_("Failed!"));
 		return FALSE;
 	}
@@ -190,11 +190,11 @@ gboolean decorate_window(WnckWindow *window)
  */
 gboolean undecorate_window(WnckWindow *window)
 {
-	my_wnck_error_trap_push();
+	devilspie2_error_trap_push();
 
 	set_decorations(window,FALSE);
 
-	if (my_wnck_error_trap_pop()) {
+	if (devilspie2_error_trap_pop()) {
 		g_printerr("decorate_window %s\n", _("Failed!"));
 		return FALSE;
 	}
@@ -231,7 +231,7 @@ char* my_wnck_get_string_property_latin1(Window xwindow, Atom atom)
 	int err, result;
 	char *retval;
 
-	my_wnck_error_trap_push();
+	devilspie2_error_trap_push();
 	property = NULL;
 	result = XGetWindowProperty (gdk_x11_get_default_xdisplay (),
 											xwindow, atom,
@@ -240,7 +240,7 @@ char* my_wnck_get_string_property_latin1(Window xwindow, Atom atom)
 											&format, &nitems,
 											&bytes_after, &property);
 
-	err = my_wnck_error_trap_pop ();
+	err = devilspie2_error_trap_pop ();
 	if (err != Success || result != Success)
 		return NULL;
 
@@ -312,7 +312,7 @@ my_wnck_get_cardinal_list (Window xwindow, Atom atom,
 	*cardinals=NULL;
 	*len=0;
 
-	my_wnck_error_trap_push();
+	devilspie2_error_trap_push();
 	type=None;
 	result=XGetWindowProperty(gdk_x11_get_default_xdisplay (),
 	                             xwindow,
@@ -321,7 +321,7 @@ my_wnck_get_cardinal_list (Window xwindow, Atom atom,
 	                             False, XA_CARDINAL, &type, &format, &nitems,
 	                             &bytes_after, (void*)&nums);
 
-	err=my_wnck_error_trap_pop();
+	err=devilspie2_error_trap_pop();
 
 	if ((err!=Success) || (result!=Success))
 		return FALSE;
@@ -354,7 +354,7 @@ glong my_wnck_get_cardinal(Window xwindow, Atom atom)
 	glong data;
 	int err,result;
 
-	my_wnck_error_trap_push();
+	devilspie2_error_trap_push();
 	type=None;
 	result=XGetWindowProperty(gdk_x11_get_default_xdisplay(),
 	                          xwindow,
@@ -366,7 +366,7 @@ glong my_wnck_get_cardinal(Window xwindow, Atom atom)
 	if (result!=Success)
 		return -1;
 
-	err=my_wnck_error_trap_pop();
+	err=devilspie2_error_trap_pop();
 	if (err!=Success)
 		return -1;
 

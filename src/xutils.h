@@ -33,8 +33,8 @@ void my_wnck_change_state(Screen *screen,
 
 Screen* my_wnck_window_get_xscreen(WnckWindow *window);
 
-void my_wnck_error_trap_push();
-int my_wnck_error_trap_pop();
+void devilspie2_error_trap_push();
+int devilspie2_error_trap_pop();
 
 gboolean decorate_window(WnckWindow *window);
 gboolean undecorate_window(WnckWindow *window);

@@ -335,13 +335,13 @@ int c_set_window_size(lua_State *lua)
 
 		if (window) {
 
-			my_wnck_error_trap_push();
+			devilspie2_error_trap_push();
 			wnck_window_set_geometry(window,
 				WNCK_WINDOW_GRAVITY_CURRENT,
 				WNCK_WINDOW_CHANGE_WIDTH + WNCK_WINDOW_CHANGE_HEIGHT,
 				-1,-1,x,y);
 
-			if (my_wnck_error_trap_pop()) {
+			if (devilspie2_error_trap_pop()) {
 				gchar *temperror=
 					g_strdup_printf("set_window_size: %s",failed_string);
 				g_printerr("%s",temperror);
@@ -1542,12 +1542,12 @@ int c_set_viewport(lua_State *lua)
 
 	x=((num-1) * wnck_screen_get_width(screen)) - viewport_start + x;
 
-	my_wnck_error_trap_push();
+	devilspie2_error_trap_push();
 	XMoveResizeWindow(gdk_x11_get_default_xdisplay(),
 	                  wnck_window_get_xid(window),
 	                  x,y,width,height);
 
-	if (my_wnck_error_trap_pop()) {
+	if (devilspie2_error_trap_pop()) {
 		g_printerr("set_viewport: %s",setting_viewport_failed_error);
 		lua_pushboolean(lua,FALSE);
 		return 1;
@@ -1604,12 +1604,12 @@ int c_center(lua_State *lua)
 	xoffset = (workspace_width - window_width) / 2;
 	yoffset = (workspace_height - window_height) / 2;
 
-	my_wnck_error_trap_push();
+	devilspie2_error_trap_push();
 	XMoveWindow (gdk_x11_get_default_xdisplay(),
 	             wnck_window_get_xid(window),
 	             xoffset, yoffset);
 
-	if (my_wnck_error_trap_pop()) {
+	if (devilspie2_error_trap_pop()) {
 		g_printerr("center: %s",failed_string);
 		lua_pushboolean(lua,FALSE);
 		return 1;
