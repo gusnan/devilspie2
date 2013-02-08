@@ -85,7 +85,7 @@ Atom my_wnck_atom_get(const char *atom_name)
 /**
  *
  */
-void my_wnck_change_state(Screen *screen, Window xwindow,
+void devilspie2_change_state(Screen *screen, Window xwindow,
 							gboolean add,
 							Atom     state1,
 							Atom     state2)
@@ -167,7 +167,7 @@ static void set_decorations(Window xid /*WnckWindow *window*/, gboolean decorate
 	
 	/* Apart from OpenBox, which doesn't respect it changing after mapping.
 	  Instead it has this workaround. */
-	my_wnck_change_state (attrs.screen,
+	devilspie2_change_state (attrs.screen,
 								xid /*wnck_window_get_xid(window)*/, !decorate,
 								my_wnck_atom_get ("_OB_WM_STATE_UNDECORATED"), 0);
 
