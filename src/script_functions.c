@@ -1649,9 +1649,10 @@ int c_set_opacity(lua_State *lua)
 	double value=(double)lua_tonumber(lua,1);
 
 	WnckWindow *window=get_current_window();
+	gulong xid = wnck_window_get_xid(window);
 
 	if (window)
-		my_window_set_opacity(window, value);
+		my_window_set_opacity(xid, value);
 
 	return 0;
 }

@@ -477,7 +477,7 @@ void my_window_set_window_type(WnckWindow *window, gchar *window_type)
 /**
  *
  */
-void my_window_set_opacity(WnckWindow *window, double value)
+void my_window_set_opacity(Window xid, double value)
 {
 	Display *display = gdk_x11_get_default_xdisplay();
 
@@ -485,7 +485,7 @@ void my_window_set_opacity(WnckWindow *window, double value)
 	Atom atom_net_wm_opacity = XInternAtom(display, "_NET_WM_WINDOW_OPACITY", False);
 
 
-	XChangeProperty(gdk_x11_get_default_xdisplay(), wnck_window_get_xid(window),
+	XChangeProperty(gdk_x11_get_default_xdisplay(), xid,
 						atom_net_wm_opacity, XA_CARDINAL, 32,
 						PropModeReplace, (unsigned char *) &opacity, 1L);
 
