@@ -604,8 +604,10 @@ int c_undecorate_window(lua_State *lua)
 
 		if (window) {
 			if (!devilspie2_emulate) {
+				
+				gulong xid = wnck_window_get_xid(window);
 
-				if (!undecorate_window(window)) {
+				if (!undecorate_window(xid)) {
 					result=FALSE;
 				}
 			}
@@ -637,7 +639,10 @@ int c_decorate_window(lua_State *lua)
 		if (window) {
 
 			if (!devilspie2_emulate) {
-				if (!decorate_window(window)) {
+				
+				gulong xid = wnck_window_get_xid(window);
+				
+				if (!decorate_window(xid)) {
 					result=FALSE;
 				}
 			}

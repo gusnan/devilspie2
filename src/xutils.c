@@ -137,7 +137,7 @@ int devilspie2_error_trap_pop()
 /**
  *
  */
-static void set_decorations(WnckWindow *window, gboolean decorate)
+static void set_decorations(Window xid /*WnckWindow *window*/, gboolean decorate)
 {
 #define PROP_MOTIF_WM_HINTS_ELEMENTS 5
 #define MWM_HINTS_DECORATIONS (1L << 1)
@@ -153,15 +153,22 @@ static void set_decorations(WnckWindow *window, gboolean decorate)
 	hints.decorations = decorate ? 1 : 0;
 
 	/* Set Motif hints, most window managers handle these */
-	XChangeProperty(gdk_x11_get_default_xdisplay(), wnck_window_get_xid (window),
+	XChangeProperty(gdk_x11_get_default_xdisplay(), xid /*wnck_window_get_xid (window)*/,
 						my_wnck_atom_get ("_MOTIF_WM_HINTS"),
 						my_wnck_atom_get ("_MOTIF_WM_HINTS"), 32, PropModeReplace,
 						(unsigned char *)&hints, PROP_MOTIF_WM_HINTS_ELEMENTS);
 
+	
+	   //Window   xid;
+   XWindowAttributes attrs;
+
+   //xid = wnck_window_get_xid (window);
+   XGetWindowAttributes(gdk_x11_get_default_xdisplay(), xid, &attrs);
+	
 	/* Apart from OpenBox, which doesn't respect it changing after mapping.
 	  Instead it has this workaround. */
-	my_wnck_change_state (my_wnck_window_get_xscreen(window),
-								wnck_window_get_xid(window), !decorate,
+	my_wnck_change_state (attrs.screen,
+								xid /*wnck_window_get_xid(window)*/, !decorate,
 								my_wnck_atom_get ("_OB_WM_STATE_UNDECORATED"), 0);
 
 }
@@ -170,11 +177,11 @@ static void set_decorations(WnckWindow *window, gboolean decorate)
 /**
  *
  */
-gboolean decorate_window(WnckWindow *window)
+gboolean decorate_window(Window xid)
 {
 	devilspie2_error_trap_push();
 
-	set_decorations(window,TRUE);
+	set_decorations(xid, TRUE);
 
 	if (devilspie2_error_trap_pop()) {
 		g_printerr("decorate_window %s\n",_("Failed!"));
@@ -188,11 +195,11 @@ gboolean decorate_window(WnckWindow *window)
 /**
  *
  */
-gboolean undecorate_window(WnckWindow *window)
+gboolean undecorate_window(Window xid)
 {
 	devilspie2_error_trap_push();
 
-	set_decorations(window,FALSE);
+	set_decorations(xid, FALSE);
 
 	if (devilspie2_error_trap_pop()) {
 		g_printerr("decorate_window %s\n", _("Failed!"));

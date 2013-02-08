@@ -36,8 +36,8 @@ Screen* my_wnck_window_get_xscreen(WnckWindow *window);
 void devilspie2_error_trap_push();
 int devilspie2_error_trap_pop();
 
-gboolean decorate_window(WnckWindow *window);
-gboolean undecorate_window(WnckWindow *window);
+gboolean decorate_window(Window xid);
+gboolean undecorate_window(Window xid);
 
 char* my_wnck_get_string_property_latin1 (Window xwindow, Atom atom);
 
