@@ -415,7 +415,7 @@ int my_wnck_get_viewport_start(WnckWindow *win)
 /**
  *
  */
-void my_window_set_window_type(WnckWindow *window, gchar *window_type)
+void my_window_set_window_type(Window xid, gchar *window_type)
 {
 	Display *display = gdk_x11_get_default_xdisplay();
 
@@ -466,7 +466,7 @@ void my_window_set_window_type(WnckWindow *window, gchar *window_type)
 
 	atoms[0]=XInternAtom(display, type, False);
 
-	XChangeProperty(gdk_x11_get_default_xdisplay(), wnck_window_get_xid(window),
+	XChangeProperty(gdk_x11_get_default_xdisplay(), xid,
 						XInternAtom(display, "_NET_WM_WINDOW_TYPE", False), XA_ATOM, 32,
 						PropModeReplace, (unsigned char *) &atoms, 1);
 

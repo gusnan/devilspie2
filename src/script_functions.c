@@ -1680,8 +1680,10 @@ int c_set_window_type(lua_State *lua)
 
 	WnckWindow *window=get_current_window();
 	
-	if (window)
-		my_window_set_window_type(window, indata);
+	if (window) {
+		gulong xid = wnck_window_get_xid(window);
+		my_window_set_window_type(xid, indata);
+	}
 
 	return 0;
 }
