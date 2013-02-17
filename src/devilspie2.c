@@ -209,14 +209,16 @@ void print_script_lists()
 
 	// If we are running debug mode - print the list of files:
 	if (debug) {
-		printf(_("List of LUA files handling \"%s\" events in folder:"), "window_open");
+		printf(_("List of LUA files handling \"%s\" events in folder:"),
+			"window_open");
 		printf("\n");
 		if (file_window_open_list)
 			print_list(file_window_open_list);
 	}
 
 	if (debug) {
-		printf(_("List of LUA files handling \"%s\" events in folder:"), "window_close");
+		printf(_("List of LUA files handling \"%s\" events in folder:"),
+			"window_close");
 		printf("\n");
 		if (file_window_close_list)
 			print_list(file_window_close_list);
@@ -418,7 +420,8 @@ int main(int argc, char *argv[])
 		return EXIT_FAILURE;
 	}
 	
-	g_signal_connect(mon, "changed", G_CALLBACK(folder_changed_callback), (gpointer)(config_filename));
+	g_signal_connect(mon, "changed", G_CALLBACK(folder_changed_callback), 
+		(gpointer)(config_filename));
 
 	global_lua_state = init_script();
 	print_script_lists();
