@@ -2,6 +2,10 @@
 ChangeLog:
 ----------
 
+0.29
+	* Add finnish translation
+	* Add examples to get_window_geometry and get_window_client_geometry
+
 0.28
 	* Make get workspace error string consistent with other past-tense strings
 	* wnck_class_group_get_res_class is deprecated, use wnck_class_group_get_id 
