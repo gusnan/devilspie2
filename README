@@ -113,13 +113,18 @@ get_application_name()
 get_window_geometry()
 
    Returns the window geometry as four numbers - x-position, y-position,
-   width and height. (from version 0.16)
+   width and height. (from version 0.16) - for example you can do something
+	like this:
+
+	x, y, width, height = get_window_geometry();
+	print("X: "..x..", Y: "..y..", width: "..width..", height: "..height);
 
 
 get_window_client_geometry()
 
    returns the window geometry excluding the window manager borders as four
-   numbers, x-position, y-position, width and height. (from version 0.16)
+   numbers, x-position, y-position, width and height. (from version 0.16) -
+	see get_window_geometry for an example on how to use this function.
 
 
 get_window_is_maximized()
