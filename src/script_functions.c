@@ -1707,14 +1707,16 @@ int c_get_screen_geometry(lua_State *lua)
 
 	int width,height;
         WnckWindow *window=get_current_window();
+
 	if (window) {
-                WnckScreen *screen ;
-                screen = wnck_window_get_screen(window);
-                width  = wnck_screen_get_width(screen);
-                height = wnck_screen_get_height(screen);
-        }
-        lua_pushnumber(lua,width);
-        lua_pushnumber(lua,height);
+		WnckScreen *screen ;
+		screen = wnck_window_get_screen(window);
+		width  = wnck_screen_get_width(screen);
+		height = wnck_screen_get_height(screen);
+	}
+	
+	lua_pushnumber(lua,width);
+	lua_pushnumber(lua,height);
 
 	return 2;
 }
