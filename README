@@ -203,6 +203,14 @@ get_workspace_count
 
 	Return the number of workspaces available (available from version 0.27)
 
+
+get_screen_geometry
+
+	Returns the screen geometry (two numbers) for the screen of the
+	current window
+
+	
+
 and the rest of the commands are used to modify the properties of the windows:
 
 
