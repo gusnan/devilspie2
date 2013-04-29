@@ -1706,10 +1706,10 @@ int c_get_screen_geometry(lua_State *lua)
 	}
 
 	int width,height;
-        WnckWindow *window=get_current_window();
+	WnckWindow *window=get_current_window();
 
 	if (window) {
-		WnckScreen *screen ;
+		WnckScreen *screen;
 		screen = wnck_window_get_screen(window);
 		width  = wnck_screen_get_width(screen);
 		height = wnck_screen_get_height(screen);
