@@ -1691,3 +1691,31 @@ int c_set_window_type(lua_State *lua)
 
 	return 0;
 }
+
+
+/**
+ * return the geometry of the screen  to the LUA script
+ */
+int c_get_screen_geometry(lua_State *lua)
+{
+	int top=lua_gettop(lua);
+
+	if (top!=0) {
+		luaL_error(lua,"get_screen_geometry: %s",no_indata_expected_error);
+		return 0;
+	}
+
+	int width,height;
+        WnckWindow *window=get_current_window();
+	if (window) {
+                WnckScreen *screen ;
+                screen = wnck_window_get_screen(window);
+                width  = wnck_screen_get_width(screen);
+                height = wnck_screen_get_height(screen);
+        }
+        lua_pushnumber(lua,width);
+        lua_pushnumber(lua,height);
+
+	return 2;
+}
+
