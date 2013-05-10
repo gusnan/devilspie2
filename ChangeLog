@@ -4,6 +4,7 @@ ChangeLog:
 
 0.29
 	* Add finnish translation
+	* Updated dutch translation
 	* Add examples to get_window_geometry and get_window_client_geometry
 	* Add get_screen_geometry function (Thanks to Ronan Barzic)
 
