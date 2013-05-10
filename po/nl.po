@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: devilspie2 0.16\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
 "POT-Creation-Date: 2013-02-07 14:18+0100\n"
-"PO-Revision-Date: 2013-02-08 22:57+0100\n"
+"PO-Revision-Date: 2013-05-10 12:50+0100\n"
 "Last-Translator: Frans de Jonge <fransdejonge@gmail.com>\n"
 "Language-Team: Dutch\n"
 "Language: nl\n"
@@ -119,9 +119,8 @@ msgid "Workspace number %d does not exist!"
 msgstr "Werkruimte nummer %d bestaat niet!"
 
 #: script_functions.c:1596
-#, fuzzy
 msgid "Could not get workspace"
-msgstr "Kon werkruimte niet achterhalen."
+msgstr "Kon werkruimte niet verkrijgen."
 
 #: xutils.c:180
 #: xutils.c:198
