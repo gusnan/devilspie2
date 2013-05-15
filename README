@@ -207,7 +207,7 @@ get_workspace_count
 get_screen_geometry
 
 	Returns the screen geometry (two numbers) for the screen of the
-	current window
+	current window (available from version 0.29)
 
 	
 
