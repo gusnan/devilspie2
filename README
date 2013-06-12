@@ -385,11 +385,13 @@ center()
    (Available from version 0.26)
 
 
+set_opacity(value)
 set_window_opacity(value)
 
 	Sets the window opacity, takes a float value, 1.0 = completely opaque, 
-	0.0, completely see-through.
-	(Available from version 0.28)
+	0.0, completely see-through. Both set_opacity and set_window_opacity
+	will do the same thing.
+	(Available from version 0.28, set_window_opacity from 0.29)
 
 
 set_window_type(type)

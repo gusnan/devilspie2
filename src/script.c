@@ -150,6 +150,8 @@ register_cfunctions(lua_State *lua)
 	lua_register(lua, "center", c_center);
 	
 	lua_register(lua, "set_opacity", c_set_opacity);
+	lua_register(lua, "set_window_opacity", c_set_opacity);
+
 	lua_register(lua, "set_window_type", c_set_window_type);
 
 	lua_register(lua, "get_screen_geometry", c_get_screen_geometry);
