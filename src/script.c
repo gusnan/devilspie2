@@ -101,6 +101,7 @@ register_cfunctions(lua_State *lua)
 
 	lua_register(lua, "maximize", c_maximize_window);
 	lua_register(lua, "maximize_horisontally", c_maximize_window_horisontally);
+	lua_register(lua, "maximize_horizontally", c_maximize_window_horisontally);
 	lua_register(lua, "maximize_vertically", c_maximize_window_vertically);
 	lua_register(lua, "unmaximize", c_unmaximize_window);
 
@@ -131,6 +132,8 @@ register_cfunctions(lua_State *lua)
 		c_get_window_is_maximized_vertically);
 
 	lua_register(lua, "get_window_is_maximized_horisontally",
+		c_get_window_is_maximized_horisontally);
+	lua_register(lua, "get_window_is_maximized_horizontally",
 		c_get_window_is_maximized_horisontally);
 
 	lua_register(lua, "set_window_below", c_set_window_below);
