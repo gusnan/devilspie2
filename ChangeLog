@@ -5,6 +5,10 @@ ChangeLog:
 0.30
 	* Update French translation
 	* Add function set_window_opacity to do the same as set_opacity
+	* Add maximize_horizontally with same functionality as 
+	  maximize_horisontally
+	* Add get_window_is_maximized_horizontally with same functionality as
+	  get_window_is_maximized_horisontally
 
 0.29
 	* Add finnish translation
