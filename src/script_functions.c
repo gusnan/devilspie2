@@ -168,7 +168,8 @@ int c_set_window_geometry(lua_State *lua)
 			if (x < 0)
 				x = sw + x;
 			if (y < 0)
-				y = sh + y;			
+				y = sh + y;
+
 			wnck_window_set_geometry(window,
 			                         gravity,
 			                         WNCK_WINDOW_CHANGE_X +
