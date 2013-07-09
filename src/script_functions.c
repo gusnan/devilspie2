@@ -1722,3 +1722,38 @@ int c_get_screen_geometry(lua_State *lua)
 	return 2;
 }
 
+
+/**
+ *
+ */
+int c_focus(lua_State *lua)
+{
+	int top = lua_gettop(lua);
+	if (top!=0) {
+		luaL_error(lua, "focus: %s", no_indata_expected_error);
+		return 0;
+	}
+	
+	WnckWindow *window = get_current_window();
+	
+	if (window) {
+		wnck_window_activate(window, GDK_CURRENT_TIME);
+	}
+	
+	return 0;
+}
+
+
+
+/*
+ * Devilspie:
+
+ * Focus the current window.
+
+ESExpResult *func_focus(ESExp *f, int argc, ESExpResult **argv, Context *c) {
+  wnck_window_activate (c->window, GDK_CURRENT_TIME);
+  if (debug) g_printerr (_("Focusing\n"));
+  return e_sexp_result_new_bool (f, TRUE);
+}
+
+*/

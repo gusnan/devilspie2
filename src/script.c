@@ -164,6 +164,9 @@ register_cfunctions(lua_State *lua)
 	lua_register(lua, "get_class_instance_name",c_get_class_instance_name);
 #endif
 
+	lua_register(lua, "focus", c_focus);
+	lua_register(lua, "focus_window", c_focus);
+
 }
 
 
