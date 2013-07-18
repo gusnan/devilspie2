@@ -40,7 +40,7 @@ msgstr "Nenhum arquivo de script encontrado no diretório de scripts - saindo."
 #: devilspie2.c:212 devilspie2.c:219
 #, fuzzy, c-format
 msgid "List of LUA files handling \"%s\" events in folder:"
-msgstr "Lista de arquivos LUA no diretório:"
+msgstr "Lista de arquivos LUA de manipulação de eventos \"%s\" no diretório:"
 
 #: devilspie2.c:284
 msgid "Print debug info to stdout"
