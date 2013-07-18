@@ -10,6 +10,7 @@ ChangeLog:
 	* Add get_window_is_maximized_horizontally with same functionality as
 	  get_window_is_maximized_horisontally
 	* Add focus and focus_window functions
+	* Updated Brasilian-Portugese translation
 
 0.29
 	* Add finnish translation
