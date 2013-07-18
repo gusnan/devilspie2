@@ -1,5 +1,4 @@
 
-
 Devilspie 2
 -----------
 
@@ -421,8 +420,8 @@ set_window_type(type)
 
 	(Function is available from version 0.28)
 	
-focus
-focus_window
+focus()
+focus_window()
 
 	Focuses the current window. (Function is available from version 0.30)
 
