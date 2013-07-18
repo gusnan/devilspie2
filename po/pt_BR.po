@@ -38,7 +38,7 @@ msgid "No script files found in the script folder - exiting."
 msgstr "Nenhum arquivo de script encontrado no diretório de scripts - saindo."
 
 #: devilspie2.c:212 devilspie2.c:219
-#, fuzzy, c-format
+#, c-format
 msgid "List of LUA files handling \"%s\" events in folder:"
 msgstr "Lista de arquivos LUA de manipulação de eventos \"%s\" no diretório:"
 
@@ -106,9 +106,9 @@ msgid "Using scripts from folder: %s"
 msgstr "Usando scripts do diretório: %s"
 
 #: devilspie2.c:416
-#, fuzzy, c-format
+#, c-format
 msgid "Couldn't create directory monitor!"
-msgstr "Não pode alocar string de erro!"
+msgstr "Não pode criar o monitor de diretório"
 
 #: script_functions.c:686 script_functions.c:732
 #, c-format
