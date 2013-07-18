@@ -420,6 +420,11 @@ set_window_type(type)
 	"WINDOW_TYPE_NORMAL"
 
 	(Function is available from version 0.28)
+	
+focus
+focus_window
+
+	Focuses the current window. (Function is available from version 0.30)
 
 Please note that strings comparisons are case sensitive, comparing
 "SomeProgram" with "someprogram" will not report equality.
