@@ -119,6 +119,8 @@ register_cfunctions(lua_State *lua)
 	lua_register(lua, "unpin_window", c_unpin_window);
 	lua_register(lua, "stick_window", c_stick_window);
 	lua_register(lua, "unstick_window", c_unstick_window);
+	
+	lua_register(lua, "close_window", c_close_window);
 
 	lua_register(lua, "get_window_geometry", c_get_window_geometry);
 	lua_register(lua, "get_window_client_geometry", c_get_client_window_geometry);

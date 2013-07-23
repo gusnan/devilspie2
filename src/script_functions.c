@@ -1744,6 +1744,25 @@ int c_focus(lua_State *lua)
 }
 
 
+/**
+ *
+ */
+int c_close_window(lua_State *lua)
+{
+	int top = lua_gettop(lua);
+	if (top!=0) {
+		luaL_error(lua, "close_window: %s", no_indata_expected_error);
+		return 0;
+	}
+	
+	WnckWindow *window = get_current_window();
+	if (window) {
+		wnck_window_close(window, GDK_CURRENT_TIME);
+	}
+	
+	return 0;
+}
+
 
 /*
  * Devilspie:

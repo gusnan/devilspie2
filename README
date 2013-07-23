@@ -308,6 +308,11 @@ decorate_window()
 undecorate_window()
 
    Removes all window decorations.
+	
+
+close_window()
+
+	Closes the window. (Available from 0.31)
 
 
 set_window_workspace(number)

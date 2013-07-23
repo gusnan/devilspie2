@@ -65,6 +65,8 @@ int c_unpin_window(lua_State *lua);
 int c_stick_window(lua_State *lua);
 int c_unstick_window(lua_State *lua);
 
+int c_close_window(lua_State *lua);
+
 void set_current_window(WnckWindow *window);
 WnckWindow *get_current_window();
 
