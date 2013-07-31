@@ -145,9 +145,9 @@ void devilspie_exit()
 	clear_file_lists();
 
 	if (temp_folder != NULL) g_free(temp_folder);
-	
+
 	if (mon) g_object_unref(mon);
-	
+
 	if (config_filename) g_free(config_filename);
 }
 
@@ -178,10 +178,10 @@ void print_list(GSList *list)
 	GSList *temp_list;
 	if (list != NULL) {
 		temp_list = list;
-		
+
 		while(temp_list) {
 			gchar *file_name = temp_list->data;
-			
+
 			if (file_name) {
 				if (g_str_has_suffix((gchar*)file_name, ".lua")) {
 					printf("%s\n", (gchar*)file_name);
@@ -229,16 +229,16 @@ void print_script_lists()
 /**
  *
  */
-void folder_changed_callback(GFileMonitor *mon, 
+void folder_changed_callback(GFileMonitor *mon,
 										GFile *first_file,
-										GFile *second_file, 
+										GFile *second_file,
 										GFileMonitorEvent event,
 										gpointer user_data)
 {
 	gchar *our_filename = (gchar*)(user_data);
 
 	// If a file is created or deleted, we need to check the file lists again
-	if ((event == G_FILE_MONITOR_EVENT_CREATED) || 
+	if ((event == G_FILE_MONITOR_EVENT_CREATED) ||
 		 (event == G_FILE_MONITOR_EVENT_DELETED)) {
 
 		clear_file_lists();
@@ -254,12 +254,12 @@ void folder_changed_callback(GFileMonitor *mon,
 			printf("-----------\n");
 	}
 
-	// Also monitor if our devilspie2.lua file is changed - since it handles 
+	// Also monitor if our devilspie2.lua file is changed - since it handles
 	// which files are window close or window open scripts.
 	if (event == G_FILE_MONITOR_EVENT_CHANGED) {
 		if (first_file) {
 			gchar *short_filename = g_file_get_basename(first_file);
-			
+
 			if (g_strcmp0(short_filename, "devilspie2.lua")==0) {
 
 				clear_file_lists();
@@ -408,7 +408,7 @@ int main(int argc, char *argv[])
 
 	// Should we only run an emulation (don't modify any windows)
 	if (emulate) devilspie2_emulate = emulate;
-	
+
 	GFile *directory_file;
 	directory_file = g_file_new_for_path(script_folder);
 //	mon = g_file_monitor_directory(directory_file, G_FILE_MONITOR_WATCH_MOUNTS,
@@ -419,8 +419,8 @@ int main(int argc, char *argv[])
 		printf("\n");
 		return EXIT_FAILURE;
 	}
-	
-	g_signal_connect(mon, "changed", G_CALLBACK(folder_changed_callback), 
+
+	g_signal_connect(mon, "changed", G_CALLBACK(folder_changed_callback),
 		(gpointer)(config_filename));
 
 	global_lua_state = init_script();

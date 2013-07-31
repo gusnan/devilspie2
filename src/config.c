@@ -126,14 +126,14 @@ EXITPOINT:
 gboolean is_in_list(GSList *list, gchar *filename)
 {
 	gboolean result=FALSE;
-	
+
 	if (list) {
 		GSList *temp_list = list;
 
 		while (temp_list) {
 			gchar *list_filename = (gchar*)temp_list->data;
 			if (list_filename) {
-				
+
 				if (g_ascii_strcasecmp(list_filename, filename)==0) {
 					result=TRUE;
 				}
@@ -141,7 +141,7 @@ gboolean is_in_list(GSList *list, gchar *filename)
 			temp_list = temp_list->next;
 		}
 	}
-	
+
 	return result;
 }
 
@@ -153,9 +153,9 @@ gboolean is_in_list(GSList *list, gchar *filename)
 gboolean is_in_any_list(gchar *filename)
 {
 	gboolean result = FALSE;
-	
+
 	if (is_in_list(file_window_close_list, filename)) result = TRUE;
-	
+
 	return result;
 }
 
@@ -172,7 +172,7 @@ int load_config(gchar *filename)
 	int result = 0;
 	const gchar *current_file = NULL;
 	GSList *temp_window_open_file_list = NULL;
-	
+
 	// set the current window to NULL, we don't need to be able to modify
 	// the windows when reading the config
 	set_current_window(NULL);
