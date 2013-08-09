@@ -154,13 +154,13 @@ static void set_decorations(Window xid /*WnckWindow *window*/, gboolean decorate
 						my_wnck_atom_get ("_MOTIF_WM_HINTS"), 32, PropModeReplace,
 						(unsigned char *)&hints, PROP_MOTIF_WM_HINTS_ELEMENTS);
 
-	
+
 	   //Window   xid;
    XWindowAttributes attrs;
 
    //xid = wnck_window_get_xid (window);
    XGetWindowAttributes(gdk_x11_get_default_xdisplay(), xid, &attrs);
-	
+
 	/* Apart from OpenBox, which doesn't respect it changing after mapping.
 	  Instead it has this workaround. */
 	devilspie2_change_state (attrs.screen,
@@ -392,7 +392,7 @@ int devilspie2_get_viewport_start(Window xid)
 	int len;
 
 	int result=-1;
-	
+
 	my_wnck_get_cardinal_list(RootWindowOfScreen(
 										devilspie2_window_get_xscreen(xid)),
 										my_wnck_atom_get("_NET_DESKTOP_VIEWPORT"),

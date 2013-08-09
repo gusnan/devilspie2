@@ -119,7 +119,7 @@ register_cfunctions(lua_State *lua)
 	lua_register(lua, "unpin_window", c_unpin_window);
 	lua_register(lua, "stick_window", c_stick_window);
 	lua_register(lua, "unstick_window", c_unstick_window);
-	
+
 	lua_register(lua, "close_window", c_close_window);
 
 	lua_register(lua, "get_window_geometry", c_get_window_geometry);
@@ -153,7 +153,7 @@ register_cfunctions(lua_State *lua)
 	lua_register(lua, "set_viewport", c_set_viewport);
 
 	lua_register(lua, "center", c_center);
-	
+
 	lua_register(lua, "set_opacity", c_set_opacity);
 	lua_register(lua, "set_window_opacity", c_set_opacity);
 
