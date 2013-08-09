@@ -4,11 +4,12 @@ ChangeLog:
 
 0.31
 	* Add close_window function
+	* Remove unused C function my_wnck_get_cardinal
 
 0.30
 	* Update French translation
 	* Add function set_window_opacity to do the same as set_opacity
-	* Add maximize_horizontally with same functionality as 
+	* Add maximize_horizontally with same functionality as
 	  maximize_horisontally
 	* Add get_window_is_maximized_horizontally with same functionality as
 	  get_window_is_maximized_horisontally
@@ -23,7 +24,7 @@ ChangeLog:
 
 0.28
 	* Make get workspace error string consistent with other past-tense strings
-	* wnck_class_group_get_res_class is deprecated, use wnck_class_group_get_id 
+	* wnck_class_group_get_res_class is deprecated, use wnck_class_group_get_id
 	  instead on wnck versions it isn't available
 	* Make 'relative window positioning' possible, allowing negative values to
 	  set_window_geometry
@@ -38,7 +39,7 @@ ChangeLog:
 	* Update the email contact address in the README
 	* Add get_workspace_count function - Thanks Hans Nieser!
 	* Use luaL_newstate instead of lua_open which is deprecated
-	
+
 0.26
 	* Add "center" function
 	* Register set_window_position2 under the correct name - Fixes
