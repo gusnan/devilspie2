@@ -345,47 +345,6 @@ my_wnck_get_cardinal_list (Window xwindow, Atom atom,
 /**
  *
  */
-glong my_wnck_get_cardinal(Window xwindow, Atom atom)
-{
-	Atom type;
-	int format;
-	gulong nitems;
-	gulong bytes_after;
-	gulong *nums;
-	glong data;
-	int err,result;
-
-	devilspie2_error_trap_push();
-	type=None;
-	result=XGetWindowProperty(gdk_x11_get_default_xdisplay(),
-	                          xwindow,
-	                          atom,
-	                          0, G_MAXLONG,
-	                          False, XA_CARDINAL, &type, &format, &nitems,
-	                          &bytes_after, (void*)&nums);
-
-	if (result!=Success)
-		return -1;
-
-	err=devilspie2_error_trap_pop();
-	if (err!=Success)
-		return -1;
-
-	if (type!=XA_CARDINAL) {
-		XFree(nums);
-		return -1;
-	}
-
-	data=nums[0];
-	XFree(nums);
-
-	return data;
-}
-
-
-/**
- *
- */
 int devilspie2_get_viewport_start(Window xid)
 {
 	gulong *list;

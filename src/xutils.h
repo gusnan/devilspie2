@@ -45,7 +45,6 @@ gboolean my_wnck_get_cardinal_list(Window xwindow,
 												Atom atom,
 												gulong **cardinals,
 												int *len);
-glong my_wnck_get_cardinal(Window xwindow, Atom atom);
 
 int devilspie2_get_viewport_start(Window xwindow);
 
