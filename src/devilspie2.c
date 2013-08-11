@@ -158,7 +158,7 @@ void devilspie_exit()
 static void signal_handler(int sig)
 {
 	printf("\n");
-	printf(_("Received signal:"));
+	printf("%s", _("Received signal:"));
 	printf(" %d (%s)\n", sig, strsignal(sig));
 
 	done_script_error_messages();
@@ -202,7 +202,7 @@ void print_script_lists()
 		printf("------------\n");
 
 	if ((file_window_open_list == NULL) && (file_window_close_list == NULL)) {
-		printf(_("No script files found in the script folder - exiting."));
+		printf("%s", _("No script files found in the script folder - exiting."));
 		printf("\n\n");
 		exit(EXIT_SUCCESS);
 	}
@@ -340,7 +340,7 @@ int main(int argc, char *argv[])
 
 			// - and if it doesn't, create it.
 			if (g_mkdir(temp_folder, 0700) != 0) {
-				printf(_("Couldn't create the default folder for devilspie2 scripts."));
+				printf("%s", _("Couldn't create the default folder for devilspie2 scripts."));
 				printf("\n");
 				exit(EXIT_FAILURE);
 			}
@@ -367,7 +367,7 @@ int main(int argc, char *argv[])
 
 #if (GTK_MAJOR_VERSION >= 3)
 	if (!GDK_IS_X11_DISPLAY(gdk_display_get_default())) {
-		printf(_("An X11 display is required for devilspie2."));
+		printf("%s", _("An X11 display is required for devilspie2."));
 		printf("\n\n");
 		return EXIT_FAILURE;
 	}
@@ -375,7 +375,7 @@ int main(int argc, char *argv[])
 #endif
 
 	if (init_script_error_messages()!=0) {
-		printf(_("Couldn't init script error messages!"));
+		printf("%s", _("Couldn't init script error messages!"));
 		printf("\n");
 		exit(EXIT_FAILURE);
 	}
@@ -392,9 +392,9 @@ int main(int argc, char *argv[])
 	if (debug) {
 
 		if (emulate) {
-			printf(_("Running devilspie2 in debug and emulate mode."));
+			printf("%s", _("Running devilspie2 in debug and emulate mode."));
 		} else {
-			printf(_("Running devilspie2 in debug mode."));
+			printf("%s", _("Running devilspie2 in debug mode."));
 		}
 
 		printf("\n\n");
@@ -415,7 +415,7 @@ int main(int argc, char *argv[])
 	mon = g_file_monitor_directory(directory_file, G_FILE_MONITOR_NONE,
 												NULL, NULL);
 	if (!mon) {
-		printf(_("Couldn't create directory monitor!"));
+		printf("%s", _("Couldn't create directory monitor!"));
 		printf("\n");
 		return EXIT_FAILURE;
 	}

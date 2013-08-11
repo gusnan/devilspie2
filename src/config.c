@@ -185,7 +185,7 @@ int load_config(gchar *filename)
 	GDir *dir = g_dir_open(script_folder, 0, NULL);
 	if (!g_file_test(script_folder, G_FILE_TEST_IS_DIR)) {
 
-		printf(_("script_folder isn't a folder."));
+		printf("%s", _("script_folder isn't a folder."));
 		printf("\n");
 		return -1;
 	}

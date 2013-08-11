@@ -50,28 +50,28 @@ int init_script_error_messages()
 
 	no_indata_expected_error=g_strdup_printf(_("No indata expected"));
 	if (!no_indata_expected_error) {
-		printf(ALLOCATE_ERROR_STRING);
+		printf("%s", ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
 
 	one_indata_expected_error=g_strdup_printf(_("One indata expected"));
 	if (!one_indata_expected_error) {
-		printf(ALLOCATE_ERROR_STRING);
+		printf("%s", ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
 
 	two_indata_expected_error=g_strdup_printf(_("Two indata expected"));
 	if (!two_indata_expected_error) {
-		printf(ALLOCATE_ERROR_STRING);
+		printf("%s", ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
 
 	four_indata_expected_error=g_strdup_printf(_("Four indata expected"));
 	if (!four_indata_expected_error) {
-		printf(ALLOCATE_ERROR_STRING);
+		printf("%s", ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
@@ -79,7 +79,7 @@ int init_script_error_messages()
 	number_expected_as_indata_error=
 		g_strdup_printf(_("Number expected as indata"));
 	if (!number_expected_as_indata_error) {
-		printf(ALLOCATE_ERROR_STRING);
+		printf("%s", ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
@@ -87,7 +87,7 @@ int init_script_error_messages()
 	boolean_expected_as_indata_error=
 		g_strdup_printf(_("Boolean expected as indata"));
 	if (!boolean_expected_as_indata_error) {
-		printf(ALLOCATE_ERROR_STRING);
+		printf("%s", ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
@@ -95,7 +95,7 @@ int init_script_error_messages()
 	string_expected_as_indata_error=
 		g_strdup_printf(_("String expected as indata"));
 	if (!string_expected_as_indata_error) {
-		printf(ALLOCATE_ERROR_STRING);
+		printf("%s", ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
@@ -103,7 +103,7 @@ int init_script_error_messages()
 	integer_greater_than_zero_expected_error=
 		g_strdup_printf(_("Integer greater than zero expected"));
 	if (!integer_greater_than_zero_expected_error) {
-		printf(ALLOCATE_ERROR_STRING);
+		printf("%s", ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
@@ -111,7 +111,7 @@ int init_script_error_messages()
 	could_not_find_current_viewport_error=
 		g_strdup_printf(_("Could not find current viewport"));
 	if (!could_not_find_current_viewport_error) {
-		printf(ALLOCATE_ERROR_STRING);
+		printf("%s", ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
@@ -119,14 +119,14 @@ int init_script_error_messages()
 	setting_viewport_failed_error=
 		g_strdup_printf(_("Setting viewport failed"));
 	if (!setting_viewport_failed_error) {
-		printf(ALLOCATE_ERROR_STRING);
+		printf("%s", ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
 
 	failed_string=g_strdup_printf(_("Failed!"));
 	if (!failed_string) {
-		printf(ALLOCATE_ERROR_STRING);
+		printf("%s", ALLOCATE_ERROR_STRING);
 		printf("\n");
 		return -1;
 	}
