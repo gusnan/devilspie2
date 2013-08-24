@@ -14,3 +14,4 @@ po/*.mo
 po/sv_SE.po~
 src/#*
 src/gitversion.c
+sciteprojrc.lua
