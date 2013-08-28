@@ -1,0 +1,170 @@
+# Japanese translations for devilspie2 package
+# devilspie2 パッケージに対する英訳.
+# Copyright (C) 2013 THE devilspie2'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the devilspie2 package.
+# Hiroshi Hasebe <hhasebe@dvoi.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: devilspie2 0.28pre\n"
+"Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
+"POT-Creation-Date: 2013-02-07 14:18+0100\n"
+"PO-Revision-Date: 2013-08-28 12:34+0900\n"
+"Last-Translator: Hiroshi Hasebe <hhasebe@dvoi.com>\n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Gtranslator 2.91.6\n"
+
+#: config.c:188
+#, c-format
+msgid "script_folder isn't a folder."
+msgstr "script_folderがフォルダに非ず"
+
+#: config.c:200 script.c:216
+#, c-format
+msgid "Error: %s"
+msgstr "エラー: %s"
+
+#: devilspie2.c:161
+#, c-format
+msgid "Received signal:"
+msgstr "シグナルを検出:"
+
+#: devilspie2.c:205
+#, c-format
+msgid "No script files found in the script folder - exiting."
+msgstr "script_folderにスクリプトが存在せず - 終了."
+
+#: devilspie2.c:212 devilspie2.c:219
+#, c-format
+msgid "List of LUA files handling \"%s\" events in folder:"
+msgstr "イベント \"%s\" を担当するLUAファイルの一覧:"
+
+#: devilspie2.c:284
+msgid "Print debug info to stdout"
+msgstr "標準出力にデバッグ情報を書き出す"
+
+#: devilspie2.c:286
+msgid "Don't apply any rules, only emulate execution"
+msgstr "ルールを適用せず, エミュレーションを行う"
+
+#: devilspie2.c:288
+msgid "Search for scripts in this folder"
+msgstr "スクリプト収容先フォルダ"
+
+#: devilspie2.c:288
+msgid "FOLDER"
+msgstr "FOLDER"
+
+#: devilspie2.c:290
+msgid "Show Devilspie2 version and quit"
+msgstr "Devilspie2のバージョン情報を表示して終了"
+
+#: devilspie2.c:295
+msgid "Show libwnck version and quit"
+msgstr "libwnckのバージョンを表示して終了"
+
+#: devilspie2.c:313
+msgid "apply rules on windows"
+msgstr "ウィンドウにルールを適用"
+
+#: devilspie2.c:320
+#, c-format
+msgid "option parsing failed: %s"
+msgstr "引数の解釈に失敗: %s"
+
+#: devilspie2.c:341
+#, c-format
+msgid "Couldn't create the default folder for devilspie2 scripts."
+msgstr "デフォルトのスクリプト・フォルダの作成に失敗"
+
+#: devilspie2.c:368
+#, c-format
+msgid "An X11 display is required for devilspie2."
+msgstr "Devilspie2の実行にはX11環境を要する"
+
+#: devilspie2.c:376
+#, c-format
+msgid "Couldn't init script error messages!"
+msgstr "スクリプト・エラー・メッセージの初期化に失敗"
+
+#: devilspie2.c:393
+#, c-format
+msgid "Running devilspie2 in debug and emulate mode."
+msgstr "devilspie2をデバック + エミュレーション・モードで実行中"
+
+#: devilspie2.c:395
+#, c-format
+msgid "Running devilspie2 in debug mode."
+msgstr "devilspie2をデバッグ・モードで実行中"
+
+#: devilspie2.c:400
+#, c-format
+msgid "Using scripts from folder: %s"
+msgstr "スクリプト・フォルダ \"%s\" を使用中"
+
+#: devilspie2.c:416
+#, c-format
+msgid "Couldn't create directory monitor!"
+msgstr "ディレクトリ・モニタの作成に失敗!"
+
+#: script_functions.c:686 script_functions.c:732
+#, c-format
+msgid "Workspace number %d does not exist!"
+msgstr "%d番のワークスペースが存在せず"
+
+#: script_functions.c:1596
+msgid "Could not get workspace"
+msgstr "ワークスペースの取得に失敗"
+
+#: xutils.c:180 xutils.c:198 error_strings.c:127
+msgid "Failed!"
+msgstr "処理に失敗!"
+
+#: error_strings.c:49
+msgid "Couldn't allocate error string!"
+msgstr "エラー文字列の割当に失敗!"
+
+#: error_strings.c:51
+msgid "No indata expected"
+msgstr "引数は不要"
+
+#: error_strings.c:58
+msgid "One indata expected"
+msgstr "引数1件を要する"
+
+#: error_strings.c:65
+msgid "Two indata expected"
+msgstr "引数が2つ必要"
+
+#: error_strings.c:72
+msgid "Four indata expected"
+msgstr "引数が4つ必要"
+
+#: error_strings.c:80
+msgid "Number expected as indata"
+msgstr "数値の引数が必要"
+
+#: error_strings.c:88
+msgid "Boolean expected as indata"
+msgstr "ブール型の引数が必要"
+
+#: error_strings.c:96
+msgid "String expected as indata"
+msgstr "文字列型の引数が必要"
+
+#: error_strings.c:104
+msgid "Integer greater than zero expected"
+msgstr "引数にはゼロより大きな整数が必要"
+
+#: error_strings.c:112
+msgid "Could not find current viewport"
+msgstr "カレント・ビューポートの検出に失敗"
+
+#: error_strings.c:120
+msgid "Setting viewport failed"
+msgstr "ビューポートの設定に失敗"

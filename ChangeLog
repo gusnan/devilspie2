@@ -6,6 +6,7 @@ ChangeLog:
 	* Add close_window function
 	* Remove unused C function my_wnck_get_cardinal
 	* Fix string problems reported by pscan
+	* Added Japanese translation
 
 0.30
 	* Update French translation
