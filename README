@@ -38,7 +38,7 @@ by the --folder option. By default this folder is ~/.config/devilspie2/.
 
 If there is a file named devilspie2.lua in this folder, it is read and it is
 searched for a variable (a lua table of strings) named scripts_window_close -
-The filenames in the strings in the this table will be called when windows are
+The filenames in the strings in this table will be called when windows are 
 closed. If these variables isn't present in this file, it will be called as a
 devilspie2 script file like any other.
 
