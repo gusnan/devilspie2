@@ -84,6 +84,7 @@ register_cfunctions(lua_State *lua)
 	lua_register(lua, "set_window_position", c_set_window_position);
 	lua_register(lua, "set_window_position2", c_set_window_position2);
 	lua_register(lua, "set_window_size", c_set_window_size);
+	lua_register(lua, "set_window_strut", c_set_window_strut);
 
 	lua_register(lua, "set_window_geometry", c_set_window_geometry);
 	lua_register(lua, "set_window_geometry2", c_set_window_geometry2);

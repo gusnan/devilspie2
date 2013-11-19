@@ -355,6 +355,42 @@ int c_set_window_size(lua_State *lua)
 	return 0;
 }
 
+/**
+ * Sets the window strut
+ */
+int c_set_window_strut(lua_State *lua)
+{
+	int top = lua_gettop(lua);
+
+	if (top < 4) {
+		luaL_error(lua,"set_window_strut: %s", four_indata_expected_error);
+		return 0;
+	}
+
+	if (!devilspie2_emulate) {
+		int64_t struts[12];
+		int i;
+		for (i = 0; i < 12; i++) {
+			struts[i] = i < top ? lua_tonumber(lua, i + 1) : 0;
+		}
+
+		Display *dpy = gdk_x11_get_default_xdisplay();
+		WnckWindow *window = get_current_window();
+
+		if (window) {
+			XChangeProperty(dpy,
+							wnck_window_get_xid(window),
+							XInternAtom(dpy, "_NET_WM_STRUT_PARTIAL", False), XA_CARDINAL,
+							32,
+							PropModeReplace,
+							(unsigned char*)struts,
+							12);
+			XSync(dpy, False);
+		}
+	}
+
+	return 0;
+}
 
 /**
  * Sets the window on top of all others and locks it "always on top"
