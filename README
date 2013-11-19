@@ -50,8 +50,8 @@ scripts_window_close = {
    "file2.lua"
 }
 
-This would make file1.lua and file2.lua interpreted on windows closing instead
-of on windows opening.
+This would make the files file1.lua and file2.lua interpreted when windows are 
+closing instead of when windows are opening.
 
 
 Scripting
