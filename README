@@ -4,8 +4,8 @@ Devilspie 2
 
 Devilspie 2 is based on the excellent program Devil's Pie by Ross Burton, and
 takes a folder as indata, and checks that folder for LUA scripts. These
-scripts are run each time a window is opened, and the rules in them are applied
-on the window.
+scripts are run each time a window is opened or closed, and the rules in them 
+are applied on the window.
 
 Unfortunately the rules of the original Devils Pie are not supported.
 
