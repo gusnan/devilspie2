@@ -197,10 +197,10 @@ int c_set_window_geometry2(lua_State *lua)
 		return 0;
 	}
 
-	int type1=lua_type(lua, 1);
-	int type2=lua_type(lua, 2);
-	int type3=lua_type(lua, 3);
-	int type4=lua_type(lua, 4);
+	int type1 = lua_type(lua, 1);
+	int type2 = lua_type(lua, 2);
+	int type3 = lua_type(lua, 3);
+	int type4 = lua_type(lua, 4);
 
 	if ((type1!=LUA_TNUMBER) ||
 	    (type2!=LUA_TNUMBER) ||
@@ -210,10 +210,10 @@ int c_set_window_geometry2(lua_State *lua)
 		return 0;
 	}
 
-	int x=lua_tonumber(lua, 1);
-	int y=lua_tonumber(lua, 2);
-	int xsize=lua_tonumber(lua, 3);
-	int ysize=lua_tonumber(lua, 4);
+	int x = lua_tonumber(lua, 1);
+	int y = lua_tonumber(lua, 2);
+	int xsize = lua_tonumber(lua, 3);
+	int ysize = lua_tonumber(lua, 4);
 
 	if (!devilspie2_emulate) {
 		WnckWindow *window = get_current_window();
@@ -242,16 +242,16 @@ int c_set_window_position(lua_State *lua)
 		return 0;
 	}
 
-	int type1=lua_type(lua, 1);
-	int type2=lua_type(lua, 2);
+	int type1 = lua_type(lua, 1);
+	int type2 = lua_type(lua, 2);
 
 	if ((type1!=LUA_TNUMBER) || (type2!=LUA_TNUMBER)) {
 		luaL_error(lua, "set_window_position: %s", two_indata_expected_error);
 		return 0;
 	}
 
-	int x=lua_tonumber(lua, 1);
-	int y=lua_tonumber(lua, 2);
+	int x = lua_tonumber(lua, 1);
+	int y = lua_tonumber(lua, 2);
 
 	if (!devilspie2_emulate) {
 
@@ -281,16 +281,16 @@ int c_set_window_position2(lua_State *lua)
 		return 0;
 	}
 
-	int type1=lua_type(lua,1);
-	int type2=lua_type(lua,2);
+	int type1 = lua_type(lua,1);
+	int type2 = lua_type(lua,2);
 
 	if ((type1!=LUA_TNUMBER) || (type2!=LUA_TNUMBER)) {
 		luaL_error(lua,"set_window_position2: %s", two_indata_expected_error);
 		return 0;
 	}
 
-	int x=lua_tonumber(lua,1);
-	int y=lua_tonumber(lua,2);
+	int x = lua_tonumber(lua,1);
+	int y = lua_tonumber(lua,2);
 
 	if (!devilspie2_emulate) {
 
@@ -319,8 +319,8 @@ int c_set_window_size(lua_State *lua)
 		return 0;
 	}
 
-	int type1=lua_type(lua,1);
-	int type2=lua_type(lua,2);
+	int type1 = lua_type(lua,1);
+	int type2 = lua_type(lua,2);
 
 	if ((type1!=LUA_TNUMBER) || (type2!=LUA_TNUMBER)) {
 		luaL_error(lua,"set_window_size: %s", two_indata_expected_error);
@@ -705,7 +705,7 @@ int c_set_window_workspace(lua_State *lua)
 		return 0;
 	}
 
-	int type=lua_type(lua, 1);
+	int type = lua_type(lua, 1);
 
 	if (type!=LUA_TNUMBER) {
 		luaL_error(lua, "set_window_workspace: %s",
@@ -713,7 +713,7 @@ int c_set_window_workspace(lua_State *lua)
 		return 0;
 	}
 
-	int number=lua_tonumber(lua, 1);
+	int number = lua_tonumber(lua, 1);
 
 	WnckWindow *window = get_current_window();
 
@@ -760,7 +760,7 @@ int c_change_workspace(lua_State *lua)
 		return 0;
 	}
 
-	int number=lua_tonumber(lua, 1);
+	int number = lua_tonumber(lua, 1);
 
 	WnckWindow *window = get_current_window();
 	if (window) {
@@ -1077,7 +1077,7 @@ int c_set_skip_tasklist(lua_State *lua)
 		return 0;
 	}
 
-	int value=lua_toboolean(lua, 1);
+	int value = lua_toboolean(lua, 1);
 
 	gboolean skip_tasklist = (gboolean)(value);
 
@@ -1104,7 +1104,7 @@ int c_set_skip_pager(lua_State *lua)
 		return 0;
 	}
 
-	int type=lua_type(lua, 1);
+	int type = lua_type(lua, 1);
 
 	if (type!=LUA_TBOOLEAN) {
 		luaL_error(lua, "set_skip_pager: %s", boolean_expected_as_indata_error);
@@ -1366,7 +1366,7 @@ int c_get_window_property(lua_State *lua)
 	}
 
 	//	gchar *property=
-	int type=lua_type(lua, 1);
+	int type = lua_type(lua, 1);
 
 	if (type!=LUA_TSTRING) {
 		luaL_error(lua,"get_window_property: %s",string_expected_as_indata_error);
@@ -1377,7 +1377,7 @@ int c_get_window_property(lua_State *lua)
 
 	WnckWindow *window = get_current_window();
 
-	gchar *result=NULL;
+	gchar *result = NULL;
 
 	if (window) {
 		result = my_wnck_get_string_property_latin1(wnck_window_get_xid(window),
@@ -1517,7 +1517,7 @@ int c_set_window_fullscreen(lua_State *lua)
 
 	WnckWindow *window = get_current_window();
 
-	int type=lua_type(lua, 1);
+	int type = lua_type(lua, 1);
 
 	if (type!=LUA_TBOOLEAN) {
 		luaL_error(lua, "set_window_fullscreen: %s",
