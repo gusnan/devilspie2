@@ -1800,6 +1800,29 @@ int c_close_window(lua_State *lua)
 }
 
 
+/**
+ *
+ */
+int c_get_window_fullscreen(lua_State *lua)
+{
+	int top = lua_gettop(lua);
+	if (top != 0) {
+		luaL_error(lua, "is_fullscreen: %s", no_indata_expected_error);
+		return 0;
+	}
+	
+	gboolean result = FALSE;
+	
+	WnckWindow *window = get_current_window();
+	if (window) {
+		result = wnck_window_is_fullscreen(window);
+	}
+	
+	lua_pushboolean(lua, result);
+	
+	return 1;
+}
+
 /*
  * Devilspie:
 
