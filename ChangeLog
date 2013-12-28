@@ -2,6 +2,11 @@
 ChangeLog:
 ----------
 
+0.32
+	* Add functions get_fullscreen (get_window_fullscreen)
+	* Small documentation fixes
+	* Add set_window_strut function
+
 0.31
 	* Add close_window function
 	* Remove unused C function my_wnck_get_cardinal
