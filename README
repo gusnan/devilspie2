@@ -438,6 +438,13 @@ focus_window()
 
 	Focuses the current window. (Function is available from version 0.30)
 
+
+set_window_strut(left, right, top, bottom)
+
+	Set the reserved area at the borders of the desktop for a docking area such
+	as a taskbar or a panel (available from version 0.32)
+
+
 Please note that strings comparisons are case sensitive, comparing
 "SomeProgram" with "someprogram" will not report equality.
 
