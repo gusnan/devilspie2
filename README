@@ -4,8 +4,8 @@ Devilspie 2
 
 Devilspie 2 is based on the excellent program Devil's Pie by Ross Burton, and
 takes a folder as indata, and checks that folder for LUA scripts. These
-scripts are run each time a window is opened, and the rules in them are applied
-on the window.
+scripts are run each time a window is opened or closed, and the rules in them 
+are applied on the window.
 
 Unfortunately the rules of the original Devils Pie are not supported.
 
@@ -50,8 +50,8 @@ scripts_window_close = {
    "file2.lua"
 }
 
-This would make file1.lua and file2.lua interpreted on windows closing instead
-of on windows opening.
+This would make the files file1.lua and file2.lua interpreted when windows are 
+closing instead of when windows are opening.
 
 
 Scripting
@@ -209,6 +209,12 @@ get_screen_geometry
 	Returns the screen geometry (two numbers) for the screen of the
 	current window (available from version 0.29)
 
+
+get_window_fullscreen
+get_fullscreen
+
+	Returns TRUE if the window is fullscreen, FALSE otherwise
+	(available from version 0.32)
 	
 
 and the rest of the commands are used to modify the properties of the windows:
@@ -431,6 +437,13 @@ focus()
 focus_window()
 
 	Focuses the current window. (Function is available from version 0.30)
+
+
+set_window_strut(left, right, top, bottom)
+
+	Set the reserved area at the borders of the desktop for a docking area such
+	as a taskbar or a panel (available from version 0.32)
+
 
 Please note that strings comparisons are case sensitive, comparing
 "SomeProgram" with "someprogram" will not report equality.

@@ -161,6 +161,9 @@ register_cfunctions(lua_State *lua)
 	lua_register(lua, "set_window_type", c_set_window_type);
 
 	lua_register(lua, "get_screen_geometry", c_get_screen_geometry);
+	
+	lua_register(lua, "get_window_fullscreen", c_get_window_fullscreen);
+	lua_register(lua, "get_fullscreen", c_get_window_fullscreen);
 
 #ifdef HAVE_GTK3
 	// wnck_window_get_class_instance_name is only availible on wnck 3 and later
