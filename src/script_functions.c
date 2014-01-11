@@ -368,7 +368,11 @@ int c_set_window_strut(lua_State *lua)
 	}
 
 	if (!devilspie2_emulate) {
+		#if __x86_64__
 		int64_t struts[12];
+		#else
+		int32_t struts[12];
+		#endif
 		int i;
 		for (i = 0; i < 12; i++) {
 			struts[i] = i < top ? lua_tonumber(lua, i + 1) : 0;
