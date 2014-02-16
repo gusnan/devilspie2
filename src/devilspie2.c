@@ -125,7 +125,7 @@ void init_screens()
 	int i;
 	int num_screens = 1;
 	
-#if GLIB_VERSION_CUR_STABLE < G_ENCODE_VERSION(3, 10)
+#ifndef GDK_VERSION_3_10
 	num_screens = gdk_display_get_n_screens(gdk_display_get_default());
 #endif
 
