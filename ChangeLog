@@ -6,7 +6,8 @@ ChangeLog:
 	* Add functions get_fullscreen (get_window_fullscreen)
 	* Small documentation fixes
 	* Add set_window_strut function
-	* gdk_display_get_n_screens is deprecated on GLIB >= 3.10
+	* gdk_display_get_n_screens is deprecated on GLIB >= 3.10, there we default
+	  to only one screen.
 
 0.31
 	* Add close_window function
