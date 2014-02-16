@@ -123,8 +123,11 @@ static void window_closed_cb(WnckScreen *screen, WnckWindow *window)
 void init_screens()
 {
 	int i;
-	const int num_screens =
-		gdk_display_get_n_screens(gdk_display_get_default());
+	int num_screens = 1;
+	
+#if GLIB_VERSION_CUR_STABLE < G_ENCODE_VERSION(3, 10)
+	num_screens = gdk_display_get_n_screens(gdk_display_get_default());
+#endif
 
 	for (i=0; i<num_screens; i++) {
 		WnckScreen *screen = wnck_screen_get(i);
