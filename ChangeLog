@@ -8,6 +8,7 @@ ChangeLog:
 	* Add set_window_strut function
 	* gdk_display_get_n_screens is deprecated on GLIB >= 3.10, there we default
 	  to only one screen.
+	* Updated Russian translation
 
 0.31
 	* Add close_window function
