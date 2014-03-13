@@ -310,19 +310,19 @@ my_wnck_get_cardinal_list (Window xwindow, Atom atom,
 	gulong *nums;
 	int err, result;
 
-	*cardinals=NULL;
-	*len=0;
+	*cardinals = NULL;
+	*len = 0;
 
 	devilspie2_error_trap_push();
-	type=None;
-	result=XGetWindowProperty(gdk_x11_get_default_xdisplay (),
+	type = None;
+	result = XGetWindowProperty(gdk_x11_get_default_xdisplay (),
 	                             xwindow,
 	                             atom,
 	                             0, G_MAXLONG,
 	                             False, XA_CARDINAL, &type, &format, &nitems,
 	                             &bytes_after, (void*)&nums);
 
-	err=devilspie2_error_trap_pop();
+	err = devilspie2_error_trap_pop();
 
 	if ((err!=Success) || (result!=Success))
 		return FALSE;
@@ -332,9 +332,9 @@ my_wnck_get_cardinal_list (Window xwindow, Atom atom,
 		return FALSE;
 	}
 
-	*cardinals=g_new(gulong, nitems);
+	*cardinals = g_new(gulong, nitems);
 	memcpy(*cardinals, nums, sizeof (gulong) * nitems);
-	*len=nitems;
+	*len = nitems;
 
 	XFree(nums);
 
@@ -350,14 +350,14 @@ int devilspie2_get_viewport_start(Window xid)
 	gulong *list;
 	int len;
 
-	int result=-1;
+	int result = -1;
 
 	my_wnck_get_cardinal_list(RootWindowOfScreen(
 										devilspie2_window_get_xscreen(xid)),
 										my_wnck_atom_get("_NET_DESKTOP_VIEWPORT"),
 										&list, &len);
 
-	if (len>0) result=list[0];
+	if (len>0) result = list[0];
 
 	g_free(list);
 
@@ -417,7 +417,7 @@ void my_window_set_window_type(Window xid, gchar *window_type)
 		type = g_strdup(window_type);
 	}
 
-	atoms[0]=XInternAtom(display, type, False);
+	atoms[0] = XInternAtom(display, type, False);
 
 	XChangeProperty(gdk_x11_get_default_xdisplay(), xid,
 						XInternAtom(display, "_NET_WM_WINDOW_TYPE", False), XA_ATOM, 32,
