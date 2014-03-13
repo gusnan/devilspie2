@@ -4,7 +4,7 @@ Devilspie 2
 
 Devilspie 2 is based on the excellent program Devil's Pie by Ross Burton, and
 takes a folder as indata, and checks that folder for LUA scripts. These
-scripts are run each time a window is opened or closed, and the rules in them 
+scripts are run each time a window is opened or closed, and the rules in them
 are applied on the window.
 
 Unfortunately the rules of the original Devils Pie are not supported.
@@ -38,7 +38,7 @@ by the --folder option. By default this folder is ~/.config/devilspie2/.
 
 If there is a file named devilspie2.lua in this folder, it is read and it is
 searched for a variable (a lua table of strings) named scripts_window_close -
-The filenames in the strings in this table will be called when windows are 
+The filenames in the strings in this table will be called when windows are
 closed. If these variables isn't present in this file, it will be called as a
 devilspie2 script file like any other.
 
@@ -50,7 +50,7 @@ scripts_window_close = {
    "file2.lua"
 }
 
-This would make the files file1.lua and file2.lua interpreted when windows are 
+This would make the files file1.lua and file2.lua interpreted when windows are
 closing instead of when windows are opening.
 
 
@@ -58,8 +58,8 @@ Scripting
 ---------
 
 You can choose to have all script functionality in one file, or you can split
-it up into several, Devilspie2 runs on all LUA files in your requested 
-devilspie2 folder, by default ~/.config/devilspie2 - that is all files with a 
+it up into several, Devilspie2 runs on all LUA files in your requested
+devilspie2 folder, by default ~/.config/devilspie2 - that is all files with a
 .lua extension.
 
 The scripting language used is LUA (see www.lua.org) - See FAQ at
@@ -170,7 +170,7 @@ get_window_type()
 get_class_instance_name()
 
    Gets the class instance name from the WM_CLASS Property for the current
-   window. Only available on libwnck 3+, and in devilspie2 version 0.21 or 
+   window. Only available on libwnck 3+, and in devilspie2 version 0.21 or
    later.
 
 
@@ -215,7 +215,7 @@ get_fullscreen
 
 	Returns TRUE if the window is fullscreen, FALSE otherwise
 	(available from version 0.32)
-	
+
 
 and the rest of the commands are used to modify the properties of the windows:
 
@@ -314,7 +314,7 @@ decorate_window()
 undecorate_window()
 
    Removes all window decorations.
-	
+
 
 close_window()
 
@@ -323,7 +323,7 @@ close_window()
 
 set_window_workspace(number)
 
-   Moves a window to another workspace. The number variable starts counting at 
+   Moves a window to another workspace. The number variable starts counting at
    1.
 
 
@@ -400,7 +400,7 @@ center()
 set_opacity(value)
 set_window_opacity(value)
 
-	Sets the window opacity, takes a float value, 1.0 = completely opaque, 
+	Sets the window opacity, takes a float value, 1.0 = completely opaque,
 	0.0, completely see-through. Both set_opacity and set_window_opacity
 	will do the same thing.
 	(Available from version 0.28, set_window_opacity from 0.29)
@@ -420,7 +420,7 @@ set_window_type(type)
 	"_NET_WM_WINDOW_TYPE_DIALOG"
 	"_NET_WM_WINDOW_TYPE_NORMAL"
 
-	or shorter versions of the same values 
+	or shorter versions of the same values
 
 	"WINDOW_TYPE_DESKTOP"
 	"WINDOW_TYPE_DOCK"
@@ -432,7 +432,7 @@ set_window_type(type)
 	"WINDOW_TYPE_NORMAL"
 
 	(Function is available from version 0.28)
-	
+
 focus()
 focus_window()
 
@@ -461,7 +461,7 @@ debug_print("Window Name: " .. get_window_name());
 debug_print("Application name: " .. get_application_name())
 
 -- I want my Xfce4-terminal to the right on the second screen of my two-monitor
--- setup. (String comparison are case sensitive, please note this when 
+-- setup. (String comparison are case sensitive, please note this when
 -- creating rule scripts.)
 if (get_window_name()=="Terminal") then
    -- x,y, xsize, ysize

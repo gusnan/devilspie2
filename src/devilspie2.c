@@ -124,7 +124,7 @@ void init_screens()
 {
 	int i;
 	int num_screens = 1;
-	
+
 #ifndef GDK_VERSION_3_10
 	num_screens = gdk_display_get_n_screens(gdk_display_get_default());
 #endif
