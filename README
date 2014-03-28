@@ -138,10 +138,9 @@ get_window_is_maximized_vertically()
    (available from version 0.21)
 
 
-get_window_is_maximized_horisontally()
 get_window_is_maximized_horizontally()
 
-   Returns true if the window is horisontally maximized, false otherwise.
+   Returns true if the window is horizontally maximized, false otherwise.
    (available from version 0.21)
 
 
@@ -289,10 +288,9 @@ maximize_vertically()
    maximizes the current window vertically.
 
 
-maximize_horisontally()
 maximize_horizontally()
 
-   maximizes the current window horisontally.
+   maximizes the current window horizontally.
 
 
 minimize()
