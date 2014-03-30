@@ -1214,10 +1214,20 @@ int c_set_window_above(lua_State *lua)
 {
 	int top = lua_gettop(lua);
 
-	if (top!=0) {
-		luaL_error(lua,"set_window_above: %s", no_indata_expected_error);
+	if (top!=1) {
+		luaL_error(lua, "set_window_above: %s", one_indata_expected_error);
 		return 0;
 	}
+
+	int type = lua_type(lua, 1);
+
+	if (type!=LUA_TBOOLEAN) {
+		luaL_error(lua, "set_window_above: %s", boolean_expected_as_indata_error);
+		return 0;
+	}
+
+	int value = lua_toboolean(lua, 1);
+	gboolean set_above=(gboolean)(value);
 
 	WnckWindow *window = get_current_window();
 
@@ -1226,7 +1236,7 @@ int c_set_window_above(lua_State *lua)
 		Window xid = wnck_window_get_xid(window);
 		devilspie2_change_state(devilspie2_window_get_xscreen(xid),
 		                     xid,
-		                     TRUE,
+		                     set_above,
 		                     my_wnck_atom_get("_NET_WM_STATE_ABOVE"),
 		                     0);
 	}
@@ -1242,10 +1252,20 @@ int c_set_window_below(lua_State *lua)
 {
 	int top = lua_gettop(lua);
 
-	if (top!=0) {
-		luaL_error(lua,"set_window_above: %s", no_indata_expected_error);
+	if (top!=1) {
+		luaL_error(lua, "set_window_below: %s", one_indata_expected_error);
 		return 0;
 	}
+
+	int type = lua_type(lua, 1);
+
+	if (type!=LUA_TBOOLEAN) {
+		luaL_error(lua, "set_window_below: %s", boolean_expected_as_indata_error);
+		return 0;
+	}
+
+	int value = lua_toboolean(lua, 1);
+	gboolean set_below=(gboolean)(value);
 
 	WnckWindow *window = get_current_window();
 
@@ -1254,7 +1274,7 @@ int c_set_window_below(lua_State *lua)
 		Window xid = wnck_window_get_xid(window);
 		devilspie2_change_state(devilspie2_window_get_xscreen(xid),
 		                     xid,
-		                     TRUE,
+		                     set_below,
 		                     my_wnck_atom_get("_NET_WM_STATE_BELOW"),
 		                     0);
 	}
