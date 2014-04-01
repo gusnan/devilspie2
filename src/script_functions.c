@@ -1213,26 +1213,29 @@ int c_get_window_is_maximized_horisontally(lua_State *lua)
 int c_set_window_above(lua_State *lua)
 {
 	int top = lua_gettop(lua);
+	gboolean set_above;
 
-	if (top!=1) {
+	if (top>1) {
 		luaL_error(lua, "set_window_above: %s", one_indata_expected_error);
 		return 0;
 	}
+	else if (top==1) {
+		int type = lua_type(lua, 1);
 
-	int type = lua_type(lua, 1);
+		if (type!=LUA_TBOOLEAN) {
+			luaL_error(lua, "set_window_above: %s", boolean_expected_as_indata_error);
+			return 0;
+		}
 
-	if (type!=LUA_TBOOLEAN) {
-		luaL_error(lua, "set_window_above: %s", boolean_expected_as_indata_error);
-		return 0;
+		int value = lua_toboolean(lua, 1);
+		set_above=(gboolean)(value);
+	}
+	else {
+		set_above=TRUE;
 	}
 
-	int value = lua_toboolean(lua, 1);
-	gboolean set_above=(gboolean)(value);
-
 	WnckWindow *window = get_current_window();
-
 	if (!devilspie2_emulate) {
-
 		Window xid = wnck_window_get_xid(window);
 		devilspie2_change_state(devilspie2_window_get_xscreen(xid),
 		                     xid,
@@ -1251,24 +1254,28 @@ int c_set_window_above(lua_State *lua)
 int c_set_window_below(lua_State *lua)
 {
 	int top = lua_gettop(lua);
+	gboolean set_below;
 
-	if (top!=1) {
+	if (top>1) {
 		luaL_error(lua, "set_window_below: %s", one_indata_expected_error);
 		return 0;
 	}
+	else if (top==1) {
+		int type = lua_type(lua, 1);
 
-	int type = lua_type(lua, 1);
+		if (type!=LUA_TBOOLEAN) {
+			luaL_error(lua, "set_window_below: %s", boolean_expected_as_indata_error);
+			return 0;
+		}
 
-	if (type!=LUA_TBOOLEAN) {
-		luaL_error(lua, "set_window_below: %s", boolean_expected_as_indata_error);
-		return 0;
+		int value = lua_toboolean(lua, 1);
+		set_below=(gboolean)(value);
+	}
+	else {
+		set_below=TRUE;
 	}
 
-	int value = lua_toboolean(lua, 1);
-	gboolean set_below=(gboolean)(value);
-
 	WnckWindow *window = get_current_window();
-
 	if (!devilspie2_emulate) {
 
 		Window xid = wnck_window_get_xid(window);
