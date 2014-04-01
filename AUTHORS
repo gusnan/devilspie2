@@ -39,3 +39,6 @@ Ronan Barzic <rbarzic (at) gmail (dot) com>
 
 Hiroshi Hasebe <hhasebe (at) dvoi (dot) com>
 - Japanese translation
+
+rbtwrrr <rbtwrrr (at) inventati (dot) org>
+- add boolean argument to set_window_{above, below}
