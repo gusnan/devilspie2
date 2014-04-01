@@ -1841,16 +1841,16 @@ int c_get_window_fullscreen(lua_State *lua)
 		luaL_error(lua, "is_fullscreen: %s", no_indata_expected_error);
 		return 0;
 	}
-	
+
 	gboolean result = FALSE;
-	
+
 	WnckWindow *window = get_current_window();
 	if (window) {
 		result = wnck_window_is_fullscreen(window);
 	}
-	
+
 	lua_pushboolean(lua, result);
-	
+
 	return 1;
 }
 
