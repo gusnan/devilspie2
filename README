@@ -365,18 +365,18 @@ set_skip_pager(skip)
    Takes a boolean(true or false) as value. (from version 0.16)
 
 
-set_window_above(above)
+set_window_above([above])
 
    Set the current window above all normal windows. (available from version
    0.21)
-   Takes a boolean(true or false) as value.
+   Optionally takes a boolean(true or false) as value.
 
 
-set_window_below(below)
+set_window_below([below])
 
    Set the current window below all normal windows. (available from version
    0.21)
-   Takes a boolean(true or false) as value.
+   Optionally takes a boolean(true or false) as value.
 
 
 set_window_fullscreen(fullscreen)
