@@ -2,6 +2,11 @@
 ChangeLog:
 ----------
 
+0.33
+	* Add boolean argument to set_window_{above,below} (Thanks to rbtwrrr)
+	* Fix spelling of horizontally in all places
+	* Various source formatting fixes
+
 0.32
 	* Add functions get_fullscreen (get_window_fullscreen)
 	* Small documentation fixes
