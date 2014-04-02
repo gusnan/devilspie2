@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.28pre\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2013-02-07 14:18+0100\n"
+"POT-Creation-Date: 2014-04-02 21:21+0200\n"
 "PO-Revision-Date: 2013-02-22 09:02+0200\n"
 "Last-Translator: Johan Lantto  <johan.lantto@consultant.com>\n"
 "Language-Team: Finnish\n"
@@ -17,109 +17,99 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: config.c:188
-#, c-format
 msgid "script_folder isn't a folder."
 msgstr "script_folder ei ole kansio."
 
-#: config.c:200
-#: script.c:216
+#: config.c:200 script.c:232
 #, c-format
 msgid "Error: %s"
 msgstr "Virhe: %s"
 
-#: devilspie2.c:161
-#, c-format
+#: devilspie2.c:164
 msgid "Received signal:"
 msgstr "Vastaanotettu signaali:"
 
-#: devilspie2.c:205
-#, c-format
+#: devilspie2.c:208
 msgid "No script files found in the script folder - exiting."
 msgstr "Käsikirjoituksia ei löytynyt käsikirjoituskansiossa - lopetetaan."
 
-#: devilspie2.c:212 devilspie2.c:219
+#: devilspie2.c:215 devilspie2.c:223
 #, c-format
 msgid "List of LUA files handling \"%s\" events in folder:"
 msgstr "\"%s\"-tapahtumien käsitteleviä LUA-tiedostoja kansiossa:"
 
-#: devilspie2.c:284
+#: devilspie2.c:289
 msgid "Print debug info to stdout"
 msgstr "Kirjoita debug-info stdout:iin"
 
-#: devilspie2.c:286
+#: devilspie2.c:291
 msgid "Don't apply any rules, only emulate execution"
 msgstr "Älä noudata yhtään sääntöja, emuloi vaan"
 
-#: devilspie2.c:288
+#: devilspie2.c:293
 msgid "Search for scripts in this folder"
 msgstr "Etsi käsikirjoituksia tästä kansiosta"
 
-#: devilspie2.c:288
+#: devilspie2.c:293
 msgid "FOLDER"
 msgstr "KANSIO"
 
-#: devilspie2.c:290
+#: devilspie2.c:295
 msgid "Show Devilspie2 version and quit"
 msgstr "Näytä Devilspie2:n versio ja lopeta"
 
-#: devilspie2.c:295
+#: devilspie2.c:300
 msgid "Show libwnck version and quit"
 msgstr "Näytä libwnckin versio ja lopeta"
 
-#: devilspie2.c:313
+#: devilspie2.c:318
 msgid "apply rules on windows"
 msgstr "käytä sääntöjä ikkunoissa"
 
-#: devilspie2.c:320
+#: devilspie2.c:325
 #, c-format
 msgid "option parsing failed: %s"
 msgstr "vaihtoehtojen tulkinta epäonnistui: %s"
 
-#: devilspie2.c:341
-#, c-format
+#: devilspie2.c:346
 msgid "Couldn't create the default folder for devilspie2 scripts."
 msgstr "Ei voitu luoda devilspie2:n käsikirjoituksien oletuskansio"
 
-#: devilspie2.c:368
-#, c-format
+#: devilspie2.c:373
 msgid "An X11 display is required for devilspie2."
 msgstr "Devilspie2 vaatii X11-näytin"
 
-#: devilspie2.c:376
-#, c-format
+#: devilspie2.c:381
 msgid "Couldn't init script error messages!"
 msgstr "Ei voitu alustaa käsikirjoituksien virheilmoituksia!"
 
-#: devilspie2.c:393
-#, c-format
+#: devilspie2.c:398
 msgid "Running devilspie2 in debug and emulate mode."
 msgstr "Ajaa Devilspie2 virheenhaku- ja emulointimoodissa"
 
-#: devilspie2.c:395
-#, c-format
+#: devilspie2.c:400
 msgid "Running devilspie2 in debug mode."
 msgstr "Ajaa Devilspie2 virheenhakumoodissa"
 
-#: devilspie2.c:400
+#: devilspie2.c:405
 #, c-format
 msgid "Using scripts from folder: %s"
 msgstr "Käyttää käsikirjoituksia kansiosta: %s"
 
-#: devilspie2.c:416
-#, c-format
+#: devilspie2.c:421
 msgid "Couldn't create directory monitor!"
 msgstr "Ei voitu luoda kansiomonitori!"
 
-#: script_functions.c:686 script_functions.c:732
+#: script_functions.c:732 script_functions.c:778
 #, c-format
 msgid "Workspace number %d does not exist!"
 msgstr "Työpöytä numero %d ei ole olemassa!"
 
-#: script_functions.c:1596
+#: script_functions.c:1673
 msgid "Could not get workspace"
 msgstr "Työpöytä ei saatu haettu"
 
-#: xutils.c:180 xutils.c:198 error_strings.c:127
+#: xutils.c:183 xutils.c:201 error_strings.c:127
 msgid "Failed!"
 msgstr "Epäonnistui!"
 

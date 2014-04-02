@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.16\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2013-02-07 14:18+0100\n"
+"POT-Creation-Date: 2014-04-02 21:21+0200\n"
 "PO-Revision-Date: 2013-05-10 12:50+0100\n"
 "Last-Translator: Frans de Jonge <fransdejonge@gmail.com>\n"
 "Language-Team: Dutch\n"
@@ -18,113 +18,103 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: config.c:188
-#, c-format
 msgid "script_folder isn't a folder."
 msgstr "script_folder is geen map."
 
-#: config.c:200
-#: script.c:216
+#: config.c:200 script.c:232
 #, c-format
 msgid "Error: %s"
 msgstr "Fout: %s"
 
-#: devilspie2.c:161
-#, c-format
+#: devilspie2.c:164
 msgid "Received signal:"
 msgstr "Ontvangen signaal:"
 
-#: devilspie2.c:205
-#, c-format
+#: devilspie2.c:208
 msgid "No script files found in the script folder - exiting."
-msgstr "Er werden geen scriptbestanden in de scriptmap gevonden — programma wordt afgesloten."
+msgstr ""
+"Er werden geen scriptbestanden in de scriptmap gevonden — programma wordt "
+"afgesloten."
 
-#: devilspie2.c:212
-#: devilspie2.c:219
+#: devilspie2.c:215 devilspie2.c:223
 #, c-format
 msgid "List of LUA files handling \"%s\" events in folder:"
-msgstr "Lijst van LUA-bestanden die worden uitgevoerd bij een  \"%s\"-gebeurtenis in deze map:"
+msgstr ""
+"Lijst van LUA-bestanden die worden uitgevoerd bij een  \"%s\"-gebeurtenis in "
+"deze map:"
 
-#: devilspie2.c:284
+#: devilspie2.c:289
 msgid "Print debug info to stdout"
 msgstr "Print debuginformatie naar stdout"
 
-#: devilspie2.c:286
+#: devilspie2.c:291
 msgid "Don't apply any rules, only emulate execution"
 msgstr "Pas geen regels permanent toe; enkel emulatie van uitvoering"
 
-#: devilspie2.c:288
+#: devilspie2.c:293
 msgid "Search for scripts in this folder"
 msgstr "Zoek naar scripts in deze map"
 
-#: devilspie2.c:288
+#: devilspie2.c:293
 msgid "FOLDER"
 msgstr "MAP"
 
-#: devilspie2.c:290
+#: devilspie2.c:295
 msgid "Show Devilspie2 version and quit"
 msgstr "Toon Devilspie2 versie en sluit af"
 
-#: devilspie2.c:295
+#: devilspie2.c:300
 msgid "Show libwnck version and quit"
 msgstr "Toon libwnck versie en sluit af"
 
-#: devilspie2.c:313
+#: devilspie2.c:318
 msgid "apply rules on windows"
 msgstr "Pas regels toe op vensters"
 
-#: devilspie2.c:320
+#: devilspie2.c:325
 #, c-format
 msgid "option parsing failed: %s"
 msgstr "de volgende optie wordt niet begrepen: %s"
 
-#: devilspie2.c:341
-#, c-format
+#: devilspie2.c:346
 msgid "Couldn't create the default folder for devilspie2 scripts."
 msgstr "Kon geen standaardmap aanmaken voor devilspie2 scripts."
 
-#: devilspie2.c:368
-#, c-format
+#: devilspie2.c:373
 msgid "An X11 display is required for devilspie2."
 msgstr "Een X11-scherm is noodzakelijk voor devilspie2."
 
-#: devilspie2.c:376
-#, c-format
+#: devilspie2.c:381
 msgid "Couldn't init script error messages!"
 msgstr "Scriptfoutmeldingen konden niet geïnitialiseerd worden!"
 
-#: devilspie2.c:393
-#, c-format
+#: devilspie2.c:398
 msgid "Running devilspie2 in debug and emulate mode."
 msgstr "Devilspie2 draait in debug- en emuleringsmodus."
 
-#: devilspie2.c:395
-#, c-format
+#: devilspie2.c:400
 msgid "Running devilspie2 in debug mode."
 msgstr "Devilspie2 draait in debugmodus."
 
-#: devilspie2.c:400
+#: devilspie2.c:405
 #, c-format
 msgid "Using scripts from folder: %s"
 msgstr "Scripts uit deze map worden worden gebruikt: %s"
 
-#: devilspie2.c:416
-#, c-format
+#: devilspie2.c:421
 msgid "Couldn't create directory monitor!"
 msgstr "De map kon niet worden gemonitord!"
 
-#: script_functions.c:686
-#: script_functions.c:732
+#: script_functions.c:732 script_functions.c:778
 #, c-format
 msgid "Workspace number %d does not exist!"
 msgstr "Werkruimte nummer %d bestaat niet!"
 
-#: script_functions.c:1596
+#: script_functions.c:1673
 msgid "Could not get workspace"
 msgstr "Kon werkruimte niet verkrijgen."
 
-#: xutils.c:180
-#: xutils.c:198
-#: error_strings.c:127
+#: xutils.c:183 xutils.c:201 error_strings.c:127
 msgid "Failed!"
 msgstr "Mislukt!"
 
@@ -171,4 +161,3 @@ msgstr "Huidige viewport niet gevonden"
 #: error_strings.c:120
 msgid "Setting viewport failed"
 msgstr "Viewport instellen mislukt"
-

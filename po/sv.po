@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.26\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2013-02-07 14:16+0100\n"
+"POT-Creation-Date: 2014-04-02 21:21+0200\n"
 "PO-Revision-Date: 2013-02-07 14:17+0100\n"
 "Last-Translator: Andreas Rönnquist <gusnan@gusnan.se>\n"
 "Language-Team: Swedish\n"
@@ -18,113 +18,99 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: config.c:188
-#, c-format
 msgid "script_folder isn't a folder."
 msgstr "script_folder är inte en folder."
 
-#: config.c:200
-#: script.c:216
+#: config.c:200 script.c:232
 #, c-format
 msgid "Error: %s"
 msgstr "Fel: %s"
 
-#: devilspie2.c:161
-#, c-format
+#: devilspie2.c:164
 msgid "Received signal:"
 msgstr "Tog emot signal:"
 
-#: devilspie2.c:205
-#, c-format
+#: devilspie2.c:208
 msgid "No script files found in the script folder - exiting."
 msgstr "Inga skript hittades i skript-mappen - avslutar."
 
-#: devilspie2.c:212
-#: devilspie2.c:219
+#: devilspie2.c:215 devilspie2.c:223
 #, c-format
 msgid "List of LUA files handling \"%s\" events in folder:"
 msgstr "Lista på LUA-filer som hanterar \"%s\"-händelser i mappen:"
 
-#: devilspie2.c:284
+#: devilspie2.c:289
 msgid "Print debug info to stdout"
 msgstr "Skriv ut debug-information till stdout"
 
-#: devilspie2.c:286
+#: devilspie2.c:291
 msgid "Don't apply any rules, only emulate execution"
 msgstr "Applicera inga regler, emulera endast körning"
 
-#: devilspie2.c:288
+#: devilspie2.c:293
 msgid "Search for scripts in this folder"
 msgstr "Sök efter skript i denna mapp"
 
-#: devilspie2.c:288
+#: devilspie2.c:293
 msgid "FOLDER"
 msgstr "MAPP"
 
-#: devilspie2.c:290
+#: devilspie2.c:295
 msgid "Show Devilspie2 version and quit"
 msgstr "Visa version av Devilspie2 och avsluta"
 
-#: devilspie2.c:295
+#: devilspie2.c:300
 msgid "Show libwnck version and quit"
 msgstr "Visa version av libwnck och avsluta"
 
-#: devilspie2.c:313
+#: devilspie2.c:318
 msgid "apply rules on windows"
 msgstr "applicera regler på fönster"
 
-#: devilspie2.c:320
+#: devilspie2.c:325
 #, c-format
 msgid "option parsing failed: %s"
 msgstr "tolkning av alternativ misslyckades; %s"
 
-#: devilspie2.c:341
-#, c-format
+#: devilspie2.c:346
 msgid "Couldn't create the default folder for devilspie2 scripts."
 msgstr "Kunde inte skapa standard-mappen för devilspie2-skript."
 
-#: devilspie2.c:368
-#, c-format
+#: devilspie2.c:373
 msgid "An X11 display is required for devilspie2."
 msgstr "En X11-display krävs för att köra devilspie2"
 
-#: devilspie2.c:376
-#, c-format
+#: devilspie2.c:381
 msgid "Couldn't init script error messages!"
 msgstr "Kunde inte initiera skript-felmeddelanden!"
 
-#: devilspie2.c:393
-#, c-format
+#: devilspie2.c:398
 msgid "Running devilspie2 in debug and emulate mode."
 msgstr "Kör Devilspie2 i debug och emulerings-mode"
 
-#: devilspie2.c:395
-#, c-format
+#: devilspie2.c:400
 msgid "Running devilspie2 in debug mode."
 msgstr "Kör Devilspie2 i debug-mode"
 
-#: devilspie2.c:400
+#: devilspie2.c:405
 #, c-format
 msgid "Using scripts from folder: %s"
 msgstr "Använder skript från mappen: %s"
 
-#: devilspie2.c:416
-#, c-format
+#: devilspie2.c:421
 msgid "Couldn't create directory monitor!"
 msgstr "Kunde inte skapa folder-monitor!"
 
-#: script_functions.c:686
-#: script_functions.c:732
+#: script_functions.c:732 script_functions.c:778
 #, c-format
 msgid "Workspace number %d does not exist!"
 msgstr "Arbetsyta nummer %d finns inte!"
 
-#: script_functions.c:1596
+#: script_functions.c:1673
 msgid "Could not get workspace"
 msgstr "Kunde inte hämta arbetsytan"
 
-#: xutils.c:180
-#: xutils.c:198
-#: error_strings.c:127
+#: xutils.c:183 xutils.c:201 error_strings.c:127
 msgid "Failed!"
 msgstr "Misslyckades!"
 

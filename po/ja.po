@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: devilspie2 0.28pre\n"
 "Report-Msgid-Bugs-To: gusnan@gusnan.se\n"
-"POT-Creation-Date: 2013-02-07 14:18+0100\n"
+"POT-Creation-Date: 2014-04-02 21:21+0200\n"
 "PO-Revision-Date: 2013-08-28 12:34+0900\n"
 "Last-Translator: Hiroshi Hasebe <hhasebe@dvoi.com>\n"
 "Language-Team: Japanese\n"
@@ -20,108 +20,99 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.6\n"
 
 #: config.c:188
-#, c-format
 msgid "script_folder isn't a folder."
 msgstr "script_folderがフォルダに非ず"
 
-#: config.c:200 script.c:216
+#: config.c:200 script.c:232
 #, c-format
 msgid "Error: %s"
 msgstr "エラー: %s"
 
-#: devilspie2.c:161
-#, c-format
+#: devilspie2.c:164
 msgid "Received signal:"
 msgstr "シグナルを検出:"
 
-#: devilspie2.c:205
-#, c-format
+#: devilspie2.c:208
 msgid "No script files found in the script folder - exiting."
 msgstr "script_folderにスクリプトが存在せず - 終了."
 
-#: devilspie2.c:212 devilspie2.c:219
+#: devilspie2.c:215 devilspie2.c:223
 #, c-format
 msgid "List of LUA files handling \"%s\" events in folder:"
 msgstr "イベント \"%s\" を担当するLUAファイルの一覧:"
 
-#: devilspie2.c:284
+#: devilspie2.c:289
 msgid "Print debug info to stdout"
 msgstr "標準出力にデバッグ情報を書き出す"
 
-#: devilspie2.c:286
+#: devilspie2.c:291
 msgid "Don't apply any rules, only emulate execution"
 msgstr "ルールを適用せず, エミュレーションを行う"
 
-#: devilspie2.c:288
+#: devilspie2.c:293
 msgid "Search for scripts in this folder"
 msgstr "スクリプト収容先フォルダ"
 
-#: devilspie2.c:288
+#: devilspie2.c:293
 msgid "FOLDER"
 msgstr "FOLDER"
 
-#: devilspie2.c:290
+#: devilspie2.c:295
 msgid "Show Devilspie2 version and quit"
 msgstr "Devilspie2のバージョン情報を表示して終了"
 
-#: devilspie2.c:295
+#: devilspie2.c:300
 msgid "Show libwnck version and quit"
 msgstr "libwnckのバージョンを表示して終了"
 
-#: devilspie2.c:313
+#: devilspie2.c:318
 msgid "apply rules on windows"
 msgstr "ウィンドウにルールを適用"
 
-#: devilspie2.c:320
+#: devilspie2.c:325
 #, c-format
 msgid "option parsing failed: %s"
 msgstr "引数の解釈に失敗: %s"
 
-#: devilspie2.c:341
-#, c-format
+#: devilspie2.c:346
 msgid "Couldn't create the default folder for devilspie2 scripts."
 msgstr "デフォルトのスクリプト・フォルダの作成に失敗"
 
-#: devilspie2.c:368
-#, c-format
+#: devilspie2.c:373
 msgid "An X11 display is required for devilspie2."
 msgstr "Devilspie2の実行にはX11環境を要する"
 
-#: devilspie2.c:376
-#, c-format
+#: devilspie2.c:381
 msgid "Couldn't init script error messages!"
 msgstr "スクリプト・エラー・メッセージの初期化に失敗"
 
-#: devilspie2.c:393
-#, c-format
+#: devilspie2.c:398
 msgid "Running devilspie2 in debug and emulate mode."
 msgstr "devilspie2をデバック + エミュレーション・モードで実行中"
 
-#: devilspie2.c:395
-#, c-format
+#: devilspie2.c:400
 msgid "Running devilspie2 in debug mode."
 msgstr "devilspie2をデバッグ・モードで実行中"
 
-#: devilspie2.c:400
+#: devilspie2.c:405
 #, c-format
 msgid "Using scripts from folder: %s"
 msgstr "スクリプト・フォルダ \"%s\" を使用中"
 
-#: devilspie2.c:416
-#, c-format
+#: devilspie2.c:421
 msgid "Couldn't create directory monitor!"
 msgstr "ディレクトリ・モニタの作成に失敗!"
 
-#: script_functions.c:686 script_functions.c:732
+#: script_functions.c:732 script_functions.c:778
 #, c-format
 msgid "Workspace number %d does not exist!"
 msgstr "%d番のワークスペースが存在せず"
 
-#: script_functions.c:1596
+#: script_functions.c:1673
 msgid "Could not get workspace"
 msgstr "ワークスペースの取得に失敗"
 
-#: xutils.c:180 xutils.c:198 error_strings.c:127
+#: xutils.c:183 xutils.c:201 error_strings.c:127
 msgid "Failed!"
 msgstr "処理に失敗!"
 
