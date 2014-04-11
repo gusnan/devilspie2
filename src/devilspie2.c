@@ -123,10 +123,12 @@ static void window_closed_cb(WnckScreen *screen, WnckWindow *window)
 void init_screens()
 {
 	int i;
-	int num_screens = 1;
+	int num_screens;
 
 #ifndef GDK_VERSION_3_10
 	num_screens = gdk_display_get_n_screens(gdk_display_get_default());
+#else
+	num_screens = 1;
 #endif
 
 	for (i=0; i<num_screens; i++) {
