@@ -2,6 +2,9 @@
 ChangeLog:
 ----------
 
+0.34
+	* Fix cppcheck reassignment warning
+
 0.33
 	* Add boolean argument to set_window_{above,below} (Thanks to rbtwrrr)
 	* Fix spelling of horizontally in all places
