@@ -5,6 +5,7 @@ ChangeLog:
 0.34
 	* Add GPL headers in more places where needed
 	* Fix cppcheck reassignment warning
+	* Install man-page with Makefile too
 
 0.33
 	* Add boolean argument to set_window_{above,below} (Thanks to rbtwrrr)
