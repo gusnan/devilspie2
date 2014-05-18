@@ -45,6 +45,7 @@ PROG=$(BIN)/$(NAME)
 VERSION = $(shell cat ./VERSION)
 DATADIR = ${DESTDIR}${PREFIX}/share
 LOCALEDIR = ${DATADIR}/locale
+MANPAGE = ${NAME}.1
 
 ifdef GTK2
 	PKG_GTK=gtk+-2.0
@@ -96,6 +97,8 @@ clean:
 install:
 	install -d $(DESTDIR)$(PREFIX)/bin
 	install -m 755 $(PROG) $(DESTDIR)$(PREFIX)/bin
+	install -d $(DESTDIR)$(PREFIX)/share/man/man1
+	install -m 644 $(MANPAGE) $(DESTDIR)$(PREFIX)/share/man/man1
 	${MAKE} -C po install
 
 .PHONY: uninstall
