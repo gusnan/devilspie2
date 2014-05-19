@@ -2,6 +2,9 @@
 ChangeLog:
 ----------
 
+0.35
+	* Fix man page commenting
+
 0.34
 	* Add GPL headers in more places where needed
 	* Fix cppcheck reassignment warning
