@@ -2,6 +2,9 @@
 ChangeLog:
 ----------
 
+0.36
+	* _Really_ fix the man page commenting style
+
 0.35
 	* Fix man page commenting
 
