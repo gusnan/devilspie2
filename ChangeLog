@@ -4,6 +4,7 @@ ChangeLog:
 
 0.36
 	* _Really_ fix the man page commenting style
+	* Remove version and date from man-page
 
 0.35
 	* Fix man page commenting
