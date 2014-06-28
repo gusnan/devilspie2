@@ -2,6 +2,9 @@
 ChangeLog:
 ----------
 
+0.37
+	* Replace google group with savannah mailinglist 
+
 0.36
 	* _Really_ fix the man page commenting style
 	* Remove version and date from man-page
